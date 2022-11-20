@@ -16,6 +16,10 @@ export const theme = extendTheme({
     heading: font,
     body: font,
   },
+  config: {
+    initialColorMode: 'dark',
+    useSystemColorMode: false,
+  },
 });
 
 export { Fonts };

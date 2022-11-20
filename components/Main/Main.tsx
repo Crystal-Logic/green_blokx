@@ -1,11 +1,13 @@
-import { Switch, Center, Flex, Grid, GridItem, Image, Select, Text } from '@chakra-ui/react';
+import { Switch, Center, Flex, Grid, GridItem, Image, Select, Text, useColorMode } from '@chakra-ui/react';
 import Link from 'next/link';
 import React from 'react';
 
 export const Main = () => {
+  const { toggleColorMode } = useColorMode();
+
   return (
     <Grid minH="100vh" templateRows="repeat(3, 1fr)" templateColumns="repeat(15, 1fr)" gap={0}>
-      <GridItem colSpan={1} rowSpan={3} bg="white" w={100}>
+      <GridItem colSpan={1} rowSpan={3} w={100}>
         <Grid h="100%" w={100} templateRows="repeat(3, 1fr)" templateColumns="repeat(1, 1fr)" gap={0}>
           <GridItem colSpan={1} rowSpan={1}>
             <Center pt={'30px'} pr={'5px'} pl={'5px'}>
@@ -16,7 +18,7 @@ export const Main = () => {
             <Text
               sx={{
                 transform: 'rotate(271deg)',
-                'line-height': '25px',
+                lineHeight: '25px',
                 whiteSpace: 'nowrap',
               }}
               fontWeight="400"
@@ -57,13 +59,13 @@ export const Main = () => {
 
           <GridItem colSpan={1} rowSpan={1} pt={'50px'} justifyContent={'center'}></GridItem>
           <GridItem colSpan={1} rowSpan={1} display="flex" pt={'50px'} justifyContent={'center'}>
-            <Switch size="lg" mr={30} />
-            <Select size="xs" w={'60px'}>
+            <Switch onChange={toggleColorMode} size="lg" mr={30} />
+            {/* <Select size="xs" w={'60px'}>
               <option value="EN" selected>
                 EN
               </option>
               <option value="RO">RO</option>
-            </Select>
+            </Select> */}
           </GridItem>
 
           <GridItem colSpan={3} rowSpan={1}>
@@ -90,7 +92,7 @@ export const Main = () => {
               fontWeight="900"
             >
               BY&nbsp;
-              <Text color="brand.green" fontWeight="900">
+              <Text as={'span'} color="brand.green" fontWeight="900">
                 GREENBLOKX
               </Text>
             </Text>
