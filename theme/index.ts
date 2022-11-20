@@ -6,8 +6,8 @@ const font = '"Orbitron", sans-serif';
 const brand = {
   black: '#000',
   white: '#fff',
-  brandDark: '#2B2B2B',
-  brandGreen: '#3AAE05',
+  dark: '#2B2B2B',
+  green: '#3AAE05',
 };
 
 export const theme = extendTheme({
