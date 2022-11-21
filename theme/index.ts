@@ -9,6 +9,7 @@ const brand = {
   white: '#fff',
   dark: '#2B2B2B',
   green: '#3AAE05',
+  red: '#D25757',
 };
 
 export const theme = extendTheme({

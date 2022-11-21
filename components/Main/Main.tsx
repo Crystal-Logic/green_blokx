@@ -11,7 +11,7 @@ export const Main = () => {
         <Grid h="100%" w={100} templateRows="repeat(3, 1fr)" templateColumns="repeat(1, 1fr)" gap={0}>
           <GridItem colSpan={1} rowSpan={1}>
             <Center pt={'30px'} pr={'5px'} pl={'5px'}>
-              <Image src="/images/logo.png" width={80} height={92.41} alt="logo" />
+              <Image src="/images/logo.png" width={'80px'} height={'92px'} alt="logo" />
             </Center>
           </GridItem>
           <GridItem colSpan={1} rowSpan={1} alignItems="center" justifyContent="center" display="flex" w="inherit">
@@ -24,7 +24,7 @@ export const Main = () => {
               fontWeight="400"
               fontSize="20px"
               _hover={{
-                color: 'red.700',
+                color: 'brand.red',
               }}
             >
               Contact us
