@@ -1,4 +1,5 @@
 import { extendTheme } from '@chakra-ui/react';
+import { mode } from '@chakra-ui/theme-tools';
 
 import { Fonts } from './fonts';
 
@@ -15,6 +16,20 @@ export const theme = extendTheme({
   fonts: {
     heading: font,
     body: font,
+  },
+  components: {
+    Switch: {
+      baseStyle: (props: any) => ({
+        thumb: {
+          bg: mode('brand.green', 'white')(props),
+        },
+        track: {
+          bg: mode('white', 'brand.dark')(props),
+          border: '1px solid',
+          borderColor: 'brand.green',
+        },
+      }),
+    },
   },
   config: {
     initialColorMode: 'dark',

@@ -1,9 +1,9 @@
-import { Switch, Center, Flex, Grid, GridItem, Image, Select, Text, useColorMode } from '@chakra-ui/react';
+import { Switch, Center, Flex, Grid, GridItem, Image, Select, Text, useColorMode, VStack } from '@chakra-ui/react';
 import Link from 'next/link';
 import React from 'react';
 
 export const Main = () => {
-  const { toggleColorMode } = useColorMode();
+  const { toggleColorMode, colorMode } = useColorMode();
 
   return (
     <Grid minH="100vh" templateRows="repeat(3, 1fr)" templateColumns="repeat(15, 1fr)" gap={0}>
@@ -59,7 +59,12 @@ export const Main = () => {
 
           <GridItem colSpan={1} rowSpan={1} pt={'50px'} justifyContent={'center'}></GridItem>
           <GridItem colSpan={1} rowSpan={1} display="flex" pt={'50px'} justifyContent={'center'}>
-            <Switch onChange={toggleColorMode} size="lg" mr={30} />
+            <VStack mr={30}>
+              <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
+              <Text fontSize="14px" lineHeight="25px" fontWeight="700" color={'white'}>
+                {colorMode === 'dark' ? 'Light' : 'Dark'} mode
+              </Text>
+            </VStack>
             {/* <Select size="xs" w={'60px'}>
               <option value="EN" selected>
                 EN
