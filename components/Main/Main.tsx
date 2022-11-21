@@ -36,7 +36,7 @@ export const Main = () => {
                 as={'button'}
                 width={35}
                 height={35}
-                backgroundImage={'/images/green_button.png'}
+                backgroundImage={'/images/green_button1.png'}
                 backgroundSize="cover"
                 _hover={{
                   backgroundImage: '/images/red_button.png',
