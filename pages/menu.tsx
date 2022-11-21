@@ -1,11 +1,12 @@
-import { Center, Text, Grid, GridItem, Image, VStack, Box } from '@chakra-ui/react';
+import { Center, Text, Grid, GridItem, Image, VStack, useColorModeValue } from '@chakra-ui/react';
 import Link from 'next/link';
 
 const Menu = () => {
+  const bg = useColorModeValue('white', 'brand.dark');
+
   return (
     <Grid h="100vh" templateRows="repeat(3, 1fr)" templateColumns="repeat(15, 1fr)" gap={0}>
       <GridItem colSpan={1} rowSpan={3} w={100}>
-        {/* <Box> */}
         <Grid h="100%" w={100} templateRows="repeat(3, 1fr)" templateColumns="repeat(1, 1fr)" gap={0}>
           <GridItem colSpan={1} rowSpan={1}>
             <Center pt={'30px'} pr={'5px'} pl={'5px'}>
@@ -43,7 +44,6 @@ const Menu = () => {
             </Link>
           </GridItem>
         </Grid>
-        {/* </Box> */}
       </GridItem>
 
       <GridItem
@@ -54,25 +54,23 @@ const Menu = () => {
         backgroundSize="cover"
       >
         <Grid h="full" templateRows="repeat(4, 1fr)" templateColumns="repeat(5, 1fr)" gap={0}>
-          {/* <Box> */}
-          <GridItem colSpan={2} rowSpan={1} display="flex" ml={'10px'}>
-            <Text pt={'50px'} pl={'10px'} fontSize="30px" color="black" fontWeight="500">
+          <GridItem colSpan={2} rowSpan={1} display="flex" ml={'10px'} bg={bg}>
+            <Text pt={'50px'} pl={'10px'} fontSize="30px" fontWeight="500">
               GreenBLOKX
             </Text>
           </GridItem>
 
           <GridItem colSpan={3} rowSpan={4} />
 
-          <GridItem colSpan={2} rowSpan={2} ml={'10px'}>
+          <GridItem colSpan={2} rowSpan={2} ml={'10px'} bg={bg}>
             <VStack alignItems="baseline" ml={'70px'} align="center" spacing="25">
               <Link href={'/'}>
                 <Text
                   fontSize="32px"
                   fontWeight="500"
                   lineHeight={'40px'}
-                  color="black"
                   display="flex"
-                  _hover={{ color: 'rgba(58, 174, 5, 1)' }}
+                  _hover={{ color: 'brand.green' }}
                 >
                   Home
                 </Text>
@@ -83,24 +81,22 @@ const Menu = () => {
                   lineHeight={'40px'}
                   fontSize="32px"
                   fontWeight="500"
-                  color="black"
                   display="flex"
-                  _hover={{ color: 'rgba(58, 174, 5, 1)' }}
+                  _hover={{ color: 'brand.green' }}
                 >
                   About Us
                 </Text>
               </Link>
 
-              <Link href={'/'}>
+              <Link href={'/#tech'}>
                 <Text
                   fontSize="32px"
                   lineHeight={'40px'}
                   fontWeight="500"
-                  color="black"
                   display="flex"
-                  _hover={{ color: 'rgba(58, 174, 5, 1)' }}
+                  _hover={{ color: 'brand.green' }}
                 >
-                  Projects
+                  Technology
                 </Text>
               </Link>
 
@@ -109,11 +105,10 @@ const Menu = () => {
                   fontSize="32px"
                   lineHeight={'40px'}
                   fontWeight="500"
-                  color="black"
                   display="flex"
-                  _hover={{ color: 'rgba(58, 174, 5, 1)' }}
+                  _hover={{ color: 'brand.green' }}
                 >
-                  Investors
+                  Why blockchain?
                 </Text>
               </Link>
 
@@ -122,11 +117,10 @@ const Menu = () => {
                   fontSize="32px"
                   lineHeight={'40px'}
                   fontWeight="500"
-                  color="black"
                   display="flex"
-                  _hover={{ color: 'rgba(58, 174, 5, 1)' }}
+                  _hover={{ color: 'brand.green' }}
                 >
-                  Our team
+                  Our Team
                 </Text>
               </Link>
 
@@ -135,17 +129,15 @@ const Menu = () => {
                   fontSize="32px"
                   lineHeight={'40px'}
                   fontWeight="500"
-                  color="black"
                   display="flex"
-                  _hover={{ color: 'rgba(58, 174, 5, 1)' }}
+                  _hover={{ color: 'brand.green' }}
                 >
-                  Road map
+                  Partners
                 </Text>
               </Link>
             </VStack>
           </GridItem>
-          <GridItem colSpan={2} rowSpan={1} ml={'10px'}></GridItem>
-          {/* </Box> */}
+          <GridItem colSpan={2} rowSpan={1} ml={'10px'} bg={bg}></GridItem>
         </Grid>
       </GridItem>
     </Grid>

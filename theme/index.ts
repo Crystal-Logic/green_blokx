@@ -17,6 +17,13 @@ export const theme = extendTheme({
     heading: font,
     body: font,
   },
+  styles: {
+    global: (props: any) => ({
+      'html, body': {
+        bg: mode('white', 'brand.dark')(props),
+      },
+    }),
+  },
   components: {
     Switch: {
       baseStyle: (props: any) => ({

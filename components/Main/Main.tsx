@@ -48,7 +48,7 @@ export const Main = () => {
       </GridItem>
 
       <GridItem
-        bg={`linear-gradient(0deg, rgba(43, 43, 43, 0.8), rgba(43, 43, 43, 0.8)), url(/images/background.png)`}
+        bg={`linear-gradient(0deg, rgba(43, 43, 43, 0.75), rgba(43, 43, 43, 0.75)), url(/images/background.png)`}
         colSpan={14}
         rowSpan={3}
         backgroundRepeat="no-repeat"
