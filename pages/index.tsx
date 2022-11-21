@@ -2,12 +2,14 @@ import { Box } from '@chakra-ui/react';
 
 import { Main } from '../components/Main';
 import { Construction } from '../components/Construction';
+import { WhyBlock2 } from '../components/WhyBlock2';
 
 const IndexPage = () => {
   return (
     <Box>
       <Main />
       <Construction />
+      <WhyBlock2 />
     </Box>
   );
 };
