@@ -1,7 +1,7 @@
-import { Box, Flex, Heading, Text, Image } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, Image, Center } from '@chakra-ui/react';
 
 export const WhyBlock2 = () => (
-  <Box minH={'100vh'} id="tech">
+  <Box minH={'100vh'} id="why_blockchain">
     <Flex h={600}>
       <Box flex="1">
         <Box w={'full'} borderBottom={'3px solid'} borderColor={'brand.green'}>
@@ -12,7 +12,7 @@ export const WhyBlock2 = () => (
             of Sustainable Construction
           </Heading>
         </Box>
-        <Text textAlign={'justify'} fontSize="18px" lineHeight="23px" fontWeight="500" pl={205} pt={'56px'} pr={43}>
+        <Text fontSize="18px" lineHeight="23px" fontWeight="500" pl={205} pt={'56px'} pr={43}>
           You care about the environment and so do we so we make products that reflect that ethos. The recyclability of
           all materials, components, and systems has gained an increased international emphasis with the introduction of
           carbon credits and net zero building standards in recent years.
@@ -23,7 +23,28 @@ export const WhyBlock2 = () => (
           of the most eco friendly and resilient building products the planet has ever seen.
         </Text>
       </Box>
-      <Box bg="brand.green" w={690}></Box>
+      <Box bg="brand.green" w={690}>
+        <Center h="174px" color="white">
+          <Image src="/images/logo_white.png" alt="logo white" />
+        </Center>
+        <Box w={'full'} borderBottom={'3px solid'} borderColor={'brand.dark'}>
+          <Text fontSize="18px" lineHeight="23px" fontWeight="500" px={82} pb={'32px'} color="white">
+            GreenBlokx Sandwich Panels are{' '}
+            <Text as={'span'} fontWeight="900">
+              100% recyclable.
+            </Text>
+            <br />
+            <br />
+            We are able to re use the sheet metal separate the foam compound and bring it back to its liquid state to
+            create a new and environmentally friendly zero waste product. Sandwich panels allow builders and architects
+            to design more energy-efficient buildings by combining various construction methodologies into a single step
+            making buildings not only more energy efficient, but faster, more affordable, and easier to assemble.
+            <br />
+            <br />
+            Sustainability and performance should not be a tradeoff as it relates to renewable construction.
+          </Text>
+        </Box>
+      </Box>
     </Flex>
     <Image src="/images/why_block2.png" width={'full'} alt="why blockchain" />
   </Box>

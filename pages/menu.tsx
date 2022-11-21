@@ -100,7 +100,7 @@ const Menu = () => {
                 </Text>
               </Link>
 
-              <Link href={'/'}>
+              <Link href={'/#why_blockchain'}>
                 <Text
                   fontSize="32px"
                   lineHeight={'40px'}
