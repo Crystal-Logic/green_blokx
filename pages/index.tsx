@@ -4,6 +4,7 @@ import { Main } from '../components/Main';
 import { Construction } from '../components/Construction';
 import { Advantages } from '../components/Advantages';
 import { Technology } from '../components/Technology';
+import { WhyBlock } from '../components/WhyBlock';
 import { WhyBlock2 } from '../components/WhyBlock2';
 
 const IndexPage = () => {
@@ -13,6 +14,7 @@ const IndexPage = () => {
       <Construction />
       <Advantages />
       <Technology />
+      <WhyBlock />
       <WhyBlock2 />
     </Box>
   );
