@@ -88,7 +88,7 @@ const Menu = () => {
                 </Text>
               </Link>
 
-              <Link href={'/#tech'}>
+              <Link href={'/#technology'}>
                 <Text
                   fontSize="32px"
                   lineHeight={'40px'}
