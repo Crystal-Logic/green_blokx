@@ -13,7 +13,15 @@ export const Advantages = () => (
 
         <Flex>
           <Box w={84} h={84}>
-            <Text fontSize="64px" lineHeight="78px" fontWeight="500" color="brand.green">
+            <Text
+              fontSize="64px"
+              lineHeight="78px"
+              fontWeight="500"
+              color="brand.green"
+              _hover={{
+                color: 'brand.red',
+              }}
+            >
               1
             </Text>
           </Box>
@@ -23,7 +31,15 @@ export const Advantages = () => (
         </Flex>
         <Flex>
           <Box w={84} h={84}>
-            <Text fontSize="64px" lineHeight="78px" fontWeight="500" color="brand.green">
+            <Text
+              fontSize="64px"
+              lineHeight="78px"
+              fontWeight="500"
+              color="brand.green"
+              _hover={{
+                color: 'brand.red',
+              }}
+            >
               2
             </Text>
           </Box>
@@ -33,7 +49,15 @@ export const Advantages = () => (
         </Flex>
         <Flex>
           <Box w={84} h={84}>
-            <Text fontSize="64px" lineHeight="78px" fontWeight="500" color="brand.green">
+            <Text
+              fontSize="64px"
+              lineHeight="78px"
+              fontWeight="500"
+              color="brand.green"
+              _hover={{
+                color: 'brand.red',
+              }}
+            >
               3
             </Text>
           </Box>
@@ -43,7 +67,15 @@ export const Advantages = () => (
         </Flex>
         <Flex>
           <Box w={84} h={84}>
-            <Text fontSize="64px" lineHeight="78px" fontWeight="500" color="brand.green">
+            <Text
+              fontSize="64px"
+              lineHeight="78px"
+              fontWeight="500"
+              color="brand.green"
+              _hover={{
+                color: 'brand.red',
+              }}
+            >
               4
             </Text>
           </Box>
@@ -53,7 +85,15 @@ export const Advantages = () => (
         </Flex>
         <Flex>
           <Box w={84} h={86}>
-            <Text fontSize="64px" lineHeight="78px" fontWeight="500" color="brand.green">
+            <Text
+              fontSize="64px"
+              lineHeight="78px"
+              fontWeight="500"
+              color="brand.green"
+              _hover={{
+                color: 'brand.red',
+              }}
+            >
               5
             </Text>
           </Box>
