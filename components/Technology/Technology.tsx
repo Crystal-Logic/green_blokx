@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Center, Flex, Image, SimpleGrid, useColorModeValue } from '@chakra-ui/react';
+import { Box, Heading, Text, Center, Flex, Image, SimpleGrid, Button, useColorModeValue } from '@chakra-ui/react';
 
 export const Technology = () => {
   const activeColor = useColorModeValue('brand.dark', 'white');
@@ -97,6 +97,31 @@ export const Technology = () => {
             </Text>
           </Box>
         </SimpleGrid>
+      </Flex>
+
+      <Flex py={'60px'}>
+        <Button
+          variant="outline"
+          color="brand.green"
+          colorScheme={'brand.green'}
+          borderRadius="none"
+          borderWidth="2px 2px 2px 0px"
+          h={'135px'}
+          minW={'815px'}
+          fontSize="32px"
+          lineHeight="40px"
+          fontWeight="500"
+          position={'relative'}
+          _hover={{
+            color: 'brand.red',
+            colorScheme: 'brand.red',
+            bg: 'transparent',
+          }}
+        >
+          <Text as={'span'} position={'absolute'} right={'85px'}>
+            Find out more
+          </Text>
+        </Button>
       </Flex>
     </Box>
   );
