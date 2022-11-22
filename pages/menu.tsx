@@ -112,7 +112,7 @@ const Menu = () => {
                 </Text>
               </Link>
 
-              <Link href={'/'}>
+              <Link href={'/#team'}>
                 <Text
                   fontSize="32px"
                   lineHeight={'40px'}
