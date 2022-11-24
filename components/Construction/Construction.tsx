@@ -1,7 +1,7 @@
 import { Box, Heading, Text, Image } from '@chakra-ui/react';
 
 export const Construction = () => (
-  <Box minH={'100vh'}>
+  <Box id="about_us" minH={'100vh'}>
     <Box w={'full'} pl={205} pt={88} pb={41}>
       <Heading as="h2" fontSize="32px" lineHeight="40px" fontWeight="800">
         Intelligent Construction Design for a{' '}

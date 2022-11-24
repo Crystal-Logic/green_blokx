@@ -1,7 +1,7 @@
 import { Box, Flex, Heading, Text, Image, Center } from '@chakra-ui/react';
 
 export const WhyBlock2 = () => (
-  <Box minH={'100vh'} id="why_blockchain">
+  <Box minH={'100vh'}>
     <Flex h={600}>
       <Box flex="1">
         <Box w={'full'} borderBottom={'3px solid'} borderColor={'brand.green'}>
