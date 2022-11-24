@@ -2,7 +2,7 @@ import { Box, Heading, Flex } from '@chakra-ui/react';
 
 export const Partners = () => {
   return (
-    <Box id="technology" minH={'100vh'}>
+    <Box id="partners" minH={'100vh'}>
       <Flex h={'96px'}>
         <Box flex={'1'} bg="brand.green"></Box>
         <Flex w={'400px'} justifyContent="center" alignItems={'center'}>
