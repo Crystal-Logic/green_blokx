@@ -2,7 +2,7 @@ import { Box, Heading, Text, Flex, Image, Button } from '@chakra-ui/react';
 
 export const Team = () => {
   return (
-    <Box id="team" minH={'100vh'} pt={'53px'} mb={'93px'} position={'relative'}>
+    <Box id="team" minH={'100vh'} pt={'53px'} mb={'153px'} position={'relative'}>
       <Flex h={'100px'} w={'full'} pl={'205px'} position={'absolute'}>
         <Flex flex={'1'} alignItems={'center'}>
           <Box h={'0px'} w={'full'} borderBottom={'3px solid'} borderColor={'brand.green'}></Box>
