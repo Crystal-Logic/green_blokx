@@ -1,7 +1,7 @@
 import { Flex, Text, Image, useColorModeValue } from '@chakra-ui/react';
 
 export const Footer = () => {
-  const bg = useColorModeValue('brand.green', 'white');
+  const bg = useColorModeValue('brand.green', 'brand.dark');
 
   return (
     <Flex
