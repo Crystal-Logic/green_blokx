@@ -39,6 +39,12 @@ export const Fonts = () => (
         font-display: swap;
         src: url('/fonts/Orbitron-Black.ttf') format('truetype');
       }
+     @font-face {
+        font-family: 'Montserrat';
+        font-weight: 500;
+        font-display: swap;
+        src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+      }
       `}
   />
 );

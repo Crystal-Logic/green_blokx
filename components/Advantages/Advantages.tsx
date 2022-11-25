@@ -14,6 +14,7 @@ export const Advantages = () => (
         <Flex>
           <Box w={84} h={84}>
             <Text
+              sx={{'-webkit-text-stroke-width': '2px', '-webkit-text-fill-color': 'transparent'}}
               fontSize="64px"
               lineHeight="78px"
               fontWeight="500"
@@ -32,6 +33,7 @@ export const Advantages = () => (
         <Flex>
           <Box w={84} h={84}>
             <Text
+              sx={{'-webkit-text-stroke-width': '2px', '-webkit-text-fill-color': 'transparent'}}
               fontSize="64px"
               lineHeight="78px"
               fontWeight="500"
@@ -50,6 +52,7 @@ export const Advantages = () => (
         <Flex>
           <Box w={84} h={84}>
             <Text
+              sx={{'-webkit-text-stroke-width': '2px', '-webkit-text-fill-color': 'transparent'}}
               fontSize="64px"
               lineHeight="78px"
               fontWeight="500"
@@ -68,6 +71,7 @@ export const Advantages = () => (
         <Flex>
           <Box w={84} h={84}>
             <Text
+              sx={{'-webkit-text-stroke-width': '2px', '-webkit-text-fill-color': 'transparent'}}
               fontSize="64px"
               lineHeight="78px"
               fontWeight="500"
@@ -86,6 +90,7 @@ export const Advantages = () => (
         <Flex>
           <Box w={84} h={86}>
             <Text
+              sx={{'-webkit-text-stroke-width': '2px', '-webkit-text-fill-color': 'transparent'}}
               fontSize="64px"
               lineHeight="78px"
               fontWeight="500"
