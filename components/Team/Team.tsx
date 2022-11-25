@@ -1,4 +1,5 @@
 import { Box, Heading, Text, Flex, Image, Button } from '@chakra-ui/react';
+import { ContactUsModal } from 'components/FormModal';
 
 export const Team = () => {
   return (
@@ -31,28 +32,7 @@ export const Team = () => {
           </Flex>
         </Flex>
         <Box position={'absolute'} top={'900px'}>
-          <Button
-            variant="outline"
-            color="brand.green"
-            colorScheme={'brand.green'}
-            borderRadius="none"
-            borderWidth="2px 2px 2px 0px"
-            h={'135px'}
-            minW={'815px'}
-            fontSize="32px"
-            lineHeight="40px"
-            fontWeight="500"
-            position={'relative'}
-            _hover={{
-              color: 'brand.red',
-              colorScheme: 'brand.red',
-              bg: 'transparent',
-            }}
-          >
-            <Text as={'span'} position={'absolute'} right={'85px'}>
-              Contact us
-            </Text>
-          </Button>
+            <ContactUsModal/>
         </Box>
       </Box>
     </Box>
