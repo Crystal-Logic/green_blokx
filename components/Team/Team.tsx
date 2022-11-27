@@ -1,4 +1,5 @@
 import { Box, Heading, Text, Flex, Image, Button } from '@chakra-ui/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const Team = () => {
   return (
@@ -17,24 +18,145 @@ export const Team = () => {
 
         {/* Slider frame */}
 
-        <Flex h={'630px'} w={'full'} pl={'205px'} position={'absolute'} top={'76px'}>
-          <Image src="/images/team/daniel_pal.png" h={'full'} w={'520px'} filter={'grayscale(1)'} />
-          <Box flex={'1'} pl={'42px'}>
-            <Text mt={'350px'} fontSize="32px" lineHeight="40px" fontWeight="700">
-              Daniel Pal
-            </Text>
-            <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
-              Chief Executive Officer
-            </Text>
-            <Text fontSize="18px" lineHeight="23px" fontWeight="400" pt={'35px'}>
-              Florin holds a Master's Degree in Chemistry from the West University of Timișoara with 10+ years of
-              experience in Flexible and Rigid PU Foam synthesis and processing...{' '}
-              <Text as={'span'} color={'brand.red'}>
-                read more
-              </Text>
-            </Text>
-          </Box>
-        </Flex>
+        <Box h={'630px'} w={'full'} pl={'205px'} position={'absolute'} top={'76px'}>
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={1}
+            onSlideChange={() => console.log('slide change')}
+            onSwiper={(swiper) => console.log(swiper)}
+          >
+            <SwiperSlide>
+              <Flex h={'630px'} w={'full'}>
+                <Image
+                  src="/images/team/daniel_pal.png"
+                  alt="Daniel Pal"
+                  h={'full'}
+                  w={'520px'}
+                  filter={'grayscale(1)'}
+                />
+                <Box flex={'1'} pl={'42px'}>
+                  <Text mt={'350px'} fontSize="32px" lineHeight="40px" fontWeight="700">
+                    Daniel Pal
+                  </Text>
+                  <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
+                    Chief Executive Officer
+                  </Text>
+                  <Text fontSize="18px" lineHeight="23px" fontWeight="400" pt={'35px'}>
+                    Florin holds a Master's Degree in Chemistry from the West University of Timișoara with 10+ years of
+                    experience in Flexible and Rigid PU Foam synthesis and processing...{' '}
+                    <Text as={'span'} color={'brand.red'}>
+                      read more
+                    </Text>
+                  </Text>
+                </Box>
+              </Flex>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Flex h={'630px'} w={'full'}>
+                <Image
+                  src="/images/team/matt_haynes.png"
+                  alt="Matt Haynes"
+                  h={'full'}
+                  w={'520px'}
+                  filter={'grayscale(1)'}
+                />
+                <Box flex={'1'} pl={'42px'}>
+                  <Text mt={'350px'} fontSize="32px" lineHeight="40px" fontWeight="700">
+                    Matt Haynes
+                  </Text>
+                  <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
+                    Chief Executive Officer
+                  </Text>
+                  <Text fontSize="18px" lineHeight="23px" fontWeight="400" pt={'35px'}>
+                    Florin holds a Master's Degree in Chemistry from the West University of Timișoara with 10+ years of
+                    experience in Flexible and Rigid PU Foam synthesis and processing...{' '}
+                    <Text as={'span'} color={'brand.red'}>
+                      read more
+                    </Text>
+                  </Text>
+                </Box>
+              </Flex>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Flex h={'630px'} w={'full'}>
+                <Image
+                  src="/images/team/john_sears.png"
+                  alt="John Sears"
+                  h={'full'}
+                  w={'520px'}
+                  filter={'grayscale(1)'}
+                />
+                <Box flex={'1'} pl={'42px'}>
+                  <Text mt={'350px'} fontSize="32px" lineHeight="40px" fontWeight="700">
+                    John Sears
+                  </Text>
+                  <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
+                    Chief Executive Officer
+                  </Text>
+                  <Text fontSize="18px" lineHeight="23px" fontWeight="400" pt={'35px'}>
+                    Florin holds a Master's Degree in Chemistry from the West University of Timișoara with 10+ years of
+                    experience in Flexible and Rigid PU Foam synthesis and processing...{' '}
+                    <Text as={'span'} color={'brand.red'}>
+                      read more
+                    </Text>
+                  </Text>
+                </Box>
+              </Flex>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Flex h={'630px'} w={'full'}>
+                <Image
+                  src="/images/team/florin_tudor.png"
+                  alt="Florin Tudor"
+                  h={'full'}
+                  w={'520px'}
+                  filter={'grayscale(1)'}
+                />
+                <Box flex={'1'} pl={'42px'}>
+                  <Text mt={'350px'} fontSize="32px" lineHeight="40px" fontWeight="700">
+                    Florin Tudor
+                  </Text>
+                  <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
+                    Chief Executive Officer
+                  </Text>
+                  <Text fontSize="18px" lineHeight="23px" fontWeight="400" pt={'35px'}>
+                    Florin holds a Master's Degree in Chemistry from the West University of Timișoara with 10+ years of
+                    experience in Flexible and Rigid PU Foam synthesis and processing...{' '}
+                    <Text as={'span'} color={'brand.red'}>
+                      read more
+                    </Text>
+                  </Text>
+                </Box>
+              </Flex>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Flex h={'630px'} w={'full'}>
+                <Image
+                  src="/images/team/vlad_arama.png"
+                  alt="Matt Haynes"
+                  h={'full'}
+                  w={'520px'}
+                  filter={'grayscale(1)'}
+                />
+                <Box flex={'1'} pl={'42px'}>
+                  <Text mt={'350px'} fontSize="32px" lineHeight="40px" fontWeight="700">
+                    Vlad Arama
+                  </Text>
+                  <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
+                    Chief Executive Officer
+                  </Text>
+                  <Text fontSize="18px" lineHeight="23px" fontWeight="400" pt={'35px'}>
+                    Florin holds a Master's Degree in Chemistry from the West University of Timișoara with 10+ years of
+                    experience in Flexible and Rigid PU Foam synthesis and processing...{' '}
+                    <Text as={'span'} color={'brand.red'}>
+                      read more
+                    </Text>
+                  </Text>
+                </Box>
+              </Flex>
+            </SwiperSlide>
+          </Swiper>
+        </Box>
 
         {/* Slider frame end  */}
 

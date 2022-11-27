@@ -4,6 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 import { Layout } from '../components/Layout';
 import { theme, Fonts } from '../theme';
+import 'swiper/css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
