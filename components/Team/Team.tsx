@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Flex, Image, Button } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Image, Button, Link } from '@chakra-ui/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const Team = () => {
@@ -33,10 +33,21 @@ export const Team = () => {
                   h={'full'}
                   w={'520px'}
                   filter={'grayscale(1)'}
+                  pointerEvents={'none'}
                 />
                 <Box flex={'1'} pl={'42px'}>
-                  <Text mt={'350px'} fontSize="32px" lineHeight="40px" fontWeight="700">
-                    Daniel Pal
+                  <Text
+                    mt={'350px'}
+                    fontSize="32px"
+                    lineHeight="40px"
+                    fontWeight="700"
+                    display={'flex'}
+                    alignItems={'center'}
+                  >
+                    Daniel Pal{' '}
+                    <Link href={'https://www.linkedin.com/'} isExternal>
+                      <Image src="/images/linkedin_logo.png" alt="linkedin logo" h={'30px'} w={'30px'} ml={'10px'} />
+                    </Link>
                   </Text>
                   <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
                     Chief Executive Officer
@@ -61,8 +72,18 @@ export const Team = () => {
                   filter={'grayscale(1)'}
                 />
                 <Box flex={'1'} pl={'42px'}>
-                  <Text mt={'350px'} fontSize="32px" lineHeight="40px" fontWeight="700">
-                    Matt Haynes
+                  <Text
+                    mt={'350px'}
+                    fontSize="32px"
+                    lineHeight="40px"
+                    fontWeight="700"
+                    display={'flex'}
+                    alignItems={'center'}
+                  >
+                    Matt Haynes{' '}
+                    <Link href={'https://www.linkedin.com/'} isExternal>
+                      <Image src="/images/linkedin_logo.png" alt="linkedin logo" h={'30px'} w={'30px'} ml={'10px'} />
+                    </Link>
                   </Text>
                   <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
                     Chief Executive Officer
@@ -87,8 +108,18 @@ export const Team = () => {
                   filter={'grayscale(1)'}
                 />
                 <Box flex={'1'} pl={'42px'}>
-                  <Text mt={'350px'} fontSize="32px" lineHeight="40px" fontWeight="700">
-                    John Sears
+                  <Text
+                    mt={'350px'}
+                    fontSize="32px"
+                    lineHeight="40px"
+                    fontWeight="700"
+                    display={'flex'}
+                    alignItems={'center'}
+                  >
+                    John Sears{' '}
+                    <Link href={'https://www.linkedin.com/'} isExternal>
+                      <Image src="/images/linkedin_logo.png" alt="linkedin logo" h={'30px'} w={'30px'} ml={'10px'} />
+                    </Link>
                   </Text>
                   <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
                     Chief Executive Officer
@@ -113,8 +144,18 @@ export const Team = () => {
                   filter={'grayscale(1)'}
                 />
                 <Box flex={'1'} pl={'42px'}>
-                  <Text mt={'350px'} fontSize="32px" lineHeight="40px" fontWeight="700">
-                    Florin Tudor
+                  <Text
+                    mt={'350px'}
+                    fontSize="32px"
+                    lineHeight="40px"
+                    fontWeight="700"
+                    display={'flex'}
+                    alignItems={'center'}
+                  >
+                    Florin Tudor{' '}
+                    <Link href={'https://www.linkedin.com/'} isExternal>
+                      <Image src="/images/linkedin_logo.png" alt="linkedin logo" h={'30px'} w={'30px'} ml={'10px'} />
+                    </Link>
                   </Text>
                   <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
                     Chief Executive Officer
@@ -133,14 +174,24 @@ export const Team = () => {
               <Flex h={'630px'} w={'full'}>
                 <Image
                   src="/images/team/vlad_arama.png"
-                  alt="Matt Haynes"
+                  alt="Vlad Arama"
                   h={'full'}
                   w={'520px'}
                   filter={'grayscale(1)'}
                 />
                 <Box flex={'1'} pl={'42px'}>
-                  <Text mt={'350px'} fontSize="32px" lineHeight="40px" fontWeight="700">
-                    Vlad Arama
+                  <Text
+                    mt={'350px'}
+                    fontSize="32px"
+                    lineHeight="40px"
+                    fontWeight="700"
+                    display={'flex'}
+                    alignItems={'center'}
+                  >
+                    Vlad Arama{' '}
+                    <Link href={'https://www.linkedin.com/'} isExternal>
+                      <Image src="/images/linkedin_logo.png" alt="linkedin logo" h={'30px'} w={'30px'} ml={'10px'} />
+                    </Link>
                   </Text>
                   <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
                     Chief Executive Officer
