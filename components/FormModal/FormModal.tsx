@@ -102,7 +102,8 @@ export const ContactUsModal = () => {
                 </Button>
               </ModalFooter>
             </Box>
-            <Box h={'full'} w={'50%'} bg={` url(/images/background.png)`}></Box>
+            <Box h={'full'} w={'50%'} bg={` url(/images/contact_us_modal.png)`}
+                 backgroundRepeat="no-repeat" backgroundSize="cover"></Box>
           </Flex>
         </ModalContent>
       </Modal>
