@@ -1,7 +1,9 @@
+import { ContactUsModal } from 'components/FormModal';
 import { useRef } from 'react';
 import { Box, Heading, Text, Flex, Image, Button, Link } from '@chakra-ui/react';
 import { Swiper as SwiperType, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 
 export const Team = () => {
   const swiperRef = useRef<SwiperType>();
@@ -309,29 +311,8 @@ export const Team = () => {
             <Box h={'full'} w={'full'} borderBottom={'3px solid'} borderColor={'brand.green'}></Box>
           </Flex>
         </Flex>
-        <Box position={'absolute'} top={'800px'}>
-          <Button
-            variant="outline"
-            color="brand.green"
-            colorScheme={'brand.green'}
-            borderRadius="none"
-            borderWidth="2px 2px 2px 0px"
-            h={'135px'}
-            minW={'815px'}
-            fontSize="32px"
-            lineHeight="40px"
-            fontWeight="500"
-            position={'relative'}
-            _hover={{
-              color: 'brand.red',
-              colorScheme: 'brand.red',
-              bg: 'transparent',
-            }}
-          >
-            <Text as={'span'} position={'absolute'} right={'85px'}>
-              Contact us
-            </Text>
-          </Button>
+        <Box position={'absolute'} top={'900px'}>
+            <ContactUsModal/>
         </Box>
       </Box>
     </Box>
