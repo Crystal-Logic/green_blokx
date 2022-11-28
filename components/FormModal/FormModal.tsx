@@ -54,13 +54,14 @@ export const ContactUsModal = () => {
         <ModalContent h={'full'}>
           <Flex h={'full'}>
             <Box h={'full'} w={'50%'}>
-              <ModalHeader color="brand.green" fontSize="52px" lineHeight="40px" fontWeight="500">
+              <ModalHeader color="brand.green" fontSize="52px" lineHeight="40px" fontWeight="500"
+                           alignItems='center' justifyContent='center' display='flex' mt={'50px'} mb={'50px'}>
                 Contact us
               </ModalHeader>
 
               <ModalBody pb={3}>
                 <FormControl>
-                  <Input ref={initialRef} placeholder="Email" />
+                  <Input  ref={initialRef} placeholder="Email" />
                 </FormControl>
 
                 <FormControl mt={4}>
@@ -89,7 +90,8 @@ export const ContactUsModal = () => {
                   fontSize="32px"
                   lineHeight="40px"
                   fontWeight="500"
-                  position={'relative'}
+                  position={'absolute'}
+                  bottom={'10vh'}
                   _hover={{
                     color: 'brand.red',
                     colorScheme: 'brand.red',
