@@ -11,7 +11,7 @@ export const Advantages = () => (
           Advantages
         </Heading>
 
-        <Flex>
+        <Flex mb={'18px'}>
           <Box w={84} h={84}>
             <Text
               sx={{ WebkitTextStrokeWidth: '2px', WebkitTextFillColor: 'transparent' }}
@@ -19,18 +19,19 @@ export const Advantages = () => (
               lineHeight="78px"
               fontWeight="500"
               color="brand.green"
+              fontFamily={'Montserrat'}
               _hover={{
                 color: 'brand.red',
               }}
             >
-              1
+              01
             </Text>
           </Box>
           <Text flex="1" fontSize="24px" lineHeight="30px" fontWeight="500" alignSelf={'center'} pl={'12px'}>
             Compliant offering through a registered <br /> broker-dealer
           </Text>
         </Flex>
-        <Flex>
+        <Flex mb={'18px'}>
           <Box w={84} h={84}>
             <Text
               sx={{ WebkitTextStrokeWidth: '2px', WebkitTextFillColor: 'transparent' }}
@@ -38,18 +39,19 @@ export const Advantages = () => (
               lineHeight="78px"
               fontWeight="500"
               color="brand.green"
+              fontFamily={'Montserrat'}
               _hover={{
                 color: 'brand.red',
               }}
             >
-              2
+              02
             </Text>
           </Box>
           <Text flex="1" fontSize="24px" lineHeight="30px" fontWeight="500" alignSelf={'center'} pl={'12px'}>
             No need to lock/ stake them they provide passive <br /> stable cash flow based on company performance
           </Text>
         </Flex>
-        <Flex>
+        <Flex mb={'18px'}>
           <Box w={84} h={84}>
             <Text
               sx={{ WebkitTextStrokeWidth: '2px', WebkitTextFillColor: 'transparent' }}
@@ -57,30 +59,32 @@ export const Advantages = () => (
               lineHeight="78px"
               fontWeight="500"
               color="brand.green"
+              fontFamily={'Montserrat'}
               _hover={{
                 color: 'brand.red',
               }}
             >
-              3
+              03
             </Text>
           </Box>
           <Text flex="1" fontSize="24px" lineHeight="30px" fontWeight="500" alignSelf={'center'} pl={'12px'}>
             Transparent automated payments are <br /> easy to record
           </Text>
         </Flex>
-        <Flex>
-          <Box w={84} h={84}>
+        <Flex mb={'18px'}>
+          <Box w={86} h={84}>
             <Text
               sx={{ WebkitTextStrokeWidth: '2px', WebkitTextFillColor: 'transparent' }}
               fontSize="64px"
               lineHeight="78px"
               fontWeight="500"
               color="brand.green"
+              fontFamily={'Montserrat'}
               _hover={{
                 color: 'brand.red',
               }}
             >
-              4
+              04
             </Text>
           </Box>
           <Text flex="1" fontSize="24px" lineHeight="30px" fontWeight="500" alignSelf={'center'} pl={'12px'}>
@@ -95,11 +99,12 @@ export const Advantages = () => (
               lineHeight="78px"
               fontWeight="500"
               color="brand.green"
+              fontFamily={'Montserrat'}
               _hover={{
                 color: 'brand.red',
               }}
             >
-              5
+              05
             </Text>
           </Box>
           <Text flex="1" fontSize="24px" lineHeight="30px" fontWeight="500" alignSelf={'center'} pl={'12px'}>
