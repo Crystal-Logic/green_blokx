@@ -68,11 +68,12 @@ export const ContactUsModal = () => {
         </Text>
       </Button>
       <Modal initialFocusRef={initialRef} finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose} size={'full'}>
-        <ModalOverlay />
-        <ModalContent h={'full'}>
+        <ModalOverlay/>
+        <ModalContent maxW="calc(85vw)" minH="calc(85vh)" mt={'20px'}>
           <Flex h={'full'}>
             <Box h={'full'} w={'50%'}>
-              <ModalHeader color="brand.green" fontSize="52px" lineHeight="40px" fontWeight="500">
+              <ModalHeader color="brand.green" fontSize="52px" lineHeight="40px" fontWeight="500"
+                           alignItems='center' justifyContent='center' display='flex' mt={'50px'} mb={'50px'}>
                 Contact us
               </ModalHeader>
               <ModalBody pb={3}>
@@ -114,7 +115,8 @@ export const ContactUsModal = () => {
                   fontSize="32px"
                   lineHeight="40px"
                   fontWeight="500"
-                  position={'relative'}
+                  position={'absolute'}
+                  bottom={'10vh'}
                   _hover={{
                     color: 'brand.red',
                     colorScheme: 'brand.red',
@@ -128,7 +130,9 @@ export const ContactUsModal = () => {
                 </Button>
               </ModalFooter>
             </Box>
-            <Box h={'full'} w={'50%'} bg={` url(/images/background.png)`}></Box>
+            <Box minH="calc(85vh)" w={'50%'} bg={` url(/images/contact_us_modal.png)`}
+                 backgroundRepeat="no-repeat" backgroundSize="cover">
+             </Box>
           </Flex>
         </ModalContent>
       </Modal>
