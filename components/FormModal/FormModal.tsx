@@ -50,8 +50,8 @@ export const ContactUsModal = () => {
         </Text>
       </Button>
       <Modal initialFocusRef={initialRef} finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose} size={'full'}>
-        <ModalOverlay />
-        <ModalContent h={'full'}>
+        <ModalOverlay/>
+        <ModalContent maxW="calc(85vw)" minH="calc(85vh)" mt={'20px'}>
           <Flex h={'full'}>
             <Box h={'full'} w={'50%'}>
               <ModalHeader color="brand.green" fontSize="52px" lineHeight="40px" fontWeight="500"
@@ -104,8 +104,9 @@ export const ContactUsModal = () => {
                 </Button>
               </ModalFooter>
             </Box>
-            <Box h={'full'} w={'50%'} bg={` url(/images/contact_us_modal.png)`}
-                 backgroundRepeat="no-repeat" backgroundSize="cover"></Box>
+            <Box minH="calc(85vh)" w={'50%'} bg={` url(/images/contact_us_modal.png)`}
+                 backgroundRepeat="no-repeat" backgroundSize="cover">
+             </Box>
           </Flex>
         </ModalContent>
       </Modal>
