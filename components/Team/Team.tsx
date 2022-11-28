@@ -219,7 +219,7 @@ export const Team = () => {
           </Swiper>
           <Flex
             h={'40px'}
-            w={'170px'}
+            w={'240px'}
             justifyContent={'space-between'}
             alignItems={'center'}
             position={'absolute'}
@@ -247,7 +247,27 @@ export const Team = () => {
                 sx={{ transform: 'rotate(-135deg)' }}
               ></Box>
             </Box>
-            <Box className="team-pagination"></Box>
+            <Box
+              className="team-pagination"
+              flex={'1'}
+              display="flex"
+              justifyContent="space-around"
+              alignItems="center"
+              mx={'20px'}
+              sx={{
+                '.swiper-pagination-bullet': {
+                  width: '15px',
+                  height: '15px',
+                  background: 'rgba(58, 174, 5, 0.1)',
+                  opacity: 'unset',
+                },
+                '.swiper-pagination-bullet-active': {
+                  width: '20px',
+                  height: '20px',
+                  background: 'rgba(210, 87, 87, 0.81)',
+                },
+              }}
+            ></Box>
             <Box
               as="button"
               onClick={() => swiperRef.current?.slideNext()}
