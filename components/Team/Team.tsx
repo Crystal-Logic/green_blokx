@@ -1,7 +1,11 @@
+import { useRef } from 'react';
 import { Box, Heading, Text, Flex, Image, Button, Link } from '@chakra-ui/react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper as SwiperType, Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 
 export const Team = () => {
+  const swiperRef = useRef<SwiperType>();
+
   return (
     <Box id="team" minH={'1110px'} pt={'53px'} mb={'93px'}>
       <Box h={'full'} w={'full'} position={'relative'}>
@@ -20,10 +24,15 @@ export const Team = () => {
 
         <Box h={'630px'} w={'full'} pl={'205px'} position={'absolute'} top={'76px'}>
           <Swiper
+            modules={[Navigation, Pagination]}
             spaceBetween={50}
             slidesPerView={1}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
+            pagination={{
+              el: '.team-pagination',
+            }}
+            onBeforeInit={(swiper) => {
+              swiperRef.current = swiper;
+            }}
           >
             <SwiperSlide>
               <Flex h={'630px'} w={'full'}>
@@ -106,6 +115,7 @@ export const Team = () => {
                   h={'full'}
                   w={'520px'}
                   filter={'grayscale(1)'}
+                  objectFit="cover"
                 />
                 <Box flex={'1'} pl={'42px'}>
                   <Text
@@ -207,6 +217,58 @@ export const Team = () => {
               </Flex>
             </SwiperSlide>
           </Swiper>
+          <Flex
+            h={'40px'}
+            w={'170px'}
+            justifyContent={'space-between'}
+            alignItems={'center'}
+            position={'absolute'}
+            top={'145px'}
+            left={'770px'}
+            zIndex={15}
+          >
+            <Box
+              as="button"
+              onClick={() => swiperRef.current?.slidePrev()}
+              h={'40px'}
+              w={'40px'}
+              border="1px solid transparent"
+              position={'relative'}
+              _hover={{ borderColor: 'brand.green' }}
+            >
+              <Box
+                position={'absolute'}
+                h={'15px'}
+                w={'15px'}
+                top={'12px'}
+                left={'14px'}
+                borderColor={'brand.green'}
+                borderWidth={'2px 2px 0 0'}
+                sx={{ transform: 'rotate(-135deg)' }}
+              ></Box>
+            </Box>
+            <Box className="team-pagination"></Box>
+            <Box
+              as="button"
+              onClick={() => swiperRef.current?.slideNext()}
+              h={'40px'}
+              w={'40px'}
+              border="1px solid transparent"
+              position={'relative'}
+              _hover={{ borderColor: 'brand.green' }}
+            >
+              <Box
+                position={'absolute'}
+                h={'15px'}
+                w={'15px'}
+                top={'12px'}
+                right={'14px'}
+                borderColor={'brand.green'}
+                borderWidth={'0 0 2px 2px'}
+                sx={{ transform: 'rotate(-135deg)' }}
+              ></Box>
+            </Box>
+          </Flex>
         </Box>
 
         {/* Slider frame end  */}
