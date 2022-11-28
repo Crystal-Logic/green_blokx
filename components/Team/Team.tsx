@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Box, Heading, Text, Flex, Image, Button, Link } from '@chakra-ui/react';
-import { Swiper as SwiperType, Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper as SwiperType, Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const Team = () => {
   const swiperRef = useRef<SwiperType>();

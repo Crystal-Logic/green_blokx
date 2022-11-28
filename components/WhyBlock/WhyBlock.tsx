@@ -1,4 +1,6 @@
 import { Box, Heading, Text, Flex, Image, SimpleGrid } from '@chakra-ui/react';
+import { Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const WhyBlock = () => {
   return (
@@ -28,9 +30,88 @@ export const WhyBlock = () => {
         </Text>
       </SimpleGrid>
 
-      <Flex h={'431px'} pt={'52px'} pl={'225px'} pr={'182px'}>
-        <Box flex={'1'}></Box>
-        <Image src="/images/video_placeholder.png" w={'942px'} h={'431px'} pl={'22px'} alt="construction video" />
+      <Flex h={'431px'} mt={'52px'} pl={'225px'} pr={'182px'}>
+        <Flex
+          className="wb-pagination"
+          h={'full'}
+          flex={'1'}
+          flexFlow={'column'}
+          justifyContent={'space-between'}
+          fontFamily={'Montserrat'}
+          textAlign={'end'}
+          sx={{
+            '.swiper-pagination-bullet': {
+              width: '100%',
+              height: '40px',
+              opacity: 'unset',
+              background: 'transparent',
+              fontWeight: '300',
+              fontSize: '32px',
+              lineHeight: '39px',
+            },
+            '.swiper-pagination-bullet-active': {
+              height: '80px',
+              color: 'brand.green',
+              fontWeight: '500',
+              fontSize: '60px',
+              lineHeight: '73px',
+            },
+          }}
+        ></Flex>
+        <Box w={'942px'} h={'full'}>
+          <Swiper
+            modules={[Pagination]}
+            spaceBetween={50}
+            slidesPerView={1}
+            pagination={{
+              el: '.wb-pagination',
+              clickable: true,
+              renderBullet: (index, className) => {
+                return '<div class="' + className + '">' + '0' + (index + 1) + '</div>';
+              },
+            }}
+          >
+            <SwiperSlide>
+              <Image src="/images/video_placeholder.png" w={'942px'} h={'431px'} pl={'22px'} alt="construction video" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                src="https://picsum.photos/900/400?random=1"
+                w={'942px'}
+                h={'431px'}
+                pl={'22px'}
+                alt="construction video"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                src="https://picsum.photos/900/400?random=2"
+                w={'942px'}
+                h={'431px'}
+                pl={'22px'}
+                alt="construction video"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                src="https://picsum.photos/900/400?random=3"
+                w={'942px'}
+                h={'431px'}
+                pl={'22px'}
+                alt="construction video"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                src="https://picsum.photos/900/400?random=4"
+                w={'942px'}
+                h={'431px'}
+                pl={'22px'}
+                alt="construction video"
+              />
+            </SwiperSlide>
+          </Swiper>
+        </Box>
       </Flex>
     </Box>
   );
