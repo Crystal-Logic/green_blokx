@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -16,10 +17,27 @@ import {
   Select,
   Flex,
 } from '@chakra-ui/react';
-import React from 'react';
+import emailjs from '@emailjs/browser';
 
 export const ContactUsModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const [email, setEmail] = React.useState('');
+  const [name, setName] = React.useState('');
+  const [country, setCountry] = React.useState('');
+
+  const handleSubmit = () => {
+    // TODO: replace keys
+    emailjs.send('service_ccs0h9f', 'template_lnyppx8', { name, email, country }, '7yDIJacuZxYO3bjCB').then(
+      (response: any) => {
+        console.log('SUCCESS!', response.status, response.text);
+      },
+      (error: any) => {
+        console.log('FAILED...', error);
+      },
+    );
+    onClose();
+  };
 
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
@@ -58,28 +76,35 @@ export const ContactUsModal = () => {
                            alignItems='center' justifyContent='center' display='flex' mt={'50px'} mb={'50px'}>
                 Contact us
               </ModalHeader>
-
               <ModalBody pb={3}>
-                <FormControl>
-                  <Input  ref={initialRef} placeholder="Email" />
+                <FormControl isRequired>
+                  <Input
+                    ref={initialRef}
+                    placeholder="Email"
+                    type="email"
+                    onChange={(event) => setEmail(event.currentTarget.value)}
+                  />
                 </FormControl>
 
                 <FormControl mt={4}>
-                  <Input placeholder="Name" />
+                  <Input placeholder="Name" type="text" onChange={(event) => setName(event.currentTarget.value)} />
                 </FormControl>
 
                 <FormControl mt={4}>
-                  <Select placeholder="County of residential">
-                    <option value="option1">USA</option>
-                    <option value="option2">Canada</option>
-                    <option value="option3">Mexico</option>
+                  <Select
+                    placeholder="County of residential"
+                    onChange={(event) => setCountry(event.currentTarget.value)}
+                  >
+                    <option value="USA">USA</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Mexico">Mexico</option>
                   </Select>
                 </FormControl>
               </ModalBody>
 
               <ModalFooter>
                 <Button
-                  onClick={onClose}
+                  onClick={handleSubmit}
                   variant="outline"
                   color="brand.green"
                   colorScheme={'brand.green'}
@@ -97,6 +122,7 @@ export const ContactUsModal = () => {
                     colorScheme: 'brand.red',
                     bg: 'transparent',
                   }}
+                  type="submit"
                 >
                   <Text as={'span'} position={'absolute'} right={'85px'}>
                     Contact us
