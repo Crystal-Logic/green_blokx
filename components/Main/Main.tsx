@@ -1,5 +1,4 @@
 import React from 'react';
-import NextLink from 'next/link';
 import {
   Switch,
   Center,
@@ -11,7 +10,6 @@ import {
   Text,
   useColorMode,
   VStack,
-  Link,
   useDisclosure,
   Drawer,
   DrawerBody,
@@ -27,29 +25,48 @@ const menuItems = [
   },
   {
     text: 'About Us',
-    href: '/#about_us',
+    href: 'about_us',
   },
   {
     text: 'Technology',
-    href: '/#technology',
+    href: 'technology',
   },
   {
     text: 'Why blockchain?',
-    href: '/#why_blockchain',
+    href: 'why_blockchain',
   },
   {
     text: 'Our Team',
-    href: '/#team',
+    href: 'team',
   },
   {
     text: 'Partners',
-    href: '/#partners',
+    href: 'partners',
   },
 ];
 
 export const Main = () => {
   const { toggleColorMode, colorMode } = useColorMode();
   const { isOpen, onClose, onToggle } = useDisclosure();
+
+  const scroll2El = (elID: string) => {
+    const element = document.getElementById(elID);
+    element && element.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const navigateTo = (id: string) => {
+    onClose();
+    setTimeout(() => {
+      scroll2El(id);
+    }, 100);
+  };
+
+  const toggleMenu = () => {
+    if (!isOpen) {
+      window.scrollTo(0, 0);
+    }
+    onToggle();
+  };
 
   return (
     <Grid minH="100vh" templateRows="repeat(3, 1fr)" templateColumns="repeat(15, 1fr)" gap={0}>
@@ -78,7 +95,7 @@ export const Main = () => {
           </GridItem>
           <GridItem colSpan={1} rowSpan={1} alignItems="center" justifyContent="center" display="flex">
             <Center
-              onClick={onToggle}
+              onClick={toggleMenu}
               as={'button'}
               width={35}
               height={35}
@@ -102,11 +119,17 @@ export const Main = () => {
                   </Text>
                   <VStack alignItems="baseline" ml={'70px'} align="center" spacing="25">
                     {menuItems.map(({ text, href }, idx) => (
-                      <Link as={NextLink} key={idx} href={href} textDecoration="none !important">
-                        <Text fontSize="32px" fontWeight="500" lineHeight={'40px'} _hover={{ color: 'brand.green' }}>
-                          {text}
-                        </Text>
-                      </Link>
+                      <Text
+                        as={'button'}
+                        key={idx}
+                        fontSize="32px"
+                        fontWeight="500"
+                        lineHeight={'40px'}
+                        _hover={{ color: 'brand.green' }}
+                        onClick={() => navigateTo(href)}
+                      >
+                        {text}
+                      </Text>
                     ))}
                   </VStack>
                 </DrawerBody>
