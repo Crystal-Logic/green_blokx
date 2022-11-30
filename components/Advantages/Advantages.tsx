@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 type NumBoxProps = {
   children: ReactNode;
-  number?: string;
+  number: string;
 };
 
 const NumberBox = ({ children, number }: NumBoxProps) => (
