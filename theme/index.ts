@@ -22,6 +22,25 @@ const baseModalStyle = (props: any) =>
     },
   });
 
+const baseDrawerStyle = (props: any) =>
+  definePartsStyle({
+    dialog: {
+      bg: mode('white', 'brand.dark')(props),
+    },
+  });
+
+const menuDrawerStyle = definePartsStyle({
+  dialogContainer: {
+    left: '100px',
+  },
+  overlay: {
+    left: '100px',
+  },
+  dialog: {
+    left: '100px',
+  },
+});
+
 export const theme = extendTheme({
   colors: { brand },
   fonts: {
@@ -38,6 +57,10 @@ export const theme = extendTheme({
   components: {
     Modal: {
       baseStyle: baseModalStyle,
+    },
+    Drawer: {
+      baseStyle: baseDrawerStyle,
+      variants: { menu: menuDrawerStyle },
     },
     Switch: {
       baseStyle: (props: any) => ({

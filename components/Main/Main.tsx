@@ -1,9 +1,55 @@
-import { Switch, Center, Flex, Grid, GridItem, Image, Select, Text, useColorMode, VStack } from '@chakra-ui/react';
-import Link from 'next/link';
 import React from 'react';
+import NextLink from 'next/link';
+import {
+  Switch,
+  Center,
+  Flex,
+  Grid,
+  GridItem,
+  Image,
+  Select,
+  Text,
+  useColorMode,
+  VStack,
+  Link,
+  useDisclosure,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerOverlay,
+  DrawerContent,
+} from '@chakra-ui/react';
+
+const menuItems = [
+  {
+    text: 'Home',
+    href: '/',
+  },
+  {
+    text: 'About Us',
+    href: '/#about_us',
+  },
+  {
+    text: 'Technology',
+    href: '/#technology',
+  },
+  {
+    text: 'Why blockchain?',
+    href: '/#why_blockchain',
+  },
+  {
+    text: 'Our Team',
+    href: '/#team',
+  },
+  {
+    text: 'Partners',
+    href: '/#partners',
+  },
+];
 
 export const Main = () => {
   const { toggleColorMode, colorMode } = useColorMode();
+  const { isOpen, onClose, onToggle } = useDisclosure();
 
   return (
     <Grid minH="100vh" templateRows="repeat(3, 1fr)" templateColumns="repeat(15, 1fr)" gap={0}>
@@ -31,18 +77,42 @@ export const Main = () => {
             </Text>
           </GridItem>
           <GridItem colSpan={1} rowSpan={1} alignItems="center" justifyContent="center" display="flex">
-            <Link href={'/menu'}>
-              <Center
-                as={'button'}
-                width={35}
-                height={35}
-                backgroundImage={'/images/green_button1.png'}
+            <Center
+              onClick={onToggle}
+              as={'button'}
+              width={35}
+              height={35}
+              backgroundImage={isOpen ? '/images/green_button2.png' : '/images/green_button1.png'}
+              backgroundSize="cover"
+              _hover={{
+                backgroundImage: isOpen ? '/images/red_button2.png' : '/images/red_button.png',
+              }}
+            />
+
+            <Drawer isOpen={isOpen} placement="left" onClose={onClose} variant={'menu'} size={'md'}>
+              <DrawerOverlay
+                backgroundImage={'/images/backgroundMenu.png'}
+                backgroundRepeat="no-repeat"
                 backgroundSize="cover"
-                _hover={{
-                  backgroundImage: '/images/red_button.png',
-                }}
               />
-            </Link>
+              <DrawerContent left={'110px !important'}>
+                <DrawerBody>
+                  <Text py={'100px'} pl={'10px'} fontSize="30px" fontWeight="500">
+                    GreenBLOKX
+                  </Text>
+                  <VStack alignItems="baseline" ml={'70px'} align="center" spacing="25">
+                    {menuItems.map(({ text, href }, idx) => (
+                      <Link as={NextLink} key={idx} href={href} textDecoration="none !important">
+                        <Text fontSize="32px" fontWeight="500" lineHeight={'40px'} _hover={{ color: 'brand.green' }}>
+                          {text}
+                        </Text>
+                      </Link>
+                    ))}
+                  </VStack>
+                </DrawerBody>
+                <DrawerFooter></DrawerFooter>
+              </DrawerContent>
+            </Drawer>
           </GridItem>
         </Grid>
       </GridItem>
