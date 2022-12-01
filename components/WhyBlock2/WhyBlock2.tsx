@@ -93,6 +93,6 @@ export const WhyBlock2 = () => (
         </Text>
       </Hide>
     </Flex>
-    <Image src="/images/why_block2.png" width={'full'} alt="why blockchain" />
+    <Image src="/images/why_block2.webp" width={'full'} alt="why blockchain" />
   </Box>
 );

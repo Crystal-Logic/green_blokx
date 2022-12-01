@@ -36,6 +36,11 @@ export const Construction = () => (
         Manufacturing
       </Text>
     </Box>
-    <Image src="/images/video_placeholder.png" w={'full'} h={{ base: '235px', md: '625px' }} alt="construction video" />
+    <Image
+      src="/images/video_placeholder.webp"
+      w={'full'}
+      h={{ base: '235px', md: '625px' }}
+      alt="construction video"
+    />
   </Box>
 );

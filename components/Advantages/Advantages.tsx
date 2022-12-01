@@ -97,7 +97,7 @@ export const Advantages = () => (
       </Box>
       <Box h={{ base: '197px', md: 'full' }} w={{ base: 'full', md: '435px' }} mt={{ base: '40px', md: 0 }}>
         <Image
-          src="/images/advantages.png"
+          src="/images/advantages.webp"
           alt="logo white"
           h={{ base: '197px', md: 'full' }}
           w={{ base: 'full', md: '435px' }}

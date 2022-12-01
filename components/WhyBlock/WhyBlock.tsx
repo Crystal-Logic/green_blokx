@@ -1,10 +1,10 @@
-import { Box, Heading, Text, Flex, Image, SimpleGrid, Hide } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Image, Hide } from '@chakra-ui/react';
 import { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 const images = [
   {
-    src: '/images/video_placeholder.png',
+    src: '/images/video_placeholder.webp',
     alt: 'construction video',
   },
   {

@@ -117,7 +117,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
 
       <Drawer isOpen={isOpen} placement="left" onClose={onClose} variant={'menu'} size={{ base: 'xs', md: 'md' }}>
         <DrawerOverlay
-          backgroundImage={'/images/backgroundMenu.png'}
+          backgroundImage={'/images/backgroundMenu.webp'}
           backgroundRepeat="no-repeat"
           backgroundSize="cover"
         />
@@ -159,7 +159,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
       </Drawer>
 
       <Box
-        bg={`linear-gradient(0deg, rgba(43, 43, 43, 0.75), rgba(43, 43, 43, 0.75)), url(/images/background.png)`}
+        bg={`linear-gradient(0deg, rgba(43, 43, 43, 0.75), rgba(43, 43, 43, 0.75)), url(/images/background.webp)`}
         flex={'1'}
         backgroundRepeat="no-repeat"
         backgroundSize="cover"
