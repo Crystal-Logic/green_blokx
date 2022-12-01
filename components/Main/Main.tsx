@@ -83,6 +83,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             </GridItem>
             <GridItem colSpan={1} rowSpan={1} alignItems="center" justifyContent="center" display="flex" w="inherit">
               <Text
+                cursor="url(/images/cursor-red.png) 16 16, auto"
                 onClick={onOpenModal}
                 sx={{
                   transform: 'rotate(271deg)',
@@ -178,7 +179,13 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
                 px={'20px'}
               >
                 <Image src="/images/logo.png" w={'53px'} h={'63px'} alt="logo" />
-                <Text fontWeight="400" fontSize="20px" lineHeight={'25px'} color={isOpen ? 'unset' : 'white'}>
+                <Text
+                  cursor="url(/images/cursor-red.png) 16 16, auto"
+                  fontWeight="400"
+                  fontSize="20px"
+                  lineHeight={'25px'}
+                  color={isOpen ? 'unset' : 'white'}
+                >
                   Contact us
                 </Text>
                 <Box
