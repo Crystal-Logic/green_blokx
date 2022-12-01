@@ -17,6 +17,7 @@ import {
   DrawerFooter,
   DrawerOverlay,
   DrawerContent,
+  useColorModeValue,
 } from '@chakra-ui/react';
 
 const menuItems = [
@@ -49,6 +50,7 @@ const menuItems = [
 export const Main = () => {
   const { toggleColorMode, colorMode } = useColorMode();
   const { isOpen, onClose, onToggle } = useDisclosure();
+  const bg = useColorModeValue('white', 'brand.dark');
 
   const scroll2El = (elID: string) => {
     const element = document.getElementById(elID);
@@ -107,41 +109,53 @@ export const Main = () => {
                   backgroundImage: isOpen ? '/images/red_button2.png' : '/images/red_button.png',
                 }}
               />
-
-              <Drawer isOpen={isOpen} placement="left" onClose={onClose} variant={'menu'} size={'md'}>
-                <DrawerOverlay
-                  backgroundImage={'/images/backgroundMenu.png'}
-                  backgroundRepeat="no-repeat"
-                  backgroundSize="cover"
-                />
-                <DrawerContent left={'110px !important'}>
-                  <DrawerBody>
-                    <Text py={'100px'} pl={'10px'} fontSize="30px" fontWeight="500">
-                      GreenBLOKX
-                    </Text>
-                    <VStack alignItems="baseline" ml={'70px'} align="center" spacing="25">
-                      {menuItems.map(({ text, href }, idx) => (
-                        <Text
-                          as={'button'}
-                          key={idx}
-                          fontSize="32px"
-                          fontWeight="500"
-                          lineHeight={'40px'}
-                          _hover={{ color: 'brand.green' }}
-                          onClick={() => navigateTo(href)}
-                        >
-                          {text}
-                        </Text>
-                      ))}
-                    </VStack>
-                  </DrawerBody>
-                  <DrawerFooter></DrawerFooter>
-                </DrawerContent>
-              </Drawer>
             </GridItem>
           </Grid>
         </Box>
       </Hide>
+
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose} variant={'menu'} size={{ base: 'xs', md: 'md' }}>
+        <DrawerOverlay
+          backgroundImage={'/images/backgroundMenu.png'}
+          backgroundRepeat="no-repeat"
+          backgroundSize="cover"
+        />
+        <DrawerContent
+          top={{ base: '130px !important', md: '0px !important' }}
+          left={{ base: 0, md: '110px !important' }}
+        >
+          <DrawerBody>
+            <Hide below="md">
+              <Text py={'100px'} pl={'10px'} fontSize="30px" fontWeight="500">
+                GreenBLOKX
+              </Text>
+            </Hide>
+            <VStack
+              alignItems="baseline"
+              ml={{ base: '20px', md: '70px' }}
+              mt={{ base: '20px', md: 0 }}
+              align="center"
+              spacing="25"
+            >
+              {menuItems.map(({ text, href }, idx) => (
+                <Text
+                  as={'button'}
+                  key={idx}
+                  fontSize={{ base: '28px', md: '32px' }}
+                  lineHeight={{ base: '35px', md: '40px' }}
+                  fontWeight="500"
+                  textAlign={'left'}
+                  _hover={{ color: 'brand.green' }}
+                  onClick={() => navigateTo(href)}
+                >
+                  {text}
+                </Text>
+              ))}
+            </VStack>
+          </DrawerBody>
+          <DrawerFooter></DrawerFooter>
+        </DrawerContent>
+      </Drawer>
 
       <Box
         bg={`linear-gradient(0deg, rgba(43, 43, 43, 0.75), rgba(43, 43, 43, 0.75)), url(/images/background.png)`}
@@ -150,13 +164,37 @@ export const Main = () => {
         backgroundSize="cover"
       >
         <Grid h="100%" templateRows="repeat(3, 1fr)" templateColumns="repeat(3, 1fr)" gap={0}>
-          <GridItem colSpan={1} rowSpan={1} display="flex"></GridItem>
+          {/* mobile menu */}
+          <Hide above="md">
+            <GridItem h={'122px'} colSpan={3} rowSpan={1}>
+              <Box
+                h={'full'}
+                w={'full'}
+                display={'flex'}
+                justifyContent={'space-between'}
+                alignItems={'center'}
+                bg={isOpen ? bg : 'transparent'}
+                px={'20px'}
+              >
+                <Image src="/images/logo.png" w={'53px'} h={'63px'} alt="logo" />
+                <Text fontWeight="400" fontSize="20px" lineHeight={'25px'} color={isOpen ? 'unset' : 'white'}>
+                  Contact us
+                </Text>
+                <Box
+                  onClick={toggleMenu}
+                  as={'button'}
+                  width={35}
+                  height={35}
+                  backgroundImage={isOpen ? '/images/green_button2.png' : '/images/green_button1.png'}
+                  backgroundSize="cover"
+                />
+              </Box>
+            </GridItem>
+          </Hide>
+          {/* mobile menu  end*/}
 
-          {/* <GridItem colSpan={1} rowSpan={1} pt={'50px'} justifyContent={'center'}>
-            Contact
-          </GridItem> */}
           <Hide below="md">
-            <GridItem colSpan={1} rowSpan={1} display="flex" pt={'50px'} justifyContent={'center'}>
+            <GridItem colSpan={3} rowSpan={1} display="flex" pt={'50px'} justifyContent={'flex-end'}>
               <VStack mr={30}>
                 <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
                 <Text fontSize="14px" lineHeight="25px" fontWeight="700" color={'white'}>
@@ -198,6 +236,7 @@ export const Main = () => {
               </Text>
             </Text>
           </GridItem>
+
           <Hide above="md">
             <GridItem
               colSpan={2}
