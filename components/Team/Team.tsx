@@ -1,9 +1,8 @@
 import { ContactUsModal } from 'components/FormModal';
 import { useRef } from 'react';
-import { Box, Heading, Text, Flex, Image, Button, Link } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Image, Button, Link, Hide } from '@chakra-ui/react';
 import { Swiper as SwiperType, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 
 export const Team = () => {
   const swiperRef = useRef<SwiperType>();
@@ -219,78 +218,82 @@ export const Team = () => {
               </Flex>
             </SwiperSlide>
           </Swiper>
-          <Flex
-            h={'40px'}
-            w={'240px'}
-            justifyContent={'space-between'}
-            alignItems={'center'}
-            position={'absolute'}
-            top={'145px'}
-            left={'770px'}
-            zIndex={15}
-          >
-            <Box
-              as="button"
-              onClick={() => swiperRef.current?.slidePrev()}
+
+          {/* slide control bar */}
+          <Hide above="md">
+            <Flex
               h={'40px'}
-              w={'40px'}
-              border="1px solid transparent"
-              position={'relative'}
-              _hover={{ borderColor: 'brand.green' }}
+              w={'240px'}
+              justifyContent={'space-between'}
+              alignItems={'center'}
+              position={'absolute'}
+              top={'145px'}
+              left={{ base: '120px', md: '770px' }}
+              zIndex={15}
             >
               <Box
-                position={'absolute'}
-                h={'15px'}
-                w={'15px'}
-                top={'12px'}
-                left={'14px'}
-                borderColor={'brand.green'}
-                borderWidth={'2px 2px 0 0'}
-                sx={{ transform: 'rotate(-135deg)' }}
-              ></Box>
-            </Box>
-            <Box
-              className="team-pagination"
-              flex={'1'}
-              display="flex"
-              justifyContent="space-around"
-              alignItems="center"
-              mx={'20px'}
-              sx={{
-                '.swiper-pagination-bullet': {
-                  width: '15px',
-                  height: '15px',
-                  background: 'rgba(58, 174, 5, 0.1)',
-                  opacity: 'unset',
-                },
-                '.swiper-pagination-bullet-active': {
-                  width: '20px',
-                  height: '20px',
-                  background: 'rgba(210, 87, 87, 0.81)',
-                },
-              }}
-            ></Box>
-            <Box
-              as="button"
-              onClick={() => swiperRef.current?.slideNext()}
-              h={'40px'}
-              w={'40px'}
-              border="1px solid transparent"
-              position={'relative'}
-              _hover={{ borderColor: 'brand.green' }}
-            >
+                as="button"
+                onClick={() => swiperRef.current?.slidePrev()}
+                h={'40px'}
+                w={'40px'}
+                border="1px solid transparent"
+                position={'relative'}
+                _hover={{ borderColor: 'brand.green' }}
+              >
+                <Box
+                  position={'absolute'}
+                  h={'15px'}
+                  w={'15px'}
+                  top={'12px'}
+                  left={'14px'}
+                  borderColor={'brand.green'}
+                  borderWidth={'2px 2px 0 0'}
+                  sx={{ transform: 'rotate(-135deg)' }}
+                ></Box>
+              </Box>
               <Box
-                position={'absolute'}
-                h={'15px'}
-                w={'15px'}
-                top={'12px'}
-                right={'14px'}
-                borderColor={'brand.green'}
-                borderWidth={'0 0 2px 2px'}
-                sx={{ transform: 'rotate(-135deg)' }}
+                className="team-pagination"
+                flex={'1'}
+                display="flex"
+                justifyContent="space-around"
+                alignItems="center"
+                mx={'20px'}
+                sx={{
+                  '.swiper-pagination-bullet': {
+                    width: '15px',
+                    height: '15px',
+                    background: 'rgba(58, 174, 5, 0.1)',
+                    opacity: 'unset',
+                  },
+                  '.swiper-pagination-bullet-active': {
+                    width: '20px',
+                    height: '20px',
+                    background: 'rgba(210, 87, 87, 0.81)',
+                  },
+                }}
               ></Box>
-            </Box>
-          </Flex>
+              <Box
+                as="button"
+                onClick={() => swiperRef.current?.slideNext()}
+                h={'40px'}
+                w={'40px'}
+                border="1px solid transparent"
+                position={'relative'}
+                _hover={{ borderColor: 'brand.green' }}
+              >
+                <Box
+                  position={'absolute'}
+                  h={'15px'}
+                  w={'15px'}
+                  top={'12px'}
+                  right={'14px'}
+                  borderColor={'brand.green'}
+                  borderWidth={'0 0 2px 2px'}
+                  sx={{ transform: 'rotate(-135deg)' }}
+                ></Box>
+              </Box>
+            </Flex>
+          </Hide>
         </Box>
 
         {/* Slider frame end  */}
@@ -312,7 +315,7 @@ export const Team = () => {
           </Flex>
         </Flex>
         <Box position={'absolute'} top={'900px'}>
-            <ContactUsModal/>
+          <ContactUsModal />
         </Box>
       </Box>
     </Box>

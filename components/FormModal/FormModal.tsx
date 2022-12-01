@@ -51,10 +51,10 @@ export const ContactUsModal = () => {
         colorScheme={'brand.green'}
         borderRadius="none"
         borderWidth="2px 2px 2px 0px"
-        h={'135px'}
-        minW={'815px'}
-        fontSize="32px"
-        lineHeight="40px"
+        h={{ base: '82px', md: '135px' }}
+        minW={{ base: '324px', md: '815px' }}
+        fontSize={{ base: '18px', md: '32px' }}
+        lineHeight={{ base: '22px', md: '40px' }}
         fontWeight="500"
         position={'relative'}
         _hover={{

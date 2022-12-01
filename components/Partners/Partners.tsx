@@ -48,7 +48,7 @@ export const Partners = () => {
   const gridColor = useColorModeValue('brand.green', 'white');
 
   return (
-    <Box id="partners" pb={'100px'}>
+    <Box id="partners" pb={'100px'} overflow={'hidden'}>
       <Flex h={'96px'}>
         <Box flex={'1'} bg="brand.green"></Box>
         <Flex w={'400px'} justifyContent="center" alignItems={'center'}>
