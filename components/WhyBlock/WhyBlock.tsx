@@ -109,7 +109,7 @@ export const WhyBlock = () => {
             },
           }}
         ></Flex>
-        <Box w={{ base: 'full', md: '942px' }} h={'full'}>
+        <Box w={{ base: 'full', xl: '942px' }} h={'full'}>
           <Swiper
             modules={[Pagination]}
             spaceBetween={50}
