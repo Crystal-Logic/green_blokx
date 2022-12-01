@@ -52,6 +52,9 @@ export const theme = extendTheme({
   },
   styles: {
     global: (props: any) => ({
+      '*': {
+        cursor: 'url(/images/cursor-green.png) 16 16, auto',
+      },
       'html, body': {
         bg: mode('white', 'brand.dark')(props),
       },
