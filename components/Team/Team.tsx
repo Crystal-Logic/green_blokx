@@ -1,4 +1,3 @@
-import { ContactUsModal } from 'components/FormModal';
 import { useRef } from 'react';
 import { Box, Heading, Text, Flex, Image, Button, Link, Hide } from '@chakra-ui/react';
 import { Swiper as SwiperType, Navigation, Pagination } from 'swiper';
@@ -296,7 +295,7 @@ export const Team = () => {
           </Hide>
         </Box>
 
-        {/* Slider frame end  */}
+        {/* Slider frame end */}
 
         <Flex h={'106px'} w={'full'} position={'absolute'} top={'600px'}>
           <Flex w={'160px'} bg="brand.green">
@@ -314,9 +313,6 @@ export const Team = () => {
             <Box h={'full'} w={'full'} borderBottom={'3px solid'} borderColor={'brand.green'}></Box>
           </Flex>
         </Flex>
-        <Box position={'absolute'} top={'900px'}>
-          <ContactUsModal />
-        </Box>
       </Box>
     </Box>
   );
