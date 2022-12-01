@@ -73,7 +73,7 @@ export const Technology = () => {
       </Text>
 
       <Image
-        src="/images/video_placeholder.png"
+        src="/images/video_placeholder.webp"
         w={'full'}
         h={{ base: '360px', md: '461px' }}
         pt={{ base: '35px', md: '26px' }}
