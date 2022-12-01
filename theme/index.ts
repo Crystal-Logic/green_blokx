@@ -32,12 +32,15 @@ const baseDrawerStyle = (props: any) =>
 const menuDrawerStyle = definePartsStyle({
   dialogContainer: {
     left: '100px',
+    top: { base: '130px !important', md: '0px !important' },
   },
   overlay: {
     left: '100px',
+    top: { base: '130px !important', md: '0px !important' },
   },
   dialog: {
     left: '100px',
+    top: { base: '130px !important', md: '0px !important' },
   },
 });
 
