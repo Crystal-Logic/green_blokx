@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Flex, Image, SimpleGrid, Button, useColorModeValue, Hide } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Image, SimpleGrid, useColorModeValue, Hide } from '@chakra-ui/react';
 
 type StepProps = {
   text: string;
@@ -87,31 +87,6 @@ export const Technology = () => {
           <Step text="Step 2" />
           <Step text="Step 3" />
         </SimpleGrid>
-      </Flex>
-
-      <Flex pt={{ base: '25px', md: '60px' }} pb={{ base: '82px', md: '60px' }}>
-        <Button
-          variant="outline"
-          color="brand.green"
-          colorScheme={'brand.green'}
-          borderRadius="none"
-          borderWidth="2px 2px 2px 0px"
-          h={{ base: '82px', md: '135px' }}
-          minW={{ base: '324px', md: '815px' }}
-          fontSize={{ base: '18px', md: '32px' }}
-          lineHeight={{ base: '22px', md: '40px' }}
-          fontWeight="500"
-          position={'relative'}
-          _hover={{
-            color: 'brand.red',
-            colorScheme: 'brand.red',
-            bg: 'transparent',
-          }}
-        >
-          <Text as={'span'} position={'absolute'} right={{ base: '46px', md: '85px' }}>
-            Find out more
-          </Text>
-        </Button>
       </Flex>
     </Box>
   );

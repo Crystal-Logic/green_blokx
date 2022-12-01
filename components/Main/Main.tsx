@@ -47,7 +47,7 @@ const menuItems = [
   },
 ];
 
-export const Main = () => {
+export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const { toggleColorMode, colorMode } = useColorMode();
   const { isOpen, onClose, onToggle } = useDisclosure();
   const bg = useColorModeValue('white', 'brand.dark');
@@ -83,6 +83,7 @@ export const Main = () => {
             </GridItem>
             <GridItem colSpan={1} rowSpan={1} alignItems="center" justifyContent="center" display="flex" w="inherit">
               <Text
+                onClick={onOpenModal}
                 sx={{
                   transform: 'rotate(271deg)',
                   lineHeight: '25px',

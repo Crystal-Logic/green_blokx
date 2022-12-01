@@ -58,6 +58,35 @@ export const theme = extendTheme({
     }),
   },
   components: {
+    Select: {
+      sizes: {
+        lg: {
+          field: {
+            borderRadius: 'none',
+          },
+        },
+      },
+      defaultProps: {
+        size: 'lg',
+      },
+    },
+    Input: {
+      sizes: {
+        lg: {
+          field: {
+            borderRadius: 'none',
+          },
+        },
+      },
+      variants: {
+        outline: {
+          borderRadius: 0,
+        },
+      },
+      defaultProps: {
+        size: 'lg',
+      },
+    },
     Modal: {
       baseStyle: baseModalStyle,
     },
