@@ -88,7 +88,8 @@ export const WhyBlock = () => {
           direction={{ base: 'row', md: 'column' }}
           justifyContent={'space-between'}
           fontFamily={'Montserrat'}
-          textAlign={'end'}
+          textAlign={{ base: 'center', md: 'end' }}
+          pt={{ base: '10px', md: 0 }}
           sx={{
             '.swiper-pagination-bullet': {
               width: '100%',
@@ -96,15 +97,15 @@ export const WhyBlock = () => {
               opacity: 'unset',
               background: 'transparent',
               fontWeight: '300',
-              fontSize: '32px',
-              lineHeight: '39px',
+              fontSize: { base: '18px', md: '32px' },
+              lineHeight: { base: '22px', md: '39px' },
             },
             '.swiper-pagination-bullet-active': {
               height: '80px',
               color: 'brand.green',
               fontWeight: '500',
-              fontSize: '60px',
-              lineHeight: '73px',
+              fontSize: { base: '32px', md: '60px' },
+              lineHeight: { base: '39px', md: '73px' },
             },
           }}
         ></Flex>
@@ -123,7 +124,14 @@ export const WhyBlock = () => {
           >
             {images.map(({ src, alt }) => (
               <SwiperSlide key={src}>
-                <Image src={src} w={'full'} h={{ base: '360px', md: '431px' }} pl={{ base: 0, md: '22px' }} alt={alt} />
+                <Image
+                  src={src}
+                  w={'full'}
+                  h={{ base: '360px', md: '431px' }}
+                  pl={{ base: 0, md: '22px' }}
+                  alt={alt}
+                  objectFit={'cover'}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -132,7 +140,7 @@ export const WhyBlock = () => {
       <Hide above="md">
         <Flex
           w={'full'}
-          pt={{ base: '32px', md: '68px' }}
+          pt={{ base: 0, md: '68px' }}
           pl={{ base: '20px', md: '225px' }}
           pr={{ base: '20px', md: '182px' }}
           pb={{ base: '42px', md: 0 }}
