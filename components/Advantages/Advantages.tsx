@@ -45,7 +45,7 @@ const NumberBox = ({ children, number }: NumBoxProps) => (
 );
 
 export const Advantages = () => (
-  <Box pt={{ base: 10, lg: 40 }} pb={{ base: 10, lg: 20 }}>
+  <Box pt={{ base: 10, lg: 20 }} pb={{ base: 10, lg: 20 }}>
     <Flex h={{ base: 'auto' }} direction={{ base: 'column', md: 'row' }}>
       <Box flex="1" pl={{ base: 10, xl: 52 }}>
         <Heading
