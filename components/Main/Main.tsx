@@ -56,6 +56,8 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
     'linear-gradient(0deg, rgba(43, 43, 43, 0.75), rgba(43, 43, 43, 0.75))',
   );
 
+  const cursorPointer = 'url(/images/cursor_pointer-green.png) 16 16, auto';
+
   const scroll2El = (elID: string) => {
     const element = document.getElementById(elID);
     element && element.scrollIntoView({ behavior: 'smooth' });
@@ -92,6 +94,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             _hover={{
               color: 'brand.red',
             }}
+            cursor={cursorPointer}
           >
             Contact us
           </Text>
@@ -105,6 +108,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             _hover={{
               backgroundImage: isOpen ? '/images/red_button2.png' : '/images/red_button.png',
             }}
+            cursor={cursorPointer}
           />
         </Flex>
       </Hide>
@@ -133,10 +137,22 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
                 </Text>
                 <HStack>
                   <Link href={'https://twitter.com/greenblokx'} isExternal>
-                    <Image src="/images/twitter_logo.png" alt="twitter logo" h={'44px'} w={'44px'} />
+                    <Image
+                      src="/images/twitter_logo.png"
+                      alt="twitter logo"
+                      h={'44px'}
+                      w={'44px'}
+                      cursor={cursorPointer}
+                    />
                   </Link>
                   <Link href={'https://medium.com/@greenblokx'} isExternal pl={3}>
-                    <Image src="/images/medium_logo.png" alt="medium logo" h={'44px'} w={'44px'} />
+                    <Image
+                      src="/images/medium_logo.png"
+                      alt="medium logo"
+                      h={'44px'}
+                      w={'44px'}
+                      cursor={cursorPointer}
+                    />
                   </Link>
                 </HStack>
               </Flex>
@@ -152,6 +168,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
                   textAlign={'left'}
                   _hover={{ color: 'brand.green' }}
                   onClick={() => navigateTo(href)}
+                  cursor={cursorPointer}
                 >
                   {text}
                 </Text>
@@ -199,7 +216,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
 
         <Hide below="md">
           <VStack position={'absolute'} top={24} right={44}>
-            <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
+            <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" cursor={cursorPointer} />
             <Text fontSize="14px" lineHeight="25px" fontWeight="700" color={'white'}>
               {colorMode === 'dark' ? 'Light' : 'Dark'} mode
             </Text>
@@ -209,10 +226,10 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         <Hide below="md">
           <HStack position={'absolute'} bottom={20} right={32}>
             <Link href={'https://twitter.com/greenblokx'} isExternal>
-              <Image src="/images/twitter_logo.png" alt="twitter logo" h={'44px'} w={'44px'} />
+              <Image src="/images/twitter_logo.png" alt="twitter logo" h={'44px'} w={'44px'} cursor={cursorPointer} />
             </Link>
             <Link href={'https://medium.com/@greenblokx'} isExternal pl={3}>
-              <Image src="/images/medium_logo.png" alt="medium logo" h={'44px'} w={'44px'} />
+              <Image src="/images/medium_logo.png" alt="medium logo" h={'44px'} w={'44px'} cursor={cursorPointer} />
             </Link>
           </HStack>
         </Hide>
