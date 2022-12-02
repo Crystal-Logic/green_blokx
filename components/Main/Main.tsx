@@ -49,6 +49,10 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const { toggleColorMode, colorMode } = useColorMode();
   const { isOpen, onClose, onToggle } = useDisclosure();
   const bg = useColorModeValue('white', 'brand.dark');
+  const gradientStyle = useColorModeValue(
+    'linear-gradient(0deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.01))',
+    'linear-gradient(0deg, rgba(43, 43, 43, 0.75), rgba(43, 43, 43, 0.75))',
+  );
 
   const scroll2El = (elID: string) => {
     const element = document.getElementById(elID);
@@ -145,7 +149,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         direction={'column'}
         justifyContent={{ base: 'space-between', lg: 'center' }}
         position={'relative'}
-        bg={`linear-gradient(0deg, rgba(43, 43, 43, 0.75), rgba(43, 43, 43, 0.75)), url(/images/background.webp)`}
+        bg={`${gradientStyle}, url(/images/background.webp)`}
         backgroundSize="cover"
       >
         {/* mobile menu */}
@@ -176,7 +180,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         {/* mobile menu  end*/}
 
         <Hide below="md">
-          <VStack position={'absolute'} top={20} right={20}>
+          <VStack position={'absolute'} top={24} right={44}>
             <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
             <Text fontSize="14px" lineHeight="25px" fontWeight="700" color={'white'}>
               {colorMode === 'dark' ? 'Light' : 'Dark'} mode

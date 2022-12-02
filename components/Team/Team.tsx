@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Box, Heading, Text, Flex, Image, Button, Link, Hide } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Image, Link, Hide } from '@chakra-ui/react';
 import { Swiper as SwiperType, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -7,14 +7,14 @@ export const Team = () => {
   const swiperRef = useRef<SwiperType>();
 
   return (
-    <Box id="team" minH={'1110px'} pt={'53px'} mb={'93px'}>
+    <Box id="team" minH={'810px'} pt={'53px'}>
       <Box h={'full'} w={'full'} position={'relative'}>
         <Flex h={'100px'} w={'full'} pl={'205px'} position={'absolute'} zIndex={10}>
           <Flex flex={'1'} alignItems={'center'}>
             <Box h={'0px'} w={'full'} borderBottom={'3px solid'} borderColor={'brand.green'}></Box>
           </Flex>
           <Flex w={'290px'} bg="brand.green" alignItems={'center'} pl={'43px'}>
-            <Heading as="h2" fontSize="32px" lineHeight="40px" fontWeight="500">
+            <Heading as="h2" fontSize="32px" lineHeight="40px" fontWeight="500" color={'white'}>
               Team
             </Heading>
           </Flex>
@@ -107,43 +107,7 @@ export const Team = () => {
                 </Box>
               </Flex>
             </SwiperSlide>
-            <SwiperSlide>
-              <Flex h={'630px'} w={'full'}>
-                <Image
-                  src="/images/team/john_sears.png"
-                  alt="John Sears"
-                  h={'full'}
-                  w={'520px'}
-                  filter={'grayscale(1)'}
-                  objectFit="cover"
-                />
-                <Box flex={'1'} pl={'42px'}>
-                  <Text
-                    mt={'350px'}
-                    fontSize="32px"
-                    lineHeight="40px"
-                    fontWeight="700"
-                    display={'flex'}
-                    alignItems={'center'}
-                  >
-                    John Sears{' '}
-                    <Link href={'https://www.linkedin.com/'} isExternal>
-                      <Image src="/images/linkedin_logo.png" alt="linkedin logo" h={'30px'} w={'30px'} ml={'10px'} />
-                    </Link>
-                  </Text>
-                  <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
-                    Chief Executive Officer
-                  </Text>
-                  <Text fontSize="18px" lineHeight="23px" fontWeight="400" pt={'35px'}>
-                    Florin holds a Master's Degree in Chemistry from the West University of Timișoara with 10+ years of
-                    experience in Flexible and Rigid PU Foam synthesis and processing...{' '}
-                    <Text as={'span'} color={'brand.red'}>
-                      read more
-                    </Text>
-                  </Text>
-                </Box>
-              </Flex>
-            </SwiperSlide>
+
             <SwiperSlide>
               <Flex h={'630px'} w={'full'}>
                 <Image
