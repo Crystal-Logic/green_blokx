@@ -15,6 +15,7 @@ import {
 import { Icon } from '@chakra-ui/react';
 import emailjs from '@emailjs/browser';
 import { CheckIcon, CloseIcon } from '@chakra-ui/icons';
+import countryData from './countries.json';
 
 export const FormModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   const { colorMode } = useColorMode();
@@ -99,9 +100,11 @@ export const FormModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
           color={inputColor}
           borderColor={inputColor}
         >
-          <option value="USA">USA</option>
-          <option value="Canada">Canada</option>
-          <option value="Mexico">Mexico</option>
+          {countryData.map(({ name, code }) => (
+            <option key={code} value={name}>
+              {name}
+            </option>
+          ))}
         </Select>
       </FormControl>
     </Box>
