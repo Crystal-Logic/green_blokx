@@ -27,8 +27,8 @@ const images = [
 
 export const WhyBlock = () => {
   return (
-    <Box id="why_blockchain" mb={'107px'}>
-      <Flex h={{ base: '60px', md: '87px' }} bg="brand.green" justifyContent={'center'} alignItems={'center'}>
+    <Box id="why_blockchain" mb={20}>
+      <Flex h={{ base: '60px', md: '80px' }} bg="brand.green" justifyContent={'center'} alignItems={'center'}>
         <Heading
           as="h2"
           fontSize={{ base: '25px', md: '32px' }}
@@ -43,8 +43,8 @@ export const WhyBlock = () => {
       <Flex
         w={'full'}
         pt={{ base: '32px', md: '68px' }}
-        pl={{ base: 5, md: 52 }}
-        pr={{ base: '20px', md: '182px' }}
+        pl={{ base: 5, xl: 52 }}
+        pr={{ base: 5, xl: 44 }}
         pb={{ base: '42px', md: 0 }}
       >
         <Text
@@ -75,9 +75,9 @@ export const WhyBlock = () => {
 
       <Flex
         h={{ base: '370px', md: '431px' }}
-        w={'full'}
+        w={{ base: 'full' }}
         mt={'52px'}
-        pl={{ base: 0, lg: 52 }}
+        pl={{ base: 0, xl: 52 }}
         direction={{ base: 'column-reverse', md: 'row' }}
         overflow={'hidden'}
       >
@@ -110,7 +110,7 @@ export const WhyBlock = () => {
             },
           }}
         ></Flex>
-        <Box w={{ base: 'full' }} h={'full'}>
+        <Box flex={'1'} w={{ base: 'full' }} h={'full'}>
           <Swiper
             modules={[Pagination]}
             spaceBetween={50}

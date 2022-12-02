@@ -1,11 +1,11 @@
-import { Box, Flex, Heading, Text, Image, Center, Hide, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, Image, Hide, useColorModeValue } from '@chakra-ui/react';
 
 export const WhyBlock2 = () => {
   const activeBorderColor = useColorModeValue('white', 'brand.dark');
 
   return (
     <Box>
-      <Flex h={{ base: 'auto', md: '600px' }} direction={{ base: 'column', md: 'row' }}>
+      <Flex direction={{ base: 'column', md: 'row' }}>
         <Box flex="1">
           <Box w={{ base: '60%', md: 'full' }} borderBottom={'3px solid'} borderColor={'brand.green'}>
             <Heading
@@ -13,8 +13,8 @@ export const WhyBlock2 = () => {
               fontSize={{ base: '25px', md: '32px' }}
               lineHeight={{ base: '31px', md: '39px' }}
               fontWeight={{ base: '500', md: '800' }}
-              pl={{ base: '20px', md: '205px' }}
-              pt={{ base: 0, md: '75px' }}
+              pl={{ base: 5, md: 10, xl: 52 }}
+              pt={{ base: 0, lg: 16 }}
             >
               <Text as={'span'} color="brand.green">
                 The Future{' '}
@@ -26,9 +26,9 @@ export const WhyBlock2 = () => {
             fontSize={{ base: '14px', md: '18px' }}
             lineHeight={{ base: '18px', md: '23px' }}
             fontWeight="500"
-            pl={{ base: '20px', md: '205px' }}
-            pt={{ base: '20px', md: '56px' }}
-            pr={{ base: '20px', md: '43px' }}
+            pl={{ base: 5, md: 10, xl: 52 }}
+            pt={{ base: 5, md: '56px' }}
+            pr={{ base: 5, md: '43px' }}
             pb={{ base: '30px', md: 0 }}
           >
             You care about the environment and so do we so we make products that reflect that ethos.
@@ -47,11 +47,11 @@ export const WhyBlock2 = () => {
             </Hide>
           </Text>
         </Box>
-        <Box bg="brand.green" w={{ base: 'full', md: '690px' }} pt={{ base: '40px', md: 0 }}>
-          <Center h={{ base: '77px', md: '174px' }} color="white">
-            <Image src="/images/logo_white.png" alt="logo white" h={{ base: '77px', md: '174px' }} />
-          </Center>
-          <Box w={'full'} borderBottom={'3px solid'} borderColor={activeBorderColor}>
+        <Box bg="brand.green" w={{ base: 'full', md: '50%' }} pt={{ base: 0 }}>
+          <Flex justifyContent={'center'} color="white" my={10}>
+            <Image src="/images/logo_white.png" alt="logo white" h={{ base: '77px', md: '103px' }} />
+          </Flex>
+          <Box w={'full'}>
             <Text
               fontSize={{ base: '14px', md: '18px' }}
               lineHeight={{ base: '18px', md: '23px' }}
@@ -76,9 +76,9 @@ export const WhyBlock2 = () => {
               <br />
               Sustainability and performance should not be a tradeoff as it relates to renewable construction.
             </Text>
-            <Hide above="md">
-              <Box h={0} w={'full'} borderBottom={'3px solid white'} mb={'40px'}></Box>
-            </Hide>
+            {/* <Hide above="md"> */}
+            <Box h={0} w={'full'} borderBottom={'3px solid '} borderColor={activeBorderColor} mb={16}></Box>
+            {/* </Hide> */}
           </Box>
         </Box>
         <Hide above="md">
@@ -97,7 +97,7 @@ export const WhyBlock2 = () => {
           </Text>
         </Hide>
       </Flex>
-      <Image src="/images/why_block2.webp" width={'full'} alt="why blockchain" />
+      <Image src="/images/why_block2.webp" width={'full'} maxH={{ base: 700 }} objectFit="cover" alt="why blockchain" />
     </Box>
   );
 };
