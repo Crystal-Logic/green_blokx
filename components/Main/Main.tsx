@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import {
   Switch,
   Center,
@@ -18,6 +18,7 @@ import {
   useColorModeValue,
   Link,
   HStack,
+  Button,
 } from '@chakra-ui/react';
 
 const menuItems = [
@@ -48,6 +49,9 @@ const menuItems = [
 ];
 
 export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
+  const [isShowVideo, setIsShowVideo] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const { toggleColorMode, colorMode } = useColorMode();
   const { isOpen, onClose, onToggle } = useDisclosure();
   const bg = useColorModeValue('white', 'brand.dark');
@@ -57,6 +61,27 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
   );
 
   const cursorPointer = 'url(/images/cursor_pointer-green.png) 16 16, auto';
+
+  const playVideo = () => {
+    videoRef.current && videoRef.current.play();
+  };
+
+  const stopAndResetVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
+
+  const toggleVideo = () => {
+    if (isShowVideo) {
+      setIsShowVideo(false);
+      stopAndResetVideo();
+    } else {
+      setIsShowVideo(true);
+      playVideo();
+    }
+  };
 
   const scroll2El = (elID: string) => {
     const element = document.getElementById(elID);
@@ -187,6 +212,15 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         bg={`${gradientStyle}, url(/images/background.webp)`}
         backgroundSize="cover"
       >
+        <video
+          ref={videoRef}
+          style={{ objectFit: 'cover', height: '100vh', position: 'absolute', zIndex: isShowVideo ? 1 : -1 }}
+          className="videoTag"
+          poster="/images/background.webp"
+        >
+          <source src={'/images/GreenBlokX_bg.mp4'} type="video/mp4" />
+        </video>
+
         {/* mobile menu */}
         <Hide above="lg">
           <Box
@@ -215,7 +249,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         {/* mobile menu  end*/}
 
         <Hide below="md">
-          <VStack position={'absolute'} top={24} right={44}>
+          <VStack position={'absolute'} top={24} right={44} zIndex={10}>
             <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" cursor={cursorPointer} />
             <Text fontSize="14px" lineHeight="25px" fontWeight="700" color={'white'}>
               {colorMode === 'dark' ? 'Light' : 'Dark'} mode
@@ -224,7 +258,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         </Hide>
 
         <Hide below="md">
-          <HStack position={'absolute'} bottom={20} right={32}>
+          <HStack position={'absolute'} bottom={20} right={32} zIndex={10}>
             <Link href={'https://twitter.com/greenblokx'} isExternal>
               <Image src="/images/twitter_logo.png" alt="twitter logo" h={'44px'} w={'44px'} cursor={cursorPointer} />
             </Link>
@@ -234,7 +268,20 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
           </HStack>
         </Hide>
 
-        <Box maxW={{ base: 'full', lg: 900, xl: 950 }} pl={{ base: 5, md: 100 }}>
+        <Box maxW={{ base: 'full', lg: 900, xl: 950 }} pl={{ base: 5, md: 100 }} zIndex={10}>
+          <Button
+            onClick={toggleVideo}
+            variant={'outline'}
+            colorScheme={'white'}
+            mb={20}
+            w={'67px'}
+            h={'67px'}
+            borderRadius="none"
+            border={'2px solid'}
+            cursor={cursorPointer}
+          >
+            <Image src="/images/play_icon.png" w={'25px'} h={'22px'} cursor={cursorPointer}></Image>
+          </Button>
           <Text
             fontSize={{ base: '32px', md: '54px' }}
             lineHeight={{ base: '40px', md: '68px' }}
@@ -258,7 +305,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         </Box>
 
         <Hide above="lg">
-          <VStack ml={5} pb={10} alignSelf={'flex-start'}>
+          <VStack ml={5} pb={10} alignSelf={'flex-start'} zIndex={10}>
             <Text fontSize="12px" lineHeight="15px" fontWeight="700" color={'white'}>
               {colorMode === 'dark' ? 'Light' : 'Dark'} mode
             </Text>

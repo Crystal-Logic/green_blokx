@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Box, Heading, Text, Hide, Button, useColorMode } from '@chakra-ui/react';
+import { Box, Heading, Text, Hide, useColorMode } from '@chakra-ui/react';
 
 export const Construction = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
