@@ -9,6 +9,7 @@ import {
   PopoverTrigger,
   PopoverContent,
   Link,
+  useColorMode,
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 
@@ -46,6 +47,7 @@ const LinkCard = ({ href }: any) => {
 
 export const Partners = () => {
   const gridColor = useColorModeValue('brand.green', 'white');
+  const { colorMode } = useColorMode();
 
   return (
     <Box id="partners" pb={'100px'} overflow={'hidden'}>
@@ -93,7 +95,13 @@ export const Partners = () => {
         <Flex alignItems={'center'}>
           <Popover trigger="hover" placement="auto">
             <PopoverTrigger>
-              <Image src={'/images/partners/aurora_logo.png'} alt="aurora logo" w={'135px'} h={'90px'} mx={'40px'} />
+              <Image
+                src={colorMode === 'dark' ? '/images/partners/aurora_dark.png' : '/images/partners/aurora_logo.png'}
+                alt="aurora logo"
+                w={'135px'}
+                h={'110px'}
+                mx={'40px'}
+              />
             </PopoverTrigger>
             <LinkCard href={'https://www.inspirawealth.com/'} />
           </Popover>
@@ -113,7 +121,9 @@ export const Partners = () => {
           <Popover trigger="hover" placement="auto">
             <PopoverTrigger>
               <Image
-                src={'/images/partners/moonboots_logo.png'}
+                src={
+                  colorMode === 'dark' ? '/images/partners/moonboots_dark.png' : '/images/partners/moonboots_logo.png'
+                }
                 alt="moonboots logo"
                 w={'260px'}
                 h={'45px'}

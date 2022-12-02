@@ -1,20 +1,56 @@
-import { useRef } from 'react';
-import { Box, Heading, Text, Flex, Image, Button, Link, Hide } from '@chakra-ui/react';
+import { useRef, useState } from 'react';
+import { Box, Heading, Text, Flex, Image, Link, Button } from '@chakra-ui/react';
 import { Swiper as SwiperType, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+const teamInfo = [
+  {
+    name: 'Daniel Pal',
+    position: 'Chairman',
+    linkdIn: 'https://www.linkedin.com/in/daniel-pal-19025a252/',
+    photo: '/images/team/daniel_pal.png',
+    description:
+      'Daniel is a construction and tech entrepreneur with over 10+ Years of industrial, commercial and residential development as an acting CEO and Operations Officer. Daniel is a technology investor and Co-founded Moonboots Venture Capital where they successfully funded over 150+ Web3 start-ups and achieved an AUM of $100M in 2021. Dan excels in systems engineering and brings years of organizational experience, business structuring, and technology optimization.',
+  },
+  {
+    name: 'Matt Haynes',
+    position: 'Chief Blockchain Operations Officer',
+    linkdIn: 'https://www.linkedin.com/in/matthaynesblockchain/',
+    photo: '/images/team/matt_haynes.png',
+    description:
+      'Matt Haynes is a serial web entrepreneur with a marketing and operations background. He also comes with significant experience in construction management systems and occupational health and safety providing him with an ideal hybrid of skill sets for this kind of startup. Matt, in addition to Dan, was also a Co-Founder at MoonBoots Capital and has worked in the structural organization for early-stage startups, equities, and Web3 venture capital. He brings a wealth of knowledge in operations, blockchain, and fundraising.',
+  },
+  {
+    name: 'Florin Tudor',
+    position: 'Chief Executive Officer',
+    linkdIn: 'https://www.linkedin.com/in/Florin-Tudor-a5969a121/',
+    photo: '/images/team/florin_tudor.png',
+    description:
+      "Florin holds a Master's Degree in Chemistry from the West University of Timișoara with 10+ years of experience in Flexible and Rigid PU Foam synthesis and processing, industrialization, and commercialization. Florin led growth in the revenue-leading sandwich panel manufacturer in Romania. He spent 3 years in Dubai in lead roles such as CTO, CBDO, and CQO for companies producing over 50M+ Revenue and employing 250+ Employees. Florin is an expert in the chemical composition of sandwich panels and product Q/A.",
+  },
+  {
+    name: 'Vlad Arama',
+    position: 'Chief Sales Officer',
+    linkdIn: 'https://www.linkedin.com/in/vlad-alexandru-aram%C4%83-758794151/',
+    photo: '/images/team/vlad_arama.png',
+    description:
+      'Vlad Arama completed Thermal Installations studies in France. From 2009-2015 he was the CEO of a company he founded in the field of metallurgy (repairs and modernization of elevators) Working with some of the leading companies such as Kone & Schindler. At present he operates and owns a sandwich panel Re-distribution warehouse. Vlad has built a large network of sales associates and preferential partnerships with the largest construction companies in Romania and abroad in Europe. Vlad has worked in sales in the industry for many years and will lead the consumer-facing sales division.',
+  },
+];
+
 export const Team = () => {
   const swiperRef = useRef<SwiperType>();
+  const [isShowAll, setIsShowAll] = useState(false);
 
   return (
-    <Box id="team" minH={'1110px'} pt={'53px'} mb={'93px'}>
+    <Box id="team" minH={'780px'} pt={'53px'}>
       <Box h={'full'} w={'full'} position={'relative'}>
-        <Flex h={'100px'} w={'full'} pl={'205px'} position={'absolute'} zIndex={10}>
+        <Flex h={'100px'} w={'full'} pl={52} position={'absolute'} zIndex={10}>
           <Flex flex={'1'} alignItems={'center'}>
             <Box h={'0px'} w={'full'} borderBottom={'3px solid'} borderColor={'brand.green'}></Box>
           </Flex>
           <Flex w={'290px'} bg="brand.green" alignItems={'center'} pl={'43px'}>
-            <Heading as="h2" fontSize="32px" lineHeight="40px" fontWeight="500">
+            <Heading as="h2" fontSize="32px" lineHeight="40px" fontWeight="500" color={'white'}>
               Team
             </Heading>
           </Flex>
@@ -22,7 +58,7 @@ export const Team = () => {
 
         {/* Slider frame */}
 
-        <Box h={'630px'} w={'full'} pl={'205px'} position={'absolute'} top={'76px'}>
+        <Box h={'630px'} w={'full'} pl={{ base: 5, xl: 52 }} position={'absolute'} top={'76px'}>
           <Swiper
             modules={[Navigation, Pagination]}
             spaceBetween={50}
@@ -34,283 +70,136 @@ export const Team = () => {
               swiperRef.current = swiper;
             }}
           >
-            <SwiperSlide>
-              <Flex h={'630px'} w={'full'}>
-                <Image
-                  src="/images/team/daniel_pal.png"
-                  alt="Daniel Pal"
-                  h={'full'}
-                  w={'520px'}
-                  filter={'grayscale(1)'}
-                  pointerEvents={'none'}
-                />
-                <Box flex={'1'} pl={'42px'}>
-                  <Text
-                    mt={'350px'}
-                    fontSize="32px"
-                    lineHeight="40px"
-                    fontWeight="700"
-                    display={'flex'}
-                    alignItems={'center'}
-                  >
-                    Daniel Pal{' '}
-                    <Link href={'https://www.linkedin.com/'} isExternal>
-                      <Image src="/images/linkedin_logo.png" alt="linkedin logo" h={'30px'} w={'30px'} ml={'10px'} />
-                    </Link>
-                  </Text>
-                  <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
-                    Chief Executive Officer
-                  </Text>
-                  <Text fontSize="18px" lineHeight="23px" fontWeight="400" pt={'35px'}>
-                    Florin holds a Master's Degree in Chemistry from the West University of Timișoara with 10+ years of
-                    experience in Flexible and Rigid PU Foam synthesis and processing...{' '}
-                    <Text as={'span'} color={'brand.red'}>
-                      read more
+            {teamInfo.map(({ name, position, linkdIn, photo, description }) => (
+              <SwiperSlide key={photo}>
+                <Flex h={'630px'} w={'full'}>
+                  <Image src={photo} alt={name} h={'full'} minW={'520px'} filter={'grayscale(1)'} />
+                  <Flex flex={'1'} direction={'column'} justifyContent={'flex-end'} pl={'42px'} pr={4}>
+                    <Text
+                      // mt={'350px'}
+                      fontSize="32px"
+                      lineHeight="40px"
+                      fontWeight="700"
+                      display={'flex'}
+                      alignItems={'center'}
+                    >
+                      {name}
+                      <Link href={linkdIn} isExternal>
+                        <Image src="/images/linkedin_logo.png" alt="linkedin logo" h={'30px'} w={'30px'} ml={'10px'} />
+                      </Link>
                     </Text>
-                  </Text>
-                </Box>
-              </Flex>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Flex h={'630px'} w={'full'}>
-                <Image
-                  src="/images/team/matt_haynes.png"
-                  alt="Matt Haynes"
-                  h={'full'}
-                  w={'520px'}
-                  filter={'grayscale(1)'}
-                />
-                <Box flex={'1'} pl={'42px'}>
-                  <Text
-                    mt={'350px'}
-                    fontSize="32px"
-                    lineHeight="40px"
-                    fontWeight="700"
-                    display={'flex'}
-                    alignItems={'center'}
-                  >
-                    Matt Haynes{' '}
-                    <Link href={'https://www.linkedin.com/'} isExternal>
-                      <Image src="/images/linkedin_logo.png" alt="linkedin logo" h={'30px'} w={'30px'} ml={'10px'} />
-                    </Link>
-                  </Text>
-                  <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
-                    Chief Executive Officer
-                  </Text>
-                  <Text fontSize="18px" lineHeight="23px" fontWeight="400" pt={'35px'}>
-                    Florin holds a Master's Degree in Chemistry from the West University of Timișoara with 10+ years of
-                    experience in Flexible and Rigid PU Foam synthesis and processing...{' '}
-                    <Text as={'span'} color={'brand.red'}>
-                      read more
+                    <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
+                      {position}
                     </Text>
-                  </Text>
-                </Box>
-              </Flex>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Flex h={'630px'} w={'full'}>
-                <Image
-                  src="/images/team/john_sears.png"
-                  alt="John Sears"
-                  h={'full'}
-                  w={'520px'}
-                  filter={'grayscale(1)'}
-                  objectFit="cover"
-                />
-                <Box flex={'1'} pl={'42px'}>
-                  <Text
-                    mt={'350px'}
-                    fontSize="32px"
-                    lineHeight="40px"
-                    fontWeight="700"
-                    display={'flex'}
-                    alignItems={'center'}
-                  >
-                    John Sears{' '}
-                    <Link href={'https://www.linkedin.com/'} isExternal>
-                      <Image src="/images/linkedin_logo.png" alt="linkedin logo" h={'30px'} w={'30px'} ml={'10px'} />
-                    </Link>
-                  </Text>
-                  <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
-                    Chief Executive Officer
-                  </Text>
-                  <Text fontSize="18px" lineHeight="23px" fontWeight="400" pt={'35px'}>
-                    Florin holds a Master's Degree in Chemistry from the West University of Timișoara with 10+ years of
-                    experience in Flexible and Rigid PU Foam synthesis and processing...{' '}
-                    <Text as={'span'} color={'brand.red'}>
-                      read more
+                    <Text
+                      noOfLines={isShowAll ? 100 : 3}
+                      fontSize="18px"
+                      lineHeight="23px"
+                      fontWeight="400"
+                      pt={'35px'}
+                    >
+                      {description}
                     </Text>
-                  </Text>
-                </Box>
-              </Flex>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Flex h={'630px'} w={'full'}>
-                <Image
-                  src="/images/team/florin_tudor.png"
-                  alt="Florin Tudor"
-                  h={'full'}
-                  w={'520px'}
-                  filter={'grayscale(1)'}
-                />
-                <Box flex={'1'} pl={'42px'}>
-                  <Text
-                    mt={'350px'}
-                    fontSize="32px"
-                    lineHeight="40px"
-                    fontWeight="700"
-                    display={'flex'}
-                    alignItems={'center'}
-                  >
-                    Florin Tudor{' '}
-                    <Link href={'https://www.linkedin.com/'} isExternal>
-                      <Image src="/images/linkedin_logo.png" alt="linkedin logo" h={'30px'} w={'30px'} ml={'10px'} />
-                    </Link>
-                  </Text>
-                  <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
-                    Chief Executive Officer
-                  </Text>
-                  <Text fontSize="18px" lineHeight="23px" fontWeight="400" pt={'35px'}>
-                    Florin holds a Master's Degree in Chemistry from the West University of Timișoara with 10+ years of
-                    experience in Flexible and Rigid PU Foam synthesis and processing...{' '}
-                    <Text as={'span'} color={'brand.red'}>
-                      read more
+                    <Text color={'brand.red'} mb={isShowAll ? 3 : 14} onClick={() => setIsShowAll(!isShowAll)}>
+                      {isShowAll ? 'read less' : 'read more'}
                     </Text>
-                  </Text>
-                </Box>
-              </Flex>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Flex h={'630px'} w={'full'}>
-                <Image
-                  src="/images/team/vlad_arama.png"
-                  alt="Vlad Arama"
-                  h={'full'}
-                  w={'520px'}
-                  filter={'grayscale(1)'}
-                />
-                <Box flex={'1'} pl={'42px'}>
-                  <Text
-                    mt={'350px'}
-                    fontSize="32px"
-                    lineHeight="40px"
-                    fontWeight="700"
-                    display={'flex'}
-                    alignItems={'center'}
-                  >
-                    Vlad Arama{' '}
-                    <Link href={'https://www.linkedin.com/'} isExternal>
-                      <Image src="/images/linkedin_logo.png" alt="linkedin logo" h={'30px'} w={'30px'} ml={'10px'} />
-                    </Link>
-                  </Text>
-                  <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
-                    Chief Executive Officer
-                  </Text>
-                  <Text fontSize="18px" lineHeight="23px" fontWeight="400" pt={'35px'}>
-                    Florin holds a Master's Degree in Chemistry from the West University of Timișoara with 10+ years of
-                    experience in Flexible and Rigid PU Foam synthesis and processing...{' '}
-                    <Text as={'span'} color={'brand.red'}>
-                      read more
-                    </Text>
-                  </Text>
-                </Box>
-              </Flex>
-            </SwiperSlide>
+                  </Flex>
+                </Flex>
+              </SwiperSlide>
+            ))}
           </Swiper>
 
           {/* slide control bar */}
-          <Hide above="md">
-            <Flex
+          <Flex
+            h={'40px'}
+            w={'240px'}
+            justifyContent={'space-between'}
+            alignItems={'center'}
+            position={'absolute'}
+            top={{ md: isShowAll ? '50px' : '145px', xl: '145px' }}
+            left={{ base: '120px', lg: '590px', xl: '770px' }}
+            zIndex={15}
+          >
+            <Box
+              as="button"
+              onClick={() => swiperRef.current?.slidePrev()}
               h={'40px'}
-              w={'240px'}
-              justifyContent={'space-between'}
-              alignItems={'center'}
-              position={'absolute'}
-              top={'145px'}
-              left={{ base: '120px', md: '770px' }}
-              zIndex={15}
+              w={'40px'}
+              border="1px solid transparent"
+              position={'relative'}
+              _hover={{ borderColor: 'brand.green' }}
             >
               <Box
-                as="button"
-                onClick={() => swiperRef.current?.slidePrev()}
-                h={'40px'}
-                w={'40px'}
-                border="1px solid transparent"
-                position={'relative'}
-                _hover={{ borderColor: 'brand.green' }}
-              >
-                <Box
-                  position={'absolute'}
-                  h={'15px'}
-                  w={'15px'}
-                  top={'12px'}
-                  left={'14px'}
-                  borderColor={'brand.green'}
-                  borderWidth={'2px 2px 0 0'}
-                  sx={{ transform: 'rotate(-135deg)' }}
-                ></Box>
-              </Box>
-              <Box
-                className="team-pagination"
-                flex={'1'}
-                display="flex"
-                justifyContent="space-around"
-                alignItems="center"
-                mx={'20px'}
-                sx={{
-                  '.swiper-pagination-bullet': {
-                    width: '15px',
-                    height: '15px',
-                    background: 'rgba(58, 174, 5, 0.1)',
-                    opacity: 'unset',
-                  },
-                  '.swiper-pagination-bullet-active': {
-                    width: '20px',
-                    height: '20px',
-                    background: 'rgba(210, 87, 87, 0.81)',
-                  },
-                }}
+                position={'absolute'}
+                h={'15px'}
+                w={'15px'}
+                top={'12px'}
+                left={'14px'}
+                borderColor={'brand.green'}
+                borderWidth={'2px 2px 0 0'}
+                sx={{ transform: 'rotate(-135deg)' }}
               ></Box>
+            </Box>
+            <Box
+              className="team-pagination"
+              flex={'1'}
+              display="flex"
+              justifyContent="space-around"
+              alignItems="center"
+              mx={'20px'}
+              sx={{
+                '.swiper-pagination-bullet': {
+                  width: '15px',
+                  height: '15px',
+                  background: 'rgba(58, 174, 5, 0.1)',
+                  opacity: 'unset',
+                },
+                '.swiper-pagination-bullet-active': {
+                  width: '20px',
+                  height: '20px',
+                  background: 'rgba(210, 87, 87, 0.81)',
+                },
+              }}
+            ></Box>
+            <Box
+              as="button"
+              onClick={() => swiperRef.current?.slideNext()}
+              h={'40px'}
+              w={'40px'}
+              border="1px solid transparent"
+              position={'relative'}
+              _hover={{ borderColor: 'brand.green' }}
+            >
               <Box
-                as="button"
-                onClick={() => swiperRef.current?.slideNext()}
-                h={'40px'}
-                w={'40px'}
-                border="1px solid transparent"
-                position={'relative'}
-                _hover={{ borderColor: 'brand.green' }}
-              >
-                <Box
-                  position={'absolute'}
-                  h={'15px'}
-                  w={'15px'}
-                  top={'12px'}
-                  right={'14px'}
-                  borderColor={'brand.green'}
-                  borderWidth={'0 0 2px 2px'}
-                  sx={{ transform: 'rotate(-135deg)' }}
-                ></Box>
-              </Box>
-            </Flex>
-          </Hide>
+                position={'absolute'}
+                h={'15px'}
+                w={'15px'}
+                top={'12px'}
+                right={'14px'}
+                borderColor={'brand.green'}
+                borderWidth={'0 0 2px 2px'}
+                sx={{ transform: 'rotate(-135deg)' }}
+              ></Box>
+            </Box>
+          </Flex>
         </Box>
 
         {/* Slider frame end */}
 
-        <Flex h={'106px'} w={'full'} position={'absolute'} top={'600px'}>
-          <Flex w={'160px'} bg="brand.green">
-            <Image
-              src="/images/logo_white.png"
-              alt="logo white"
-              position={'absolute'}
-              left={'10px'}
-              top={'8px'}
-              h={'88px'}
-            />
-          </Flex>
-          <Flex w={'580px'}></Flex>
+        <Flex h={'106px'} w={'160px'} position={'absolute'} top={'600px'} bg="brand.green" zIndex={10}>
+          <Image
+            src="/images/logo_white.png"
+            alt="logo white"
+            position={'absolute'}
+            left={'10px'}
+            top={'8px'}
+            h={'88px'}
+          />
+        </Flex>
+        <Flex w={'full'} position={'absolute'} top={'703px'} right={0} zIndex={10}>
+          <Flex w={{ base: 6, md: '580px', xl: '740px' }}></Flex>
           <Flex flex={'1'}>
-            <Box h={'full'} w={'full'} borderBottom={'3px solid'} borderColor={'brand.green'}></Box>
+            <Box h={''} w={'full'} alignSelf={'flex-end'} borderBottom={'3px solid'} borderColor={'brand.green'}></Box>
           </Flex>
         </Flex>
       </Box>

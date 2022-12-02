@@ -112,7 +112,7 @@ export const FormModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
       <ModalOverlay />
       <ModalContent position="relative" flexDir="row" display="flex" maxW="calc(85vw)">
         <Button onClick={onClose} padding={2} top={4} right={6} position="absolute" variant="ghost">
-          <Icon fontSize="20px" color="brand.green" as={CloseIcon} />
+          <Icon fontSize="20px" color="brand.white" as={CloseIcon} />
         </Button>
         <Flex py="100px" flex={1} flexDirection={'column'}>
           <Text

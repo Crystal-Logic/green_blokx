@@ -16,6 +16,8 @@ import {
   DrawerOverlay,
   DrawerContent,
   useColorModeValue,
+  Link,
+  HStack,
 } from '@chakra-ui/react';
 
 const menuItems = [
@@ -49,6 +51,12 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const { toggleColorMode, colorMode } = useColorMode();
   const { isOpen, onClose, onToggle } = useDisclosure();
   const bg = useColorModeValue('white', 'brand.dark');
+  const gradientStyle = useColorModeValue(
+    'linear-gradient(0deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.01))',
+    'linear-gradient(0deg, rgba(43, 43, 43, 0.75), rgba(43, 43, 43, 0.75))',
+  );
+
+  const cursorPointer = 'url(/images/cursor_pointer-green.png) 16 16, auto';
 
   const scroll2El = (elID: string) => {
     const element = document.getElementById(elID);
@@ -86,6 +94,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             _hover={{
               color: 'brand.red',
             }}
+            cursor={cursorPointer}
           >
             Contact us
           </Text>
@@ -99,11 +108,18 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             _hover={{
               backgroundImage: isOpen ? '/images/red_button2.png' : '/images/red_button.png',
             }}
+            cursor={cursorPointer}
           />
         </Flex>
       </Hide>
 
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose} variant={'menu'} size={{ base: 'xs', md: 'md' }}>
+      <Drawer
+        isOpen={isOpen}
+        placement="left"
+        onClose={onClose}
+        variant={'menu'}
+        size={{ base: 'xs', md: 'md', xl: 'lg' }}
+      >
         <DrawerOverlay
           backgroundImage={'/images/backgroundMenu.webp'}
           backgroundRepeat="no-repeat"
@@ -115,9 +131,31 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         >
           <DrawerBody>
             <Hide below="lg">
-              <Text py={'100px'} pl={3} fontSize="30px" fontWeight="500">
-                GreenBLOKX
-              </Text>
+              <Flex justifyContent={'space-between'} pr={10}>
+                <Text py={'100px'} fontSize="30px" fontWeight="500">
+                  GreenBLOKX
+                </Text>
+                <HStack>
+                  <Link href={'https://twitter.com/greenblokx'} isExternal>
+                    <Image
+                      src="/images/twitter_logo.png"
+                      alt="twitter logo"
+                      h={'44px'}
+                      w={'44px'}
+                      cursor={cursorPointer}
+                    />
+                  </Link>
+                  <Link href={'https://medium.com/@greenblokx'} isExternal pl={3}>
+                    <Image
+                      src="/images/medium_logo.png"
+                      alt="medium logo"
+                      h={'44px'}
+                      w={'44px'}
+                      cursor={cursorPointer}
+                    />
+                  </Link>
+                </HStack>
+              </Flex>
             </Hide>
             <VStack alignItems="baseline" ml={{ base: 5, lg: 16 }} mt={{ base: 5, lg: 0 }} align="center" spacing="25">
               {menuItems.map(({ text, href }, idx) => (
@@ -130,6 +168,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
                   textAlign={'left'}
                   _hover={{ color: 'brand.green' }}
                   onClick={() => navigateTo(href)}
+                  cursor={cursorPointer}
                 >
                   {text}
                 </Text>
@@ -145,7 +184,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         direction={'column'}
         justifyContent={{ base: 'space-between', lg: 'center' }}
         position={'relative'}
-        bg={`linear-gradient(0deg, rgba(43, 43, 43, 0.75), rgba(43, 43, 43, 0.75)), url(/images/background.webp)`}
+        bg={`${gradientStyle}, url(/images/background.webp)`}
         backgroundSize="cover"
       >
         {/* mobile menu */}
@@ -176,12 +215,23 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         {/* mobile menu  end*/}
 
         <Hide below="md">
-          <VStack position={'absolute'} top={20} right={20}>
-            <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
+          <VStack position={'absolute'} top={24} right={44}>
+            <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" cursor={cursorPointer} />
             <Text fontSize="14px" lineHeight="25px" fontWeight="700" color={'white'}>
               {colorMode === 'dark' ? 'Light' : 'Dark'} mode
             </Text>
           </VStack>
+        </Hide>
+
+        <Hide below="md">
+          <HStack position={'absolute'} bottom={20} right={32}>
+            <Link href={'https://twitter.com/greenblokx'} isExternal>
+              <Image src="/images/twitter_logo.png" alt="twitter logo" h={'44px'} w={'44px'} cursor={cursorPointer} />
+            </Link>
+            <Link href={'https://medium.com/@greenblokx'} isExternal pl={3}>
+              <Image src="/images/medium_logo.png" alt="medium logo" h={'44px'} w={'44px'} cursor={cursorPointer} />
+            </Link>
+          </HStack>
         </Hide>
 
         <Box maxW={{ base: 'full', lg: 900, xl: 950 }} pl={{ base: 5, md: 100 }}>

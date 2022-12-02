@@ -4,31 +4,31 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 const images = [
   {
-    src: '/images/video_placeholder.webp',
-    alt: 'construction video',
+    src: '/images/why_block/1-5.png',
+    alt: '1-5',
   },
   {
-    src: 'https://picsum.photos/900/400?random=1',
-    alt: 'random 1',
+    src: '/images/why_block/2-5.png',
+    alt: '2-5',
   },
   {
-    src: 'https://picsum.photos/900/400?random=2',
-    alt: 'random 2',
+    src: '/images/why_block/3-5.png',
+    alt: '3-5',
   },
   {
-    src: 'https://picsum.photos/900/400?random=3',
-    alt: 'random 3',
+    src: '/images/why_block/4-5.png',
+    alt: '4-5',
   },
   {
-    src: 'https://picsum.photos/900/400?random=4',
-    alt: 'random 4',
+    src: '/images/why_block/5-5.png',
+    alt: '5-5',
   },
 ];
 
 export const WhyBlock = () => {
   return (
-    <Box id="why_blockchain" mb={'107px'}>
-      <Flex h={{ base: '60px', md: '87px' }} bg="brand.green" justifyContent={'center'} alignItems={'center'}>
+    <Box id="why_blockchain" mb={20}>
+      <Flex h={{ base: '60px', md: '80px' }} bg="brand.green" justifyContent={'center'} alignItems={'center'}>
         <Heading
           as="h2"
           fontSize={{ base: '25px', md: '32px' }}
@@ -43,8 +43,8 @@ export const WhyBlock = () => {
       <Flex
         w={'full'}
         pt={{ base: '32px', md: '68px' }}
-        pl={{ base: '20px', md: '225px' }}
-        pr={{ base: '20px', md: '182px' }}
+        pl={{ base: 5, xl: 52 }}
+        pr={{ base: 5, xl: 44 }}
         pb={{ base: '42px', md: 0 }}
       >
         <Text
@@ -52,6 +52,7 @@ export const WhyBlock = () => {
           fontSize={{ base: '14px', md: '18px' }}
           lineHeight={{ base: '18px', md: '23px' }}
           fontWeight="500"
+          mr={{ base: 0, md: 7 }}
         >
           Blockchain is a term for a distributed ledger system that uses encryption to maintain integrity.
           <br />
@@ -74,11 +75,11 @@ export const WhyBlock = () => {
 
       <Flex
         h={{ base: '370px', md: '431px' }}
-        w={'full'}
+        w={{ base: 'full' }}
         mt={'52px'}
-        pl={{ base: 0, md: '225px' }}
-        pr={{ base: 0, md: '182px' }}
+        pl={{ base: 0, xl: 52 }}
         direction={{ base: 'column-reverse', md: 'row' }}
+        overflow={'hidden'}
       >
         <Flex
           className="wb-pagination"
@@ -109,7 +110,7 @@ export const WhyBlock = () => {
             },
           }}
         ></Flex>
-        <Box w={{ base: 'full', xl: '942px' }} h={'full'}>
+        <Box flex={'1'} w={{ base: 'full' }} h={'full'}>
           <Swiper
             modules={[Pagination]}
             spaceBetween={50}
@@ -130,7 +131,7 @@ export const WhyBlock = () => {
                   h={{ base: '360px', md: '431px' }}
                   pl={{ base: 0, md: '22px' }}
                   alt={alt}
-                  objectFit={'cover'}
+                  objectFit={'contain'}
                 />
               </SwiperSlide>
             ))}

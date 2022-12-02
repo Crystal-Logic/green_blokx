@@ -1,7 +1,8 @@
-import { Flex, Text, Image, useColorModeValue, Hide } from '@chakra-ui/react';
+import { Flex, Text, Image, useColorModeValue, Hide, Link } from '@chakra-ui/react';
 
 export const Footer = () => {
   const bg = useColorModeValue('brand.green', 'brand.dark');
+  const cursorPointer = 'url(/images/cursor_pointer-green.png) 16 16, auto';
 
   return (
     <Flex
@@ -37,20 +38,28 @@ export const Footer = () => {
         </Hide>{' '}
         All rights reserved
       </Text>
-      <Flex h={'53px'} w={'49px'} alignItems={'center'} position={'relative'} order={{ base: 2, md: 'unset' }}>
-        <Text fontSize={{ base: '9px', md: '18px' }} lineHeight={{ base: '12px', md: '23px' }} fontWeight="400">
-          by{' '}
-        </Text>
-        <Image
-          src="/images/int_logo.png"
-          alt="intencio logo"
-          w={{ base: '25px', md: '49px' }}
-          h={{ base: '22px', md: '53px' }}
-          position={'absolute'}
-          top={{ base: '20px', md: '6px' }}
-          right={{ base: '20px', md: '-10px' }}
-        />
-      </Flex>
+      <Link href={'https://intencioagency.com/'} isExternal>
+        <Flex h={'53px'} w={'49px'} alignItems={'center'} position={'relative'} order={{ base: 2, md: 'unset' }}>
+          <Text
+            fontSize={{ base: '9px', md: '18px' }}
+            lineHeight={{ base: '12px', md: '23px' }}
+            fontWeight="400"
+            cursor={cursorPointer}
+          >
+            by{' '}
+          </Text>
+          <Image
+            src="/images/int_logo.png"
+            alt="intencio logo"
+            w={{ base: '25px', md: '49px' }}
+            h={{ base: '22px', md: '53px' }}
+            position={'absolute'}
+            top={{ base: '20px', md: '6px' }}
+            right={{ base: '20px', md: '-10px' }}
+            cursor={cursorPointer}
+          />
+        </Flex>
+      </Link>
     </Flex>
   );
 };

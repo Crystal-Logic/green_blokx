@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Image, Flex, Hide } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
 type NumBoxProps = {
@@ -7,7 +7,7 @@ type NumBoxProps = {
 };
 
 const NumberBox = ({ children, number }: NumBoxProps) => (
-  <Flex mb={'18px'} alignItems={'center'}>
+  <Flex mt={5} alignItems={'center'}>
     <Flex
       h={{ base: '43px', md: '84px' }}
       w={{ base: '43px', md: '84px' }}
@@ -45,9 +45,9 @@ const NumberBox = ({ children, number }: NumBoxProps) => (
 );
 
 export const Advantages = () => (
-  <Box h={{ base: 'auto', md: '100vh' }}>
-    <Flex h={{ base: 'auto', md: '567px' }} direction={{ base: 'column', md: 'row' }} my={{ base: '62px', md: '94px' }}>
-      <Box flex="1" pl={['20px', null, null, '205px']}>
+  <Box pt={{ base: 10, lg: 40 }} pb={{ base: 10, lg: 20 }}>
+    <Flex h={{ base: 'auto' }} direction={{ base: 'column', md: 'row' }}>
+      <Box flex="1" pl={{ base: 10, xl: 52 }}>
         <Heading
           as="h2"
           fontSize={{ base: '25px', md: '40px' }}
@@ -61,49 +61,28 @@ export const Advantages = () => (
           Advantages
         </Heading>
 
-        <NumberBox number="01">
-          Compliant offering through a registered{' '}
-          <Hide below="md">
-            <br />
-          </Hide>{' '}
-          broker-dealer
-        </NumberBox>
+        <NumberBox number="01">Compliant offering through a registered broker-dealer</NumberBox>
 
         <NumberBox number="02">
-          No need to lock / stake them they provide passive{' '}
-          <Hide below="md">
-            <br />
-          </Hide>{' '}
-          stable cash flow based on company performance
+          No need to lock / stake them they provide passive stable cash flow based on company performance
         </NumberBox>
 
-        <NumberBox number="03">
-          Transparent automated payments are{' '}
-          <Hide below="md">
-            <br />
-          </Hide>{' '}
-          easy to record
-        </NumberBox>
+        <NumberBox number="03">Transparent automated payments are easy to record</NumberBox>
 
         <NumberBox number="04">Decentralized and available for self custody</NumberBox>
 
         <NumberBox number="05">
-          Does not affect company equity dilution and{' '}
-          <Hide below="md">
-            <br />
-          </Hide>{' '}
-          allows companies / projects to scale easily
+          Does not affect company equity dilution and allows companies / projects to scale easily
         </NumberBox>
       </Box>
-      <Box h={{ base: '197px', md: 'full' }} w={{ base: 'full', md: '435px' }} mt={{ base: '40px', md: 0 }}>
-        <Image
-          src="/images/advantages.webp"
-          alt="logo white"
-          h={{ base: '197px', md: 'full' }}
-          w={{ base: 'full', md: '435px' }}
-          objectFit={'cover'}
-        />
-      </Box>
+      <Box
+        h={{ base: 200, md: 'auto' }}
+        w={{ base: 'full', md: '30%' }}
+        mt={{ base: 10, md: 0 }}
+        ml={{ md: 8 }}
+        bg="url('/images/advantages.webp')"
+        backgroundSize="cover"
+      ></Box>
     </Flex>
   </Box>
 );

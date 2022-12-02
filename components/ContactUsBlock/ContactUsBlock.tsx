@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Button } from '@chakra-ui/react';
 
 export const ContactUsBlock = ({ onOpenModal, title }: { onOpenModal: () => void; title: string }) => (
-  <Box pt={20} pb={20}>
+  <Box pt={12} pb={20}>
     <Button
       flexDirection="column"
       alignItems="flex-end"
