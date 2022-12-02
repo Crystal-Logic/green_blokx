@@ -1,42 +1,147 @@
-import { Box, Heading, Text, Flex, Image, SimpleGrid, useColorModeValue, Hide } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Box, Heading, Text, Flex, Image, SimpleGrid, useColorModeValue, Hide, Button } from '@chakra-ui/react';
 
 type StepProps = {
   text: string;
+  isActive: boolean;
+  onSelect: () => void;
 };
 
-const Step = ({ text }: StepProps) => {
+const Step = ({ text, isActive, onSelect }: StepProps) => {
   const activeColor = useColorModeValue('brand.dark', 'white');
 
   return (
     <Box borderRight={'1px solid'} borderColor={'brand.green'} h={'13px'} position="relative">
-      <Text
+      <Button
+        onClick={onSelect}
+        isActive={isActive}
         fontSize={{ base: '12px', md: '18px' }}
         lineHeight={{ base: '15px', md: '23px' }}
         fontWeight="400"
         color="brand.green"
         position={'absolute'}
         top={15}
-        right={{ base: '-20px', md: '-30px' }}
+        right={{ base: '-20px', md: '-40px' }}
         cursor={'pointer'}
+        background="transparent"
         _hover={{
+          color: 'brand.red',
+          fontSize: { base: '15px', md: '32px' },
+          lineHeight: { base: '18px', md: '40px' },
+          fontWeight: '500',
+          right: { base: '-30px', md: '-60px' },
+        }}
+        _active={{
           color: activeColor,
           fontSize: { base: '15px', md: '32px' },
           lineHeight: { base: '18px', md: '40px' },
           fontWeight: '500',
-          right: { base: '-30px', md: '-50px' },
+          right: { base: '-30px', md: '-60px' },
         }}
       >
         {' '}
         {text}
-      </Text>
+      </Button>
     </Box>
   );
 };
 
+const getStepCard = (step: string): JSX.Element => {
+  const cards: any = {
+    '1': () => (
+      <Box
+        w={'full'}
+        minH={{ lg: '550px' }}
+        mb={{ base: '10px', md: '26px' }}
+        bg="url('/images/tech/tokenised_factory.png')"
+        backgroundSize="contain"
+        backgroundRepeat="no-repeat"
+        backgroundPosition="right"
+      >
+        <Text
+          fontSize={{ base: '14px', md: '18px' }}
+          lineHeight={{ base: '18px', md: '23px' }}
+          fontWeight="600"
+          pl={{ base: 8, xl: 52 }}
+          pt={20}
+          maxW={'600px'}
+        >
+          Our intention is to be the largest supplier of sandwich panels in all of Europe and we won't stop there.
+          <br />
+          <br />
+          We have the industry knowledge, business development, sales pipelines, and competitive advantage to create a
+          company to weather any storm while suiting the needs of the growing demand for Sustainable development
+          products
+        </Text>
+      </Box>
+    ),
+    '2': () => (
+      <Box
+        w={'full'}
+        minH={{ lg: '550px' }}
+        mb={{ base: '10px', md: '26px' }}
+        mr={10}
+        bg="url('/images/tech/eco_sandwich_panels.png')"
+        backgroundSize="contain"
+        backgroundRepeat="no-repeat"
+        backgroundPosition="bottom 0px right 100px"
+      >
+        <Text
+          fontSize={{ base: '14px', md: '18px' }}
+          lineHeight={{ base: '18px', md: '23px' }}
+          fontWeight="600"
+          pl={{ base: 8, xl: 52 }}
+          pt={20}
+          maxW={'600px'}
+        >
+          Eco Sandwich Panels are created with natural plant fibers such as soybean but carry all of the traditional
+          benefits of typical sandwich panels.
+          <br />
+          <br /> As the world moves towards carbon credits and sustainable construction, the recyclability and
+          renewability of the materials we use remains a high priority.
+        </Text>
+      </Box>
+    ),
+    '3': () => (
+      <Box
+        w={'full'}
+        minH={{ lg: '550px' }}
+        mb={{ base: '10px', md: '26px' }}
+        bg="url('/images/tech/revenue_share_tokens.png')"
+        backgroundSize="contain"
+        backgroundRepeat="no-repeat"
+        backgroundPosition="right"
+      >
+        <Text
+          fontSize={{ base: '14px', md: '18px' }}
+          lineHeight={{ base: '18px', md: '23px' }}
+          fontWeight="600"
+          pl={{ base: 8, xl: 52 }}
+          pt={20}
+          maxW={'600px'}
+        >
+          Our unique token model will provide a high yield return paid on a quarterly basis in FIAT or Stable Coins such
+          as USDT/USDC.
+          <br />
+          <br />
+          You can buy, sell, and trade with liquidity on demand. There are no locking periods, staking or vesting
+          requirements.
+          <br />
+          <br />
+          Our revenue forecasts a breakeven on investment in Year 3 with gross revenue share paid out quarterly.
+        </Text>
+      </Box>
+    ),
+  };
+  return cards[step]();
+};
+
 export const Technology = () => {
+  const [activeStep, setActiveStep] = useState(1);
+
   return (
     <Box id="technology">
-      <Flex h={{ base: '60px', md: '87px' }}>
+      <Flex h={{ base: '60px', md: '80px' }}>
         <Box flex={'1'} bg="brand.green"></Box>
         <Flex w={{ base: '200px', md: '400px' }} justifyContent="center" alignItems={'center'}>
           <Heading
@@ -72,20 +177,13 @@ export const Technology = () => {
         compliant Reg D 506c security offering.
       </Text>
 
-      <Image
-        src="/images/video_placeholder.webp"
-        w={'full'}
-        h={{ base: '360px', md: '461px' }}
-        pt={{ base: '35px', md: '26px' }}
-        pb={{ base: '10px', md: '26px' }}
-        alt="construction video"
-      />
+      {getStepCard(activeStep.toString())}
 
       <Flex h={'100px'} borderTop={'1px solid'} borderColor={'brand.green'}>
         <SimpleGrid columns={4} spacing={0} w={'full'}>
-          <Step text="Step 1" />
-          <Step text="Step 2" />
-          <Step text="Step 3" />
+          <Step text="Step 1" isActive={activeStep === 1} onSelect={() => setActiveStep(1)} />
+          <Step text="Step 2" isActive={activeStep === 2} onSelect={() => setActiveStep(2)} />
+          <Step text="Step 3" isActive={activeStep === 3} onSelect={() => setActiveStep(3)} />
         </SimpleGrid>
       </Flex>
     </Box>
