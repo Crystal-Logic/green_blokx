@@ -16,6 +16,8 @@ import {
   DrawerOverlay,
   DrawerContent,
   useColorModeValue,
+  Link,
+  HStack,
 } from '@chakra-ui/react';
 
 const menuItems = [
@@ -107,7 +109,13 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         </Flex>
       </Hide>
 
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose} variant={'menu'} size={{ base: 'xs', md: 'md' }}>
+      <Drawer
+        isOpen={isOpen}
+        placement="left"
+        onClose={onClose}
+        variant={'menu'}
+        size={{ base: 'xs', md: 'md', xl: 'lg' }}
+      >
         <DrawerOverlay
           backgroundImage={'/images/backgroundMenu.webp'}
           backgroundRepeat="no-repeat"
@@ -119,9 +127,19 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         >
           <DrawerBody>
             <Hide below="lg">
-              <Text py={'100px'} pl={3} fontSize="30px" fontWeight="500">
-                GreenBLOKX
-              </Text>
+              <Flex justifyContent={'space-between'} pr={10}>
+                <Text py={'100px'} fontSize="30px" fontWeight="500">
+                  GreenBLOKX
+                </Text>
+                <HStack>
+                  <Link href={'https://twitter.com/greenblokx'} isExternal>
+                    <Image src="/images/twitter_logo.png" alt="twitter logo" h={'44px'} w={'44px'} />
+                  </Link>
+                  <Link href={'https://medium.com/@greenblokx'} isExternal pl={3}>
+                    <Image src="/images/medium_logo.png" alt="medium logo" h={'44px'} w={'44px'} />
+                  </Link>
+                </HStack>
+              </Flex>
             </Hide>
             <VStack alignItems="baseline" ml={{ base: 5, lg: 16 }} mt={{ base: 5, lg: 0 }} align="center" spacing="25">
               {menuItems.map(({ text, href }, idx) => (
@@ -186,6 +204,17 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
               {colorMode === 'dark' ? 'Light' : 'Dark'} mode
             </Text>
           </VStack>
+        </Hide>
+
+        <Hide below="md">
+          <HStack position={'absolute'} bottom={20} right={32}>
+            <Link href={'https://twitter.com/greenblokx'} isExternal>
+              <Image src="/images/twitter_logo.png" alt="twitter logo" h={'44px'} w={'44px'} />
+            </Link>
+            <Link href={'https://medium.com/@greenblokx'} isExternal pl={3}>
+              <Image src="/images/medium_logo.png" alt="medium logo" h={'44px'} w={'44px'} />
+            </Link>
+          </HStack>
         </Hide>
 
         <Box maxW={{ base: 'full', lg: 900, xl: 950 }} pl={{ base: 5, md: 100 }}>
