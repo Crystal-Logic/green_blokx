@@ -276,11 +276,16 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             mb={20}
             w={'67px'}
             h={'67px'}
+            borderColor={'white'}
             borderRadius="none"
             border={'2px solid'}
             cursor={cursorPointer}
           >
-            <Image src="/images/play_icon.png" w={'25px'} h={'22px'} cursor={cursorPointer}></Image>
+            {!isShowVideo ? (
+              <Image src="/images/play_icon.png" w={'25px'} h={'22px'} cursor={cursorPointer}></Image>
+            ) : (
+              <Image src="/images/pause_icon.png" w={'25px'} h={'22px'} cursor={cursorPointer}></Image>
+            )}
           </Button>
           <Text
             fontSize={{ base: '32px', md: '54px' }}
