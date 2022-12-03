@@ -13,21 +13,13 @@ import {
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 
-const LinkCard = ({ href }: any) => {
+const LinkCard = ({ href, name, websiteName }: any) => {
   const popoverColor = useColorModeValue('white', 'brand.dark');
 
   return (
-    <PopoverContent
-      border={'1px solid'}
-      borderColor={'brand.green'}
-      borderRadius={'none'}
-      w={'290px'}
-      h={'130px'}
-      bg={popoverColor}
-      p={'30px'}
-    >
+    <PopoverContent border={'1px solid'} borderColor={'brand.green'} borderRadius={'none'} bg={popoverColor} p={'30px'}>
       <Text fontSize="20px" lineHeight="25px" fontWeight="500">
-        Company
+        {name}
       </Text>
       <Link
         href={href}
@@ -39,7 +31,7 @@ const LinkCard = ({ href }: any) => {
         mt={'18px'}
         isExternal
       >
-        Go to the website <ExternalLinkIcon w={'21px'} h={'21px'} mx="2px" />
+        {websiteName} <ExternalLinkIcon w={'21px'} h={'21px'} mx="2px" />
       </Link>
     </PopoverContent>
   );
@@ -78,7 +70,11 @@ export const Partners = () => {
                 mx={'40px'}
               />
             </PopoverTrigger>
-            <LinkCard href={'https://www.inspirawealth.com/'} />
+            <LinkCard
+              href={'https://www.inspirawealth.com/'}
+              name={'Inspira Wealth'}
+              websiteName={'www.inspirawealth.com'}
+            />
           </Popover>
         </Flex>
         <Flex flex={'1'} h={'full'} alignItems={'center'}>
@@ -103,7 +99,7 @@ export const Partners = () => {
                 mx={'40px'}
               />
             </PopoverTrigger>
-            <LinkCard href={'https://www.inspirawealth.com/'} />
+            <LinkCard href={'https://aurora.ventures/'} name={'Aurora'} websiteName={'aurora.ventures'} />
           </Popover>
         </Flex>
         <Flex w={'546px'} h={'full'} alignItems={'center'}>
@@ -125,12 +121,12 @@ export const Partners = () => {
                   colorMode === 'dark' ? '/images/partners/moonboots_dark.png' : '/images/partners/moonboots_logo.png'
                 }
                 alt="moonboots logo"
-                w={'260px'}
+                w={'290px'}
                 h={'45px'}
                 mx={'40px'}
               />
             </PopoverTrigger>
-            <LinkCard href={'https://www.inspirawealth.com/'} />
+            <LinkCard href={'https://moonbootscapital.io/'} name={'Moonboots'} websiteName={'moonbootscapital.io'} />
           </Popover>
         </Flex>
         <Flex w={'20px'} h={'full'} alignItems={'center'}>
@@ -147,9 +143,16 @@ export const Partners = () => {
         <Flex alignItems={'center'}>
           <Popover trigger="hover" placement="auto">
             <PopoverTrigger>
-              <Image src={'/images/partners/near_logo.png'} alt="near logo" w={'215px'} h={'84px'} mx={'40px'} />
+              <Image
+                src={'/images/partners/near_logo.png'}
+                alt="near logo"
+                w={'215px'}
+                h={'84px'}
+                mx={'40px'}
+                bg={colorMode === 'dark' ? 'white' : 'transparent'}
+              />
             </PopoverTrigger>
-            <LinkCard href={'https://near.org/'} />
+            <LinkCard href={'https://near.org/'} name={'Near'} websiteName={'near.org'} />
           </Popover>
         </Flex>
         <Flex flex={'1'} h={'full'} alignItems={'center'}>
