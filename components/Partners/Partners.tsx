@@ -75,7 +75,7 @@ export const Partners = () => {
             <Popover trigger="hover" placement="auto">
               <PopoverTrigger>
                 <Image
-                  src={'/images/partners/inspira_wealth_logo.png'}
+                  src={'/images/partners/inspira_logo.svg'}
                   alt="inspira wealth logo"
                   w={{ base: '135px', lg: '249px' }}
                   mx={{ base: 3, lg: '40px' }}
