@@ -1,7 +1,9 @@
-import { useRef, useState } from 'react';
-import { Box, Heading, Text, Flex, Image, Link, Button, Hide } from '@chakra-ui/react';
+import { useRef } from 'react';
+import { Box, Heading, Flex, Image, Hide } from '@chakra-ui/react';
 import { Swiper as SwiperType, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { TeamSlide } from './TeamSlide';
 
 const teamInfo = [
   {
@@ -40,7 +42,7 @@ const teamInfo = [
 
 export const Team = () => {
   const swiperRef = useRef<SwiperType>();
-  const [isShowAll, setIsShowAll] = useState(false);
+  // const [isShowAll, setIsShowAll] = useState(false);
 
   return (
     <Box id="team" minH={{ base: '600px', md: '450px', lg: '780px' }} pt={'53px'}>
@@ -70,13 +72,7 @@ export const Team = () => {
 
         {/* Slider frame */}
 
-        <Box
-          // h={'630px'}
-          w={'full'}
-          pl={{ base: 0, xl: 52 }}
-          position={'absolute'}
-          top={{ base: '60px', lg: '76px' }}
-        >
+        <Box w={'full'} pl={{ base: 0, xl: 52 }} position={'absolute'} top={{ base: '60px', lg: '76px' }}>
           <Swiper
             modules={[Navigation, Pagination]}
             spaceBetween={50}
@@ -90,60 +86,7 @@ export const Team = () => {
           >
             {teamInfo.map(({ name, position, linkdIn, photo, description }) => (
               <SwiperSlide key={photo}>
-                <Flex w={'full'} direction={{ base: 'column', md: 'row' }}>
-                  <Image
-                    src={photo}
-                    alt={name}
-                    h={'full'}
-                    maxW={{ base: '220px', lg: '520px' }}
-                    filter={'grayscale(1)'}
-                    ml={{ base: 10, lg: 'unset' }}
-                  />
-                  <Flex
-                    flex={'1'}
-                    direction={'column'}
-                    justifyContent={'flex-end'}
-                    pl={{ base: 5, lg: '42px' }}
-                    pr={4}
-                    mt={{ base: 6, lg: 'unset' }}
-                  >
-                    <Text
-                      fontSize={{ base: '28px', md: '32px' }}
-                      lineHeight={{ base: '35px', md: '40px' }}
-                      fontWeight="700"
-                      display={'flex'}
-                      alignItems={'center'}
-                    >
-                      {name}
-                      <Link href={linkdIn} isExternal>
-                        <Image src="/images/linkedin_logo.png" alt="linkedin logo" h={'30px'} w={'30px'} ml={'10px'} />
-                      </Link>
-                    </Text>
-                    <Text
-                      fontSize={{ base: '18px', md: '24px' }}
-                      lineHeight={{ base: '23px', md: '30px' }}
-                      fontWeight="500"
-                      color={'brand.green'}
-                      pt={{ lg: 5 }}
-                    >
-                      {position}
-                    </Text>
-                    <Text
-                      noOfLines={isShowAll ? 100 : 4}
-                      fontSize={{ base: '14px', md: '18px' }}
-                      lineHeight={{ base: '18px', md: '23px' }}
-                      fontWeight="400"
-                      pt={{ base: 5, lg: '35px' }}
-                    >
-                      {description}
-                    </Text>
-                    <Hide below="lg">
-                      <Text color={'brand.red'} mb={isShowAll ? 3 : 14} onClick={() => setIsShowAll(!isShowAll)}>
-                        {isShowAll ? 'read less' : 'read more'}
-                      </Text>
-                    </Hide>
-                  </Flex>
-                </Flex>
+                <TeamSlide {...{ name, position, linkdIn, photo, description }} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -155,7 +98,7 @@ export const Team = () => {
             justifyContent={'space-between'}
             alignItems={'center'}
             position={'absolute'}
-            top={{ md: '300px', lg: isShowAll ? '50px' : '145px', xl: '145px' }}
+            top={{ md: '300px', lg: '50px', xl: '145px' }}
             left={{ base: 'calc(50% - 75px)', lg: '590px', xl: '770px' }}
             zIndex={15}
           >
