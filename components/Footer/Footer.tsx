@@ -14,18 +14,21 @@ export const Footer = () => {
       color={'white'}
       bg={bg}
     >
-      <Text
-        fontSize={{ base: '9px', md: '18px' }}
-        lineHeight={{ base: '12px', md: '23px' }}
-        fontWeight="400"
-        order={{ base: 1, md: 'unset' }}
-      >
-        Privacy{' '}
-        <Hide above="md">
-          <br />
-        </Hide>
-        policy
-      </Text>
+      <Link href={'https://drive.google.com/file/d/1ORsanQxlAzypAwd3QcaSv22OnY8kdfvM/view?usp=share_link'} isExternal>
+        <Text
+          fontSize={{ base: '9px', md: '18px' }}
+          lineHeight={{ base: '12px', md: '23px' }}
+          fontWeight="400"
+          order={{ base: 1, md: 'unset' }}
+          cursor={cursorPointer}
+        >
+          Privacy{' '}
+          <Hide above="md">
+            <br />
+          </Hide>
+          policy
+        </Text>
+      </Link>
       <Text
         fontSize={{ base: '9px', md: '18px' }}
         lineHeight={{ base: '12px', md: '23px' }}
@@ -49,7 +52,7 @@ export const Footer = () => {
             by{' '}
           </Text>
           <Image
-            src="/images/int_logo.png"
+            src="/images/intencio_logo.svg"
             alt="intencio logo"
             w={{ base: '25px', md: '49px' }}
             h={{ base: '22px', md: '53px' }}
