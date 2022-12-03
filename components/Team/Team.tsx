@@ -43,7 +43,7 @@ export const Team = () => {
   const [isShowAll, setIsShowAll] = useState(false);
 
   return (
-    <Box id="team" minH={'780px'} pt={'53px'}>
+    <Box id="team" minH={{ base: '600px', md: '450px', lg: '780px' }} pt={'53px'}>
       <Box h={'full'} w={'full'} position={'relative'}>
         <Flex h={{ base: '45px', lg: '100px' }} w={'full'} pl={{ base: 5, lg: 52 }} position={'absolute'} zIndex={10}>
           <Flex flex={'1'} alignItems={'center'}>
@@ -155,7 +155,7 @@ export const Team = () => {
             justifyContent={'space-between'}
             alignItems={'center'}
             position={'absolute'}
-            top={{ lg: isShowAll ? '50px' : '145px', xl: '145px' }}
+            top={{ md: '300px', lg: isShowAll ? '50px' : '145px', xl: '145px' }}
             left={{ base: 'calc(50% - 75px)', lg: '590px', xl: '770px' }}
             zIndex={15}
           >
