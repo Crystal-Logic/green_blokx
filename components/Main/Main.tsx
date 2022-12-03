@@ -104,7 +104,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
 
   return (
     <Flex minH="100vh" w={'full'}>
-      <Hide below="md">
+      <Hide below="lg">
         <Flex w={'100px'} direction={'column'} justifyContent={'space-between'} alignItems={'center'} py={20}>
           <Image src="/images/logo.png" w={'65px'} h={'75px'} alt="logo" />
           <Text
@@ -248,7 +248,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         </Hide>
         {/* mobile menu  end*/}
 
-        <Hide below="md">
+        <Hide below="lg">
           <VStack position={'absolute'} top={24} right={44} zIndex={10}>
             <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" cursor={cursorPointer} />
             <Text fontSize="14px" lineHeight="25px" fontWeight="700" color={'white'}>
@@ -257,7 +257,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
           </VStack>
         </Hide>
 
-        <Hide below="md">
+        <Hide below="lg">
           <HStack position={'absolute'} bottom={20} right={32} zIndex={10}>
             <Link href={'https://twitter.com/greenblokx'} isExternal>
               <Image src="/images/twitter_logo.png" alt="twitter logo" h={'44px'} w={'44px'} cursor={cursorPointer} />
@@ -268,7 +268,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
           </HStack>
         </Hide>
 
-        <Box maxW={{ base: 'full', lg: 900, xl: 950 }} pl={{ base: 5, md: 100 }} zIndex={10}>
+        <Box maxW={{ base: 'full', md: '90%', xl: '70%' }} pl={{ base: 5, md: 100 }} zIndex={10}>
           <Button
             onClick={toggleVideo}
             variant={'outline'}

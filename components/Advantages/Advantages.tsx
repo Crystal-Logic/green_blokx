@@ -48,13 +48,7 @@ const NumberBox = ({ children, number }: NumBoxProps) => (
 );
 
 export const Advantages = () => (
-  <Flex
-    direction={'column'}
-    justifyContent={'center'}
-    minH={{ md: '100vh' }}
-    pt={{ base: 10, lg: 20 }}
-    pb={{ base: 10, lg: 20 }}
-  >
+  <Flex direction={'column'} justifyContent={'center'} minH={{ lg: '100vh' }} py={{ base: 10, md: 20 }}>
     <Flex h={{ base: 'auto' }} direction={{ base: 'column', md: 'row' }}>
       <Box flex="1" pl={{ base: 10, xl: 52 }} pr={{ base: 5, lg: 0 }}>
         <Heading
