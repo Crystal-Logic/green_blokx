@@ -17,18 +17,24 @@ const LinkCard = ({ href, name, websiteName }: any) => {
   const popoverColor = useColorModeValue('white', 'brand.dark');
 
   return (
-    <PopoverContent border={'1px solid'} borderColor={'brand.green'} borderRadius={'none'} bg={popoverColor} p={'30px'}>
-      <Text fontSize="20px" lineHeight="25px" fontWeight="500">
+    <PopoverContent
+      border={'1px solid'}
+      borderColor={'brand.green'}
+      borderRadius={'none'}
+      bg={popoverColor}
+      p={{ base: 5, lg: '30px' }}
+    >
+      <Text fontSize={{ base: '14px', md: '20px' }} lineHeight={{ base: '18px', md: '25px' }} fontWeight="500">
         {name}
       </Text>
       <Link
         href={href}
-        fontSize="20px"
-        lineHeight="25px"
+        fontSize={{ base: '14px', md: '20px' }}
+        lineHeight={{ base: '18px', md: '25px' }}
         fontWeight="500"
         color={'brand.red'}
         textDecorationLine="underline"
-        mt={'18px'}
+        mt={{ base: 3, md: '18px' }}
         isExternal
       >
         {websiteName} <ExternalLinkIcon w={'21px'} h={'21px'} mx="2px" />
@@ -42,124 +48,128 @@ export const Partners = () => {
   const { colorMode } = useColorMode();
 
   return (
-    <Box id="partners" pb={'100px'} overflow={'hidden'}>
-      <Flex h={'96px'}>
+    <Box id="partners" pb={{ base: '50px', lg: '100px' }} overflow={'hidden'}>
+      <Flex h={{ base: '60px', lg: '96px' }}>
         <Box flex={'1'} bg="brand.green"></Box>
-        <Flex w={'400px'} justifyContent="center" alignItems={'center'}>
-          <Heading as="h2" fontSize="32px" lineHeight="40px" fontWeight="500">
+        <Flex w={{ base: '150px', lg: '400px' }} justifyContent="center" alignItems={'center'}>
+          <Heading
+            as="h2"
+            fontSize={{ base: '25px', lg: '32px' }}
+            lineHeight={{ base: '31px', lg: '40px' }}
+            fontWeight="500"
+          >
             Partners
           </Heading>
         </Flex>
-        <Box w={'150px'} bg="brand.green"></Box>
+        <Box w={{ base: 5, lg: '150px' }} bg="brand.green"></Box>
       </Flex>
 
       {/* Logos grid */}
-      <Flex h={'100px'} mt={'51px'}>
-        <Flex w={'306px'} h={'full'} alignItems={'center'}>
-          <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
-          <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
-        </Flex>
-        <Flex alignItems={'center'}>
-          <Popover trigger="hover" placement="auto">
-            <PopoverTrigger>
-              <Image
-                src={'/images/partners/inspira_wealth_logo.png'}
-                alt="inspira wealth logo"
-                w={'249px'}
-                h={'68px'}
-                mx={'40px'}
+      <Flex w={'full'} h={'full'} direction={'column'}>
+        <Flex h={'100px'} mt={{ base: '27px', lg: '51px' }} order={{ base: 1, lg: 'unset' }}>
+          <Flex w={{ base: '57px', lg: '306px' }} h={'full'} alignItems={'center'}>
+            <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
+            <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
+          </Flex>
+          <Flex alignItems={'center'}>
+            <Popover trigger="hover" placement="auto">
+              <PopoverTrigger>
+                <Image
+                  src={'/images/partners/inspira_wealth_logo.png'}
+                  alt="inspira wealth logo"
+                  w={{ base: '135px', lg: '249px' }}
+                  mx={{ base: 3, lg: '40px' }}
+                />
+              </PopoverTrigger>
+              <LinkCard
+                href={'https://www.inspirawealth.com/'}
+                name={'Inspira Wealth'}
+                websiteName={'www.inspirawealth.com'}
               />
-            </PopoverTrigger>
-            <LinkCard
-              href={'https://www.inspirawealth.com/'}
-              name={'Inspira Wealth'}
-              websiteName={'www.inspirawealth.com'}
-            />
-          </Popover>
+            </Popover>
+          </Flex>
+          <Flex flex={'1'} h={'full'} alignItems={'center'}>
+            <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
+            <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
+          </Flex>
         </Flex>
-        <Flex flex={'1'} h={'full'} alignItems={'center'}>
-          <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
-          <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
-        </Flex>
-      </Flex>
 
-      <Flex h={'100px'}>
-        <Flex flex={'1'} h={'full'} alignItems={'center'}>
-          <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
-          <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
+        <Flex h={'100px'} order={{ base: 3, lg: 'unset' }}>
+          <Flex flex={'1'} h={'full'} alignItems={'center'}>
+            <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
+            <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
+          </Flex>
+          <Flex alignItems={'center'}>
+            <Popover trigger="hover" placement="auto">
+              <PopoverTrigger>
+                <Image
+                  src={colorMode === 'dark' ? '/images/partners/aurora_dark.png' : '/images/partners/aurora_logo.png'}
+                  alt="aurora logo"
+                  w={{ base: '90px', lg: '135px' }}
+                  mx={{ base: 3, lg: '40px' }}
+                />
+              </PopoverTrigger>
+              <LinkCard href={'https://aurora.ventures/'} name={'Aurora'} websiteName={'aurora.ventures'} />
+            </Popover>
+          </Flex>
+          <Flex w={{ base: '39px', lg: '546px' }} h={'full'} alignItems={'center'}>
+            <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
+            <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
+          </Flex>
         </Flex>
-        <Flex alignItems={'center'}>
-          <Popover trigger="hover" placement="auto">
-            <PopoverTrigger>
-              <Image
-                src={colorMode === 'dark' ? '/images/partners/aurora_dark.png' : '/images/partners/aurora_logo.png'}
-                alt="aurora logo"
-                w={'135px'}
-                h={'110px'}
-                mx={'40px'}
-              />
-            </PopoverTrigger>
-            <LinkCard href={'https://aurora.ventures/'} name={'Aurora'} websiteName={'aurora.ventures'} />
-          </Popover>
-        </Flex>
-        <Flex w={'546px'} h={'full'} alignItems={'center'}>
-          <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
-          <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
-        </Flex>
-      </Flex>
 
-      <Flex h={'100px'}>
-        <Flex flex={'1'} h={'full'} alignItems={'center'}>
-          <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
-          <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
+        <Flex h={'100px'} order={{ base: 4, lg: 'unset' }}>
+          <Flex flex={'1'} h={'full'} alignItems={'center'}>
+            <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
+            <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
+          </Flex>
+          <Flex alignItems={'center'}>
+            <Popover trigger="hover" placement="auto">
+              <PopoverTrigger>
+                <Image
+                  src={
+                    colorMode === 'dark' ? '/images/partners/moonboots_dark.png' : '/images/partners/moonboots_logo.png'
+                  }
+                  alt="moonboots logo"
+                  w={{ base: '200px', lg: '290px' }}
+                  mx={{ base: 3, lg: '40px' }}
+                />
+              </PopoverTrigger>
+              <LinkCard href={'https://moonbootscapital.io/'} name={'Moonboots'} websiteName={'moonbootscapital.io'} />
+            </Popover>
+          </Flex>
+          <Flex w={{ base: '114px', md: '200px', lg: '20px' }} h={'full'} alignItems={'center'}>
+            <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
+            <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
+          </Flex>
         </Flex>
-        <Flex alignItems={'center'}>
-          <Popover trigger="hover" placement="auto">
-            <PopoverTrigger>
-              <Image
-                src={
-                  colorMode === 'dark' ? '/images/partners/moonboots_dark.png' : '/images/partners/moonboots_logo.png'
-                }
-                alt="moonboots logo"
-                w={'290px'}
-                h={'45px'}
-                mx={'40px'}
-              />
-            </PopoverTrigger>
-            <LinkCard href={'https://moonbootscapital.io/'} name={'Moonboots'} websiteName={'moonbootscapital.io'} />
-          </Popover>
-        </Flex>
-        <Flex w={'20px'} h={'full'} alignItems={'center'}>
-          <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
-          <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
-        </Flex>
-      </Flex>
 
-      <Flex h={'100px'}>
-        <Flex w={'254px'} h={'full'} alignItems={'center'}>
-          <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
-          <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
-        </Flex>
-        <Flex alignItems={'center'}>
-          <Popover trigger="hover" placement="auto">
-            <PopoverTrigger>
-              <Image
-                src={'/images/partners/near_logo.png'}
-                alt="near logo"
-                w={'215px'}
-                h={'84px'}
-                mx={'40px'}
-                bg={colorMode === 'dark' ? 'white' : 'transparent'}
-              />
-            </PopoverTrigger>
-            <LinkCard href={'https://near.org/'} name={'Near'} websiteName={'near.org'} />
-          </Popover>
-        </Flex>
-        <Flex flex={'1'} h={'full'} alignItems={'center'}>
-          <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
-          <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
+        <Flex h={'100px'} order={{ base: 2, lg: 'unset' }}>
+          <Flex w={{ base: '28px', md: '200px', lg: '254px' }} h={'full'} alignItems={'center'}>
+            <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
+            <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
+          </Flex>
+          <Flex alignItems={'center'}>
+            <Popover trigger="hover" placement="auto">
+              <PopoverTrigger>
+                <Image
+                  src={'/images/partners/near_logo.png'}
+                  alt="near logo"
+                  w={{ base: '130px', lg: '215px' }}
+                  mx={{ base: 3, lg: '40px' }}
+                  bg={colorMode === 'dark' ? 'white' : 'transparent'}
+                />
+              </PopoverTrigger>
+              <LinkCard href={'https://near.org/'} name={'Near'} websiteName={'near.org'} />
+            </Popover>
+          </Flex>
+          <Flex flex={'1'} h={'full'} alignItems={'center'}>
+            <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
+            <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
+          </Flex>
         </Flex>
       </Flex>
+      {/* Logos grid end*/}
     </Box>
   );
 };
