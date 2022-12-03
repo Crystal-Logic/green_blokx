@@ -1,7 +1,9 @@
-import { useRef, useState } from 'react';
-import { Box, Heading, Text, Flex, Image, Link, Button } from '@chakra-ui/react';
+import { useRef } from 'react';
+import { Box, Heading, Flex, Image, Hide } from '@chakra-ui/react';
 import { Swiper as SwiperType, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { TeamSlide } from './TeamSlide';
 
 const teamInfo = [
   {
@@ -40,17 +42,29 @@ const teamInfo = [
 
 export const Team = () => {
   const swiperRef = useRef<SwiperType>();
-  const [isShowAll, setIsShowAll] = useState(false);
+  // const [isShowAll, setIsShowAll] = useState(false);
 
   return (
-    <Box id="team" minH={'780px'} pt={'53px'}>
+    <Box id="team" minH={{ base: '600px', md: '450px', lg: '780px' }} pt={'53px'}>
       <Box h={'full'} w={'full'} position={'relative'}>
-        <Flex h={'100px'} w={'full'} pl={52} position={'absolute'} zIndex={10}>
+        <Flex h={{ base: '45px', lg: '100px' }} w={'full'} pl={{ base: 5, lg: 52 }} position={'absolute'} zIndex={10}>
           <Flex flex={'1'} alignItems={'center'}>
             <Box h={'0px'} w={'full'} borderBottom={'3px solid'} borderColor={'brand.green'}></Box>
           </Flex>
-          <Flex w={'290px'} bg="brand.green" alignItems={'center'} pl={'43px'}>
-            <Heading as="h2" fontSize="32px" lineHeight="40px" fontWeight="500" color={'white'}>
+          <Flex
+            w={{ base: '133px', lg: '290px' }}
+            bg="brand.green"
+            alignItems={'center'}
+            pl={{ lg: '43px' }}
+            justifyContent={{ base: 'center', lg: 'unset' }}
+          >
+            <Heading
+              as="h2"
+              fontSize={{ base: '25px', md: '32px' }}
+              lineHeight={{ base: '31px', md: '40px' }}
+              fontWeight="500"
+              color={'white'}
+            >
               Team
             </Heading>
           </Flex>
@@ -58,7 +72,7 @@ export const Team = () => {
 
         {/* Slider frame */}
 
-        <Box h={'630px'} w={'full'} pl={{ base: 5, xl: 52 }} position={'absolute'} top={'76px'}>
+        <Box w={'full'} pl={{ base: 0, xl: 52 }} position={'absolute'} top={{ base: '60px', lg: '76px' }}>
           <Swiper
             modules={[Navigation, Pagination]}
             spaceBetween={50}
@@ -72,39 +86,7 @@ export const Team = () => {
           >
             {teamInfo.map(({ name, position, linkdIn, photo, description }) => (
               <SwiperSlide key={photo}>
-                <Flex h={'630px'} w={'full'}>
-                  <Image src={photo} alt={name} h={'full'} minW={'520px'} filter={'grayscale(1)'} />
-                  <Flex flex={'1'} direction={'column'} justifyContent={'flex-end'} pl={'42px'} pr={4}>
-                    <Text
-                      // mt={'350px'}
-                      fontSize="32px"
-                      lineHeight="40px"
-                      fontWeight="700"
-                      display={'flex'}
-                      alignItems={'center'}
-                    >
-                      {name}
-                      <Link href={linkdIn} isExternal>
-                        <Image src="/images/linkedin_logo.png" alt="linkedin logo" h={'30px'} w={'30px'} ml={'10px'} />
-                      </Link>
-                    </Text>
-                    <Text fontSize="24px" lineHeight="30px" fontWeight="500" color={'brand.green'} pt={'21px'}>
-                      {position}
-                    </Text>
-                    <Text
-                      noOfLines={isShowAll ? 100 : 3}
-                      fontSize="18px"
-                      lineHeight="23px"
-                      fontWeight="400"
-                      pt={'35px'}
-                    >
-                      {description}
-                    </Text>
-                    <Text color={'brand.red'} mb={isShowAll ? 3 : 14} onClick={() => setIsShowAll(!isShowAll)}>
-                      {isShowAll ? 'read less' : 'read more'}
-                    </Text>
-                  </Flex>
-                </Flex>
+                <TeamSlide {...{ name, position, linkdIn, photo, description }} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -112,34 +94,36 @@ export const Team = () => {
           {/* slide control bar */}
           <Flex
             h={'40px'}
-            w={'240px'}
+            w={{ base: '150px', lg: '240px' }}
             justifyContent={'space-between'}
             alignItems={'center'}
             position={'absolute'}
-            top={{ md: isShowAll ? '50px' : '145px', xl: '145px' }}
-            left={{ base: '120px', lg: '590px', xl: '770px' }}
+            top={{ md: '300px', lg: '50px', xl: '145px' }}
+            left={{ base: 'calc(50% - 75px)', lg: '590px', xl: '770px' }}
             zIndex={15}
           >
-            <Box
-              as="button"
-              onClick={() => swiperRef.current?.slidePrev()}
-              h={'40px'}
-              w={'40px'}
-              border="1px solid transparent"
-              position={'relative'}
-              _hover={{ borderColor: 'brand.green' }}
-            >
+            <Hide below="lg">
               <Box
-                position={'absolute'}
-                h={'15px'}
-                w={'15px'}
-                top={'12px'}
-                left={'14px'}
-                borderColor={'brand.green'}
-                borderWidth={'2px 2px 0 0'}
-                sx={{ transform: 'rotate(-135deg)' }}
-              ></Box>
-            </Box>
+                as="button"
+                onClick={() => swiperRef.current?.slidePrev()}
+                h={'40px'}
+                w={'40px'}
+                border="1px solid transparent"
+                position={'relative'}
+                _hover={{ borderColor: 'brand.green' }}
+              >
+                <Box
+                  position={'absolute'}
+                  h={'15px'}
+                  w={'15px'}
+                  top={'12px'}
+                  left={'14px'}
+                  borderColor={'brand.green'}
+                  borderWidth={'2px 2px 0 0'}
+                  sx={{ transform: 'rotate(-135deg)' }}
+                ></Box>
+              </Box>
+            </Hide>
             <Box
               className="team-pagination"
               flex={'1'}
@@ -161,42 +145,60 @@ export const Team = () => {
                 },
               }}
             ></Box>
-            <Box
-              as="button"
-              onClick={() => swiperRef.current?.slideNext()}
-              h={'40px'}
-              w={'40px'}
-              border="1px solid transparent"
-              position={'relative'}
-              _hover={{ borderColor: 'brand.green' }}
-            >
+            <Hide below="lg">
               <Box
-                position={'absolute'}
-                h={'15px'}
-                w={'15px'}
-                top={'12px'}
-                right={'14px'}
-                borderColor={'brand.green'}
-                borderWidth={'0 0 2px 2px'}
-                sx={{ transform: 'rotate(-135deg)' }}
-              ></Box>
-            </Box>
+                as="button"
+                onClick={() => swiperRef.current?.slideNext()}
+                h={'40px'}
+                w={'40px'}
+                border="1px solid transparent"
+                position={'relative'}
+                _hover={{ borderColor: 'brand.green' }}
+              >
+                <Box
+                  position={'absolute'}
+                  h={'15px'}
+                  w={'15px'}
+                  top={'12px'}
+                  right={'14px'}
+                  borderColor={'brand.green'}
+                  borderWidth={'0 0 2px 2px'}
+                  sx={{ transform: 'rotate(-135deg)' }}
+                ></Box>
+              </Box>
+            </Hide>
           </Flex>
         </Box>
 
         {/* Slider frame end */}
 
-        <Flex h={'106px'} w={'160px'} position={'absolute'} top={'600px'} bg="brand.green" zIndex={10}>
+        <Flex
+          h={{ base: '66px', lg: '106px' }}
+          w={{ base: '71px', lg: '160px' }}
+          position={'absolute'}
+          top={{ base: '267px', lg: '600px' }}
+          bg="brand.green"
+          zIndex={10}
+        >
           <Image
             src="/images/logo_white.png"
             alt="logo white"
             position={'absolute'}
-            left={'10px'}
-            top={'8px'}
-            h={'88px'}
+            left={{ lg: '10px' }}
+            top={{ base: '5px', lg: '8px' }}
+            h={{ base: '55px', lg: '88px' }}
+            w={'auto'}
+            objectFit={'cover'}
           />
         </Flex>
-        <Flex w={'full'} position={'absolute'} top={'703px'} right={0} zIndex={10}>
+        <Flex
+          w={'full'}
+          position={'absolute'}
+          top={{ lg: '703px' }}
+          right={0}
+          zIndex={10}
+          display={{ base: 'none', lg: 'flex' }}
+        >
           <Flex w={{ base: 6, md: '580px', xl: '740px' }}></Flex>
           <Flex flex={'1'}>
             <Box h={''} w={'full'} alignSelf={'flex-end'} borderBottom={'3px solid'} borderColor={'brand.green'}></Box>
