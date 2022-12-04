@@ -5,22 +5,27 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 const images = [
   {
     src: '/images/why_block/1-5.png',
+    srcMin: '/images/why_block/1-5min.png',
     alt: '1-5',
   },
   {
     src: '/images/why_block/2-5.png',
+    srcMin: '/images/why_block/2-5min.png',
     alt: '2-5',
   },
   {
     src: '/images/why_block/3-5.png',
+    srcMin: '/images/why_block/3-5min.png',
     alt: '3-5',
   },
   {
     src: '/images/why_block/4-5.png',
+    srcMin: '/images/why_block/4-5min.png',
     alt: '4-5',
   },
   {
     src: '/images/why_block/5-5.png',
+    srcMin: '/images/why_block/5-5min.png',
     alt: '5-5',
   },
 ];
@@ -78,7 +83,7 @@ export const WhyBlock = () => {
       <Flex
         h={{ base: '370px', md: '431px' }}
         w={{ base: 'full' }}
-        mt={'52px'}
+        mt={{ md: '52px' }}
         pl={{ base: 0, xl: 52 }}
         direction={{ base: 'column-reverse', md: 'row' }}
         overflow={'hidden'}
@@ -130,7 +135,7 @@ export const WhyBlock = () => {
         <Box flex={'1'} w={{ base: 'full' }} h={'full'}>
           <Swiper
             modules={[Pagination]}
-            spaceBetween={50}
+            spaceBetween={0}
             slidesPerView={1}
             pagination={{
               el: '.wb-pagination',
@@ -140,16 +145,23 @@ export const WhyBlock = () => {
               },
             }}
           >
-            {images.map(({ src, alt }) => (
-              <SwiperSlide key={src}>
-                <Image
-                  src={src}
-                  w={'full'}
-                  h={{ base: '360px', md: '431px' }}
-                  pl={{ base: 0, md: '22px' }}
-                  alt={alt}
-                  objectFit={'contain'}
-                />
+            {images.map(({ src, srcMin, alt }) => (
+              <SwiperSlide key={src} style={{ display: 'flex', justifyContent: 'center' }}>
+                <>
+                  <Hide below="sm">
+                    <Image
+                      src={src}
+                      w={'full'}
+                      h={{ base: '360px', md: '431px' }}
+                      pl={{ base: 0, md: '22px' }}
+                      alt={alt}
+                      objectFit={'contain'}
+                    />
+                  </Hide>
+                  <Hide above="md">
+                    <Image src={srcMin} pl={{ base: 0, md: '22px' }} alt={alt} />
+                  </Hide>
+                </>
               </SwiperSlide>
             ))}
           </Swiper>
