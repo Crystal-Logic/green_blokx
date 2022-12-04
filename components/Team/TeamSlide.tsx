@@ -17,8 +17,8 @@ export const TeamSlide = ({ name, position, linkdIn, photo, description }: Slide
       <Image
         src={photo}
         alt={name}
-        h={'full'}
         maxW={{ base: '220px', lg: '520px' }}
+        maxH={{ base: '270px', lg: '630px' }}
         filter={'grayscale(1)'}
         ml={{ base: 10, lg: 'unset' }}
       />

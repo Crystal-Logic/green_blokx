@@ -134,21 +134,9 @@ export const FormModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
             <>
               {success ? renderSuccess() : renderForm()}
               <Button
-                variant="outline"
-                color="brand.green"
-                colorScheme="brand.green"
-                borderRadius="none"
-                borderWidth="2px 2px 2px 0px"
-                h="135px"
+                variant="outlineGreen"
+                size={{ base: 'sm', lg: 'lg' }}
                 mr={{ base: '50px', sm: '100px' }}
-                fontSize="32px"
-                lineHeight="40px"
-                fontWeight="500"
-                _hover={{
-                  color: 'brand.red',
-                  colorScheme: 'brand.red',
-                  bg: 'transparent',
-                }}
                 type="submit"
               >
                 {success ? 'Close' : 'Contact us'}

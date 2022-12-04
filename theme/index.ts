@@ -109,6 +109,46 @@ export const theme = extendTheme({
         },
       }),
     },
+    Button: {
+      variants: {
+        outlineGreen: {
+          cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto',
+          flexDirection: 'column',
+          alignItems: 'flex-end',
+          color: 'brand.green',
+          colorScheme: 'brand.green',
+          borderRadius: 'none',
+          borderWidth: '2px 2px 2px 0px',
+          borderColor: 'brand.green',
+
+          _hover: {
+            color: 'brand.red',
+            colorScheme: 'brand.red',
+            borderColor: 'brand.red',
+            bg: 'transparent',
+          },
+        },
+      },
+      sizes: {
+        lg: {
+          height: '135px',
+          fontSize: '32px',
+          lineHeight: '40px',
+          fontWeight: '500',
+          paddingY: 12,
+          paddingRight: 20,
+        },
+        sm: {
+          height: '82px',
+          fontSize: '18px',
+          lineHeight: '23px',
+          fontWeight: '500',
+          paddingY: 8,
+          paddingRight: 8,
+          borderWidth: '1px 1px 1px 0px',
+        },
+      },
+    },
   },
   config: {
     initialColorMode: 'dark',

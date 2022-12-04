@@ -7,7 +7,7 @@ type NumBoxProps = {
 };
 
 const NumberBox = ({ children, number }: NumBoxProps) => (
-  <Flex mt={5} alignItems={'center'}>
+  <Flex className="point-container" mt={5} alignItems={'center'}>
     <Flex
       h={{ base: '43px', md: '84px' }}
       w={{ base: '43px', md: '84px' }}
@@ -26,6 +26,9 @@ const NumberBox = ({ children, number }: NumBoxProps) => (
         sx={{
           WebkitTextStrokeWidth: '2px',
           WebkitTextFillColor: 'transparent',
+          '.point-container:hover &': {
+            color: 'brand.red',
+          },
         }}
       >
         {number}
@@ -45,15 +48,9 @@ const NumberBox = ({ children, number }: NumBoxProps) => (
 );
 
 export const Advantages = () => (
-  <Flex
-    direction={'column'}
-    justifyContent={'center'}
-    minH={{ md: '100vh' }}
-    pt={{ base: 10, lg: 20 }}
-    pb={{ base: 10, lg: 20 }}
-  >
+  <Flex direction={'column'} justifyContent={'center'} minH={{ lg: '100vh' }} py={{ base: 10, md: 20 }}>
     <Flex h={{ base: 'auto' }} direction={{ base: 'column', md: 'row' }}>
-      <Box flex="1" pl={{ base: 10, xl: 52 }}>
+      <Box flex="1" pl={{ base: 10, xl: 52 }} pr={{ base: 5, lg: 0 }}>
         <Heading
           as="h2"
           fontSize={{ base: '25px', md: '40px' }}

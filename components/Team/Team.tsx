@@ -26,7 +26,7 @@ const teamInfo = [
     name: 'Florin Tudor',
     position: 'Chief Executive Officer',
     linkdIn: 'https://www.linkedin.com/in/Florin-Tudor-a5969a121/',
-    photo: '/images/team/florin_tudor.png',
+    photo: '/images/team/florin_tudor.jpeg',
     description:
       "Florin holds a Master's Degree in Chemistry from the West University of Timișoara with 10+ years of experience in Flexible and Rigid PU Foam synthesis and processing, industrialization, and commercialization. Florin led growth in the revenue-leading sandwich panel manufacturer in Romania. He spent 3 years in Dubai in lead roles such as CTO, CBDO, and CQO for companies producing over 50M+ Revenue and employing 250+ Employees. Florin is an expert in the chemical composition of sandwich panels and product Q/A.",
   },
@@ -34,7 +34,7 @@ const teamInfo = [
     name: 'Vlad Arama',
     position: 'Chief Sales Officer',
     linkdIn: 'https://www.linkedin.com/in/vlad-alexandru-aram%C4%83-758794151/',
-    photo: '/images/team/vlad_arama.png',
+    photo: '/images/team/vlad_arama.jpeg',
     description:
       'Vlad Arama completed Thermal Installations studies in France. From 2009-2015 he was the CEO of a company he founded in the field of metallurgy (repairs and modernization of elevators) Working with some of the leading companies such as Kone & Schindler. At present he operates and owns a sandwich panel Re-distribution warehouse. Vlad has built a large network of sales associates and preferential partnerships with the largest construction companies in Romania and abroad in Europe. Vlad has worked in sales in the industry for many years and will lead the consumer-facing sales division.',
   },
@@ -42,7 +42,6 @@ const teamInfo = [
 
 export const Team = () => {
   const swiperRef = useRef<SwiperType>();
-  // const [isShowAll, setIsShowAll] = useState(false);
 
   return (
     <Box id="team" minH={{ base: '600px', md: '450px', lg: '780px' }} pt={'53px'}>
