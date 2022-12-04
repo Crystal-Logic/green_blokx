@@ -53,7 +53,7 @@ const getStepCard = (step: string): JSX.Element => {
         w={'full'}
         minH={{ base: '280px', md: '280px', xl: '550px' }}
         mb={{ base: '10px', md: '26px' }}
-        bg="url('/images/tech/step_1.png')"
+        bgImage={{ base: "url('/images/tech/step1_mob.png')", md: "url('/images/tech/step1.png')" }}
         backgroundSize="contain"
         backgroundRepeat="no-repeat"
         backgroundPosition="right"
@@ -83,7 +83,7 @@ const getStepCard = (step: string): JSX.Element => {
         minH={{ base: '300px', xl: '550px' }}
         mb={{ base: '10px', md: '26px' }}
         mr={10}
-        bg="url('/images/tech/step_2.png')"
+        bgImage={{ base: "url('/images/tech/step2_mob.png')", md: "url('/images/tech/step2.png')" }}
         backgroundSize="contain"
         backgroundRepeat="no-repeat"
         backgroundPosition={{ base: 'right', lg: 'bottom 0px right 100px' }}
@@ -111,7 +111,7 @@ const getStepCard = (step: string): JSX.Element => {
         w={'full'}
         minH={{ base: '300px', xl: '550px' }}
         mb={{ base: '10px', md: '26px' }}
-        bg="url('/images/tech/step_3.png')"
+        bgImage={{ base: "url('/images/tech/step3_mob.png')", md: "url('/images/tech/step3.png')" }}
         backgroundSize="contain"
         backgroundRepeat="no-repeat"
         backgroundPosition="right"
