@@ -248,9 +248,8 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
           ref={videoRef}
           style={{ objectFit: 'cover', height: '100vh', position: 'absolute', zIndex: isShowVideo ? 1 : -1 }}
           className="videoTag"
-          poster="/images/background.webp"
         >
-          <source src={'/images/GreenBlokX_bg.mp4'} type="video/mp4" />
+          <source src={'/video/GreenBlokX_bg.mp4'} type="video/mp4" />
         </video>
 
         {/* mobile menu */}
