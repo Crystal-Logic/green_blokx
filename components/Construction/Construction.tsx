@@ -39,10 +39,11 @@ export const Construction = () => {
       setIsShowInfoPoints(true);
     }
 
+    // padding for timeframes
     if (videoRef.current && videoRef.current.currentTime) {
-      if (videoRef.current.currentTime < 4.6) {
+      if (videoRef.current.currentTime < 4.8) {
         setVideoPadding(20);
-      } else if (videoRef.current.currentTime >= 4.6 && videoRef.current.currentTime < 6.6) {
+      } else if (videoRef.current.currentTime >= 4.8 && videoRef.current.currentTime < 6.9) {
         setVideoPadding(0);
       } else {
         setVideoPadding(52);
@@ -68,7 +69,7 @@ export const Construction = () => {
 
   return (
     <Box id="about_us" h={'100vh'}>
-      <Box w={'full'} pl={{ base: 5, lg: 205 }} pt={{ base: 12, lg: 24 }}>
+      <Box w={'full'} pl={{ base: 5, lg: 205 }} pt={{ base: 12, lg: 20 }}>
         <Hide below="xl">
           <Heading
             as="h2"
@@ -191,9 +192,9 @@ export const Construction = () => {
           ref={videoRef}
           as="video"
           w={'full'}
-          // maxH={'500px'}
+          maxH={videoPadding === 0 ? '710px' : 'unset'}
+          pb={videoPadding === 0 ? 20 : 'unset'}
           px={videoPadding}
-          // pl={currStep === 0 ? '200px' : 0}
           objectFit={'fill'}
           onTimeUpdate={pause}
           src={colorMode === 'dark' ? '/video/dark/full_dark.mp4' : '/video/white/full_white.mp4'}

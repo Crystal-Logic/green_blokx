@@ -1,5 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { Box, Heading, Text, Hide, useColorMode } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Box } from '@chakra-ui/react';
 
 export const InfoText = ({ children, textPositions }: any) => {
   const [isShowText, setIsShowText] = useState(false);
