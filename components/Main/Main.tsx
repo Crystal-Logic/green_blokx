@@ -143,7 +143,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         placement="left"
         onClose={onClose}
         variant={'menu'}
-        size={{ base: 'xs', md: 'md', xl: 'lg' }}
+        size={{ base: 'xs', md: 'sm', xl: 'lg' }}
       >
         <DrawerOverlay
           backgroundImage={'/images/backgroundMenu.webp'}
@@ -154,7 +154,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
           top={{ base: '130px !important', lg: '0px !important' }}
           left={{ base: 0, lg: '110px !important' }}
         >
-          <DrawerBody>
+          <DrawerBody display={{ base: 'flex', lg: 'unset' }} flexDirection={'column'} justifyContent={'space-between'}>
             <Hide below="lg">
               <Flex justifyContent={'space-between'} pr={10}>
                 <Text py={'100px'} fontSize="30px" fontWeight="500">
@@ -199,6 +199,22 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
                 </Text>
               ))}
             </VStack>
+            <Hide above="lg">
+              <HStack alignSelf={'flex-start'} pl={5}>
+                <Link href={'https://twitter.com/greenblokx'} isExternal>
+                  <Image
+                    src="/images/twitter_logo.png"
+                    alt="twitter logo"
+                    h={'44px'}
+                    w={'44px'}
+                    cursor={cursorPointer}
+                  />
+                </Link>
+                <Link href={'https://medium.com/@greenblokx'} isExternal pl={3}>
+                  <Image src="/images/medium_logo.png" alt="medium logo" h={'44px'} w={'44px'} cursor={cursorPointer} />
+                </Link>
+              </HStack>
+            </Hide>
           </DrawerBody>
           <DrawerFooter></DrawerFooter>
         </DrawerContent>
@@ -233,7 +249,13 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             px={5}
           >
             <Image src="/images/logo.png" w={'53px'} h={'63px'} alt="logo" />
-            <Text fontWeight="400" fontSize="20px" lineHeight={'25px'} color={isOpen ? 'unset' : 'white'}>
+            <Text
+              onClick={onOpenModal}
+              fontWeight="400"
+              fontSize="20px"
+              lineHeight={'25px'}
+              color={isOpen ? 'unset' : 'white'}
+            >
               Contact us
             </Text>
             <Box
@@ -257,16 +279,14 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
           </VStack>
         </Hide>
 
-        <Hide below="lg">
-          <HStack position={'absolute'} bottom={20} right={32} zIndex={10}>
-            <Link href={'https://twitter.com/greenblokx'} isExternal>
-              <Image src="/images/twitter_logo.png" alt="twitter logo" h={'44px'} w={'44px'} cursor={cursorPointer} />
-            </Link>
-            <Link href={'https://medium.com/@greenblokx'} isExternal pl={3}>
-              <Image src="/images/medium_logo.png" alt="medium logo" h={'44px'} w={'44px'} cursor={cursorPointer} />
-            </Link>
-          </HStack>
-        </Hide>
+        <HStack position={'absolute'} bottom={{ base: 10, lg: 20 }} right={{ base: 8, lg: 32 }} zIndex={10}>
+          <Link href={'https://twitter.com/greenblokx'} isExternal>
+            <Image src="/images/twitter_logo.png" alt="twitter logo" h={'44px'} w={'44px'} cursor={cursorPointer} />
+          </Link>
+          <Link href={'https://medium.com/@greenblokx'} isExternal pl={3}>
+            <Image src="/images/medium_logo.png" alt="medium logo" h={'44px'} w={'44px'} cursor={cursorPointer} />
+          </Link>
+        </HStack>
 
         <Box maxW={{ base: 'full', md: '90%', xl: '70%' }} pl={{ base: 5, md: 100 }} zIndex={10}>
           <Button
