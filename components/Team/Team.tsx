@@ -18,7 +18,7 @@ const teamInfo = [
     name: 'Matt Haynes',
     position: 'Chief Blockchain Operations Officer',
     linkdIn: 'https://www.linkedin.com/in/matthaynesblockchain/',
-    photo: '/images/team/matt_haynes.png',
+    photo: '/images/team/matt_haynes.jpg',
     description:
       'Matt Haynes is a serial web entrepreneur with a marketing and operations background. He also comes with significant experience in construction management systems and occupational health and safety providing him with an ideal hybrid of skill sets for this kind of startup. Matt, in addition to Dan, was also a Co-Founder at MoonBoots Capital and has worked in the structural organization for early-stage startups, equities, and Web3 venture capital. He brings a wealth of knowledge in operations, blockchain, and fundraising.',
   },
