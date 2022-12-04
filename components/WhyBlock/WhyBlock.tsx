@@ -63,7 +63,7 @@ export const WhyBlock = () => {
           automising the process and later creating an on chain payment solution for GreenBLOKX products through our
           platform.
         </Text>
-        <Hide below="md">
+        <Hide below="sm">
           <Text w={'50%'} fontSize="18px" lineHeight="23px" fontWeight="500">
             By using blockchain and automation we can prevent human clerical errors, avoid data loss due to malicious
             actors, create more effective tracking systems, and auditable records for token holders, customers, and
@@ -92,6 +92,7 @@ export const WhyBlock = () => {
           fontFamily={'Montserrat'}
           textAlign={{ base: 'center', md: 'end' }}
           pt={{ base: '10px', md: 0 }}
+          pl={{ md: 5 }}
           sx={{
             '.swiper-pagination-bullet': {
               width: '100%',

@@ -21,7 +21,7 @@ const Step = ({ text, isActive, onSelect }: StepProps) => {
         color="brand.green"
         position={'absolute'}
         top={15}
-        right={{ base: '-40px', md: '-40px' }}
+        right={{ base: '-40px', md: '-50px' }}
         cursor={'pointer'}
         background="transparent"
         _hover={{
@@ -29,14 +29,14 @@ const Step = ({ text, isActive, onSelect }: StepProps) => {
           fontSize: { base: '15px', md: '32px' },
           lineHeight: { base: '18px', md: '40px' },
           fontWeight: '500',
-          right: { base: '-40px', md: '-60px' },
+          right: { base: '-40px', md: '-70px' },
         }}
         _active={{
           color: activeColor,
           fontSize: { base: '15px', md: '32px' },
           lineHeight: { base: '18px', md: '40px' },
           fontWeight: '500',
-          right: { base: '-40px', md: '-60px' },
+          right: { base: '-40px', md: '-70px' },
         }}
       >
         {' '}
