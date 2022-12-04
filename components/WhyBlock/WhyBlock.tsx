@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Flex, Image, Hide } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Image, Hide, useColorModeValue } from '@chakra-ui/react';
 import { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -26,6 +26,8 @@ const images = [
 ];
 
 export const WhyBlock = () => {
+  const arrowImg = useColorModeValue('/images/arrows.svg', '/images/arrows_white.svg');
+
   return (
     <Box id="why_blockchain" mb={20}>
       <Flex h={{ base: '60px', md: '80px' }} bg="brand.green" justifyContent={'center'} alignItems={'center'}>
@@ -84,8 +86,7 @@ export const WhyBlock = () => {
         <Flex
           className="wb-pagination"
           h={'full'}
-          w={'full'}
-          flex={'1'}
+          w={'90px'}
           direction={{ base: 'row', md: 'column' }}
           justifyContent={'space-between'}
           fontFamily={'Montserrat'}
@@ -100,6 +101,16 @@ export const WhyBlock = () => {
               fontWeight: '300',
               fontSize: { base: '18px', md: '32px' },
               lineHeight: { base: '22px', md: '39px' },
+              display: 'flex',
+              alignItems: 'center',
+            },
+            '.swiper-pagination-bullet:before': {
+              content: '""',
+              background: `url(${arrowImg})`,
+              width: '26px',
+              height: '23px',
+              display: 'block',
+              mr: 1,
             },
             '.swiper-pagination-bullet-active': {
               height: '80px',
@@ -107,6 +118,10 @@ export const WhyBlock = () => {
               fontWeight: '500',
               fontSize: { base: '32px', md: '60px' },
               lineHeight: { base: '39px', md: '73px' },
+            },
+            '.swiper-pagination-bullet-active:before': {
+              content: '""',
+              display: 'none',
             },
           }}
         ></Flex>
