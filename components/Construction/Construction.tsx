@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Box, Heading, Text, Hide, useColorMode } from '@chakra-ui/react';
+import { Box, Heading, Text, Hide, useColorMode, Flex } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
+import { InfoText } from './InfoText';
 
 const steps = [0, 1, 2];
 const seconds = [4.5, 6.7, 8];
@@ -8,6 +9,9 @@ const seconds = [4.5, 6.7, 8];
 export const Construction = () => {
   const [currStep, setCurrStep] = useState(steps[0]);
   const [pauseSec, setPauseSec] = useState(seconds[currStep]);
+  const [isShowInfoPoints, setIsShowInfoPoints] = useState(false);
+  const [videoPadding, setVideoPadding] = useState(20);
+
   const { colorMode } = useColorMode();
   const { ref: inViewRef, inView: isVideoVisible } = useInView({ threshold: 0.5 });
   const videoRef = useRef<HTMLVideoElement & HTMLDivElement>(null);
@@ -30,6 +34,20 @@ export const Construction = () => {
       videoRef.current.pause();
       setCurrStep(currStep + 1);
     }
+
+    if (videoRef.current && videoRef.current.currentTime === videoRef.current.duration) {
+      setIsShowInfoPoints(true);
+    }
+
+    if (videoRef.current && videoRef.current.currentTime) {
+      if (videoRef.current.currentTime < 4.6) {
+        setVideoPadding(20);
+      } else if (videoRef.current.currentTime >= 4.6 && videoRef.current.currentTime < 6.6) {
+        setVideoPadding(0);
+      } else {
+        setVideoPadding(52);
+      }
+    }
   };
 
   useEffect(() => {
@@ -43,6 +61,7 @@ export const Construction = () => {
       if (videoRef.current) {
         videoRef.current.currentTime = 0;
         setCurrStep(steps[0]);
+        setIsShowInfoPoints(false);
       }
     }
   }, [isVideoVisible]);
@@ -156,7 +175,7 @@ export const Construction = () => {
           Manufacturing
         </Text>
       </Box>
-      <Box position={'relative'}>
+      <Flex h={'full'} position={'relative'} justifyContent={'center'} alignItems={'flex-start'}>
         <Box
           position={'absolute'}
           top={0}
@@ -172,13 +191,61 @@ export const Construction = () => {
           ref={videoRef}
           as="video"
           w={'full'}
-          h={'700px !important'}
+          // maxH={'500px'}
+          px={videoPadding}
           // pl={currStep === 0 ? '200px' : 0}
           objectFit={'fill'}
           onTimeUpdate={pause}
           src={colorMode === 'dark' ? '/images/full_dark.mp4' : '/images/full_white.mp4'}
         ></Box>
-      </Box>
+        {/* XL textboxes */}
+        <Box display={isShowInfoPoints ? 'block' : 'none'}>
+          <Box position="absolute" zIndex={20} top={'250px'} left={'350px'}>
+            <InfoText textPositions={{ left: '-300px' }}>
+              <Text
+                w={{ lg: '220px' }}
+                fontSize={{ base: '14px', lg: '12px' }}
+                lineHeight={{ base: '18px', lg: '15px' }}
+                fontWeight="500"
+              >
+                100% recyclable light weight, thermal and energy saving Foam composition structure allows each Eco
+                Sandwich panel to be completely flexible in it’s specifications creating installation right from
+                refrigeration systems to building envelopes.
+                <br />
+                <br />
+                This provides buildings with extremely lower energy use on heating and cooling.
+              </Text>
+            </InfoText>
+          </Box>
+          <Box position="absolute" zIndex={20} top={'130px'} right={'370px'}>
+            <InfoText textPositions={{ left: '50px', bottom: '30px' }}>
+              <Text
+                w={{ lg: '220px' }}
+                fontSize={{ base: '14px', lg: '12px' }}
+                lineHeight={{ base: '18px', lg: '15px' }}
+                fontWeight="500"
+              >
+                Colour coded corrugated iron metal sheets that meet design standards to suit all climates strengths and
+                durability these sheets come in a range of thickness starting from 0.3 to 0.7 millimetres in thickness.
+              </Text>
+            </InfoText>
+          </Box>
+          <Box position="absolute" zIndex={20} top={'410px'} right={'370px'}>
+            <InfoText textPositions={{ right: '50px', top: '100px' }}>
+              <Text
+                w={{ lg: '220px' }}
+                fontSize={{ base: '14px', lg: '12px' }}
+                lineHeight={{ base: '18px', lg: '15px' }}
+                fontWeight="500"
+              >
+                Quick and easy to install click and screw to each panel. The light weight metal sheets are typically
+                flat and lightly grooved panels. This side can be colour coded to personal choice.
+              </Text>
+            </InfoText>
+          </Box>
+        </Box>
+        {/* XL textboxes end*/}
+      </Flex>
     </Box>
   );
 };
