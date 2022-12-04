@@ -246,7 +246,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
       >
         <video
           ref={videoRef}
-          style={{ objectFit: 'cover', height: '100vh', position: 'absolute', zIndex: isShowVideo ? 1 : -1 }}
+          style={{ objectFit: 'cover', position: 'absolute', zIndex: isShowVideo ? 1 : -1 }}
           className="videoTag"
         >
           <source src={'/video/GreenBlokX_bg.mp4'} type="video/mp4" />
