@@ -42,13 +42,19 @@ export const Construction = () => {
     // padding for timeframes
     if (videoRef.current && videoRef.current.currentTime) {
       if (videoRef.current.currentTime < 4.8) {
-        setVideoPadding('80px');
+        scrollToCenter();
+        setVideoPadding('90px');
       } else if (videoRef.current.currentTime >= 4.8 && videoRef.current.currentTime < 6.9) {
         setVideoPadding('0px');
       } else {
-        setVideoPadding('208px');
+        setVideoPadding('220px');
       }
     }
+  };
+
+  const scrollToCenter = () => {
+    const element = document.getElementById('about_us');
+    element && element.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -167,7 +173,7 @@ export const Construction = () => {
           fontSize={{ base: '14px', md: '22px' }}
           lineHeight={{ base: '18px', md: '28px' }}
           fontWeight="500"
-          pb={{ base: 10 }}
+          pb={{ base: 5 }}
         >
           Tokenized{' '}
           <Text as={'span'} color="brand.green">
@@ -194,7 +200,7 @@ export const Construction = () => {
           w={'full'}
           maxH={videoPadding === '0px' ? '710px' : 'unset'}
           pb={videoPadding === '0px' ? 20 : 'unset'}
-          px={videoPadding || '80px'}
+          px={videoPadding || '90px'}
           objectFit={'fill'}
           onTimeUpdate={pause}
           src={colorMode === 'dark' ? '/video/dark/full_dark.mp4' : '/video/white/full_white.mp4'}
