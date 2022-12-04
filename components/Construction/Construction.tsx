@@ -196,7 +196,7 @@ export const Construction = () => {
           // pl={currStep === 0 ? '200px' : 0}
           objectFit={'fill'}
           onTimeUpdate={pause}
-          src={colorMode === 'dark' ? '/images/full_dark.mp4' : '/images/full_white.mp4'}
+          src={colorMode === 'dark' ? '/video/dark/full_dark.mp4' : '/video/white/full_white.mp4'}
         ></Box>
         {/* XL textboxes */}
         <Box display={isShowInfoPoints ? 'block' : 'none'}>
