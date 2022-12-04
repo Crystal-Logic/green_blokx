@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   Switch,
   Center,
@@ -20,6 +20,7 @@ import {
   HStack,
   Button,
 } from '@chakra-ui/react';
+import { useInView } from 'react-intersection-observer';
 
 const menuItems = [
   {
@@ -51,6 +52,7 @@ const menuItems = [
 export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const [isShowVideo, setIsShowVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { ref: inViewRef, inView: isVideoVisible } = useInView({ threshold: 0.5 });
 
   const { toggleColorMode, colorMode } = useColorMode();
   const { isOpen, onClose, onToggle } = useDisclosure();
@@ -64,6 +66,10 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
 
   const playVideo = () => {
     videoRef.current && videoRef.current.play();
+  };
+
+  const pauseVideo = () => {
+    videoRef.current && videoRef.current.pause();
   };
 
   const stopAndResetVideo = () => {
@@ -102,8 +108,18 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
     onToggle();
   };
 
+  useEffect(() => {
+    if (isShowVideo) {
+      if (isVideoVisible) {
+        playVideo();
+      } else {
+        pauseVideo();
+      }
+    }
+  }, [isVideoVisible]);
+
   return (
-    <Flex minH="100vh" w={'full'}>
+    <Flex minH="100vh" w={'full'} ref={inViewRef}>
       <Hide below="lg">
         <Flex w={'100px'} direction={'column'} justifyContent={'space-between'} alignItems={'center'} py={20}>
           <Image src="/images/logo.png" w={'65px'} h={'75px'} alt="logo" />
