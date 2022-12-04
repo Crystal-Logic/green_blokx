@@ -52,7 +52,7 @@ export const WhyBlock = () => {
         pt={{ base: '32px', md: '68px' }}
         pl={{ base: 5, xl: 52 }}
         pr={{ base: 5, xl: 44 }}
-        pb={{ base: '42px', md: 0 }}
+        pb={{ base: 3, md: 0 }}
       >
         <Text
           w={{ base: 'full', md: '50%' }}
@@ -91,7 +91,7 @@ export const WhyBlock = () => {
         <Flex
           className="wb-pagination"
           h={'full'}
-          w={'90px'}
+          w={{ lg: '90px' }}
           direction={{ base: 'row', md: 'column' }}
           justifyContent={'space-between'}
           fontFamily={'Montserrat'}
@@ -114,6 +114,7 @@ export const WhyBlock = () => {
             '.swiper-pagination-bullet:before': {
               content: '""',
               background: `url(${arrowImg})`,
+              backgroundRepeat: 'no-repeat',
               width: { base: '16px', md: '26px' },
               height: { base: '13px', md: '23px' },
               display: 'block',
@@ -146,7 +147,10 @@ export const WhyBlock = () => {
             }}
           >
             {images.map(({ src, srcMin, alt }) => (
-              <SwiperSlide key={src} style={{ display: 'flex', justifyContent: 'center' }}>
+              <SwiperSlide
+                key={src}
+                style={{ display: 'flex', justifyContent: 'center', height: 'auto', alignItems: 'center' }}
+              >
                 <>
                   <Hide below="sm">
                     <Image
@@ -156,10 +160,11 @@ export const WhyBlock = () => {
                       pl={{ base: 0, md: '22px' }}
                       alt={alt}
                       objectFit={'contain'}
+                      align={'bottom'}
                     />
                   </Hide>
                   <Hide above="md">
-                    <Image src={srcMin} pl={{ base: 0, md: '22px' }} alt={alt} />
+                    <Image src={srcMin} pl={{ base: 0, md: '22px' }} alt={alt} objectFit={'contain'} align={'bottom'} />
                   </Hide>
                 </>
               </SwiperSlide>
