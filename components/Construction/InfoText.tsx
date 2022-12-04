@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box } from '@chakra-ui/react';
 
-export const InfoText = ({ children, textPositions }: any) => {
+export const InfoText = ({ children, textPositions, showPoints }: any) => {
   const [isShowText, setIsShowText] = useState(false);
 
   const toggleText = () => setIsShowText(!isShowText);
+
+  useEffect(() => {
+    if (!showPoints) {
+      setIsShowText(false);
+    }
+  }, [showPoints]);
 
   return (
     <Box h={9} w={9} position={'relative'} onClick={toggleText}>

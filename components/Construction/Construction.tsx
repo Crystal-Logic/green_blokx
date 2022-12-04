@@ -10,7 +10,7 @@ export const Construction = () => {
   const [currStep, setCurrStep] = useState(steps[0]);
   const [pauseSec, setPauseSec] = useState(seconds[currStep]);
   const [isShowInfoPoints, setIsShowInfoPoints] = useState(false);
-  const [videoPadding, setVideoPadding] = useState(20);
+  const [videoPadding, setVideoPadding] = useState('80px');
 
   const { colorMode } = useColorMode();
   const { ref: inViewRef, inView: isVideoVisible } = useInView({ threshold: 0.5 });
@@ -42,11 +42,11 @@ export const Construction = () => {
     // padding for timeframes
     if (videoRef.current && videoRef.current.currentTime) {
       if (videoRef.current.currentTime < 4.8) {
-        setVideoPadding(20);
+        setVideoPadding('80px');
       } else if (videoRef.current.currentTime >= 4.8 && videoRef.current.currentTime < 6.9) {
-        setVideoPadding(0);
+        setVideoPadding('0px');
       } else {
-        setVideoPadding(52);
+        setVideoPadding('208px');
       }
     }
   };
@@ -192,9 +192,9 @@ export const Construction = () => {
           ref={videoRef}
           as="video"
           w={'full'}
-          maxH={videoPadding === 0 ? '710px' : 'unset'}
-          pb={videoPadding === 0 ? 20 : 'unset'}
-          px={videoPadding}
+          maxH={videoPadding === '0px' ? '710px' : 'unset'}
+          pb={videoPadding === '0px' ? 20 : 'unset'}
+          px={videoPadding || '80px'}
           objectFit={'fill'}
           onTimeUpdate={pause}
           src={colorMode === 'dark' ? '/video/dark/full_dark.mp4' : '/video/white/full_white.mp4'}
@@ -202,7 +202,7 @@ export const Construction = () => {
         {/* XL textboxes */}
         <Box display={isShowInfoPoints ? 'block' : 'none'}>
           <Box position="absolute" zIndex={20} top={'250px'} left={'350px'}>
-            <InfoText textPositions={{ left: '-300px' }}>
+            <InfoText textPositions={{ left: '-300px' }} showPoints={isShowInfoPoints}>
               <Text
                 w={{ lg: '220px' }}
                 fontSize={{ base: '14px', lg: '12px' }}
@@ -219,7 +219,7 @@ export const Construction = () => {
             </InfoText>
           </Box>
           <Box position="absolute" zIndex={20} top={'130px'} right={'370px'}>
-            <InfoText textPositions={{ left: '50px', bottom: '30px' }}>
+            <InfoText textPositions={{ left: '50px', bottom: '30px' }} showPoints={isShowInfoPoints}>
               <Text
                 w={{ lg: '220px' }}
                 fontSize={{ base: '14px', lg: '12px' }}
@@ -232,7 +232,7 @@ export const Construction = () => {
             </InfoText>
           </Box>
           <Box position="absolute" zIndex={20} top={'410px'} right={'370px'}>
-            <InfoText textPositions={{ right: '50px', top: '100px' }}>
+            <InfoText textPositions={{ right: '50px', top: '100px' }} showPoints={isShowInfoPoints}>
               <Text
                 w={{ lg: '220px' }}
                 fontSize={{ base: '14px', lg: '12px' }}
