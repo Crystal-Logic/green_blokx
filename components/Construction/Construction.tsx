@@ -131,10 +131,7 @@ export const Construction = () => {
           zIndex={10}
           cursor={cursorPointer}
         ></Box>
-        <video
-          ref={videoRef}
-          src={colorMode === 'dark' ? '/images/Full_Animation_Black.mp4' : '/images/Full_Animation_White.mp4'}
-        ></video>
+        <video ref={videoRef} src={colorMode === 'dark' ? '/images/full.mp4' : '/images/full_white.mp4'}></video>
       </Box>
     </Box>
   );
