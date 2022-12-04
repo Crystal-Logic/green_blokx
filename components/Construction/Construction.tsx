@@ -1,18 +1,54 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Box, Heading, Text, Hide, useColorMode } from '@chakra-ui/react';
+import { useInView } from 'react-intersection-observer';
+
+const steps = [0, 1, 2];
+const seconds = [4.5, 6.7, 8];
 
 export const Construction = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [currStep, setCurrStep] = useState(steps[0]);
+  const [pauseSec, setPauseSec] = useState(seconds[currStep]);
   const { colorMode } = useColorMode();
+  const { ref: inViewRef, inView: isVideoVisible } = useInView({ threshold: 0.5 });
+  const videoRef = useRef<HTMLVideoElement & HTMLDivElement>(null);
 
   const cursorPointer = 'url(/images/cursor_pointer-green.png) 16 16, auto';
 
   const playVideo = () => {
-    videoRef.current && videoRef.current.play();
+    if (videoRef.current && videoRef.current.currentTime !== videoRef.current.duration) {
+      videoRef.current && videoRef.current.play();
+    }
   };
 
+  const pause = () => {
+    if (
+      videoRef.current &&
+      videoRef.current.currentTime >= pauseSec &&
+      videoRef.current &&
+      videoRef.current.currentTime < videoRef.current.duration
+    ) {
+      videoRef.current.pause();
+      setCurrStep(currStep + 1);
+    }
+  };
+
+  useEffect(() => {
+    setPauseSec(seconds[currStep]);
+  }, [currStep]);
+
+  useEffect(() => {
+    if (isVideoVisible) {
+      playVideo();
+    } else {
+      if (videoRef.current) {
+        videoRef.current.currentTime = 0;
+        setCurrStep(steps[0]);
+      }
+    }
+  }, [isVideoVisible]);
+
   return (
-    <Box id="about_us">
+    <Box id="about_us" h={'100vh'}>
       <Box w={'full'} pl={{ base: 5, lg: 205 }} pt={{ base: 12, lg: 24 }}>
         <Hide below="xl">
           <Heading
@@ -130,8 +166,18 @@ export const Construction = () => {
           onClick={playVideo}
           zIndex={10}
           cursor={cursorPointer}
+          ref={inViewRef}
         ></Box>
-        <video ref={videoRef} src={colorMode === 'dark' ? '/images/full_dark.mp4' : '/images/full_white.mp4'}></video>
+        <Box
+          ref={videoRef}
+          as="video"
+          w={'full'}
+          h={'700px !important'}
+          // pl={currStep === 0 ? '200px' : 0}
+          objectFit={'fill'}
+          onTimeUpdate={pause}
+          src={colorMode === 'dark' ? '/images/full_dark.mp4' : '/images/full_white.mp4'}
+        ></Box>
       </Box>
     </Box>
   );
