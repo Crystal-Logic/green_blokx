@@ -21,7 +21,7 @@ const Step = ({ text, isActive, onSelect }: StepProps) => {
         color="brand.green"
         position={'absolute'}
         top={15}
-        right={{ base: '-20px', md: '-40px' }}
+        right={{ base: '-40px', md: '-40px' }}
         cursor={'pointer'}
         background="transparent"
         _hover={{
@@ -29,14 +29,14 @@ const Step = ({ text, isActive, onSelect }: StepProps) => {
           fontSize: { base: '15px', md: '32px' },
           lineHeight: { base: '18px', md: '40px' },
           fontWeight: '500',
-          right: { base: '-30px', md: '-60px' },
+          right: { base: '-40px', md: '-60px' },
         }}
         _active={{
           color: activeColor,
           fontSize: { base: '15px', md: '32px' },
           lineHeight: { base: '18px', md: '40px' },
           fontWeight: '500',
-          right: { base: '-30px', md: '-60px' },
+          right: { base: '-40px', md: '-60px' },
         }}
       >
         {' '}
@@ -51,85 +51,91 @@ const getStepCard = (step: string): JSX.Element => {
     '1': () => (
       <Box
         w={'full'}
-        minH={{ lg: '550px' }}
+        minH={{ base: '280px', md: '280px', xl: '550px' }}
         mb={{ base: '10px', md: '26px' }}
-        bg="url('/images/tech/tokenised_factory.png')"
+        bg="url('/images/tech/step_1.png')"
         backgroundSize="contain"
         backgroundRepeat="no-repeat"
         backgroundPosition="right"
       >
-        <Text
-          fontSize={{ base: '14px', md: '18px' }}
-          lineHeight={{ base: '18px', md: '23px' }}
-          fontWeight="600"
-          pl={{ base: 8, xl: 52 }}
-          pt={20}
-          maxW={'600px'}
-        >
-          Our intention is to be the largest supplier of sandwich panels in all of Europe and we won't stop there.
-          <br />
-          <br />
-          We have the industry knowledge, business development, sales pipelines, and competitive advantage to create a
-          company to weather any storm while suiting the needs of the growing demand for Sustainable development
-          products
-        </Text>
+        <Hide below="sm">
+          <Text
+            fontSize={{ base: '14px', lg: '18px' }}
+            lineHeight={{ base: '18px', lg: '23px' }}
+            fontWeight="600"
+            pl={{ base: 5, xl: 52 }}
+            pt={{ base: 5, xl: 20 }}
+            maxW={{ md: '270px', xl: '580px' }}
+          >
+            Our intention is to be the largest supplier of sandwich panels in all of Europe and we won't stop there.
+            <br />
+            <br />
+            We have the industry knowledge, business development, sales pipelines, and competitive advantage to create a
+            company to weather any storm while suiting the needs of the growing demand for Sustainable development
+            products
+          </Text>
+        </Hide>
       </Box>
     ),
     '2': () => (
       <Box
         w={'full'}
-        minH={{ lg: '550px' }}
+        minH={{ base: '300px', xl: '550px' }}
         mb={{ base: '10px', md: '26px' }}
         mr={10}
-        bg="url('/images/tech/eco_sandwich_panels.png')"
+        bg="url('/images/tech/step_2.png')"
         backgroundSize="contain"
         backgroundRepeat="no-repeat"
-        backgroundPosition="bottom 0px right 100px"
+        backgroundPosition={{ base: 'right', lg: 'bottom 0px right 100px' }}
       >
-        <Text
-          fontSize={{ base: '14px', md: '18px' }}
-          lineHeight={{ base: '18px', md: '23px' }}
-          fontWeight="600"
-          pl={{ base: 8, xl: 52 }}
-          pt={20}
-          maxW={'600px'}
-        >
-          Eco Sandwich Panels are created with natural plant fibers such as soybean but carry all of the traditional
-          benefits of typical sandwich panels.
-          <br />
-          <br /> As the world moves towards carbon credits and sustainable construction, the recyclability and
-          renewability of the materials we use remains a high priority.
-        </Text>
+        <Hide below="lg">
+          <Text
+            fontSize={{ base: '14px', lg: '18px' }}
+            lineHeight={{ base: '18px', lg: '23px' }}
+            fontWeight="600"
+            pl={{ base: 5, xl: 52 }}
+            pt={{ base: 5, xl: 20 }}
+            maxW={{ md: '290px', xl: '580px' }}
+          >
+            Eco Sandwich Panels are created with natural plant fibers such as soybean but carry all of the traditional
+            benefits of typical sandwich panels.
+            <br />
+            <br /> As the world moves towards carbon credits and sustainable construction, the recyclability and
+            renewability of the materials we use remains a high priority.
+          </Text>
+        </Hide>
       </Box>
     ),
     '3': () => (
       <Box
         w={'full'}
-        minH={{ lg: '550px' }}
+        minH={{ base: '300px', xl: '550px' }}
         mb={{ base: '10px', md: '26px' }}
-        bg="url('/images/tech/revenue_share_tokens.png')"
+        bg="url('/images/tech/step_3.png')"
         backgroundSize="contain"
         backgroundRepeat="no-repeat"
         backgroundPosition="right"
       >
-        <Text
-          fontSize={{ base: '14px', md: '18px' }}
-          lineHeight={{ base: '18px', md: '23px' }}
-          fontWeight="600"
-          pl={{ base: 8, xl: 52 }}
-          pt={20}
-          maxW={'600px'}
-        >
-          Our unique token model will provide a high yield return paid on a quarterly basis in FIAT or Stable Coins such
-          as USDT/USDC.
-          <br />
-          <br />
-          You can buy, sell, and trade with liquidity on demand. There are no locking periods, staking or vesting
-          requirements.
-          <br />
-          <br />
-          Our revenue forecasts a breakeven on investment in Year 3 with gross revenue share paid out quarterly.
-        </Text>
+        <Hide below="lg">
+          <Text
+            fontSize={{ base: '14px', lg: '18px' }}
+            lineHeight={{ base: '18px', lg: '23px' }}
+            fontWeight="600"
+            pl={{ base: 5, xl: 52 }}
+            pt={{ base: 5, xl: 20 }}
+            maxW={{ md: '290px', xl: '631px' }}
+          >
+            Our unique token model will provide a high yield return paid on a quarterly basis in FIAT or Stable Coins
+            such as USDT/USDC.
+            <br />
+            <br />
+            You can buy, sell, and trade with liquidity on demand. There are no locking periods, staking or vesting
+            requirements.
+            <br />
+            <br />
+            Our revenue forecasts a breakeven on investment in Year 3 with gross revenue share paid out quarterly.
+          </Text>
+        </Hide>
       </Box>
     ),
   };
@@ -141,28 +147,28 @@ export const Technology = () => {
 
   return (
     <Box id="technology">
-      <Flex h={{ base: '60px', md: '80px' }}>
+      <Flex h={{ base: '60px', lg: '80px' }}>
         <Box flex={'1'} bg="brand.green"></Box>
-        <Flex w={{ base: '200px', md: '400px' }} justifyContent="center" alignItems={'center'}>
+        <Flex w={{ base: '200px', lg: '400px' }} justifyContent="center" alignItems={'center'}>
           <Heading
             as="h2"
-            fontSize={{ base: '25px', md: '32px' }}
-            lineHeight={{ base: '31px', md: '40px' }}
+            fontSize={{ base: '25px', lg: '32px' }}
+            lineHeight={{ base: '31px', lg: '40px' }}
             fontWeight="500"
           >
             Technology
           </Heading>
         </Flex>
-        <Box w={{ base: '15px', md: '150px' }} bg="brand.green"></Box>
+        <Box w={{ base: '15px', lg: '150px' }} bg="brand.green"></Box>
       </Flex>
 
       <Text
-        fontSize={{ base: '14px', md: '18px' }}
-        lineHeight={{ base: '18px', md: '23px' }}
+        fontSize={{ base: '14px', lg: '18px' }}
+        lineHeight={{ base: '18px', lg: '23px' }}
         fontWeight="600"
-        pl={['20px', null, null, '205px']}
-        pr={['20px', null, null, '272px']}
-        pt={'51px'}
+        pl={{ base: 5, xl: 52 }}
+        pr={{ base: 5, xl: '272px' }}
+        pt={12}
       >
         We are building the{' '}
         <Text as={'span'} color="brand.green">
@@ -179,7 +185,7 @@ export const Technology = () => {
 
       {getStepCard(activeStep.toString())}
 
-      <Flex h={'100px'} borderTop={'1px solid'} borderColor={'brand.green'}>
+      <Flex h={{ base: 12, lg: 24 }} borderTop={'1px solid'} borderColor={'brand.green'}>
         <SimpleGrid columns={4} spacing={0} w={'full'}>
           <Step text="Step 1" isActive={activeStep === 1} onSelect={() => setActiveStep(1)} />
           <Step text="Step 2" isActive={activeStep === 2} onSelect={() => setActiveStep(2)} />
