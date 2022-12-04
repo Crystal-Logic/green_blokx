@@ -96,7 +96,7 @@ export const WhyBlock = () => {
           sx={{
             '.swiper-pagination-bullet': {
               width: '100%',
-              height: '40px',
+              height: '80px',
               opacity: 'unset',
               background: 'transparent',
               fontWeight: '300',
@@ -104,12 +104,13 @@ export const WhyBlock = () => {
               lineHeight: { base: '22px', md: '39px' },
               display: 'flex',
               alignItems: 'center',
+              justifyContent: { base: 'center', md: 'unset' },
             },
             '.swiper-pagination-bullet:before': {
               content: '""',
               background: `url(${arrowImg})`,
-              width: '26px',
-              height: '23px',
+              width: { base: '16px', md: '26px' },
+              height: { base: '13px', md: '23px' },
               display: 'block',
               mr: 1,
             },
@@ -157,7 +158,7 @@ export const WhyBlock = () => {
       <Hide above="md">
         <Flex
           w={'full'}
-          pt={{ base: 0, md: '68px' }}
+          pt={{ base: 5, md: '68px' }}
           pl={{ base: '20px', md: '225px' }}
           pr={{ base: '20px', md: '182px' }}
           pb={{ base: '42px', md: 0 }}
