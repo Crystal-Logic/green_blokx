@@ -173,7 +173,7 @@ export const Construction = () => {
           fontSize={{ base: '14px', md: '22px' }}
           lineHeight={{ base: '18px', md: '28px' }}
           fontWeight="500"
-          pb={{ base: 5 }}
+          pb={{ lg: 10, xl: 5 }}
         >
           Tokenized{' '}
           <Text as={'span'} color="brand.green">
@@ -207,7 +207,7 @@ export const Construction = () => {
         ></Box>
         {/* XL textboxes */}
         <Box display={isShowInfoPoints ? 'block' : 'none'}>
-          <Box position="absolute" zIndex={20} top={'250px'} left={'310px'}>
+          <Box position="absolute" zIndex={20} top={{ lg: '150px', xl: '250px' }} left={{ lg: '310px' }}>
             <InfoText viewType={'left'} showPoints={isShowInfoPoints}>
               <Text
                 w={{ lg: '200px' }}
@@ -224,7 +224,7 @@ export const Construction = () => {
               </Text>
             </InfoText>
           </Box>
-          <Box position="absolute" zIndex={20} top={'130px'} right={'390px'}>
+          <Box position="absolute" zIndex={20} top={{ lg: '60px', xl: '130px' }} right={{ lg: '370px', xl: '390px' }}>
             <InfoText viewType={'right'} showPoints={isShowInfoPoints}>
               <Text
                 w={{ lg: '220px' }}
@@ -237,7 +237,7 @@ export const Construction = () => {
               </Text>
             </InfoText>
           </Box>
-          <Box position="absolute" zIndex={20} top={'430px'} right={'370px'}>
+          <Box position="absolute" zIndex={20} top={{ lg: '250px', xl: '430px' }} right={{ lg: '250px', xl: '370px' }}>
             <InfoText viewType={'bottom'} showPoints={isShowInfoPoints}>
               <Text
                 w={{ lg: '220px' }}
