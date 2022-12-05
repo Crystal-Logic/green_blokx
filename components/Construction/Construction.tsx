@@ -193,6 +193,7 @@ export const Construction = () => {
         <Box
           ref={videoRef}
           as="video"
+          muted={true}
           w={'full'}
           maxH={{ base: '240px', lg: videoPadding === '0px' ? '710px' : 'unset' }}
           pb={{ lg: videoPadding === '0px' ? 20 : 'unset' }}
