@@ -207,10 +207,10 @@ export const Construction = () => {
         ></Box>
         {/* XL textboxes */}
         <Box display={isShowInfoPoints ? 'block' : 'none'}>
-          <Box position="absolute" zIndex={20} top={'250px'} left={'330px'}>
+          <Box position="absolute" zIndex={20} top={'250px'} left={'310px'}>
             <InfoText viewType={'left'} showPoints={isShowInfoPoints}>
               <Text
-                w={{ lg: '220px' }}
+                w={{ lg: '200px' }}
                 fontSize={{ base: '14px', lg: '12px' }}
                 lineHeight={{ base: '18px', lg: '15px' }}
                 fontWeight="500"
