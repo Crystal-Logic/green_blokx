@@ -8,7 +8,7 @@ const font = '"Orbitron", sans-serif';
 const brand = {
   black: '#000',
   white: '#fff',
-  dark: '#2B2B2B',
+  dark: '#313131',
   green: '#3AAE05',
   red: '#D25757',
 };
