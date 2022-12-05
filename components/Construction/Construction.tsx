@@ -42,7 +42,6 @@ export const Construction = () => {
     // padding for timeframes
     if (videoRef.current && videoRef.current.currentTime) {
       if (videoRef.current.currentTime < 4.8) {
-        scrollToCenter();
         setVideoPadding('90px');
       } else if (videoRef.current.currentTime >= 4.8 && videoRef.current.currentTime < 6.9) {
         setVideoPadding('0px');
@@ -50,11 +49,6 @@ export const Construction = () => {
         setVideoPadding('220px');
       }
     }
-  };
-
-  const scrollToCenter = () => {
-    const element = document.getElementById('about_us');
-    element && element.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
