@@ -4,28 +4,28 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 const images = [
   {
-    src: '/images/why_block/1-5.png',
-    srcMin: '/images/why_block/1-5min.png',
+    src: '/images/why_block/1-5.svg',
+    srcMin: '/images/why_block/1-5min.svg',
     alt: '1-5',
   },
   {
-    src: '/images/why_block/2-5.png',
-    srcMin: '/images/why_block/2-5min.png',
+    src: '/images/why_block/2-5.svg',
+    srcMin: '/images/why_block/2-5min.svg',
     alt: '2-5',
   },
   {
-    src: '/images/why_block/3-5.png',
-    srcMin: '/images/why_block/3-5min.png',
+    src: '/images/why_block/3-5.svg',
+    srcMin: '/images/why_block/3-5min.svg',
     alt: '3-5',
   },
   {
-    src: '/images/why_block/4-5.png',
-    srcMin: '/images/why_block/4-5min.png',
+    src: '/images/why_block/4-5.svg',
+    srcMin: '/images/why_block/4-5min.svg',
     alt: '4-5',
   },
   {
-    src: '/images/why_block/5-5.png',
-    srcMin: '/images/why_block/5-5min.png',
+    src: '/images/why_block/5-5.svg',
+    srcMin: '/images/why_block/5-5min.svg',
     alt: '5-5',
   },
 ];
@@ -87,9 +87,13 @@ export const WhyBlock = () => {
         pl={{ base: 0, xl: 52 }}
         direction={{ base: 'column-reverse', md: 'row' }}
         overflow={'hidden'}
+        position={{ base: 'unset', xl: 'relative' }}
       >
         <Flex
           className="wb-pagination"
+          position={{ base: 'unset', xl: 'absolute' }}
+          left={{ base: 'unset', lg: '0', xl: '200px !important' }}
+          zIndex={20}
           h={'full'}
           w={{ lg: '90px' }}
           direction={{ base: 'row', md: 'column' }}
