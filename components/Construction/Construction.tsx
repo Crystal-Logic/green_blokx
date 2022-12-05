@@ -12,6 +12,7 @@ export const Construction = () => {
   const [pauseSec, setPauseSec] = useState(seconds[currStep]);
   const [isShowInfoPoints, setIsShowInfoPoints] = useState(false);
   const [videoPadding, setVideoPadding] = useState('80px');
+  const [showMobileBox, setShowMobileBox] = useState(0);
 
   const { colorMode } = useColorMode();
   const { ref: inViewRef, inView: isVideoVisible } = useInView({ threshold: 0.5 });
@@ -70,6 +71,7 @@ export const Construction = () => {
         videoRef.current.currentTime = 0;
         setCurrStep(steps[0]);
         setIsShowInfoPoints(false);
+        setShowMobileBox(0);
       }
     }
   }, [isVideoVisible]);
@@ -201,7 +203,7 @@ export const Construction = () => {
           w={'full'}
           maxH={{ base: '240px', lg: videoPadding === '0px' ? '710px' : 'unset' }}
           pb={{ lg: videoPadding === '0px' ? 20 : 'unset' }}
-          px={{ base: 5, md: 12, lg: videoPadding || '90px' }}
+          px={{ base: videoPadding === '0px' ? 0 : 5, md: 12, lg: videoPadding || '90px' }}
           objectFit={'fill'}
           onTimeUpdate={pause}
           src={colorMode === 'dark' ? '/video/dark/full_dark.mp4' : '/video/white/full_white.mp4'}
@@ -255,8 +257,14 @@ export const Construction = () => {
         {/* XL textboxes end*/}
         {/* SM textboxes */}
         <Box display={{ base: isShowInfoPoints ? 'block' : 'none', lg: 'none' }}>
-          <Box position="absolute" zIndex={20} top={{ base: '90px' }} left={{ base: '50px' }}>
-            <InfoTextMobile viewType={'left'} showPoints={isShowInfoPoints}>
+          <Box
+            position="absolute"
+            zIndex={20}
+            top={{ base: '90px' }}
+            left={{ base: '50px' }}
+            onClick={() => setShowMobileBox(1)}
+          >
+            <InfoTextMobile viewType={'left'} show={showMobileBox === 1}>
               <Text fontSize={{ base: '8px' }} lineHeight={{ base: '10px' }} fontWeight="500">
                 100% recyclable light weight, thermal and energy saving Foam composition structure allows each Eco
                 Sandwich panel to be completely flexible in it’s specifications creating installation right from
@@ -267,16 +275,28 @@ export const Construction = () => {
               </Text>
             </InfoTextMobile>
           </Box>
-          <Box position="absolute" zIndex={20} top={{ base: '30px' }} right={{ base: '90px' }}>
-            <InfoTextMobile viewType={'right'} showPoints={isShowInfoPoints}>
+          <Box
+            position="absolute"
+            zIndex={20}
+            top={{ base: '30px' }}
+            right={{ base: '90px' }}
+            onClick={() => setShowMobileBox(2)}
+          >
+            <InfoTextMobile viewType={'right'} show={showMobileBox === 2}>
               <Text fontSize={{ base: '8px' }} lineHeight={{ base: '10px' }} fontWeight="500">
                 Colour coded corrugated iron metal sheets that meet design standards to suit all climates strengths and
                 durability these sheets come in a range of thickness starting from 0.3 to 0.7 millimetres in thickness.
               </Text>
             </InfoTextMobile>
           </Box>
-          <Box position="absolute" zIndex={20} top={{ base: '130px' }} right={{ base: '110px' }}>
-            <InfoTextMobile viewType={'bottom'} showPoints={isShowInfoPoints}>
+          <Box
+            position="absolute"
+            zIndex={20}
+            top={{ base: '130px' }}
+            right={{ base: '110px' }}
+            onClick={() => setShowMobileBox(3)}
+          >
+            <InfoTextMobile viewType={'bottom'} show={showMobileBox === 3}>
               <Text fontSize={{ base: '8px' }} lineHeight={{ base: '10px' }} fontWeight="500">
                 Quick and easy to install click and screw to each panel. The light weight metal sheets are typically
                 flat and lightly grooved panels. This side can be colour coded to personal choice.

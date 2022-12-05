@@ -1,25 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Box, useColorModeValue } from '@chakra-ui/react';
 
-export const InfoTextMobile = ({ children, showPoints, viewType }: any) => {
-  const [isShowText, setIsShowText] = useState(false);
+export const InfoTextMobile = ({ children, viewType, show }: any) => {
   const bg = useColorModeValue('white', 'brand.dark');
 
-  const toggleText = () => setIsShowText(!isShowText);
-
-  useEffect(() => {
-    if (!showPoints) {
-      setIsShowText(false);
-    }
-  }, [showPoints]);
-
   return (
-    <Box h={'15px'} w={'15px'} position={'relative'} onClick={toggleText}>
+    <Box h={'15px'} w={'15px'} position={'relative'}>
       <Box bgImage={'url("/images/green_dot.svg")'} bgRepeat={'no-repeat'} h={'15px'} w={'15px'}></Box>
       {viewType === 'left' && (
         <>
           <Box
-            display={isShowText ? 'block' : 'none'}
+            display={show ? 'block' : 'none'}
             position={'absolute'}
             border="1px solid"
             borderColor={'brand.green'}
@@ -30,7 +21,7 @@ export const InfoTextMobile = ({ children, showPoints, viewType }: any) => {
             top={'7px'}
           ></Box>
           <Box
-            display={isShowText ? 'block' : 'none'}
+            display={show ? 'block' : 'none'}
             position={'absolute'}
             border="1px solid"
             borderColor={'brand.green'}
@@ -48,7 +39,7 @@ export const InfoTextMobile = ({ children, showPoints, viewType }: any) => {
       {viewType === 'right' && (
         <>
           <Box
-            display={isShowText ? 'block' : 'none'}
+            display={show ? 'block' : 'none'}
             position={'absolute'}
             border="1px solid"
             borderColor={'brand.green'}
@@ -59,7 +50,7 @@ export const InfoTextMobile = ({ children, showPoints, viewType }: any) => {
             top={'7px'}
           ></Box>
           <Box
-            display={isShowText ? 'block' : 'none'}
+            display={show ? 'block' : 'none'}
             position={'absolute'}
             border="1px solid"
             borderColor={'brand.green'}
@@ -77,7 +68,7 @@ export const InfoTextMobile = ({ children, showPoints, viewType }: any) => {
       {viewType === 'bottom' && (
         <>
           <Box
-            display={isShowText ? 'block' : 'none'}
+            display={show ? 'block' : 'none'}
             position={'absolute'}
             border="1px solid"
             borderColor={'brand.green'}
@@ -88,7 +79,7 @@ export const InfoTextMobile = ({ children, showPoints, viewType }: any) => {
             top={'7px'}
           ></Box>
           <Box
-            display={isShowText ? 'block' : 'none'}
+            display={show ? 'block' : 'none'}
             position={'absolute'}
             border="1px solid"
             borderColor={'brand.green'}
