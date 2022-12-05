@@ -207,8 +207,8 @@ export const Construction = () => {
         ></Box>
         {/* XL textboxes */}
         <Box display={isShowInfoPoints ? 'block' : 'none'}>
-          <Box position="absolute" zIndex={20} top={'250px'} left={'350px'}>
-            <InfoText textPositions={{ left: '-300px' }} showPoints={isShowInfoPoints}>
+          <Box position="absolute" zIndex={20} top={'250px'} left={'330px'}>
+            <InfoText viewType={'left'} showPoints={isShowInfoPoints}>
               <Text
                 w={{ lg: '220px' }}
                 fontSize={{ base: '14px', lg: '12px' }}
@@ -224,8 +224,8 @@ export const Construction = () => {
               </Text>
             </InfoText>
           </Box>
-          <Box position="absolute" zIndex={20} top={'130px'} right={'370px'}>
-            <InfoText textPositions={{ left: '50px', bottom: '30px' }} showPoints={isShowInfoPoints}>
+          <Box position="absolute" zIndex={20} top={'130px'} right={'390px'}>
+            <InfoText viewType={'right'} showPoints={isShowInfoPoints}>
               <Text
                 w={{ lg: '220px' }}
                 fontSize={{ base: '14px', lg: '12px' }}
@@ -237,8 +237,8 @@ export const Construction = () => {
               </Text>
             </InfoText>
           </Box>
-          <Box position="absolute" zIndex={20} top={'410px'} right={'370px'}>
-            <InfoText textPositions={{ right: '50px', top: '100px' }} showPoints={isShowInfoPoints}>
+          <Box position="absolute" zIndex={20} top={'430px'} right={'370px'}>
+            <InfoText viewType={'bottom'} showPoints={isShowInfoPoints}>
               <Text
                 w={{ lg: '220px' }}
                 fontSize={{ base: '14px', lg: '12px' }}
