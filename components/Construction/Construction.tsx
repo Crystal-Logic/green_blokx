@@ -74,7 +74,7 @@ export const Construction = () => {
   }, [isVideoVisible]);
 
   return (
-    <Box id="about_us" h={'100vh'}>
+    <Box id="about_us" h={{ lg: '100vh' }} minH={{ base: '480px', md: '600px' }}>
       <Box w={'full'} pl={{ base: 5, lg: 205 }} pt={{ base: 12, lg: 20 }}>
         <Hide below="xl">
           <Heading
@@ -173,7 +173,7 @@ export const Construction = () => {
           fontSize={{ base: '14px', md: '22px' }}
           lineHeight={{ base: '18px', md: '28px' }}
           fontWeight="500"
-          pb={{ lg: 10, xl: 5 }}
+          pb={{ base: 8, lg: 10, xl: 5 }}
         >
           Tokenized{' '}
           <Text as={'span'} color="brand.green">
@@ -198,15 +198,15 @@ export const Construction = () => {
           ref={videoRef}
           as="video"
           w={'full'}
-          maxH={videoPadding === '0px' ? '710px' : 'unset'}
-          pb={videoPadding === '0px' ? 20 : 'unset'}
-          px={videoPadding || '90px'}
+          maxH={{ base: '240px', lg: videoPadding === '0px' ? '710px' : 'unset' }}
+          pb={{ lg: videoPadding === '0px' ? 20 : 'unset' }}
+          px={{ base: 5, md: 12, lg: videoPadding || '90px' }}
           objectFit={'fill'}
           onTimeUpdate={pause}
           src={colorMode === 'dark' ? '/video/dark/full_dark.mp4' : '/video/white/full_white.mp4'}
         ></Box>
         {/* XL textboxes */}
-        <Box display={isShowInfoPoints ? 'block' : 'none'}>
+        <Box display={{ base: 'none', lg: isShowInfoPoints ? 'block' : 'none' }}>
           <Box position="absolute" zIndex={20} top={{ lg: '150px', xl: '250px' }} left={{ lg: '310px' }}>
             <InfoText viewType={'left'} showPoints={isShowInfoPoints}>
               <Text
