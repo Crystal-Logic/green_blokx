@@ -52,7 +52,7 @@ const getStepCard = (step: string): JSX.Element => {
         w={'full'}
         minH={{ base: '280px', md: '280px', xl: '550px' }}
         mb={{ base: '10px', md: '26px' }}
-        bgImage={{ base: "url('/images/tech/step1_mob.png')", md: "url('/images/tech/step1.png')" }}
+        bgImage={{ base: "url('/images/tech/step1_mob.svg')", md: "url('/images/tech/step1.svg')" }}
         backgroundSize="contain"
         backgroundRepeat="no-repeat"
         backgroundPosition="right"
@@ -82,7 +82,7 @@ const getStepCard = (step: string): JSX.Element => {
         minH={{ base: '300px', xl: '550px' }}
         mb={{ base: '10px', md: '26px' }}
         mr={10}
-        bgImage={{ base: "url('/images/tech/step2_mob.png')", md: "url('/images/tech/step2.png')" }}
+        bgImage={{ base: "url('/images/tech/step2_mob.svg')", md: "url('/images/tech/step2.svg')" }}
         backgroundSize="contain"
         backgroundRepeat="no-repeat"
         backgroundPosition={{ base: 'right', lg: 'bottom 0px right 100px' }}
@@ -110,7 +110,7 @@ const getStepCard = (step: string): JSX.Element => {
         w={'full'}
         minH={{ base: '300px', xl: '550px' }}
         mb={{ base: '10px', md: '26px' }}
-        bgImage={{ base: "url('/images/tech/step3_mob.png')", md: "url('/images/tech/step3.png')" }}
+        bgImage={{ base: "url('/images/tech/step3_mob.svg')", md: "url('/images/tech/step3.svg')" }}
         backgroundSize="contain"
         backgroundRepeat="no-repeat"
         backgroundPosition="right"
