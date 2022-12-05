@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Box, Heading, Text, Hide, useColorMode, Flex } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
 import { InfoText } from './InfoText';
+import { InfoTextMobile } from './InfoTextMobile';
 
 const steps = [0, 1, 2];
 const seconds = [4.5, 6.7, 8];
@@ -252,6 +253,38 @@ export const Construction = () => {
           </Box>
         </Box>
         {/* XL textboxes end*/}
+        {/* SM textboxes */}
+        <Box display={{ base: isShowInfoPoints ? 'block' : 'none', lg: 'none' }}>
+          <Box position="absolute" zIndex={20} top={{ base: '90px' }} left={{ base: '50px' }}>
+            <InfoTextMobile viewType={'left'} showPoints={isShowInfoPoints}>
+              <Text fontSize={{ base: '8px' }} lineHeight={{ base: '10px' }} fontWeight="500">
+                100% recyclable light weight, thermal and energy saving Foam composition structure allows each Eco
+                Sandwich panel to be completely flexible in it’s specifications creating installation right from
+                refrigeration systems to building envelopes.
+                <br />
+                <br />
+                This provides buildings with extremely lower energy use on heating and cooling.
+              </Text>
+            </InfoTextMobile>
+          </Box>
+          <Box position="absolute" zIndex={20} top={{ base: '30px' }} right={{ base: '90px' }}>
+            <InfoTextMobile viewType={'right'} showPoints={isShowInfoPoints}>
+              <Text fontSize={{ base: '8px' }} lineHeight={{ base: '10px' }} fontWeight="500">
+                Colour coded corrugated iron metal sheets that meet design standards to suit all climates strengths and
+                durability these sheets come in a range of thickness starting from 0.3 to 0.7 millimetres in thickness.
+              </Text>
+            </InfoTextMobile>
+          </Box>
+          <Box position="absolute" zIndex={20} top={{ base: '130px' }} right={{ base: '110px' }}>
+            <InfoTextMobile viewType={'bottom'} showPoints={isShowInfoPoints}>
+              <Text fontSize={{ base: '8px' }} lineHeight={{ base: '10px' }} fontWeight="500">
+                Quick and easy to install click and screw to each panel. The light weight metal sheets are typically
+                flat and lightly grooved panels. This side can be colour coded to personal choice.
+              </Text>
+            </InfoTextMobile>
+          </Box>
+        </Box>
+        {/* SM textboxes end */}
       </Flex>
     </Box>
   );

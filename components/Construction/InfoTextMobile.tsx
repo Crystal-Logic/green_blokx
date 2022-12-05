@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box, useColorModeValue } from '@chakra-ui/react';
 
-export const InfoText = ({ children, showPoints, viewType }: any) => {
+export const InfoTextMobile = ({ children, showPoints, viewType }: any) => {
   const [isShowText, setIsShowText] = useState(false);
+  const bg = useColorModeValue('white', 'brand.dark');
 
   const toggleText = () => setIsShowText(!isShowText);
 
@@ -13,8 +14,8 @@ export const InfoText = ({ children, showPoints, viewType }: any) => {
   }, [showPoints]);
 
   return (
-    <Box h={9} w={9} position={'relative'} onClick={toggleText}>
-      <Box bgImage={'url("/images/green_dot.svg")'} bgRepeat={'no-repeat'} h={9} w={9}></Box>
+    <Box h={'15px'} w={'15px'} position={'relative'} onClick={toggleText}>
+      <Box bgImage={'url("/images/green_dot.svg")'} bgRepeat={'no-repeat'} h={'15px'} w={'15px'}></Box>
       {viewType === 'left' && (
         <>
           <Box
@@ -22,11 +23,11 @@ export const InfoText = ({ children, showPoints, viewType }: any) => {
             position={'absolute'}
             border="1px solid"
             borderColor={'brand.green'}
-            borderWidth={'1px 0 0 1px'}
-            w={'200px'}
-            h={'35px'}
-            right={'35px'}
-            top={'15px'}
+            borderWidth={'1px 0 1px 1px'}
+            w={'30px'}
+            h={'130px'}
+            right={'15px'}
+            top={'7px'}
           ></Box>
           <Box
             display={isShowText ? 'block' : 'none'}
@@ -34,10 +35,11 @@ export const InfoText = ({ children, showPoints, viewType }: any) => {
             border="1px solid"
             borderColor={'brand.green'}
             py={2.5}
-            pl={5}
-            pr={8}
-            left="-300px"
-            top="50px"
+            px={3}
+            left="0px"
+            top="80px"
+            w={'270px'}
+            bgColor={bg}
           >
             {children}
           </Box>
@@ -50,11 +52,11 @@ export const InfoText = ({ children, showPoints, viewType }: any) => {
             position={'absolute'}
             border="1px solid"
             borderColor={'brand.green'}
-            borderWidth={'1px 0 0 1px'}
-            w={'100px'}
-            h={'82px'}
-            left={'17px'}
-            bottom={'38px'}
+            borderWidth={'1px  1px 1px 0'}
+            w={'40px'}
+            h={'170px'}
+            left={'15px'}
+            top={'7px'}
           ></Box>
           <Box
             display={isShowText ? 'block' : 'none'}
@@ -62,10 +64,11 @@ export const InfoText = ({ children, showPoints, viewType }: any) => {
             border="1px solid"
             borderColor={'brand.green'}
             py={2.5}
-            pl={5}
-            pr={8}
-            left="116px"
-            bottom="50px"
+            px={3}
+            right="0px"
+            top="150px"
+            w={'230px'}
+            bgColor={bg}
           >
             {children}
           </Box>
@@ -79,10 +82,10 @@ export const InfoText = ({ children, showPoints, viewType }: any) => {
             border="1px solid"
             borderColor={'brand.green'}
             borderWidth={'1px 1px 1px 0'}
-            w={'80px'}
-            h={'120px'}
-            left={'35px'}
-            top={'15px'}
+            w={'60px'}
+            h={'60px'}
+            left={'5px'}
+            top={'7px'}
           ></Box>
           <Box
             display={isShowText ? 'block' : 'none'}
@@ -90,10 +93,11 @@ export const InfoText = ({ children, showPoints, viewType }: any) => {
             border="1px solid"
             borderColor={'brand.green'}
             py={2.5}
-            pl={5}
-            pr={8}
-            right="0px"
-            top="80px"
+            px={3}
+            right="-10px"
+            top="50px"
+            w={'230px'}
+            bgColor={bg}
           >
             {children}
           </Box>
