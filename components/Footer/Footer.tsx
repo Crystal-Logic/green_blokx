@@ -2,7 +2,6 @@ import { Flex, Text, Image, useColorModeValue, Hide, Link } from '@chakra-ui/rea
 
 export const Footer = () => {
   const bg = useColorModeValue('brand.green', 'brand.dark');
-  const cursorPointer = 'url(/images/cursor_pointer-green.png) 16 16, auto';
 
   return (
     <Flex
@@ -20,7 +19,7 @@ export const Footer = () => {
           lineHeight={{ base: '12px', md: '23px' }}
           fontWeight="400"
           order={{ base: 1, md: 'unset' }}
-          cursor={cursorPointer}
+          className={'custom_pointer-cursor'}
         >
           Privacy{' '}
           <Hide above="md">
@@ -47,7 +46,7 @@ export const Footer = () => {
             fontSize={{ base: '9px', md: '18px' }}
             lineHeight={{ base: '12px', md: '23px' }}
             fontWeight="400"
-            cursor={cursorPointer}
+            className={'custom_pointer-cursor'}
           >
             by{' '}
           </Text>
@@ -59,7 +58,7 @@ export const Footer = () => {
             position={'absolute'}
             top={{ base: '20px', md: '6px' }}
             right={{ base: '20px', md: '-10px' }}
-            cursor={cursorPointer}
+            className={'custom_pointer-cursor'}
           />
         </Flex>
       </Link>

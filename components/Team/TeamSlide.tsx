@@ -39,7 +39,14 @@ export const TeamSlide = ({ name, position, linkdIn, photo, description }: Slide
         >
           {name}
           <Link href={linkdIn} isExternal>
-            <Image src="/images/linkedin_logo.png" alt="linkedin logo" h={'30px'} w={'30px'} ml={'10px'} />
+            <Image
+              src="/images/linkedin_logo.png"
+              alt="linkedin logo"
+              h={'30px'}
+              w={'30px'}
+              ml={'10px'}
+              className={'custom_pointer-cursor'}
+            />
           </Link>
         </Text>
         <Text
@@ -61,7 +68,12 @@ export const TeamSlide = ({ name, position, linkdIn, photo, description }: Slide
           {description}
         </Text>
         <Hide below="lg">
-          <Text color={'brand.red'} mb={isShowAll ? 3 : 14} onClick={() => setIsShowAll(!isShowAll)}>
+          <Text
+            color={'brand.red'}
+            mb={isShowAll ? 3 : 14}
+            onClick={() => setIsShowAll(!isShowAll)}
+            className={'custom_pointer-cursor'}
+          >
             {isShowAll ? 'read less' : 'read more'}
           </Text>
         </Hide>

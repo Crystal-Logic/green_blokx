@@ -18,8 +18,6 @@ export const Construction = () => {
   const { ref: inViewRef, inView: isVideoVisible } = useInView({ threshold: 0.5 });
   const videoRef = useRef<HTMLVideoElement & HTMLDivElement>(null);
 
-  const cursorPointer = 'url(/images/cursor_pointer-green.png) 16 16, auto';
-
   const playVideo = () => {
     if (videoRef.current && videoRef.current.currentTime !== videoRef.current.duration) {
       videoRef.current && videoRef.current.play();
@@ -194,8 +192,9 @@ export const Construction = () => {
           left={0}
           onClick={playVideo}
           zIndex={10}
-          cursor={cursorPointer}
           ref={inViewRef}
+          className={'custom_pointer-cursor'}
+          h={'auto'}
         ></Box>
         <Box
           ref={videoRef}

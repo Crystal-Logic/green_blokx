@@ -116,6 +116,7 @@ export const theme = extendTheme({
       }),
     },
     Button: {
+      baseStyle: { cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto' },
       variants: {
         outlineGreen: {
           cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto',
