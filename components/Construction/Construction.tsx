@@ -260,8 +260,8 @@ export const Construction = () => {
           <Box
             position="absolute"
             zIndex={20}
-            top={{ base: '90px' }}
-            left={{ base: '50px' }}
+            top={{ base: '90px', sm: '130px' }}
+            left={{ base: '50px', sm: '80px' }}
             onClick={() => setShowMobileBox(1)}
           >
             <InfoTextMobile viewType={'left'} show={showMobileBox === 1}>
@@ -278,8 +278,8 @@ export const Construction = () => {
           <Box
             position="absolute"
             zIndex={20}
-            top={{ base: '30px' }}
-            right={{ base: '90px' }}
+            top={{ base: '30px', sm: '60px' }}
+            right={{ base: '90px', sm: '130px' }}
             onClick={() => setShowMobileBox(2)}
           >
             <InfoTextMobile viewType={'right'} show={showMobileBox === 2}>
@@ -292,7 +292,7 @@ export const Construction = () => {
           <Box
             position="absolute"
             zIndex={20}
-            top={{ base: '130px' }}
+            top={{ base: '135px', sm: '180px' }}
             right={{ base: '110px' }}
             onClick={() => setShowMobileBox(3)}
           >
