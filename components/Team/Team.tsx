@@ -110,6 +110,7 @@ export const Team = () => {
                 border="1px solid transparent"
                 position={'relative'}
                 _hover={{ borderColor: 'brand.green' }}
+                className={'custom_pointer-cursor'}
               >
                 <Box
                   position={'absolute'}
@@ -120,6 +121,7 @@ export const Team = () => {
                   borderColor={'brand.green'}
                   borderWidth={'2px 2px 0 0'}
                   sx={{ transform: 'rotate(-135deg)' }}
+                  className={'custom_pointer-cursor'}
                 ></Box>
               </Box>
             </Hide>
@@ -153,6 +155,7 @@ export const Team = () => {
                 border="1px solid transparent"
                 position={'relative'}
                 _hover={{ borderColor: 'brand.green' }}
+                className={'custom_pointer-cursor'}
               >
                 <Box
                   position={'absolute'}
@@ -163,6 +166,7 @@ export const Team = () => {
                   borderColor={'brand.green'}
                   borderWidth={'0 0 2px 2px'}
                   sx={{ transform: 'rotate(-135deg)' }}
+                  className={'custom_pointer-cursor'}
                 ></Box>
               </Box>
             </Hide>

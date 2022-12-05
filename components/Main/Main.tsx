@@ -62,8 +62,6 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
     'linear-gradient(0deg, rgba(43, 43, 43, 0.75), rgba(43, 43, 43, 0.75))',
   );
 
-  const cursorPointer = 'url(/images/cursor_pointer-green.png) 16 16, auto';
-
   const playVideo = () => {
     videoRef.current && videoRef.current.play();
   };
@@ -135,7 +133,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             _hover={{
               color: 'brand.red',
             }}
-            cursor={cursorPointer}
+            className={'custom_pointer-cursor'}
           >
             Contact us
           </Text>
@@ -149,7 +147,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             _hover={{
               backgroundImage: isOpen ? '/images/red_button2.png' : '/images/red_button.png',
             }}
-            cursor={cursorPointer}
+            className={'custom_pointer-cursor'}
           />
         </Flex>
       </Hide>
@@ -183,7 +181,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
                       alt="twitter logo"
                       h={'44px'}
                       w={'44px'}
-                      cursor={cursorPointer}
+                      className={'custom_pointer-cursor'}
                     />
                   </Link>
                   <Link href={'https://medium.com/@greenblokx'} isExternal pl={3}>
@@ -192,7 +190,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
                       alt="medium logo"
                       h={'44px'}
                       w={'44px'}
-                      cursor={cursorPointer}
+                      className={'custom_pointer-cursor'}
                     />
                   </Link>
                 </HStack>
@@ -209,7 +207,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
                   textAlign={'left'}
                   _hover={{ color: 'brand.green' }}
                   onClick={() => navigateTo(href)}
-                  cursor={cursorPointer}
+                  className={'custom_pointer-cursor'}
                 >
                   {text}
                 </Text>
@@ -223,11 +221,17 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
                     alt="twitter logo"
                     h={'44px'}
                     w={'44px'}
-                    cursor={cursorPointer}
+                    className={'custom_pointer-cursor'}
                   />
                 </Link>
                 <Link href={'https://medium.com/@greenblokx'} isExternal pl={3}>
-                  <Image src="/images/medium_logo.png" alt="medium logo" h={'44px'} w={'44px'} cursor={cursorPointer} />
+                  <Image
+                    src="/images/medium_logo.png"
+                    alt="medium logo"
+                    h={'44px'}
+                    w={'44px'}
+                    className={'custom_pointer-cursor'}
+                  />
                 </Link>
               </HStack>
             </Hide>
@@ -293,7 +297,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
 
         <Hide below="lg">
           <VStack position={'absolute'} top={24} right={44} zIndex={10}>
-            <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" cursor={cursorPointer} />
+            <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
             <Text fontSize="14px" lineHeight="25px" fontWeight="700" color={'white'}>
               {colorMode === 'dark' ? 'Light' : 'Dark'} mode
             </Text>
@@ -302,10 +306,22 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
 
         <HStack position={'absolute'} bottom={{ base: 10, lg: 20 }} right={{ base: 8, lg: 32 }} zIndex={10}>
           <Link href={'https://twitter.com/greenblokx'} isExternal>
-            <Image src="/images/twitter_logo.png" alt="twitter logo" h={'44px'} w={'44px'} cursor={cursorPointer} />
+            <Image
+              src="/images/twitter_logo.png"
+              alt="twitter logo"
+              h={'44px'}
+              w={'44px'}
+              className={'custom_pointer-cursor'}
+            />
           </Link>
           <Link href={'https://medium.com/@greenblokx'} isExternal pl={3}>
-            <Image src="/images/medium_logo.png" alt="medium logo" h={'44px'} w={'44px'} cursor={cursorPointer} />
+            <Image
+              src="/images/medium_logo.png"
+              alt="medium logo"
+              h={'44px'}
+              w={'44px'}
+              className={'custom_pointer-cursor'}
+            />
           </Link>
         </HStack>
 
@@ -320,12 +336,12 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             borderColor={'white'}
             borderRadius="none"
             border={'2px solid'}
-            cursor={cursorPointer}
+            className={'custom_pointer-cursor'}
           >
             {!isShowVideo ? (
-              <Image src="/images/play_icon.png" w={'25px'} h={'22px'} cursor={cursorPointer}></Image>
+              <Image src="/images/play_icon.png" w={'25px'} h={'22px'} className={'custom_pointer-cursor'}></Image>
             ) : (
-              <Image src="/images/pause_icon.png" w={'25px'} h={'22px'} cursor={cursorPointer}></Image>
+              <Image src="/images/pause_icon.png" w={'25px'} h={'22px'} className={'custom_pointer-cursor'}></Image>
             )}
           </Button>
           <Text

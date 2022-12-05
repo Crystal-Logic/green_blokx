@@ -37,7 +37,9 @@ const LinkCard = ({ href, name, websiteName }: any) => {
         mt={{ base: 3, md: '18px' }}
         isExternal
       >
-        {websiteName} <ExternalLinkIcon w={'21px'} h={'21px'} mx="2px" />
+        <Text className={'custom_pointer-cursor'}>
+          {websiteName} <ExternalLinkIcon w={'21px'} h={'21px'} mx="2px" className={'custom_pointer-cursor'} />
+        </Text>
       </Link>
     </PopoverContent>
   );

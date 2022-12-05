@@ -22,7 +22,6 @@ const Step = ({ text, isActive, onSelect }: StepProps) => {
         position={'absolute'}
         top={15}
         right={{ base: '-40px', md: '-50px' }}
-        cursor={'pointer'}
         background="transparent"
         _hover={{
           color: 'brand.red',

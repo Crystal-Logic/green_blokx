@@ -58,6 +58,9 @@ export const theme = extendTheme({
       'html, body': {
         bg: mode('white', 'brand.dark')(props),
       },
+      '.custom_pointer-cursor': {
+        cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto',
+      },
     }),
   },
   components: {
@@ -101,15 +104,19 @@ export const theme = extendTheme({
       baseStyle: (props: any) => ({
         thumb: {
           bg: mode('brand.green', 'white')(props),
+          cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto',
         },
         track: {
           bg: mode('white', 'brand.dark')(props),
           border: '1px solid',
           borderColor: 'brand.green',
+          cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto',
         },
+        container: { cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto' },
       }),
     },
     Button: {
+      baseStyle: { cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto' },
       variants: {
         outlineGreen: {
           cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto',
