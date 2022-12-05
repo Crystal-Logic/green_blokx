@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Box, Heading, Text, Hide, useColorMode, Flex } from '@chakra-ui/react';
+import { Box, Heading, Text, Hide, useColorMode, Flex, useOutsideClick } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
 import { InfoText } from './InfoText';
 import { InfoTextMobile } from './InfoTextMobile';
@@ -17,6 +17,24 @@ export const Construction = () => {
   const { colorMode } = useColorMode();
   const { ref: inViewRef, inView: isVideoVisible } = useInView({ threshold: 0.5 });
   const videoRef = useRef<HTMLVideoElement & HTMLDivElement>(null);
+  const videoContainerRef = useRef<HTMLDivElement>(null);
+
+  const resetAnimation = () => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      setCurrStep(steps[0]);
+      setIsShowInfoPoints(false);
+      setShowMobileBox(0);
+      setVideoPadding('90px');
+      videoRef.current.pause();
+    }
+  };
+
+  useOutsideClick({
+    ref: videoContainerRef,
+    enabled: true,
+    handler: () => resetAnimation(),
+  });
 
   const playVideo = () => {
     if (videoRef.current && videoRef.current.currentTime !== videoRef.current.duration) {
@@ -42,19 +60,13 @@ export const Construction = () => {
     // padding for timeframes
     if (videoRef.current && videoRef.current.currentTime) {
       if (videoRef.current.currentTime < 4.8) {
-        scrollToCenter();
         setVideoPadding('90px');
       } else if (videoRef.current.currentTime >= 4.8 && videoRef.current.currentTime < 6.9) {
         setVideoPadding('0px');
-      } else {
+      } else if (videoRef.current.currentTime >= 6.9) {
         setVideoPadding('220px');
       }
     }
-  };
-
-  const scrollToCenter = () => {
-    const element = document.getElementById('about_us');
-    element && element.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -65,12 +77,7 @@ export const Construction = () => {
     if (isVideoVisible) {
       playVideo();
     } else {
-      if (videoRef.current) {
-        videoRef.current.currentTime = 0;
-        setCurrStep(steps[0]);
-        setIsShowInfoPoints(false);
-        setShowMobileBox(0);
-      }
+      resetAnimation();
     }
   }, [isVideoVisible]);
 
@@ -183,7 +190,13 @@ export const Construction = () => {
           Manufacturing
         </Text>
       </Box>
-      <Flex h={'full'} position={'relative'} justifyContent={'center'} alignItems={'flex-start'}>
+      <Flex
+        ref={videoContainerRef}
+        h={{ base: 'full', lg: 'unset' }}
+        position={'relative'}
+        justifyContent={'center'}
+        alignItems={'flex-start'}
+      >
         <Box
           position={'absolute'}
           top={0}
@@ -199,6 +212,7 @@ export const Construction = () => {
         <Box
           ref={videoRef}
           as="video"
+          muted={true}
           w={'full'}
           maxH={{ base: '240px', lg: videoPadding === '0px' ? '710px' : 'unset' }}
           pb={{ lg: videoPadding === '0px' ? 20 : 'unset' }}
