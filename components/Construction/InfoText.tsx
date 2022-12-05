@@ -14,7 +14,13 @@ export const InfoText = ({ children, showPoints, viewType }: any) => {
 
   return (
     <Box h={9} w={9} position={'relative'} onClick={toggleText}>
-      <Box bgImage={'url("/images/green_dot.svg")'} bgRepeat={'no-repeat'} h={9} w={9}></Box>
+      <Box
+        bgImage={'url("/images/green_dot.svg")'}
+        bgRepeat={'no-repeat'}
+        h={9}
+        w={9}
+        className={'custom_pointer-cursor'}
+      ></Box>
       {viewType === 'left' && (
         <>
           <Box
