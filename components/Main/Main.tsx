@@ -97,7 +97,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         <Hide below="lg">
           <VStack position={'absolute'} top={24} right={44} zIndex={10}>
             <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
-            <Text fontSize="14px" lineHeight="25px" fontWeight="700" color={'white'}>
+            <Text fontSize="14px" lineHeight="25px" fontWeight="700">
               {colorMode === 'dark' ? 'Light' : 'Dark'} mode
             </Text>
           </VStack>
@@ -126,21 +126,29 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             fontSize={{ base: '32px', md: '54px' }}
             lineHeight={{ base: '40px', md: '68px' }}
             fontWeight="500"
-            color="white"
             pb={{ base: 6, md: 55 }}
           >
             The World`s first tokenized ECO factory
           </Text>
-          <Text
-            fontSize={{ base: '20px', md: '25px' }}
-            lineHeight={{ base: '25px', md: '31px' }}
-            fontWeight="900"
-            color="white"
-          >
+          <Text fontSize={{ base: '20px', md: '25px' }} lineHeight={{ base: '25px', md: '31px' }} fontWeight="900">
             BY&nbsp;
             <Text as={'span'} color="brand.green">
               GREENBLOKX
             </Text>
+          </Text>
+        </Box>
+
+        <Box
+          maxW={{ base: 'full', md: '90%', xl: '70%' }}
+          pl={{ base: 5, md: 100 }}
+          pt={{ base: 5, md: 100 }}
+          zIndex={10}
+        >
+          <Text fontSize={{ base: '20px', md: '50px' }} lineHeight={{ base: '25px', md: '63px' }} fontWeight="600">
+            <Text as={'span'} color="brand.green">
+              WHY&nbsp;
+            </Text>
+            GREENBLOKX?
           </Text>
         </Box>
 
