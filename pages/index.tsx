@@ -1,15 +1,18 @@
-import { Box, useDisclosure } from '@chakra-ui/react';
+import { Box, useDisclosure, keyframes } from '@chakra-ui/react';
 
 import { Main } from 'components/Main';
-import { Construction } from 'components/Construction';
-import { Advantages } from 'components/Advantages';
-import { Technology } from 'components/Technology';
-import { WhyBlock } from 'components/WhyBlock';
-import { WhyBlock2 } from 'components/WhyBlock2';
+import { Manufacture } from 'components/Manufacture/Manufacture';
 import { Team } from 'components/Team';
 import { Partners } from 'components/Partners';
-import { ContactUsBlock } from 'components/ContactUsBlock/ContactUsBlock';
-import { FormModal } from 'components/FormModal/FormModal';
+import { CubeGif } from 'components/CubeGif/CubeGif';
+import { TokenBlock } from 'components/TokenBlock/TokenBlock';
+import { Product } from 'components/Product/Product';
+import { Subscribe } from 'components/Subscribe/Subscribe';
+
+const spin = keyframes`
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg)}
+`;
 
 const IndexPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -17,16 +20,18 @@ const IndexPage = () => {
   return (
     <Box>
       <Main onOpenModal={onOpen} />
-      <Construction />
-      <Advantages />
-      <Technology />
-      <ContactUsBlock title="Find out more" onOpenModal={onOpen} />
-      <WhyBlock />
-      <WhyBlock2 />
+      <Manufacture />
+      <TokenBlock />
+      <Product />
       <Team />
-      <ContactUsBlock title="Contact Us" onOpenModal={onOpen} />
+      <Subscribe />
       <Partners />
-      <FormModal isOpen={isOpen} onClose={onClose} />
+      {/* Test animation */}
+      <Box position={'fixed'} w={'full'} top={0}>
+        <Box animation={`${spin} 20s infinite`} position={'absolute'} left={'85%'} top={'130px'}>
+          <CubeGif w={40} h={40} />
+        </Box>
+      </Box>
     </Box>
   );
 };

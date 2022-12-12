@@ -1,25 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import {
-  Switch,
-  Center,
-  Flex,
-  Image,
-  Text,
-  Box,
-  Hide,
-  useColorMode,
-  VStack,
-  useDisclosure,
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerOverlay,
-  DrawerContent,
-  useColorModeValue,
-  Link,
-  HStack,
-  Button,
-} from '@chakra-ui/react';
+import { Switch, Flex, Image, Text, Box, Hide, useColorMode, VStack, Button } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
 
 const menuItems = [
@@ -55,12 +35,6 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const { ref: inViewRef, inView: isVideoVisible } = useInView({ threshold: 0.5 });
 
   const { toggleColorMode, colorMode } = useColorMode();
-  const { isOpen, onClose, onToggle } = useDisclosure();
-  const bg = useColorModeValue('white', 'brand.dark');
-  const gradientStyle = useColorModeValue(
-    'linear-gradient(0deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.01))',
-    'linear-gradient(0deg, rgba(43, 43, 43, 0.75), rgba(43, 43, 43, 0.75))',
-  );
 
   const playVideo = () => {
     videoRef.current && videoRef.current.play();
@@ -87,25 +61,6 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
     }
   };
 
-  const scroll2El = (elID: string) => {
-    const element = document.getElementById(elID);
-    element && element.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const navigateTo = (id: string) => {
-    onClose();
-    setTimeout(() => {
-      scroll2El(id);
-    }, 100);
-  };
-
-  const toggleMenu = () => {
-    if (!isOpen) {
-      window.scrollTo(0, 0);
-    }
-    onToggle();
-  };
-
   useEffect(() => {
     if (isShowVideo) {
       if (isVideoVisible) {
@@ -118,134 +73,11 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
 
   return (
     <Flex minH="100vh" w={'full'} ref={inViewRef}>
-      <Hide below="lg">
-        <Flex w={'100px'} direction={'column'} justifyContent={'space-between'} alignItems={'center'} py={20}>
-          <Image src="/images/logo.png" w={'65px'} h={'75px'} alt="logo" />
-          <Text
-            onClick={onOpenModal}
-            sx={{
-              transform: 'rotate(271deg)',
-              lineHeight: '25px',
-              whiteSpace: 'nowrap',
-            }}
-            fontWeight="400"
-            fontSize="20px"
-            _hover={{
-              color: 'brand.red',
-            }}
-            className={'custom_pointer-cursor'}
-          >
-            Contact us
-          </Text>
-          <Center
-            onClick={toggleMenu}
-            as={'button'}
-            width={35}
-            height={35}
-            backgroundImage={isOpen ? '/images/green_button2.png' : '/images/green_button1.png'}
-            backgroundSize="cover"
-            _hover={{
-              backgroundImage: isOpen ? '/images/red_button2.png' : '/images/red_button.png',
-            }}
-            className={'custom_pointer-cursor'}
-          />
-        </Flex>
-      </Hide>
-
-      <Drawer
-        isOpen={isOpen}
-        placement="left"
-        onClose={onClose}
-        variant={'menu'}
-        size={{ base: 'xs', md: 'sm', xl: 'lg' }}
-      >
-        <DrawerOverlay
-          backgroundImage={'/images/backgroundMenu.webp'}
-          backgroundRepeat="no-repeat"
-          backgroundSize="cover"
-        />
-        <DrawerContent
-          top={{ base: '130px !important', lg: '0px !important' }}
-          left={{ base: 0, lg: '110px !important' }}
-        >
-          <DrawerBody display={{ base: 'flex', lg: 'unset' }} flexDirection={'column'} justifyContent={'space-between'}>
-            <Hide below="lg">
-              <Flex justifyContent={'space-between'} pr={10}>
-                <Text py={'100px'} fontSize="30px" fontWeight="500">
-                  GreenBLOKX
-                </Text>
-                <HStack>
-                  <Link href={'https://twitter.com/greenblokx'} isExternal>
-                    <Image
-                      src="/images/twitter_logo.png"
-                      alt="twitter logo"
-                      h={'44px'}
-                      w={'44px'}
-                      className={'custom_pointer-cursor'}
-                    />
-                  </Link>
-                  <Link href={'https://medium.com/@greenblokx'} isExternal pl={3}>
-                    <Image
-                      src="/images/medium_logo.png"
-                      alt="medium logo"
-                      h={'44px'}
-                      w={'44px'}
-                      className={'custom_pointer-cursor'}
-                    />
-                  </Link>
-                </HStack>
-              </Flex>
-            </Hide>
-            <VStack alignItems="baseline" ml={{ base: 5, lg: 16 }} mt={{ base: 5, lg: 0 }} align="center" spacing="25">
-              {menuItems.map(({ text, href }, idx) => (
-                <Text
-                  as={'button'}
-                  key={idx}
-                  fontSize={{ base: '28px', md: '32px' }}
-                  lineHeight={{ base: '35px', md: '40px' }}
-                  fontWeight="500"
-                  textAlign={'left'}
-                  _hover={{ color: 'brand.green' }}
-                  onClick={() => navigateTo(href)}
-                  className={'custom_pointer-cursor'}
-                >
-                  {text}
-                </Text>
-              ))}
-            </VStack>
-            <Hide above="lg">
-              <HStack alignSelf={'flex-start'} pl={5}>
-                <Link href={'https://twitter.com/greenblokx'} isExternal>
-                  <Image
-                    src="/images/twitter_logo.png"
-                    alt="twitter logo"
-                    h={'44px'}
-                    w={'44px'}
-                    className={'custom_pointer-cursor'}
-                  />
-                </Link>
-                <Link href={'https://medium.com/@greenblokx'} isExternal pl={3}>
-                  <Image
-                    src="/images/medium_logo.png"
-                    alt="medium logo"
-                    h={'44px'}
-                    w={'44px'}
-                    className={'custom_pointer-cursor'}
-                  />
-                </Link>
-              </HStack>
-            </Hide>
-          </DrawerBody>
-          <DrawerFooter></DrawerFooter>
-        </DrawerContent>
-      </Drawer>
-
       <Flex
         flex={'1'}
         direction={'column'}
         justifyContent={{ base: 'space-between', lg: 'center' }}
         position={'relative'}
-        bg={`${gradientStyle}, url(/images/background.webp)`}
         backgroundSize="cover"
       >
         <video
@@ -255,75 +87,21 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             position: 'absolute',
             width: '100vw',
             height: '100vh',
-            zIndex: isShowVideo ? 1 : -1,
+            display: isShowVideo ? 'block' : 'none',
           }}
           className="videoTag"
         >
           <source src={'/video/GreenBlokX_bg.mp4'} type="video/mp4" />
         </video>
 
-        {/* mobile menu */}
-        <Hide above="lg">
-          <Box
-            h={120}
-            w={'full'}
-            display={'flex'}
-            justifyContent={'space-between'}
-            alignItems={'center'}
-            bg={isOpen ? bg : 'transparent'}
-            px={5}
-          >
-            <Image src="/images/logo.png" w={'53px'} h={'63px'} alt="logo" />
-            <Text
-              onClick={onOpenModal}
-              fontWeight="400"
-              fontSize="20px"
-              lineHeight={'25px'}
-              color={isOpen ? 'unset' : 'white'}
-            >
-              Contact us
-            </Text>
-            <Box
-              onClick={toggleMenu}
-              as={'button'}
-              width={35}
-              height={35}
-              backgroundImage={isOpen ? '/images/green_button2.png' : '/images/green_button1.png'}
-              backgroundSize="cover"
-            />
-          </Box>
-        </Hide>
-        {/* mobile menu  end*/}
-
         <Hide below="lg">
           <VStack position={'absolute'} top={24} right={44} zIndex={10}>
             <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
-            <Text fontSize="14px" lineHeight="25px" fontWeight="700" color={'white'}>
+            <Text fontSize="14px" lineHeight="25px" fontWeight="700">
               {colorMode === 'dark' ? 'Light' : 'Dark'} mode
             </Text>
           </VStack>
         </Hide>
-
-        <HStack position={'absolute'} bottom={{ base: 10, lg: 20 }} right={{ base: 8, lg: 32 }} zIndex={10}>
-          <Link href={'https://twitter.com/greenblokx'} isExternal>
-            <Image
-              src="/images/twitter_logo.png"
-              alt="twitter logo"
-              h={'44px'}
-              w={'44px'}
-              className={'custom_pointer-cursor'}
-            />
-          </Link>
-          <Link href={'https://medium.com/@greenblokx'} isExternal pl={3}>
-            <Image
-              src="/images/medium_logo.png"
-              alt="medium logo"
-              h={'44px'}
-              w={'44px'}
-              className={'custom_pointer-cursor'}
-            />
-          </Link>
-        </HStack>
 
         <Box maxW={{ base: 'full', md: '90%', xl: '70%' }} pl={{ base: 5, md: 100 }} zIndex={10}>
           <Button
@@ -345,24 +123,32 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             )}
           </Button>
           <Text
-            fontSize={{ base: '32px', md: '54px' }}
-            lineHeight={{ base: '40px', md: '68px' }}
+            fontSize={{ base: '32px', md: '60px' }}
+            lineHeight={{ base: '40px', md: '75px' }}
             fontWeight="500"
-            color="white"
             pb={{ base: 6, md: 55 }}
           >
             The World`s first tokenized ECO factory
           </Text>
-          <Text
-            fontSize={{ base: '20px', md: '25px' }}
-            lineHeight={{ base: '25px', md: '31px' }}
-            fontWeight="900"
-            color="white"
-          >
+          <Text fontSize={{ base: '20px', md: '25px' }} lineHeight={{ base: '25px', md: '31px' }} fontWeight="900">
             BY&nbsp;
             <Text as={'span'} color="brand.green">
               GREENBLOKX
             </Text>
+          </Text>
+        </Box>
+
+        <Box
+          maxW={{ base: 'full', md: '90%', xl: '70%' }}
+          pl={{ base: 5, md: 100 }}
+          pt={{ base: 5, md: 100 }}
+          zIndex={10}
+        >
+          <Text fontSize={{ base: '20px', md: '50px' }} lineHeight={{ base: '25px', md: '63px' }} fontWeight="600">
+            <Text as={'span'} color="brand.green">
+              WHY&nbsp;
+            </Text>
+            GREENBLOKX?
           </Text>
         </Box>
 
