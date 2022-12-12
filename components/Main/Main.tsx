@@ -123,8 +123,8 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             )}
           </Button>
           <Text
-            fontSize={{ base: '32px', md: '54px' }}
-            lineHeight={{ base: '40px', md: '68px' }}
+            fontSize={{ base: '32px', md: '60px' }}
+            lineHeight={{ base: '40px', md: '75px' }}
             fontWeight="500"
             pb={{ base: 6, md: 55 }}
           >

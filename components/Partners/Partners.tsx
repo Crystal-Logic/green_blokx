@@ -145,31 +145,6 @@ export const Partners = () => {
             <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
           </Flex>
         </Flex>
-
-        <Flex h={'100px'} order={{ base: 2, lg: 'unset' }}>
-          <Flex w={{ base: '28px', md: '200px', lg: '254px' }} h={'full'} alignItems={'center'}>
-            <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
-            <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
-          </Flex>
-          <Flex alignItems={'center'}>
-            <Popover trigger="hover" placement="auto">
-              <PopoverTrigger>
-                <Image
-                  src={'/images/partners/near_logo.png'}
-                  alt="near logo"
-                  w={{ base: '130px', lg: '215px' }}
-                  mx={{ base: 3, lg: '40px' }}
-                  bg={colorMode === 'dark' ? 'white' : 'transparent'}
-                />
-              </PopoverTrigger>
-              <LinkCard href={'https://near.org/'} name={'Near'} websiteName={'near.org'} />
-            </Popover>
-          </Flex>
-          <Flex flex={'1'} h={'full'} alignItems={'center'}>
-            <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
-            <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
-          </Flex>
-        </Flex>
       </Flex>
       {/* Logos grid end*/}
     </Box>
