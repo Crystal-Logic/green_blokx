@@ -1,4 +1,4 @@
-import { Box, useDisclosure, Image, keyframes } from '@chakra-ui/react';
+import { Box, useDisclosure, keyframes } from '@chakra-ui/react';
 
 import { Main } from 'components/Main';
 import { Manufacture } from 'components/Manufacture/Manufacture';
@@ -7,6 +7,7 @@ import { Partners } from 'components/Partners';
 import { CubeGif } from 'components/CubeGif/CubeGif';
 import { TokenBlock } from 'components/TokenBlock/TokenBlock';
 import { Product } from 'components/Product/Product';
+import { Subscribe } from 'components/Subscribe/Subscribe';
 
 const spin = keyframes`
   from {transform: rotate(0deg);}
@@ -23,6 +24,7 @@ const IndexPage = () => {
       <TokenBlock />
       <Product />
       <Team />
+      <Subscribe />
       <Partners />
       {/* Test animation */}
       <Box position={'fixed'} w={'full'} top={0}>
