@@ -1,15 +1,13 @@
-import { Box, useDisclosure } from '@chakra-ui/react';
+import { Box, useDisclosure, Image, keyframes } from '@chakra-ui/react';
 
 import { Main } from 'components/Main';
-// import { Construction } from 'components/Construction';
-// import { Advantages } from 'components/Advantages';
-// import { Technology } from 'components/Technology';
-// import { WhyBlock } from 'components/WhyBlock';
-// import { WhyBlock2 } from 'components/WhyBlock2';
 import { Team } from 'components/Team';
 import { Partners } from 'components/Partners';
-// import { ContactUsBlock } from 'components/ContactUsBlock/ContactUsBlock';
-// import { FormModal } from 'components/FormModal/FormModal';
+
+const spin = keyframes`
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg)}
+`;
 
 const IndexPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -17,16 +15,13 @@ const IndexPage = () => {
   return (
     <Box>
       <Main onOpenModal={onOpen} />
-      {/* <Construction /> */}
-      {/* <Advantages /> */}
-      {/* <Technology /> */}
-      {/* <ContactUsBlock title="Find out more" onOpenModal={onOpen} /> */}
-      {/* <WhyBlock /> */}
-      {/* <WhyBlock2 /> */}
       <Team />
-      {/* <ContactUsBlock title="Contact Us" onOpenModal={onOpen} /> */}
       <Partners />
-      {/* <FormModal isOpen={isOpen} onClose={onClose} /> */}
+      <Box position={'fixed'} w={'full'}>
+        <Box animation={`${spin} 20s infinite`} position={'absolute'} left={'45%'} top={'530px'}>
+          <Image src="/images/dark-1-2.gif" w={40} h={40} />
+        </Box>
+      </Box>
     </Box>
   );
 };
