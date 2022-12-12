@@ -164,7 +164,7 @@ export const theme = extendTheme({
     },
   },
   config: {
-    initialColorMode: 'dark',
+    initialColorMode: 'white',
     useSystemColorMode: false,
   },
 });
