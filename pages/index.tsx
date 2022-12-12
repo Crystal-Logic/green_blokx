@@ -1,6 +1,7 @@
 import { Box, useDisclosure, Image, keyframes } from '@chakra-ui/react';
 
 import { Main } from 'components/Main';
+import { Manufacture } from 'components/Manufacture/Manufacture';
 import { Team } from 'components/Team';
 import { Partners } from 'components/Partners';
 
@@ -15,10 +16,12 @@ const IndexPage = () => {
   return (
     <Box>
       <Main onOpenModal={onOpen} />
+      <Manufacture />
       <Team />
       <Partners />
-      <Box position={'fixed'} w={'full'}>
-        <Box animation={`${spin} 20s infinite`} position={'absolute'} left={'45%'} top={'530px'}>
+      {/* Test animation */}
+      <Box position={'fixed'} w={'full'} top={0}>
+        <Box animation={`${spin} 20s infinite`} position={'absolute'} left={'45%'} top={'130px'}>
           <Image src="/images/dark-1-2.gif" w={40} h={40} />
         </Box>
       </Box>
