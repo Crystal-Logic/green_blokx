@@ -6,6 +6,7 @@ import { Team } from 'components/Team';
 import { Partners } from 'components/Partners';
 import { CubeGif } from 'components/CubeGif/CubeGif';
 import { TokenBlock } from 'components/TokenBlock/TokenBlock';
+import { Product } from 'components/Product/Product';
 
 const spin = keyframes`
   from {transform: rotate(0deg);}
@@ -20,6 +21,7 @@ const IndexPage = () => {
       <Main onOpenModal={onOpen} />
       <Manufacture />
       <TokenBlock />
+      <Product />
       <Team />
       <Partners />
       {/* Test animation */}
