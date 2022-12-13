@@ -12,6 +12,7 @@ import {
   useColorMode,
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { CubeGif } from 'components/CubeGif/CubeGif';
 
 const LinkCard = ({ href, name, websiteName }: any) => {
   const popoverColor = useColorModeValue('white', 'brand.dark');
@@ -46,30 +47,26 @@ const LinkCard = ({ href, name, websiteName }: any) => {
 };
 
 export const Partners = () => {
-  const gridColor = useColorModeValue('brand.green', 'white');
+  const gridColor = useColorModeValue('brand.dark', 'white');
   const { colorMode } = useColorMode();
 
   return (
-    <Box id="partners" pb={{ base: '50px', lg: '100px' }} overflow={'hidden'}>
-      <Flex h={{ base: '60px', lg: '96px' }}>
-        <Box flex={'1'} bg="brand.green"></Box>
-        <Flex w={{ base: '150px', lg: '400px' }} justifyContent="center" alignItems={'center'}>
-          <Heading
-            as="h2"
-            fontSize={{ base: '25px', lg: '32px' }}
-            lineHeight={{ base: '31px', lg: '40px' }}
-            fontWeight="500"
-          >
-            Partners
-          </Heading>
-        </Flex>
-        <Box w={{ base: 5, lg: '150px' }} bg="brand.green"></Box>
+    <Box id="partners" pb={{ base: '50px', lg: '100px' }} position={'relative'}>
+      <Flex pl={{ base: 10, lg: 44 }} position={'relative'} zIndex={10}>
+        <Heading
+          as="h2"
+          fontSize={{ base: '28px', md: '50px' }}
+          lineHeight={{ base: '35px', md: '62px' }}
+          fontWeight="600"
+        >
+          Partners
+        </Heading>
       </Flex>
 
       {/* Logos grid */}
       <Flex w={'full'} h={'full'} direction={'column'}>
         <Flex h={'100px'} mt={{ base: '27px', lg: '51px' }} order={{ base: 1, lg: 'unset' }}>
-          <Flex w={{ base: '57px', lg: '306px' }} h={'full'} alignItems={'center'}>
+          <Flex w={{ base: '57px', lg: '25%' }} h={'full'} alignItems={'center'}>
             <Box flex={'1'} h={0} borderBottom={'2px solid'} borderColor={gridColor}></Box>
             <Box w={'10px'} h={'10px'} bg={gridColor} borderRadius={100}></Box>
           </Flex>
@@ -81,6 +78,7 @@ export const Partners = () => {
                   alt="inspira wealth logo"
                   w={{ base: '135px', lg: '249px' }}
                   mx={{ base: 3, lg: '40px' }}
+                  className={'custom_pointer-cursor'}
                 />
               </PopoverTrigger>
               <LinkCard
@@ -109,6 +107,7 @@ export const Partners = () => {
                   alt="aurora logo"
                   w={{ base: '90px', lg: '135px' }}
                   mx={{ base: 3, lg: '40px' }}
+                  className={'custom_pointer-cursor'}
                 />
               </PopoverTrigger>
               <LinkCard href={'https://aurora.ventures/'} name={'Aurora'} websiteName={'aurora.ventures'} />
@@ -135,6 +134,7 @@ export const Partners = () => {
                   alt="moonboots logo"
                   w={{ base: '200px', lg: '290px' }}
                   mx={{ base: 3, lg: '40px' }}
+                  className={'custom_pointer-cursor'}
                 />
               </PopoverTrigger>
               <LinkCard href={'https://moonbootscapital.io/'} name={'Moonboots'} websiteName={'moonbootscapital.io'} />
@@ -147,6 +147,14 @@ export const Partners = () => {
         </Flex>
       </Flex>
       {/* Logos grid end*/}
+      <CubeGif
+        position={'absolute'}
+        w={{ base: 16, lg: 32 }}
+        h={{ base: 16, lg: 32 }}
+        top={{ base: '20px', lg: '-30px' }}
+        left={{ base: '-23px', lg: '-33px' }}
+        transform={'rotate(13.25deg)'}
+      />
     </Box>
   );
 };
