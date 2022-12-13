@@ -45,167 +45,145 @@ export const Team = () => {
 
   return (
     <Box id="team" minH={{ base: '600px', md: '450px', lg: '780px' }} pt={'53px'}>
-      <Box h={'full'} w={'full'} position={'relative'}>
-        <Flex h={{ base: '45px', lg: '100px' }} w={'full'} pl={{ base: 5, lg: 52 }} position={'absolute'} zIndex={10}>
-          <Flex flex={'1'} alignItems={'center'}>
-            <Box h={'0px'} w={'full'} borderBottom={'3px solid'} borderColor={'brand.green'}></Box>
-          </Flex>
-          <Flex
-            w={{ base: '133px', lg: '290px' }}
-            bg="brand.green"
-            alignItems={'center'}
-            pl={{ lg: '43px' }}
-            justifyContent={{ base: 'center', lg: 'unset' }}
+      <Box h={'full'} w={'full'} position={'relative'} pr={{ base: 5, lg: 24 }} zIndex={10}>
+        <Flex justifyContent={'flex-end'} mb={{ base: 5, lg: 10 }}>
+          <Heading
+            as="h2"
+            fontSize={{ base: '25px', md: '50px' }}
+            lineHeight={{ base: '31px', md: '62px' }}
+            fontWeight="600"
           >
-            <Heading
-              as="h2"
-              fontSize={{ base: '25px', md: '32px' }}
-              lineHeight={{ base: '31px', md: '40px' }}
-              fontWeight="500"
-              color={'white'}
-            >
-              Team
-            </Heading>
-          </Flex>
+            Team
+          </Heading>
         </Flex>
 
-        {/* Slider frame */}
-
-        <Box w={'full'} pl={{ base: 0, xl: 52 }} position={'absolute'} top={{ base: '60px', lg: '76px' }}>
-          <Swiper
-            modules={[Navigation, Pagination]}
-            spaceBetween={50}
-            slidesPerView={1}
-            pagination={{
-              el: '.team-pagination',
-            }}
-            onBeforeInit={(swiper) => {
-              swiperRef.current = swiper;
-            }}
-          >
-            {teamInfo.map(({ name, position, linkdIn, photo, description }) => (
-              <SwiperSlide key={photo}>
-                <TeamSlide {...{ name, position, linkdIn, photo, description }} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          {/* slide control bar */}
-          <Flex
-            h={'40px'}
-            w={{ base: '150px', lg: '240px' }}
-            justifyContent={'space-between'}
-            alignItems={'center'}
-            position={'absolute'}
-            top={{ md: '300px', lg: '50px', xl: '145px' }}
-            left={{ base: 'calc(50% - 75px)', lg: '590px', xl: '770px' }}
-            zIndex={15}
-          >
-            <Hide below="lg">
-              <Box
-                as="button"
-                onClick={() => swiperRef.current?.slidePrev()}
-                h={'40px'}
-                w={'40px'}
-                border="1px solid transparent"
-                position={'relative'}
-                _hover={{ borderColor: 'brand.green' }}
-                className={'custom_pointer-cursor'}
-              >
-                <Box
-                  position={'absolute'}
-                  h={'15px'}
-                  w={'15px'}
-                  top={'12px'}
-                  left={'14px'}
-                  borderColor={'brand.green'}
-                  borderWidth={'2px 2px 0 0'}
-                  sx={{ transform: 'rotate(-135deg)' }}
-                  className={'custom_pointer-cursor'}
-                ></Box>
-              </Box>
-            </Hide>
+        <Flex>
+          <Flex w={{ base: '71px', lg: '140px' }} alignItems={'end'}>
             <Box
-              className="team-pagination"
-              flex={'1'}
-              display="flex"
-              justifyContent="space-around"
-              alignItems="center"
-              mx={'20px'}
-              sx={{
-                '.swiper-pagination-bullet': {
-                  width: '15px',
-                  height: '15px',
-                  background: 'rgba(58, 174, 5, 0.1)',
-                  opacity: 'unset',
-                },
-                '.swiper-pagination-bullet-active': {
-                  width: '20px',
-                  height: '20px',
-                  background: 'rgba(210, 87, 87, 0.81)',
-                },
+              h={{ base: '66px', lg: '106px' }}
+              w={{ base: '71px', lg: '140px' }}
+              position={'relative'}
+              bg="brand.green"
+              zIndex={10}
+            >
+              <Image
+                src="/images/logo_white.png"
+                alt="logo white"
+                position={'absolute'}
+                left={{ lg: '6px' }}
+                top={{ base: '5px', lg: '8px' }}
+                h={{ base: '55px', lg: '88px' }}
+                w={'auto'}
+                objectFit={'cover'}
+              />
+            </Box>
+          </Flex>
+
+          {/* Slider frame */}
+
+          <Box flex={'1'} pl={{ base: 0, xl: 5 }} position={'relative'} minW={0}>
+            <Swiper
+              modules={[Navigation, Pagination]}
+              spaceBetween={50}
+              slidesPerView={1}
+              pagination={{
+                el: '.team-pagination',
               }}
-            ></Box>
-            <Hide below="lg">
-              <Box
-                as="button"
-                onClick={() => swiperRef.current?.slideNext()}
-                h={'40px'}
-                w={'40px'}
-                border="1px solid transparent"
-                position={'relative'}
-                _hover={{ borderColor: 'brand.green' }}
-                className={'custom_pointer-cursor'}
-              >
+              onBeforeInit={(swiper) => {
+                swiperRef.current = swiper;
+              }}
+            >
+              {teamInfo.map(({ name, position, linkdIn, photo, description }) => (
+                <SwiperSlide key={photo}>
+                  <TeamSlide {...{ name, position, linkdIn, photo, description }} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* slide control bar */}
+            <Flex
+              h={'40px'}
+              w={{ base: '150px', lg: '240px' }}
+              justifyContent={'space-between'}
+              alignItems={'center'}
+              position={'absolute'}
+              top={{ md: '300px', lg: '50px', xl: '145px' }}
+              left={{ base: 'calc(50% - 75px)', lg: '590px', xl: '570px' }}
+              zIndex={15}
+            >
+              <Hide below="lg">
                 <Box
-                  position={'absolute'}
-                  h={'15px'}
-                  w={'15px'}
-                  top={'12px'}
-                  right={'14px'}
-                  borderColor={'brand.green'}
-                  borderWidth={'0 0 2px 2px'}
-                  sx={{ transform: 'rotate(-135deg)' }}
+                  as="button"
+                  onClick={() => swiperRef.current?.slidePrev()}
+                  h={'40px'}
+                  w={'40px'}
+                  border="1px solid transparent"
+                  position={'relative'}
+                  _hover={{ borderColor: 'brand.green' }}
                   className={'custom_pointer-cursor'}
-                ></Box>
-              </Box>
-            </Hide>
-          </Flex>
-        </Box>
+                >
+                  <Box
+                    position={'absolute'}
+                    h={'15px'}
+                    w={'15px'}
+                    top={'12px'}
+                    left={'14px'}
+                    borderColor={'brand.green'}
+                    borderWidth={'2px 2px 0 0'}
+                    sx={{ transform: 'rotate(-135deg)' }}
+                    className={'custom_pointer-cursor'}
+                  ></Box>
+                </Box>
+              </Hide>
+              <Box
+                className="team-pagination"
+                flex={'1'}
+                display="flex"
+                justifyContent="space-around"
+                alignItems="center"
+                mx={'20px'}
+                sx={{
+                  '.swiper-pagination-bullet': {
+                    width: '15px',
+                    height: '15px',
+                    background: 'rgba(58, 174, 5, 0.1)',
+                    opacity: 'unset',
+                  },
+                  '.swiper-pagination-bullet-active': {
+                    width: '20px',
+                    height: '20px',
+                    background: 'rgba(210, 87, 87, 0.81)',
+                  },
+                }}
+              ></Box>
+              <Hide below="lg">
+                <Box
+                  as="button"
+                  onClick={() => swiperRef.current?.slideNext()}
+                  h={'40px'}
+                  w={'40px'}
+                  border="1px solid transparent"
+                  position={'relative'}
+                  _hover={{ borderColor: 'brand.green' }}
+                  className={'custom_pointer-cursor'}
+                >
+                  <Box
+                    position={'absolute'}
+                    h={'15px'}
+                    w={'15px'}
+                    top={'12px'}
+                    right={'14px'}
+                    borderColor={'brand.green'}
+                    borderWidth={'0 0 2px 2px'}
+                    sx={{ transform: 'rotate(-135deg)' }}
+                    className={'custom_pointer-cursor'}
+                  ></Box>
+                </Box>
+              </Hide>
+            </Flex>
+          </Box>
 
-        {/* Slider frame end */}
-
-        <Flex
-          h={{ base: '66px', lg: '106px' }}
-          w={{ base: '71px', lg: '160px' }}
-          position={'absolute'}
-          top={{ base: '267px', lg: '600px' }}
-          bg="brand.green"
-          zIndex={10}
-        >
-          <Image
-            src="/images/logo_white.png"
-            alt="logo white"
-            position={'absolute'}
-            left={{ lg: '10px' }}
-            top={{ base: '5px', lg: '8px' }}
-            h={{ base: '55px', lg: '88px' }}
-            w={'auto'}
-            objectFit={'cover'}
-          />
-        </Flex>
-        <Flex
-          w={'full'}
-          position={'absolute'}
-          top={{ lg: '703px' }}
-          right={0}
-          zIndex={10}
-          display={{ base: 'none', lg: 'flex' }}
-        >
-          <Flex w={{ base: 6, md: '580px', xl: '740px' }}></Flex>
-          <Flex flex={'1'}>
-            <Box h={''} w={'full'} alignSelf={'flex-end'} borderBottom={'3px solid'} borderColor={'brand.green'}></Box>
-          </Flex>
+          {/* Slider frame end */}
         </Flex>
       </Box>
     </Box>
