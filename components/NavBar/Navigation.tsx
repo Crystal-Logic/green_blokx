@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, Button, Stack, Box } from '@chakra-ui/react';
+import { Text, Button, Stack, Box, useColorModeValue } from '@chakra-ui/react';
 
 const menuItems = [
   {
@@ -27,73 +27,68 @@ export const Navigation = ({ isDrawerActive }: { isDrawerActive: boolean }) => {
     <>
       <Stack direction={isDrawerActive ? 'column' : 'row'} spacing={isDrawerActive ? '60px' : '50px'}>
         {menuItems.map((item, index) => {
+          const hoverStackStyles = item.subTitles.length
+            ? { backgroundColor: 'rgba(57, 57, 57, 0.3);', padding: '10px 30px 10px 10px' }
+            : { color: 'brand.green' };
 
-            const hoverStackStyles = item.subTitles.length
-              ? { backgroundColor: 'brand.dark', padding: '10px 30px 10px 10px' }
-              : { color: 'brand.green' };
-
-            const hoverAfterStyles = item.subTitles.length && titleHoveredId === index
+          const hoverAfterStyles =
+            item.subTitles.length && titleHoveredId === index
               ? {
-                content: '""',
-                display: 'block',
-                position: 'absolute',
-                bottom: '-10px',
-                height: '1px',
-                width: '100%',
-                backgroundColor: 'brand.green',
-                zIndex: 2,
-              }
+                  content: '""',
+                  display: 'block',
+                  position: 'absolute',
+                  bottom: '-10px',
+                  height: '1px',
+                  width: '100%',
+                  backgroundColor: 'brand.green',
+                  zIndex: 2,
+                }
               : {};
 
-            return (
+          return (
+            <Box
+              key={item.title}
+              _hover={hoverStackStyles}
+              w="fit-content"
+              pos="relative"
+              transitionDuration="300ms"
+              onMouseEnter={() => setTitleHoveredId(index)}
+              onMouseLeave={() => setTitleHoveredId(null)}
+            >
+              <Text fontSize="18px" lineHeight="22px" pos="relative" _after={hoverAfterStyles}>
+                {item.title}
+              </Text>
+
               <Box
-                key={item.title}
-                _hover={hoverStackStyles}
-                w='fit-content'
-                pos='relative'
-                transitionDuration="300ms"
-                onMouseEnter={() => setTitleHoveredId(index)}
-                onMouseLeave={() => setTitleHoveredId(null)}
+                pos="absolute"
+                left="0"
+                top="42px"
+                w="100%"
+                sx={hoverStackStyles}
+                zIndex="1"
+                display={titleHoveredId === index ? 'block' : 'none'}
               >
-                <Text
-                  fontSize='18px'
-                  lineHeight='22px'
-                  pos='relative'
-                  _after={hoverAfterStyles}>
-                  {item.title}
-                </Text>
-
-                <Box
-                  pos='absolute'
-                  left='0'
-                  w='100%'
-                  sx={hoverStackStyles}
-                  zIndex="1"
-                  display={titleHoveredId === index ? 'block' : 'none'}
-                >
-                  {item.subTitles.map(sub =>
-                    <Text fontSize='18px' lineHeight='22px' mt='14px'>
-                      {sub}
-                    </Text>,
-                  )}
-                </Box>
-
+                {item.subTitles.map((sub) => (
+                  <Text fontSize="18px" lineHeight="22px" mt="14px">
+                    {sub}
+                  </Text>
+                ))}
               </Box>
-            );
-          },
-        )}
+            </Box>
+          );
+        })}
       </Stack>
 
       <Button
-        bg='brand.green'
-        color='white'
-        py='15px'
-        px='20px'
-        fontSize='16px'
-        lineHeight='20px'
-        fontWeight='400'
-        borderRadius='12px'
-        h='50px'
+        bg="brand.green"
+        color="white"
+        py="15px"
+        px="20px"
+        fontSize="16px"
+        lineHeight="20px"
+        fontWeight="400"
+        borderRadius="12px"
+        h="50px"
         mt={isDrawerActive ? '60px' : '0'}
       >
         Read docs
