@@ -22,7 +22,7 @@ export const Manufacture = () => {
         </Text>
       </Box>{' '}
       <Box
-        h={{ base: '360px' }}
+        h={{ base: '360px', md: 'auto' }}
         w={'full'}
         flex={{ lg: '1' }}
         bg={'rgba(59, 173, 5, 0.4)'}
