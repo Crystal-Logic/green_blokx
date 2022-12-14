@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Switch, Flex, Image, Text, Box, Hide, useColorMode, VStack, Button } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
+import { NavBar } from '../NavBar';
 
 const menuItems = [
   {
@@ -80,6 +81,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         position={'relative'}
         backgroundSize="cover"
       >
+        <NavBar />
         <video
           ref={videoRef}
           style={{
@@ -93,15 +95,6 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         >
           <source src={'/video/GreenBlokX_bg.mp4'} type="video/mp4" />
         </video>
-
-        <Hide below="lg">
-          <VStack position={'absolute'} top={24} right={44} zIndex={10}>
-            <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
-            <Text fontSize="14px" lineHeight="25px" fontWeight="700">
-              {colorMode === 'dark' ? 'Light' : 'Dark'} mode
-            </Text>
-          </VStack>
-        </Hide>
 
         <Box maxW={{ base: 'full', md: '90%', xl: '70%' }} pl={{ base: 5, md: 100 }} zIndex={10}>
           <Button
