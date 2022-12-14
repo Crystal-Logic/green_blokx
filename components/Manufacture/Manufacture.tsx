@@ -1,9 +1,11 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Text, useColorModeValue } from '@chakra-ui/react';
 
 export const Manufacture = () => {
+  const bgColor = useColorModeValue('rgba(255, 255, 255, 0.3);', 'rgba(255, 255, 255, 0.03);');
+
   return (
     <Flex direction={{ base: 'column', lg: 'row' }}>
-      <Box w={{ lg: '52%' }} my={{ base: 12, lg: 0 }} bg={'rgba(255, 255, 255, 0.3);'}>
+      <Box w={{ lg: '52%' }} mb={{ base: 12, lg: 0 }} bg={bgColor}>
         {' '}
         <Text
           flex="1"
