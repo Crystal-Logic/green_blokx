@@ -2,44 +2,47 @@ import { Box, Text, Image, UnorderedList, ListItem, Flex } from '@chakra-ui/reac
 
 export const Product = () => {
   return (
-    <Box pb={20}>
+    <Box
+      pb={{ lg: 20 }}
+      pt={{ base: 5, md: 16 }}
+      pl={{ base: 6, lg: 48 }}
+      pr={{ base: 5, lg: 40 }}
+      overflowX={'hidden'}
+    >
       <Text
-        fontSize={{ base: '20px', md: '50px' }}
-        lineHeight={{ base: '25px', md: '63px' }}
+        fontSize={{ base: '28px', md: '50px' }}
+        lineHeight={{ base: '35px', md: '63px' }}
         fontWeight="600"
         color={'brand.green'}
-        mt={{ base: 5, md: 16 }}
-        pl={48}
       >
-        Product
+        The Product
       </Text>
       <Text
         fontSize={{ base: '20px', md: '22px' }}
         lineHeight={{ base: '25px', md: '27px' }}
         fontWeight="500"
-        pt={{ base: 5, md: 7 }}
-        maxW={{ base: '800px' }}
-        pl={48}
+        pt={{ base: 7 }}
+        maxW={{ lg: '800px' }}
         pb={16}
       >
         GreenBLOKX Manufactures and designs Smart eco Sandwich panels for building envelopes.
       </Text>
 
-      <Flex pr={40} pl={48} mb={28}>
+      <Flex mb={28} position={'relative'}>
         <Box
-          mr={16}
-          w={'55%'}
+          mr={{ lg: 16 }}
+          w={{ base: 'full', lg: '55%' }}
           bg={' linear-gradient(0deg, rgba(58, 174, 5, 0.7), rgba(58, 174, 5, 0.7)), rgba(57, 57, 57, 0.3);'}
           boxShadow={'0px 100px 100px rgba(0, 0, 0, 0.1459)'}
           borderRadius={'20px'}
-          py={20}
+          py={{ base: 7, lg: 20 }}
+          px={{ base: 5, md: 7 }}
         >
           <UnorderedList
             fontSize={{ base: '20px', md: '22px' }}
             lineHeight={{ base: '25px', md: '27px' }}
             fontWeight="500"
-            pt={{ base: 5, md: 7 }}
-            px={{ base: 5, md: 7 }}
+            spacing={7}
           >
             <ListItem>100% recyclable</ListItem>
             <ListItem>Maximize energy efficiency</ListItem>
@@ -49,9 +52,16 @@ export const Product = () => {
             <ListItem>Reduces carbon footprint</ListItem>
           </UnorderedList>
         </Box>
-        <Box flex={'1'} py={20}>
+        <Flex
+          alignItems={'center'}
+          flex={{ lg: '1' }}
+          position={{ base: 'absolute', lg: 'unset' }}
+          bottom={'-110px'}
+          right={'-70px'}
+          w={{ base: '290px', lg: 'unset' }}
+        >
           <Image src="/images/plate_1.png" />
-        </Box>
+        </Flex>
       </Flex>
     </Box>
   );
