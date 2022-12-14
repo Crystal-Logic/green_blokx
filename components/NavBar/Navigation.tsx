@@ -22,13 +22,17 @@ const menuItems = [
 
 export const Navigation = ({ isDrawerActive }: { isDrawerActive: boolean }) => {
   const [titleHoveredId, setTitleHoveredId] = useState<null | number>(null);
+  const mobileBgColor = useColorModeValue('white', 'brand.dark');
 
   return (
     <>
       <Stack direction={isDrawerActive ? 'column' : 'row'} spacing={isDrawerActive ? '60px' : '50px'}>
         {menuItems.map((item, index) => {
           const hoverStackStyles = item.subTitles.length
-            ? { backgroundColor: 'rgba(57, 57, 57, 0.3);', padding: '10px 30px 10px 10px' }
+            ? {
+                backgroundColor: isDrawerActive ? mobileBgColor : 'rgba(57, 57, 57, 0.3);',
+                padding: '10px 30px 10px 10px',
+              }
             : { color: 'brand.green' };
 
           const hoverAfterStyles =
@@ -69,7 +73,7 @@ export const Navigation = ({ isDrawerActive }: { isDrawerActive: boolean }) => {
                 display={titleHoveredId === index ? 'block' : 'none'}
               >
                 {item.subTitles.map((sub) => (
-                  <Text fontSize="18px" lineHeight="22px" mt="14px">
+                  <Text fontSize="18px" lineHeight="22px" mt={{ base: '30px', lg: '14px' }}>
                     {sub}
                   </Text>
                 ))}

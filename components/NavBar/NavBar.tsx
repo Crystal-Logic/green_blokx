@@ -22,14 +22,7 @@ export const NavBar = () => {
   const { toggleColorMode, colorMode } = useColorMode();
 
   return (
-    <Flex
-      justifyContent="space-between"
-      alignItems="center"
-      px={{ base: '20px', md: '128px' }}
-      pt={{ base: '50px', lg: '0px' }}
-      mb="80px"
-      zIndex="1000"
-    >
+    <Flex justifyContent="space-between" alignItems="center" px={{ base: '20px', md: '128px' }} mb="80px" zIndex="1000">
       <Image src="/images/logo.png" alt="logo" h={{ base: '72px', md: '75px' }} w={{ base: '53px', md: '65px' }} />
       <Hide above="lg">
         <Box onClick={onOpen}>
@@ -42,12 +35,7 @@ export const NavBar = () => {
         <DrawerContent>
           <DrawerHeader>
             <Flex justifyContent="space-between" alignItems="center" mb="60px">
-              <Image
-                src="/images/logo.png"
-                alt="logo"
-                h={{ base: '72px', md: '75px' }}
-                w={{ base: '53px', md: '65px' }}
-              />
+              <Image src="/images/logo.png" alt="logo" w={{ base: '53px', md: '65px' }} />
               <Box onClick={onClose}>
                 <Image src="/images/drawer_on.svg" alt="drawer_on" />
               </Box>

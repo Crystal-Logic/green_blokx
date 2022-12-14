@@ -54,7 +54,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         position={'relative'}
         backgroundSize="cover"
       >
-        <Box pt={{ base: '50px' }}>
+        <Box pt={{ base: '40px', lg: '50px' }}>
           <NavBar />
         </Box>
         <video
@@ -76,18 +76,28 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             onClick={toggleVideo}
             variant={'outline'}
             colorScheme={'white'}
-            mb={16}
-            w={'67px'}
-            h={'67px'}
+            mb={{ base: '50px', lg: 16 }}
+            w={{ base: '49px', lg: '67px' }}
+            h={{ base: '49px', lg: '67px' }}
             borderColor={'white'}
             borderRadius="none"
             border={'2px solid'}
             className={'custom_pointer-cursor'}
           >
             {!isShowVideo ? (
-              <Image src="/images/play_icon.png" w={'25px'} h={'22px'} className={'custom_pointer-cursor'}></Image>
+              <Image
+                src="/images/play_icon.png"
+                w={{ base: '16px', md: '25px' }}
+                h={{ base: '15px', md: '22px' }}
+                className={'custom_pointer-cursor'}
+              ></Image>
             ) : (
-              <Image src="/images/pause_icon.png" w={'25px'} h={'22px'} className={'custom_pointer-cursor'}></Image>
+              <Image
+                src="/images/pause_icon.png"
+                w={{ base: '16px', md: '25px' }}
+                h={{ base: '15px', md: '22px' }}
+                className={'custom_pointer-cursor'}
+              ></Image>
             )}
           </Button>
           <Text
@@ -107,11 +117,11 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         </Box>
 
         <Hide above="lg">
-          <VStack ml={5} pb={10} alignSelf={'flex-start'} zIndex={10}>
+          <VStack mx={5} mt={40} alignSelf={'end'} zIndex={10}>
+            <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
             <Text fontSize="12px" lineHeight="15px" fontWeight="700" color={'white'}>
               {colorMode === 'dark' ? 'Light' : 'Dark'} mode
             </Text>
-            <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
           </VStack>
         </Hide>
 
@@ -119,17 +129,17 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
           maxW={{ base: 'full', md: '90%', xl: '70%' }}
           flex={'1'}
           pl={{ base: 5, md: 44 }}
-          pb={{ base: '50px' }}
+          pb={{ base: 5, lg: '50px' }}
           zIndex={10}
         >
           <Text
             alignSelf={'end'}
-            fontSize={{ base: '20px', md: '50px' }}
-            lineHeight={{ base: '25px', md: '63px' }}
+            fontSize={{ base: '28px', md: '50px' }}
+            lineHeight={{ base: '35px', md: '63px' }}
             fontWeight="600"
           >
             <Text as={'span'} color="brand.green">
-              Wny&nbsp;
+              Why&nbsp;
             </Text>
             Greenblokx?
           </Text>
