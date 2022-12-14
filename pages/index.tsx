@@ -8,6 +8,7 @@ import { Partners } from 'components/Partners';
 import { TokenBlock } from 'components/TokenBlock/TokenBlock';
 import { Product } from 'components/Product/Product';
 import { Subscribe } from 'components/Subscribe/Subscribe';
+import { FutureBlock } from 'components/FutureBlock/FutureBlock';
 
 // const spin = keyframes`
 //   from {transform: rotate(0deg);}
@@ -26,6 +27,7 @@ const IndexPage = () => {
       <Team />
       <Subscribe />
       <Partners />
+      <FutureBlock />
       {/* Test animation */}
       {/* <Box position={'fixed'} w={'full'} top={0}>
         <Box animation={`${spin} 20s infinite`} position={'absolute'} left={'85%'} top={'130px'}>
