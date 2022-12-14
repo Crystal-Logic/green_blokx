@@ -1,7 +1,7 @@
 import { Flex, Text, Image, useColorModeValue, Hide, Link } from '@chakra-ui/react';
 
 export const Footer = () => {
-  const bg = useColorModeValue('brand.green', 'brand.dark');
+  const intLogo = useColorModeValue('/images/intencio_logo-dark.svg', '/images/intencio_logo.svg');
 
   return (
     <Flex
@@ -10,8 +10,6 @@ export const Footer = () => {
       borderColor={'brand.green'}
       alignItems={'center'}
       justifyContent={'space-around'}
-      color={'white'}
-      bg={bg}
     >
       <Link href={'https://drive.google.com/file/d/1ORsanQxlAzypAwd3QcaSv22OnY8kdfvM/view?usp=share_link'} isExternal>
         <Text
@@ -51,7 +49,7 @@ export const Footer = () => {
             by{' '}
           </Text>
           <Image
-            src="/images/intencio_logo.svg"
+            src={intLogo}
             alt="intencio logo"
             w={{ base: '25px', md: '49px' }}
             h={{ base: '22px', md: '53px' }}

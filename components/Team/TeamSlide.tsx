@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text, Flex, Image, Link, Hide } from '@chakra-ui/react';
+import { Text, Flex, Image, Link, Hide, useColorModeValue } from '@chakra-ui/react';
 
 type SlideInfo = {
   name: string;
@@ -11,15 +11,16 @@ type SlideInfo = {
 
 export const TeamSlide = ({ name, position, linkdIn, photo, description }: SlideInfo) => {
   const [isShowAll, setIsShowAll] = useState(false);
+  const filter = useColorModeValue('none', 'grayscale(1)');
 
   return (
     <Flex w={'full'} direction={{ base: 'column', md: 'row' }}>
       <Image
         src={photo}
         alt={name}
-        maxW={{ base: '220px', lg: '520px' }}
-        maxH={{ base: '270px', lg: '630px' }}
-        filter={'grayscale(1)'}
+        maxW={{ base: '220px', lg: '420px', xl: '520px' }}
+        maxH={{ base: '270px', lg: '530px', xl: '630px' }}
+        filter={filter}
         ml={{ base: 10, lg: 'unset' }}
       />
       <Flex

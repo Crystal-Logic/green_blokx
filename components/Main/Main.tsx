@@ -138,6 +138,15 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
           </Text>
         </Box>
 
+        <Hide above="lg">
+          <VStack ml={5} pb={10} alignSelf={'flex-start'} zIndex={10}>
+            <Text fontSize="12px" lineHeight="15px" fontWeight="700" color={'white'}>
+              {colorMode === 'dark' ? 'Light' : 'Dark'} mode
+            </Text>
+            <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
+          </VStack>
+        </Hide>
+
         <Box
           maxW={{ base: 'full', md: '90%', xl: '70%' }}
           pl={{ base: 5, md: 100 }}
@@ -151,15 +160,6 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             GREENBLOKX?
           </Text>
         </Box>
-
-        <Hide above="lg">
-          <VStack ml={5} pb={10} alignSelf={'flex-start'} zIndex={10}>
-            <Text fontSize="12px" lineHeight="15px" fontWeight="700" color={'white'}>
-              {colorMode === 'dark' ? 'Light' : 'Dark'} mode
-            </Text>
-            <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
-          </VStack>
-        </Hide>
       </Flex>
     </Flex>
   );
