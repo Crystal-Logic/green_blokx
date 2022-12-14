@@ -22,8 +22,8 @@ export const NavBar = () => {
   const { toggleColorMode, colorMode } = useColorMode();
 
   return (
-    <Flex justifyContent="space-between" alignItems="center" px={{ base: '20px', md: '128px' }} mb="80px" zIndex="1000">
-      <Image src="/images/logo.png" alt="logo" h={{ base: '72px', md: '75px' }} w={{ base: '53px', md: '65px' }} />
+    <Flex justifyContent="space-between" alignItems="center" px={{ base: '20px', xl: '128px' }} mb="80px" zIndex="1000">
+      <Image src="/images/logo.png" alt="logo" w={{ base: '53px', md: '65px' }} />
       <Hide above="lg">
         <Box onClick={onOpen}>
           <Image src="/images/drawer_off.svg" alt="drawer_off" />
