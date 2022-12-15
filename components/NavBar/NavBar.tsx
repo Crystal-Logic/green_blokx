@@ -24,7 +24,14 @@ export const NavBar = () => {
   const { toggleColorMode, colorMode } = useColorMode();
 
   return (
-    <Flex justifyContent="space-between" alignItems="center" px={{ base: '20px', xl: '128px' }} mb="80px" zIndex="1000">
+    <Flex
+      justifyContent="space-between"
+      alignItems="center"
+      px={{ base: '20px', xl: '128px' }}
+      mb="80px"
+      pos={'relative'}
+      zIndex="1000"
+    >
       <Link as={NextLink} href="/">
         <Image src="/images/logo.png" alt="logo" w={{ base: '53px', md: '65px' }} className={'custom_pointer-cursor'} />
       </Link>

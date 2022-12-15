@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Switch, Flex, Image, Text, Box, Hide, useColorMode, VStack, Button } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
 import { NavBar } from '../NavBar';
+import Lottie from 'react-lottie';
+import * as animationData from 'public/animation/cubes.json';
 
 export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const [isShowVideo, setIsShowVideo] = useState(false);
@@ -9,6 +11,15 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const { ref: inViewRef, inView: isVideoVisible } = useInView({ threshold: 0.5 });
 
   const { toggleColorMode, colorMode } = useColorMode();
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  };
 
   const playVideo = () => {
     videoRef.current && videoRef.current.play();
@@ -70,6 +81,10 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         >
           <source src={'/video/GreenBlokX_bg.mp4'} type="video/mp4" />
         </video>
+
+        <Box position="absolute">
+          <Lottie options={defaultOptions} height={'100vh'} width={'100vw'} />
+        </Box>
 
         <Box maxW={{ base: 'full', md: '90%', xl: '80%' }} pl={{ base: 5, md: 44 }} zIndex={10}>
           <Button
