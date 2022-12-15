@@ -20,108 +20,69 @@ const menuItems = [
   },
 ];
 
-export const Navigation = ({ isDrawerActive }: { isDrawerActive: boolean }) => {
-  const [titleHoveredId, setTitleHoveredId] = useState<null | number>(null);
-  const mobileBgColor = useColorModeValue('white', 'brand.dark');
+const NavGroup = ({ group, isDrawerActive }: any) => {
   const [subNavIsOpened, setSubNavIsOpened] = useBoolean();
+  const mobileBgColor = useColorModeValue('white', 'brand.dark');
 
+  const hoverStackStyles = group.subTitles.length
+    ? {
+        backgroundColor: isDrawerActive ? mobileBgColor : 'rgba(57, 57, 57, 0.3);',
+        padding: '0px 30px 10px 10px',
+      }
+    : { color: 'brand.green' };
+
+  return (
+    <Box
+      key={group.title}
+      _hover={{
+        ...hoverStackStyles,
+        '.nav_title': {
+          borderColor: group.subTitles.length ? 'brand.green' : 'transparent',
+        },
+      }}
+      w="fit-content"
+      pos="relative"
+      onMouseEnter={setSubNavIsOpened.on}
+      onMouseLeave={setSubNavIsOpened.off}
+    >
+      <Text
+        className="nav_title custom_pointer-cursor"
+        fontSize="18px"
+        lineHeight="22px"
+        pos="relative"
+        borderBottom="2px solid"
+        borderColor={'transparent'}
+        py={'10px'}
+      >
+        {group.title}
+      </Text>
+
+      <Collapse in={subNavIsOpened}>
+        <Box pos="absolute" left={0} width={'100%'} sx={hoverStackStyles} zIndex={20}>
+          {group.subTitles.map((sub: any) => (
+            <Link key={sub} isExternal href={'https://docsend.com/view/s/sd9mvfdtsfk86set'}>
+              <Text
+                fontSize="18px"
+                lineHeight="22px"
+                mt={{ base: '30px', lg: '14px' }}
+                className={'custom_pointer-cursor'}
+              >
+                {sub}
+              </Text>
+            </Link>
+          ))}
+        </Box>
+      </Collapse>
+    </Box>
+  );
+};
+
+export const Navigation = ({ isDrawerActive }: { isDrawerActive: boolean }) => {
   return (
     <>
       <Stack direction={isDrawerActive ? 'column' : 'row'} spacing={isDrawerActive ? '60px' : '50px'}>
-        {menuItems.map((item, index) => {
-          const hoverStackStyles = item.subTitles.length
-            ? {
-                backgroundColor: isDrawerActive ? mobileBgColor : 'rgba(57, 57, 57, 0.3);',
-                // backgroundColor: 'green',
-                padding: '0px 30px 10px 10px',
-              }
-            : { color: 'brand.green' };
-
-          // const hoverAfterStyles =
-          //   item.subTitles.length && titleHoveredId === index
-          //     ? {
-          //         content: '""',
-          //         display: 'block',
-          //         position: 'absolute',
-          //         bottom: '-10px',
-          //         height: '1px',
-          //         width: '100%',
-          //         backgroundColor: 'brand.green',
-          //         zIndex: 2,
-          //       }
-          //     : {};
-
-          return (
-            <Box
-              key={item.title}
-              _hover={{
-                ...hoverStackStyles,
-                '.nav_title': {
-                  borderBottom: '2px solid',
-                  borderColor: 'brand.green',
-                  // content: '""',
-                  // display: 'block',
-                  // position: 'absolute',
-                  // bottom: '-10px',
-                  // height: '1px',
-                  // width: '100%',
-                  // backgroundColor: 'brand.green',
-                  // zIndex: 2,
-                },
-              }}
-              w="fit-content"
-              // h={'auto'}
-              pos="relative"
-              // transitionDuration="300ms"
-              // onMouseEnter={() => {
-              //   setTitleHoveredId(index);
-              //   setSubNavIsOpened.on;
-              // }}
-              // onMouseLeave={() => {
-              //   setTitleHoveredId(null);
-              //   setSubNavIsOpened.off;
-              // }}
-              onMouseEnter={setSubNavIsOpened.on}
-              onMouseLeave={setSubNavIsOpened.off}
-            >
-              <Text
-                className="nav_title"
-                fontSize="18px"
-                lineHeight="22px"
-                pos="relative"
-                pt={'10px'}
-                // _hover={hoverAfterStyles}
-                // _after={hoverAfterStyles}
-              >
-                {item.title}
-              </Text>
-
-              <Collapse in={subNavIsOpened}>
-                <Box
-                  pos="absolute"
-                  // left="0"
-                  // bottom={'0'}
-                  // top="42px"
-                  // w="100%"
-                  width={'auto'}
-                  // h={'max-content'}
-                  // _hover={hoverStackStyles}
-                  sx={hoverStackStyles}
-                  zIndex="1"
-                  // minH={'400px'}
-                  // display={titleHoveredId === index ? 'block' : 'none'}
-                >
-                  {item.subTitles.map((sub) => (
-                    <Link key={sub} isExternal href={'https://docsend.com/view/s/sd9mvfdtsfk86set'}>
-                      <Text fontSize="18px" lineHeight="22px" mt={{ base: '30px', lg: '14px' }}>
-                        {sub}
-                      </Text>
-                    </Link>
-                  ))}
-                </Box>
-              </Collapse>
-            </Box>
-          );
+        {menuItems.map((item) => {
+          return <NavGroup key={item.title} group={item} isDrawerActive />;
         })}
       </Stack>
 
