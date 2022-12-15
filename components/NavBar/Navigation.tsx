@@ -35,10 +35,7 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
   const mobileBgColor = useColorModeValue('white', 'brand.dark');
 
   const hoverStackStyles = group.subTitles.length
-    ? {
-        backgroundColor: isDrawerActive ? mobileBgColor : 'rgba(57, 57, 57, 0.3);',
-        padding: '0px 30px 10px 10px',
-      }
+    ? { marginRight: '20px', backgroundColor: isDrawerActive ? mobileBgColor : 'rgba(57, 57, 57, 0.3);' }
     : { color: 'brand.green' };
 
   return (
@@ -50,17 +47,19 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
           borderColor: group.subTitles.length ? 'brand.green' : 'transparent',
         },
       }}
-      w="fit-content"
-      pos="relative"
+      w='fit-content'
+      pos='relative'
+      p='0px 30px 10px 10px'
+      transitionDuration='500ms'
       onMouseEnter={setSubNavIsOpened.on}
       onMouseLeave={setSubNavIsOpened.off}
     >
       <Text
-        className="nav_title custom_pointer-cursor"
-        fontSize="18px"
-        lineHeight="22px"
-        pos="relative"
-        borderBottom="2px solid"
+        className='nav_title custom_pointer-cursor'
+        fontSize='18px'
+        lineHeight='22px'
+        pos='relative'
+        borderBottom='2px solid'
         borderColor={'transparent'}
         py={'10px'}
       >
@@ -68,12 +67,12 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
       </Text>
 
       <Collapse in={subNavIsOpened}>
-        <Box pos="absolute" left={0} width={'100%'} sx={hoverStackStyles} zIndex={20}>
+        <Box pos='absolute' left={0} width={'100%'} p='0px 30px 10px 10px' sx={hoverStackStyles} zIndex={20}>
           {group.subTitles.map(({ name, href, isExternal = true }: any) => (
             <Link key={name} isExternal={isExternal} href={href}>
               <Text
-                fontSize="18px"
-                lineHeight="22px"
+                fontSize='18px'
+                lineHeight='22px'
                 mt={{ base: '30px', lg: '14px' }}
                 className={'custom_pointer-cursor'}
               >
@@ -90,7 +89,7 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
 export const Navigation = ({ isDrawerActive }: { isDrawerActive: boolean }) => {
   return (
     <>
-      <Stack direction={isDrawerActive ? 'column' : 'row'} spacing={isDrawerActive ? '60px' : '50px'}>
+      <Stack direction={isDrawerActive ? 'column' : 'row'} spacing={isDrawerActive ? '60px' : '20px'}>
         {menuItems.map((item) => {
           return <NavGroup key={item.title} group={item} isDrawerActive />;
         })}
@@ -98,15 +97,15 @@ export const Navigation = ({ isDrawerActive }: { isDrawerActive: boolean }) => {
 
       <Link isExternal href={'https://docsend.com/view/s/sd9mvfdtsfk86set'}>
         <Button
-          bg="brand.green"
-          color="white"
-          py="15px"
-          px="20px"
-          fontSize="16px"
-          lineHeight="20px"
-          fontWeight="400"
-          borderRadius="12px"
-          h="50px"
+          bg='brand.green'
+          color='white'
+          py='15px'
+          px='20px'
+          fontSize='16px'
+          lineHeight='20px'
+          fontWeight='400'
+          borderRadius='12px'
+          h='50px'
           mt={isDrawerActive ? '60px' : '0'}
         >
           Read docs
