@@ -1,7 +1,17 @@
 import { Box, Flex, Text, useColorModeValue } from '@chakra-ui/react';
+import Lottie from 'react-lottie';
+import * as animationData from 'public/animation/anim2.json';
 
 export const Manufacture = () => {
   const bgColor = useColorModeValue('rgba(255, 255, 255, 0.3);', 'rgba(255, 255, 255, 0.03);');
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  };
 
   return (
     <Flex direction={{ base: 'column', lg: 'row' }}>
@@ -23,11 +33,18 @@ export const Manufacture = () => {
       </Box>{' '}
       <Box
         h={{ base: '360px', md: 'auto' }}
-        w={'full'}
         flex={{ lg: '1' }}
-        bg={'rgba(59, 173, 5, 0.4)'}
+        w={'full'}
         boxShadow={'100px 100px 100px rgba(0, 0, 0, 0.15)'}
-      ></Box>
+      >
+        <Lottie
+          options={defaultOptions}
+          height={'inherit'}
+          width={'auto'}
+          // isStopped={this.state.isStopped}
+          // isPaused={this.state.isPaused}
+        />
+      </Box>
     </Flex>
   );
 };
