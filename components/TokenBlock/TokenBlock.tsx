@@ -1,4 +1,4 @@
-import { Box, Text, Button, UnorderedList, ListItem, Flex, Hide } from '@chakra-ui/react';
+import { Box, Text, Button, UnorderedList, ListItem, Flex, Hide, Link } from '@chakra-ui/react';
 import { CubeGif } from 'components/CubeGif/CubeGif';
 
 export const TokenBlock = () => {
@@ -42,18 +42,20 @@ export const TokenBlock = () => {
         As the Revenue generated grows so does the return to token holders.
       </Text>
       <Flex justifyContent={'center'} mt={{ base: 10, lg: 24 }} mb={{ base: 20, lg: 48 }}>
-        <Button
-          bg={'brand.green'}
-          color={'white'}
-          px={5}
-          fontSize={{ base: '16px', md: '25px' }}
-          lineHeight={{ base: '20px', md: '22px' }}
-          fontWeight="400"
-          h={{ base: '50px', lg: '80px' }}
-          borderRadius={'12px'}
-        >
-          read token paper
-        </Button>
+        <Link isExternal href={'https://docsend.com/view/s/sd9mvfdtsfk86set'}>
+          <Button
+            bg={'brand.green'}
+            color={'white'}
+            px={5}
+            fontSize={{ base: '16px', md: '25px' }}
+            lineHeight={{ base: '20px', md: '22px' }}
+            fontWeight="400"
+            h={{ base: '50px', lg: '80px' }}
+            borderRadius={'12px'}
+          >
+            read token paper
+          </Button>
+        </Link>
       </Flex>
       <Flex direction={{ base: 'column', lg: 'row' }} pr={{ base: 5, lg: 40 }} pl={{ base: 5, lg: 48 }} mb={28}>
         <Box

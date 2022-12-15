@@ -1,18 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Text, Button, Stack, Box, useColorModeValue, Link, Collapse, useBoolean } from '@chakra-ui/react';
 
 const menuItems = [
   {
     title: 'Documentation',
-    subTitles: ['Business Plan', 'Token Paper', 'Pitch Deck', 'Projected Financial Plan'],
+    subTitles: [
+      { name: 'Business Plan', href: 'https://docsend.com/view/sd9mvfdtsfk86set/d/cgfsb5kjfmhpsk5s' },
+      { name: 'Token Paper', href: 'https://docsend.com/view/sd9mvfdtsfk86set/d/cyac3tdffprzb6gu' },
+      { name: 'Pitch Deck', href: 'https://docsend.com/view/sd9mvfdtsfk86set/d/g2sk2hj33xkbqckg' },
+      { name: 'Projected Financial Plan', href: 'https://docsend.com/view/sd9mvfdtsfk86set/d/budpizthk828ivfx' },
+    ],
   },
   {
     title: 'About us',
-    subTitles: ['Team'],
+    subTitles: [{ name: 'Team', href: '/#team', isExternal: false }],
   },
   {
     title: 'Community',
-    subTitles: ['Twitter', 'Medium', 'LinkedIn', 'Press Release'],
+    subTitles: [
+      { name: 'Twitter', href: 'https://twitter.com/greenblokx' },
+      { name: 'Medium', href: 'https://medium.com/@greenblokx' },
+      { name: 'LinkedIn', href: 'https://www.linkedin.com/company/greenblokx/' },
+      { name: 'Press Release', href: 'https://medium.com/@greenblokx' },
+    ],
   },
   {
     title: 'Contact us',
@@ -59,15 +69,15 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
 
       <Collapse in={subNavIsOpened}>
         <Box pos="absolute" left={0} width={'100%'} sx={hoverStackStyles} zIndex={20}>
-          {group.subTitles.map((sub: any) => (
-            <Link key={sub} isExternal href={'https://docsend.com/view/s/sd9mvfdtsfk86set'}>
+          {group.subTitles.map(({ name, href, isExternal = true }: any) => (
+            <Link key={name} isExternal={isExternal} href={href}>
               <Text
                 fontSize="18px"
                 lineHeight="22px"
                 mt={{ base: '30px', lg: '14px' }}
                 className={'custom_pointer-cursor'}
               >
-                {sub}
+                {name}
               </Text>
             </Link>
           ))}
