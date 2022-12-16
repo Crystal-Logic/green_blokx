@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Box, Flex, Text, useColorModeValue, useOutsideClick } from '@chakra-ui/react';
+import { Box, Flex, Text, useColorModeValue, useOutsideClick, useColorMode } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
 
 const steps = [0, 1, 2];
+const videoSteps = ['step1.mp4', 'step2.mp4', 'step3.mp4'];
 
 export const Manufacture = () => {
-  const videoSteps = ['/video/step1.mp4', '/video/step2.mp4', '/video/step3.mp4'];
   const [currStep, setCurrStep] = useState(steps[0]);
   const [isShowInfoArea, setIsShowInfoArea] = useState(false);
 
@@ -13,6 +13,7 @@ export const Manufacture = () => {
   const videoRef = useRef<HTMLVideoElement & HTMLDivElement>(null);
   const infoAreaRef = useRef<HTMLDivElement>(null);
 
+  const { colorMode } = useColorMode();
   const bgColor = useColorModeValue('rgba(255, 255, 255, 0.3);', 'rgba(255, 255, 255, 0.03);');
 
   const resetAnimation = () => {
@@ -109,7 +110,7 @@ export const Manufacture = () => {
           w={'full'}
           onClick={nextStep}
           onTimeUpdate={pause}
-          src={videoSteps[currStep]}
+          src={colorMode === 'dark' ? `/video/dark/${videoSteps[currStep]}` : `/video/white/${videoSteps[currStep]}`}
         ></Box>
         <Box
           ref={infoAreaRef}
