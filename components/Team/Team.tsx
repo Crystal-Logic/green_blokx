@@ -9,7 +9,7 @@ import { TeamSlide } from './TeamSlide';
 const teamInfo = [
   {
     name: 'Daniel Pal',
-    position: 'Chairman | Co-Founder',
+    position: 'Chairman <wbr />| Co-Founder',
     linkdIn: 'https://www.linkedin.com/in/daniel-pal-19025a252/',
     photo: '/images/team/daniel_pal.png',
     description:
@@ -17,7 +17,7 @@ const teamInfo = [
   },
   {
     name: 'Florin Tudor',
-    position: 'Chief Executive Officer | Co-Founder',
+    position: 'Chief Executive Officer <wbr />| Co-Founder',
     linkdIn: 'https://www.linkedin.com/in/Florin-Tudor-a5969a121/',
     photo: '/images/team/florin_tudor.jpeg',
     description:
@@ -25,7 +25,7 @@ const teamInfo = [
   },
   {
     name: 'Vlad Arama',
-    position: 'Chief Sales Officer | Co-Founder',
+    position: 'Chief Sales Officer <wbr />| Co-Founder',
     linkdIn: 'https://www.linkedin.com/in/vlad-alexandru-aram%C4%83-758794151/',
     photo: '/images/team/vlad_arama.jpeg',
     description:
@@ -33,7 +33,7 @@ const teamInfo = [
   },
   {
     name: 'Matt Haynes',
-    position: 'Chief Blockchain Officer | Co-Founder',
+    position: 'Chief Blockchain Officer <wbr />| Co-Founder',
     linkdIn: 'https://www.linkedin.com/in/matthaynesblockchain/',
     photo: '/images/team/matt_haynes.jpg',
     description:
@@ -93,6 +93,7 @@ export const Team = () => {
               modules={[Navigation, Pagination]}
               spaceBetween={50}
               slidesPerView={1}
+              loop={true}
               pagination={{
                 el: '.team-pagination',
               }}

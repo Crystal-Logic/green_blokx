@@ -56,9 +56,9 @@ export const TeamSlide = ({ name, position, linkdIn, photo, description }: Slide
           fontWeight="500"
           color={'brand.green'}
           pt={{ lg: 5 }}
-        >
-          {position}
-        </Text>
+          whiteSpace={'nowrap'}
+          dangerouslySetInnerHTML={{ __html: position }}
+        ></Text>
         <Text
           noOfLines={isShowAll ? 100 : 4}
           fontSize={{ base: '14px', md: '18px' }}

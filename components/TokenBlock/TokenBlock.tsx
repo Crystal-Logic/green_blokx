@@ -140,6 +140,7 @@ export const TokenBlock = () => {
             h={{ base: 60 }}
             bottom={{ base: '10px' }}
             right={{ base: '10px' }}
+            opacity={'0.7'}
           />
         </Box>
       </Flex>
