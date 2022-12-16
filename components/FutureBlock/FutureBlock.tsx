@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text, Hide } from '@chakra-ui/react';
 
 export const FutureBlock = () => {
   return (
@@ -9,7 +9,15 @@ export const FutureBlock = () => {
         lineHeight={{ base: '38px', md: '81px' }}
         fontWeight="800"
       >
-        The Future is in your hands… Join the movement towards a greener future with <br />
+        The Future{' '}
+        <Hide above="md">
+          <br />
+        </Hide>
+        is in your hands…{' '}
+        <Hide above="lg">
+          <br />
+        </Hide>
+        Join the movement towards a greener future with <br />
         <Text as={'span'} color="brand.green">
           GreenBLOKX
         </Text>
