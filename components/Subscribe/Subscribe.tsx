@@ -1,6 +1,8 @@
-import { Box, Text, Button, Flex, InputGroup, Input, InputRightElement, Hide } from '@chakra-ui/react';
+import { Box, Text, Button, Flex, InputGroup, Input, InputRightElement, Hide, useColorMode } from '@chakra-ui/react';
 
 export const Subscribe = () => {
+  const { colorMode } = useColorMode();
+
   return (
     <Box my={{ base: 24, md: 60 }}>
       <Text
@@ -43,6 +45,10 @@ export const Subscribe = () => {
               fontWeight="400"
               h={'50px'}
               borderRadius={'12px'}
+              _hover={{
+                color: colorMode === 'dark' ? 'white' : 'brand.dark',
+                bg: 'initial',
+              }}
             >
               Subscribe
             </Button>

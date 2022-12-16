@@ -1,5 +1,15 @@
 import React from 'react';
-import { Text, Button, Stack, Box, useColorModeValue, Link, Collapse, useBoolean } from '@chakra-ui/react';
+import {
+  Text,
+  Button,
+  Stack,
+  Box,
+  useColorModeValue,
+  Link,
+  Collapse,
+  useBoolean,
+  useColorMode,
+} from '@chakra-ui/react';
 
 const menuItems = [
   {
@@ -47,19 +57,19 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
           borderColor: group.subTitles.length ? 'brand.green' : 'transparent',
         },
       }}
-      w='fit-content'
-      pos='relative'
-      p='0px 30px 10px 10px'
-      transitionDuration='500ms'
+      w="fit-content"
+      pos="relative"
+      p="0px 30px 10px 10px"
+      transitionDuration="500ms"
       onMouseEnter={setSubNavIsOpened.on}
       onMouseLeave={setSubNavIsOpened.off}
     >
       <Text
-        className='nav_title custom_pointer-cursor'
-        fontSize='18px'
-        lineHeight='22px'
-        pos='relative'
-        borderBottom='2px solid'
+        className="nav_title custom_pointer-cursor"
+        fontSize="18px"
+        lineHeight="22px"
+        pos="relative"
+        borderBottom="2px solid"
         borderColor={'transparent'}
         py={'10px'}
       >
@@ -67,12 +77,12 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
       </Text>
 
       <Collapse in={subNavIsOpened}>
-        <Box pos='absolute' left={0} width={'100%'} p='0px 30px 10px 10px' sx={hoverStackStyles} zIndex={20}>
+        <Box pos="absolute" left={0} width={'100%'} p="0px 30px 10px 10px" sx={hoverStackStyles} zIndex={20}>
           {group.subTitles.map(({ name, href, isExternal = true }: any) => (
             <Link key={name} isExternal={isExternal} href={href}>
               <Text
-                fontSize='18px'
-                lineHeight='22px'
+                fontSize="18px"
+                lineHeight="22px"
                 mt={{ base: '30px', lg: '14px' }}
                 className={'custom_pointer-cursor'}
               >
@@ -87,6 +97,8 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
 };
 
 export const Navigation = ({ isDrawerActive }: { isDrawerActive: boolean }) => {
+  const { colorMode } = useColorMode();
+
   return (
     <>
       <Stack direction={isDrawerActive ? 'column' : 'row'} spacing={isDrawerActive ? '60px' : '20px'}>
@@ -95,18 +107,22 @@ export const Navigation = ({ isDrawerActive }: { isDrawerActive: boolean }) => {
         })}
       </Stack>
 
-      <Link isExternal href={'https://docsend.com/view/s/sd9mvfdtsfk86set'}>
+      <Link isExternal href={'https://docsend.com/view/s/sd9mvfdtsfk86set'} _hover={{ textDecoration: 'none' }}>
         <Button
-          bg='brand.green'
-          color='white'
-          py='15px'
-          px='20px'
-          fontSize='16px'
-          lineHeight='20px'
-          fontWeight='400'
-          borderRadius='12px'
-          h='50px'
+          bg="brand.green"
+          color="white"
+          py="15px"
+          px="20px"
+          fontSize="16px"
+          lineHeight="20px"
+          fontWeight="400"
+          borderRadius="12px"
+          h="50px"
           mt={isDrawerActive ? '60px' : '0'}
+          _hover={{
+            color: colorMode === 'dark' ? 'white' : 'brand.dark',
+            bg: 'initial',
+          }}
         >
           Read docs
         </Button>

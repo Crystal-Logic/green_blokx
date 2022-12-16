@@ -47,13 +47,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
 
   return (
     <Flex minH="100vh" w={'full'} ref={inViewRef}>
-      <Flex
-        flex={'1'}
-        direction={'column'}
-        justifyContent={{ base: 'space-between' }}
-        position={'relative'}
-        backgroundSize="cover"
-      >
+      <Flex flex={'1'} direction={'column'} position={'relative'} backgroundSize="cover">
         <Box pt={{ base: '40px', lg: '50px' }}>
           <NavBar />
         </Box>
@@ -124,26 +118,6 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             </Text>
           </VStack>
         </Hide>
-
-        <Flex
-          maxW={{ base: 'full', md: '90%', xl: '70%' }}
-          flex={'1'}
-          pl={{ base: 5, md: 44 }}
-          pb={{ base: 5, lg: '50px' }}
-          zIndex={10}
-        >
-          <Text
-            alignSelf={'end'}
-            fontSize={{ base: '28px', md: '50px' }}
-            lineHeight={{ base: '35px', md: '63px' }}
-            fontWeight="600"
-          >
-            <Text as={'span'} color="brand.green">
-              Why&nbsp;
-            </Text>
-            Greenblokx?
-          </Text>
-        </Flex>
       </Flex>
     </Flex>
   );
