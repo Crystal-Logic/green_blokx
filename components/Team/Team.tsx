@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Box, Heading, Flex, Image, Hide, Button } from '@chakra-ui/react';
+import { Box, Heading, Flex, Image, Hide, Button, useColorMode } from '@chakra-ui/react';
 import { Swiper as SwiperType, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { CubeGif } from 'components/CubeGif/CubeGif';
@@ -43,6 +43,7 @@ const teamInfo = [
 
 export const Team = () => {
   const swiperRef = useRef<SwiperType>();
+  const { colorMode } = useColorMode();
 
   return (
     <Box id="team" minH={{ base: '600px', md: '450px', lg: '780px' }} pt={'53px'} pb={20}>
@@ -213,6 +214,10 @@ export const Team = () => {
               fontWeight="400"
               h={'80px'}
               borderRadius={'12px'}
+              _hover={{
+                color: colorMode === 'dark' ? 'white' : 'brand.dark',
+                bg: 'initial',
+              }}
             >
               Contact us
             </Button>

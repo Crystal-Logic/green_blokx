@@ -1,7 +1,9 @@
-import { Box, Text, Button, UnorderedList, ListItem, Flex, Hide, Link } from '@chakra-ui/react';
+import { Box, Text, Button, UnorderedList, ListItem, Flex, Hide, Link, useColorMode } from '@chakra-ui/react';
 import { CubeGif } from 'components/CubeGif/CubeGif';
 
 export const TokenBlock = () => {
+  const { colorMode } = useColorMode();
+
   return (
     <Box>
       <Text
@@ -42,7 +44,7 @@ export const TokenBlock = () => {
         As the Revenue generated grows so does the return to token holders.
       </Text>
       <Flex justifyContent={'center'} mt={{ base: 10, lg: 24 }} mb={{ base: 20, lg: 48 }}>
-        <Link isExternal href={'https://docsend.com/view/s/sd9mvfdtsfk86set'}>
+        <Link isExternal href={'https://docsend.com/view/s/sd9mvfdtsfk86set'} _hover={{ textDecoration: 'none' }}>
           <Button
             bg={'brand.green'}
             color={'white'}
@@ -52,6 +54,10 @@ export const TokenBlock = () => {
             fontWeight="400"
             h={{ base: '50px', lg: '80px' }}
             borderRadius={'12px'}
+            _hover={{
+              color: colorMode === 'dark' ? 'white' : 'brand.dark',
+              bg: 'initial',
+            }}
           >
             read token paper
           </Button>
