@@ -36,7 +36,8 @@ export const Product = () => {
           boxShadow={'0px 100px 100px rgba(0, 0, 0, 0.1459)'}
           borderRadius={'20px'}
           py={{ base: 7, lg: 20 }}
-          px={{ base: 5, md: 7 }}
+          pl={{ base: 5, md: 7 }}
+          pr={{ base: 16, md: 7 }}
         >
           <UnorderedList
             fontSize={{ base: '20px', md: '22px' }}
