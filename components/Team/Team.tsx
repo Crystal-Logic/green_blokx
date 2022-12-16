@@ -93,6 +93,7 @@ export const Team = () => {
               modules={[Navigation, Pagination]}
               spaceBetween={50}
               slidesPerView={1}
+              loop={true}
               pagination={{
                 el: '.team-pagination',
               }}
