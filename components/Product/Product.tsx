@@ -56,9 +56,8 @@ export const Product = () => {
             listStyleType="none"
           >
             {productPoints.map((point) => (
-              <ListItem display={'flex'} alignItems={'center'}>
+              <ListItem key={point} display={'flex'} alignItems={'center'}>
                 <ListIcon
-                  key={point}
                   as={Box}
                   h={{ base: '15px', lg: '20px' }}
                   w={{ base: '15px', lg: '20px' }}
