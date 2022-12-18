@@ -57,20 +57,20 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
           borderColor: group.subTitles.length ? 'brand.green' : 'transparent',
         },
       }}
-      w='fit-content'
-      minW='150px'
-      pos='relative'
-      p='0px 30px 10px 10px'
-      transitionDuration='500ms'
+      w="fit-content"
+      minW="150px"
+      pos="relative"
+      p="0px 30px 10px 10px"
+      transitionDuration="500ms"
       onMouseEnter={setSubNavIsOpened.on}
       onMouseLeave={setSubNavIsOpened.off}
     >
       <Text
-        className='nav_title custom_pointer-cursor'
-        fontSize='18px'
-        lineHeight='22px'
-        pos='relative'
-        borderBottom='2px solid'
+        className="nav_title custom_pointer-cursor"
+        fontSize="18px"
+        lineHeight="22px"
+        pos="relative"
+        borderBottom="2px solid"
         borderColor={'transparent'}
         py={'10px'}
       >
@@ -79,19 +79,20 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
 
       <Collapse in={subNavIsOpened}>
         <Box
-          pos='absolute'
+          pos="absolute"
           left={0}
           zIndex={20}
           width={'100%'}
           sx={hoverStackStyles}
-          p='0px 30px 10px 10px'
+          p="0px 30px 10px 10px"
+          mt={{ base: '10px' }}
         >
-          {group.subTitles.map(({ name, href, isExternal = true }: any) => (
+          {group.subTitles.map(({ name, href, isExternal = true }: any, idx: number) => (
             <Link key={name} isExternal={isExternal} href={href}>
               <Text
-                fontSize='18px'
-                lineHeight='22px'
-                mt={{ base: '30px', lg: '14px' }}
+                fontSize="18px"
+                lineHeight="22px"
+                pt={{ base: '30px', lg: idx ? '14px' : '4px' }}
                 className={'custom_pointer-cursor'}
               >
                 {name}
@@ -117,15 +118,15 @@ export const Navigation = ({ isDrawerActive }: { isDrawerActive: boolean }) => {
 
       <Link isExternal href={'https://docsend.com/view/s/sd9mvfdtsfk86set'} _hover={{ textDecoration: 'none' }}>
         <Button
-          bg='brand.green'
-          color='white'
-          py='15px'
-          px='20px'
-          fontSize='16px'
-          lineHeight='20px'
-          fontWeight='400'
-          borderRadius='12px'
-          h='50px'
+          bg="brand.green"
+          color="white"
+          py="15px"
+          px="20px"
+          fontSize="16px"
+          lineHeight="20px"
+          fontWeight="400"
+          borderRadius="12px"
+          h="50px"
           mt={isDrawerActive ? '60px' : '0'}
           _hover={{
             color: colorMode === 'dark' ? 'white' : 'brand.dark',
