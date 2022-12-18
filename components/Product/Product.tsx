@@ -1,4 +1,13 @@
-import { Box, Text, Image, UnorderedList, ListItem, Flex } from '@chakra-ui/react';
+import { Box, Text, Image, UnorderedList, ListItem, Flex, ListIcon } from '@chakra-ui/react';
+
+const productPoints = [
+  '100% recyclable',
+  'Maximize energy efficiency',
+  'Sound proof',
+  'Thermal insulation',
+  'Easy to assemble and disassemble',
+  'Reduces carbon footprint',
+];
 
 export const Product = () => {
   return (
@@ -32,7 +41,7 @@ export const Product = () => {
         <Box
           mr={{ lg: 16 }}
           w={{ base: 'full', lg: '55%' }}
-          bg={' linear-gradient(0deg, rgba(58, 174, 5, 0.7), rgba(58, 174, 5, 0.7)), rgba(57, 57, 57, 0.3);'}
+          bg={'linear-gradient(0deg, rgba(58, 174, 5, 0.7), rgba(58, 174, 5, 0.7)), rgba(57, 57, 57, 0.3);'}
           boxShadow={'0px 100px 100px rgba(0, 0, 0, 0.1459)'}
           borderRadius={'20px'}
           py={{ base: 7, lg: 20 }}
@@ -44,13 +53,22 @@ export const Product = () => {
             lineHeight={{ base: '25px', md: '27px' }}
             fontWeight="500"
             spacing={7}
+            listStyleType="none"
           >
-            <ListItem>100% recyclable</ListItem>
-            <ListItem>Maximize energy efficiency</ListItem>
-            <ListItem>Sound proof</ListItem>
-            <ListItem>Thermal insulation</ListItem>
-            <ListItem>Easy to assemble and disassemble</ListItem>
-            <ListItem>Reduces carbon footprint</ListItem>
+            {productPoints.map((point) => (
+              <ListItem display={'flex'} alignItems={'center'}>
+                <ListIcon
+                  key={point}
+                  as={Box}
+                  h={{ base: '15px', lg: '20px' }}
+                  w={{ base: '15px', lg: '20px' }}
+                  bg={'white'}
+                  borderRadius={'50%'}
+                  mr={{ base: 5, lg: 10 }}
+                />
+                {point}
+              </ListItem>
+            ))}
           </UnorderedList>
         </Box>
         <Flex
