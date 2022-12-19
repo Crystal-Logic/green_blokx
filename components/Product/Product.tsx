@@ -78,7 +78,7 @@ export const Product = () => {
           right={'-70px'}
           w={{ base: '290px', lg: 'unset' }}
         >
-          <Image src="/images/plate_1.png" />
+          <Image src="/images/plate_1.png" alt="plate image" />
         </Flex>
       </Flex>
     </Box>

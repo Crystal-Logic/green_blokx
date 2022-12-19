@@ -41,7 +41,7 @@ const teamInfo = [
   },
 ];
 
-export const Team = () => {
+export const Team = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const swiperRef = useRef<SwiperType>();
   const { colorMode } = useColorMode();
 
@@ -122,6 +122,7 @@ export const Team = () => {
               <Hide below="lg">
                 <Box
                   as="button"
+                  aria-label="Previous slide"
                   onClick={() => swiperRef.current?.slidePrev()}
                   h={'40px'}
                   w={'40px'}
@@ -167,6 +168,7 @@ export const Team = () => {
               <Hide below="lg">
                 <Box
                   as="button"
+                  aria-label="Next slide"
                   onClick={() => swiperRef.current?.slideNext()}
                   h={'40px'}
                   w={'40px'}
@@ -206,6 +208,7 @@ export const Team = () => {
         <Hide below="lg">
           <Flex mt={12} ml={'160px'}>
             <Button
+              onClick={onOpenModal}
               bg={'brand.green'}
               color={'white'}
               py={6}

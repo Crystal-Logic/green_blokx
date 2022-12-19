@@ -9,6 +9,7 @@ import {
   useColorMode,
   VStack,
   Button,
+  FormLabel,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
@@ -88,6 +89,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         <Box maxW={{ base: 'full', md: '90%', xl: '80%' }} pl={{ base: 5, md: 44 }} zIndex={10}>
           <Button
             onClick={toggleVideo}
+            aria-label="Play video"
             variant={'outline'}
             colorScheme={buttonColor}
             mb={{ base: '50px', lg: 16 }}
@@ -101,6 +103,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             {!isShowVideo ? (
               <Image
                 src={playIcon}
+                alt={'play_icon'}
                 w={{ base: '16px', md: '25px' }}
                 h={{ base: '15px', md: '22px' }}
                 className={'custom_pointer-cursor'}
@@ -108,6 +111,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             ) : (
               <Image
                 src={pauseIcon}
+                alt={'pause_icon'}
                 w={{ base: 'full', md: '35px' }}
                 h={{ base: 'full', md: '32px' }}
                 className={'custom_pointer-cursor'}
@@ -132,10 +136,12 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
 
         <Hide above="lg">
           <VStack mx={5} mt={40} alignSelf={'end'} zIndex={10}>
-            <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
-            <Text fontSize="12px" lineHeight="15px" fontWeight="700" color={'white'}>
-              {colorMode === 'dark' ? 'Light' : 'Dark'} mode
-            </Text>
+            <Switch id="change-theme" onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
+            <FormLabel htmlFor="change-theme">
+              <Text fontSize="12px" lineHeight="15px" fontWeight="700" color={'white'}>
+                {colorMode === 'dark' ? 'Light' : 'Dark'} mode
+              </Text>
+            </FormLabel>
           </VStack>
         </Hide>
 

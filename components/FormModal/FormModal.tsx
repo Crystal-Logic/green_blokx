@@ -70,7 +70,7 @@ export const FormModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
   const inputColor = colorMode === 'dark' ? 'brand.white' : 'brand.dark';
 
   const renderForm = () => (
-    <Box px={{ base: '50px', sm: '100px' }}>
+    <Box px={{ base: '50px', sm: '100px', md: '150px' }}>
       <FormControl>
         <Input
           required
@@ -95,7 +95,7 @@ export const FormModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
       <FormControl mt={8} mb={16}>
         <Select
           required
-          placeholder="County of residential"
+          placeholder="County of residence"
           onChange={(event) => setCountry(event.currentTarget.value)}
           color={inputColor}
           borderColor={inputColor}
@@ -113,9 +113,17 @@ export const FormModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
   return (
     <Modal isCentered initialFocusRef={focusRef} isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent position="relative" flexDir="row" display="flex" maxW="calc(85vw)">
-        <Button onClick={onClose} padding={2} top={4} right={6} position="absolute" variant="ghost">
-          <Icon fontSize="20px" color={{ base: 'brand.green', lg: 'brand.white' }} as={CloseIcon} />
+      <ModalContent position="relative" flexDir="row" display="flex" maxW={{ base: 'calc(85vw)', lg: 'calc(55vw)' }}>
+        <Button
+          onClick={onClose}
+          padding={2}
+          top={4}
+          right={6}
+          position="absolute"
+          variant="ghost"
+          display={success ? 'none' : 'block'}
+        >
+          <Icon fontSize="20px" color={{ base: 'brand.green' }} as={CloseIcon} />
         </Button>
         <Flex py="100px" flex={1} flexDirection={'column'}>
           <Text
@@ -133,24 +141,30 @@ export const FormModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
           <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
             <>
               {success ? renderSuccess() : renderForm()}
-              <Button
-                variant="outlineGreen"
-                size={{ base: 'sm', lg: 'lg' }}
-                mr={{ base: '50px', sm: '100px' }}
-                type="submit"
-              >
-                {success ? 'Close' : 'Contact us'}
-              </Button>
+              <Flex justifyContent={'center'}>
+                <Button
+                  type="submit"
+                  bg={'brand.green'}
+                  color={'white'}
+                  py={6}
+                  px={5}
+                  fontSize={{ base: '20px', md: '25px' }}
+                  lineHeight={{ base: '25px', md: '22px' }}
+                  fontWeight="400"
+                  h={'80px'}
+                  borderRadius={'12px'}
+                  _hover={{
+                    color: colorMode === 'dark' ? 'white' : 'brand.dark',
+                    bg: 'initial',
+                  }}
+                >
+                  {success ? 'Close' : 'Contact us'}
+                </Button>
+              </Flex>
             </>
           </form>
         </Flex>
-        <Flex
-          display={{ base: 'none', lg: 'flex' }}
-          flex={1}
-          // bg={`url(/images/contact_us_modal.webp)`}
-          // backgroundRepeat="no-repeat"
-          // backgroundSize="cover"
-        />
+        <Flex display={{ base: 'none' }} flex={1} />
       </ModalContent>
     </Modal>
   );
