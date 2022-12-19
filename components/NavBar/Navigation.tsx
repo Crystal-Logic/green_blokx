@@ -99,7 +99,7 @@ const NavGroup = ({ group, isDrawerActive, onContactUs }: any) => {
               <Text
                 fontSize="18px"
                 lineHeight="22px"
-                pt={{ base: '30px', lg: idx ? '14px' : '4px' }}
+                pt={{ base: idx ? '30px' : '14px', lg: idx ? '14px' : '4px' }}
                 className={'custom_pointer-cursor'}
               >
                 {name}
