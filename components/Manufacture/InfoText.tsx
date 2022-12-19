@@ -2,7 +2,8 @@ import React from 'react';
 import { Box, useColorModeValue } from '@chakra-ui/react';
 
 export const InfoTextMobile = ({ children, viewType, show }: any) => {
-  const bg = useColorModeValue('white', 'brand.dark');
+  //   const bg = useColorModeValue('white', 'brand.dark');
+  const bg = 'transparent';
 
   return (
     <Box h={'7px'} w={'7px'} position={'relative'}>
@@ -49,11 +50,11 @@ export const InfoTextMobile = ({ children, viewType, show }: any) => {
             position={'absolute'}
             border="1px solid"
             borderColor={'brand.green'}
-            borderWidth={'1px  1px 1px 0'}
-            w={'40px'}
-            h={'170px'}
-            left={'15px'}
-            top={'7px'}
+            borderWidth={'0 1px 1px 0'}
+            w={'50px'}
+            h={'45px'}
+            left={'7px'}
+            bottom={'3px'}
           ></Box>
           <Box
             display={show ? 'block' : 'none'}
@@ -62,9 +63,9 @@ export const InfoTextMobile = ({ children, viewType, show }: any) => {
             borderColor={'brand.green'}
             py={2.5}
             px={3}
-            right="0px"
-            top="150px"
-            w={'230px'}
+            left="-130px"
+            bottom="45px"
+            w={'245px'}
             bgColor={bg}
           >
             {children}
@@ -78,11 +79,11 @@ export const InfoTextMobile = ({ children, viewType, show }: any) => {
             position={'absolute'}
             border="1px solid"
             borderColor={'brand.green'}
-            borderWidth={'1px 1px 1px 0'}
+            borderWidth={'0 1px 1px 0'}
             w={'60px'}
-            h={'60px'}
-            left={'5px'}
-            top={'7px'}
+            h={'65px'}
+            left={'7px'}
+            bottom={'3px'}
           ></Box>
           <Box
             display={show ? 'block' : 'none'}
@@ -91,9 +92,9 @@ export const InfoTextMobile = ({ children, viewType, show }: any) => {
             borderColor={'brand.green'}
             py={2.5}
             px={3}
-            right="-10px"
-            top="50px"
-            w={'230px'}
+            right="-120px"
+            bottom="65px"
+            w={'240px'}
             bgColor={bg}
           >
             {children}
