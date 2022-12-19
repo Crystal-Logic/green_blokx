@@ -15,6 +15,7 @@ export const Manufacture = () => {
 
   const { colorMode } = useColorMode();
   const bgColor = useColorModeValue('rgba(255, 255, 255, 0.3);', 'rgba(255, 255, 255, 0.03);');
+  const videoBoxShadow = useColorModeValue('rgba(241, 248, 237, 0.9)', 'rgba(43, 43, 43, 1)');
 
   const resetAnimation = () => {
     if (videoRef.current) {
@@ -89,6 +90,8 @@ export const Manufacture = () => {
           fontSize={{ base: '28px', md: '50px' }}
           lineHeight={{ base: '35px', md: '63px' }}
           fontWeight="600"
+          pos={'relative'}
+          zIndex={20}
         >
           <Text as={'span'} color="brand.green">
             Why&nbsp;
@@ -98,7 +101,7 @@ export const Manufacture = () => {
       </Flex>
 
       <Flex direction={{ base: 'column', lg: 'row' }}>
-        <Box w={{ lg: '52%' }} mb={{ base: 12, lg: 0 }} bg={bgColor}>
+        <Box w={{ lg: '52%' }} mb={{ base: 12, lg: 0 }} bg={bgColor} pos={'relative'} zIndex={20}>
           {' '}
           <Text
             flex="1"
@@ -119,7 +122,7 @@ export const Manufacture = () => {
           h={{ base: '360px', md: 'auto' }}
           w={'full'}
           flex={{ lg: '1' }}
-          boxShadow={'100px 100px 100px rgba(0, 0, 0, 0.15)'}
+          boxShadow={`0px 0px 300px 100px ${videoBoxShadow}`}
           position={'relative'}
           className={'custom_pointer-cursor'}
         >
