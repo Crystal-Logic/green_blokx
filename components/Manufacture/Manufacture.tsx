@@ -162,8 +162,8 @@ export const Manufacture = () => {
                 <Box
                   position="absolute"
                   zIndex={100}
-                  top={{ base: '90px', sm: '170px' }}
-                  right={{ base: '50px', sm: '260px' }}
+                  top={{ base: '100px', sm: '170px' }}
+                  right={{ base: '140px', sm: '260px' }}
                   onClick={() => setShowMobileBox(1)}
                 >
                   <InfoTextMobile viewType={'right'} show={showMobileBox === 1}>
@@ -180,8 +180,8 @@ export const Manufacture = () => {
                 <Box
                   position="absolute"
                   zIndex={100}
-                  top={{ base: '30px', sm: '145px' }}
-                  right={{ base: '90px', sm: '310px' }}
+                  top={{ base: '80px', sm: '145px' }}
+                  right={{ base: '150px', sm: '310px' }}
                   onClick={() => setShowMobileBox(2)}
                 >
                   <InfoTextMobile viewType={'left'} show={showMobileBox === 2}>
@@ -195,8 +195,8 @@ export const Manufacture = () => {
                 <Box
                   position="absolute"
                   zIndex={100}
-                  top={{ base: '135px', sm: '195px' }}
-                  right={{ base: '275px' }}
+                  top={{ base: '120px', sm: '195px' }}
+                  right={{ base: '160px', sm: '275px' }}
                   onClick={() => setShowMobileBox(3)}
                 >
                   <InfoTextMobile viewType={'bottom'} show={showMobileBox === 3}>
