@@ -24,7 +24,6 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const { toggleColorMode, colorMode } = useColorMode();
   const buttonColor = useColorModeValue('brand.dark', 'white');
   const playIcon = useColorModeValue('/images/play_icon-dark.svg', '/images/play_icon.svg');
-  const pauseIcon = useColorModeValue('/images/pause_icon-dark.svg', '/images/pause_icon.svg');
 
   const playVideo = () => {
     videoRef.current && videoRef.current.play();
@@ -91,11 +90,11 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             onClick={toggleVideo}
             aria-label="Play video"
             variant={'outline'}
-            colorScheme={buttonColor}
+            colorScheme={isShowVideo ? 'white' : buttonColor}
             mb={{ base: '50px', lg: 16 }}
             w={{ base: '49px', lg: '67px' }}
             h={{ base: '49px', lg: '67px' }}
-            borderColor={buttonColor}
+            borderColor={isShowVideo ? 'white' : buttonColor}
             borderRadius="none"
             border={'2px solid'}
             className={'custom_pointer-cursor'}
@@ -110,7 +109,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
               ></Image>
             ) : (
               <Image
-                src={pauseIcon}
+                src={'/images/pause_icon.svg'}
                 alt={'pause_icon'}
                 w={{ base: 'full', md: '35px' }}
                 h={{ base: 'full', md: '32px' }}
@@ -123,10 +122,16 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             lineHeight={{ base: '40px', md: '75px' }}
             fontWeight="500"
             pb={{ base: 6, md: 8 }}
+            visibility={isShowVideo ? 'hidden' : 'initial'}
           >
             The World`s first tokenized ECO factory
           </Text>
-          <Text fontSize={{ base: '20px', md: '25px' }} lineHeight={{ base: '25px', md: '31px' }} fontWeight="900">
+          <Text
+            fontSize={{ base: '20px', md: '25px' }}
+            lineHeight={{ base: '25px', md: '31px' }}
+            fontWeight="900"
+            visibility={isShowVideo ? 'hidden' : 'initial'}
+          >
             BY&nbsp;
             <Text as={'span'} color="brand.green">
               GREENBLOKX
