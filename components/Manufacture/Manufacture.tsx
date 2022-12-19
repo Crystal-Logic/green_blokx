@@ -88,7 +88,7 @@ export const Manufacture = () => {
       <Flex
         maxW={{ base: 'full', md: '90%', xl: '70%' }}
         flex={'1'}
-        pl={{ base: 5, md: 44 }}
+        pl={{ base: 5, md: 24 }}
         pb={{ base: 5, lg: '50px' }}
         zIndex={10}
       >
@@ -179,7 +179,7 @@ export const Manufacture = () => {
                 </Box>
                 <Box
                   position="absolute"
-                  zIndex={120}
+                  zIndex={100}
                   top={{ base: '30px', sm: '145px' }}
                   right={{ base: '90px', sm: '310px' }}
                   onClick={() => setShowMobileBox(2)}
@@ -194,7 +194,7 @@ export const Manufacture = () => {
                 </Box>
                 <Box
                   position="absolute"
-                  zIndex={120}
+                  zIndex={100}
                   top={{ base: '135px', sm: '195px' }}
                   right={{ base: '275px' }}
                   onClick={() => setShowMobileBox(3)}

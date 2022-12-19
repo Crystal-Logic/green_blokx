@@ -6,12 +6,12 @@ export const InfoTextMobile = ({ children, viewType, show }: any) => {
   const bg = 'transparent';
 
   return (
-    <Box h={'7px'} w={'7px'} position={'relative'}>
+    <Box h={'10px'} w={'10px'} position={'relative'}>
       <Box
         bgImage={'url("/images/green_dot.svg")'}
         bgRepeat={'no-repeat'}
-        h={'7px'}
-        w={'7px'}
+        h={'10px'}
+        w={'10px'}
         className={'custom_pointer-cursor'}
       ></Box>
       {viewType === 'left' && (
@@ -24,8 +24,8 @@ export const InfoTextMobile = ({ children, viewType, show }: any) => {
             borderWidth={'0 0 1px 1px'}
             w={'50px'}
             h={'25px'}
-            right={'7px'}
-            bottom={'3px'}
+            right={'10px'}
+            bottom={'5px'}
           ></Box>
           <Box
             display={show ? 'block' : 'none'}
@@ -35,7 +35,7 @@ export const InfoTextMobile = ({ children, viewType, show }: any) => {
             py={2.5}
             px={3}
             left="-100px"
-            bottom="25px"
+            bottom="30px"
             w={'220px'}
             bgColor={bg}
           >
@@ -53,8 +53,8 @@ export const InfoTextMobile = ({ children, viewType, show }: any) => {
             borderWidth={'0 1px 1px 0'}
             w={'50px'}
             h={'45px'}
-            left={'7px'}
-            bottom={'3px'}
+            left={'10px'}
+            bottom={'5px'}
           ></Box>
           <Box
             display={show ? 'block' : 'none'}
@@ -64,7 +64,7 @@ export const InfoTextMobile = ({ children, viewType, show }: any) => {
             py={2.5}
             px={3}
             left="-130px"
-            bottom="45px"
+            bottom="50px"
             w={'245px'}
             bgColor={bg}
           >
@@ -82,8 +82,8 @@ export const InfoTextMobile = ({ children, viewType, show }: any) => {
             borderWidth={'0 1px 1px 0'}
             w={'60px'}
             h={'65px'}
-            left={'7px'}
-            bottom={'3px'}
+            left={'10px'}
+            bottom={'5px'}
           ></Box>
           <Box
             display={show ? 'block' : 'none'}
@@ -93,7 +93,7 @@ export const InfoTextMobile = ({ children, viewType, show }: any) => {
             py={2.5}
             px={3}
             right="-120px"
-            bottom="65px"
+            bottom="70px"
             w={'240px'}
             bgColor={bg}
           >
