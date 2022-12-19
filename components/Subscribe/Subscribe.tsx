@@ -1,15 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Box, Text, Button, Flex, InputGroup, Input, InputRightElement, Hide, useColorMode } from '@chakra-ui/react';
 // import emailjs from '@emailjs/browser';
 
 export const Subscribe = () => {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const emailRef = useRef(null);
 
   const { colorMode } = useColorMode();
 
   const handleSubmit = (e: any) => {
+    e.preventDefault();
     if (email) {
       e.preventDefault();
       console.log(email);
