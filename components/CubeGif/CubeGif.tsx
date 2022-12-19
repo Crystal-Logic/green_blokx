@@ -1,8 +1,7 @@
-import { useColorModeValue } from '@chakra-ui/react';
-import { ImageNext } from 'components/ImageNext';
+import { useColorModeValue, Image, ImageProps } from '@chakra-ui/react';
 
-export const CubeGif = (props: any) => {
+export const CubeGif = (props: ImageProps) => {
   const imgSrc = useColorModeValue('/images/cube-light.gif', '/images/cube-dark.gif');
 
-  return <ImageNext src={imgSrc} width={100} height={100} alt={'background cube'} {...props} />;
+  return <Image src={imgSrc} width={100} height={100} alt={'background cube'} {...props} />;
 };
