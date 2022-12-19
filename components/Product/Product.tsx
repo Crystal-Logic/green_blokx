@@ -22,7 +22,7 @@ export const Product = () => {
         fontSize={{ base: '28px', md: '50px' }}
         lineHeight={{ base: '35px', md: '63px' }}
         fontWeight="600"
-        color={'brand.green'}
+        color={'#53D917'}
       >
         The Product
       </Text>
