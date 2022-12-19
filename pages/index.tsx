@@ -8,6 +8,7 @@ import { TokenBlock } from 'components/TokenBlock/TokenBlock';
 import { Product } from 'components/Product/Product';
 import { Subscribe } from 'components/Subscribe/Subscribe';
 import { FutureBlock } from 'components/FutureBlock/FutureBlock';
+import { FormModal } from 'components/FormModal/FormModal';
 
 const IndexPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -22,6 +23,7 @@ const IndexPage = () => {
       <Subscribe />
       <Partners />
       <FutureBlock />
+      <FormModal isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 };

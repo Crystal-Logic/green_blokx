@@ -69,7 +69,7 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
           zIndex={20}
           visibility={isShowVideo ? 'hidden' : 'initial'}
         >
-          <NavBar />
+          <NavBar onContactUs={onOpenModal} />
         </Box>
         <video
           ref={videoRef}

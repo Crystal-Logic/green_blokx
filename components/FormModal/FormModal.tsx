@@ -147,9 +147,9 @@ export const FormModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
         <Flex
           display={{ base: 'none', lg: 'flex' }}
           flex={1}
-          bg={`url(/images/contact_us_modal.webp)`}
-          backgroundRepeat="no-repeat"
-          backgroundSize="cover"
+          // bg={`url(/images/contact_us_modal.webp)`}
+          // backgroundRepeat="no-repeat"
+          // backgroundSize="cover"
         />
       </ModalContent>
     </Modal>

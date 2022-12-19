@@ -40,7 +40,7 @@ const menuItems = [
   },
 ];
 
-const NavGroup = ({ group, isDrawerActive }: any) => {
+const NavGroup = ({ group, isDrawerActive, onContactUs }: any) => {
   const [subNavIsOpened, setSubNavIsOpened] = useBoolean();
   const mobileBgColor = useColorModeValue('white', 'brand.dark');
 
@@ -76,6 +76,7 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
         borderBottom="2px solid"
         borderColor={'transparent'}
         py={'10px'}
+        onClick={group.title === 'Contact us' ? onContactUs : () => {}}
       >
         {group.title}
       </Text>
@@ -108,14 +109,14 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
   );
 };
 
-export const Navigation = ({ isDrawerActive }: { isDrawerActive: boolean }) => {
+export const Navigation = ({ isDrawerActive, contactUs }: { isDrawerActive: boolean; contactUs: () => void }) => {
   const { colorMode } = useColorMode();
 
   return (
     <>
       <Stack direction={isDrawerActive ? 'column' : 'row'} spacing={isDrawerActive ? '60px' : '20px'}>
         {menuItems.map((item) => {
-          return <NavGroup key={item.title} group={item} isDrawerActive={isDrawerActive} />;
+          return <NavGroup key={item.title} group={item} isDrawerActive={isDrawerActive} onContactUs={contactUs} />;
         })}
       </Stack>
 

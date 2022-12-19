@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/react';
 import { Navigation } from './Navigation';
 
-export const NavBar = () => {
+export const NavBar = ({ onContactUs }: { onContactUs: () => void }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { toggleColorMode, colorMode } = useColorMode();
 
@@ -48,13 +48,13 @@ export const NavBar = () => {
             </Flex>
           </DrawerHeader>
           <DrawerBody bg="transparent">
-            <Navigation isDrawerActive />
+            <Navigation isDrawerActive contactUs={onContactUs} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
 
       <Hide below="lg">
-        <Navigation isDrawerActive={false} />
+        <Navigation isDrawerActive={false} contactUs={onContactUs} />
       </Hide>
 
       <Hide below="lg">
