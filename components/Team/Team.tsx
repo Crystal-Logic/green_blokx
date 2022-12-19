@@ -122,6 +122,7 @@ export const Team = ({ onOpenModal }: { onOpenModal: () => void }) => {
               <Hide below="lg">
                 <Box
                   as="button"
+                  aria-label="Previous slide"
                   onClick={() => swiperRef.current?.slidePrev()}
                   h={'40px'}
                   w={'40px'}
@@ -167,6 +168,7 @@ export const Team = ({ onOpenModal }: { onOpenModal: () => void }) => {
               <Hide below="lg">
                 <Box
                   as="button"
+                  aria-label="Next slide"
                   onClick={() => swiperRef.current?.slideNext()}
                   h={'40px'}
                   w={'40px'}

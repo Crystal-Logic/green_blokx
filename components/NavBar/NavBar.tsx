@@ -16,6 +16,7 @@ import {
   DrawerHeader,
   Box,
   Link,
+  FormLabel,
 } from '@chakra-ui/react';
 import { Navigation } from './Navigation';
 
@@ -59,10 +60,12 @@ export const NavBar = ({ onContactUs }: { onContactUs: () => void }) => {
 
       <Hide below="lg">
         <VStack>
-          <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
-          <Text fontSize="14px" lineHeight="25px" fontWeight="700">
-            {colorMode === 'dark' ? 'Light' : 'Dark'} mode
-          </Text>
+          <Switch id="change-theme" onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
+          <FormLabel htmlFor="change-theme">
+            <Text fontSize="14px" lineHeight="25px" fontWeight="700">
+              {colorMode === 'dark' ? 'Light' : 'Dark'} mode
+            </Text>
+          </FormLabel>
         </VStack>
       </Hide>
     </Flex>

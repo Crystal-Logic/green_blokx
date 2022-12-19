@@ -9,6 +9,7 @@ import {
   useColorMode,
   VStack,
   Button,
+  FormLabel,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
@@ -135,10 +136,12 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
 
         <Hide above="lg">
           <VStack mx={5} mt={40} alignSelf={'end'} zIndex={10}>
-            <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
-            <Text fontSize="12px" lineHeight="15px" fontWeight="700" color={'white'}>
-              {colorMode === 'dark' ? 'Light' : 'Dark'} mode
-            </Text>
+            <Switch id="change-theme" onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg" />
+            <FormLabel htmlFor="change-theme">
+              <Text fontSize="12px" lineHeight="15px" fontWeight="700" color={'white'}>
+                {colorMode === 'dark' ? 'Light' : 'Dark'} mode
+              </Text>
+            </FormLabel>
           </VStack>
         </Hide>
 
