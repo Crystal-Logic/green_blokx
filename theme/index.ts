@@ -62,7 +62,7 @@ export const theme = extendTheme({
         cursor: 'url(/images/cursor-green.png) 16 16, auto',
       },
       'html, body': {
-        bg: mode(gradientLight, gradientDark)(props),
+        bg: mode(gradientLight, `white ${gradientDark}`)(props),
       },
       '.custom_pointer-cursor': {
         cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto',
