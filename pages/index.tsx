@@ -19,7 +19,7 @@ const IndexPage = () => {
       <Manufacture />
       <TokenBlock />
       <Product />
-      <Team />
+      <Team onOpenModal={onOpen} />
       <Subscribe />
       <Partners />
       <FutureBlock />

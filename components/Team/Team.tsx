@@ -41,7 +41,7 @@ const teamInfo = [
   },
 ];
 
-export const Team = () => {
+export const Team = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const swiperRef = useRef<SwiperType>();
   const { colorMode } = useColorMode();
 
@@ -206,6 +206,7 @@ export const Team = () => {
         <Hide below="lg">
           <Flex mt={12} ml={'160px'}>
             <Button
+              onClick={onOpenModal}
               bg={'brand.green'}
               color={'white'}
               py={6}
