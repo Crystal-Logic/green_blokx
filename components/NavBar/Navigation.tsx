@@ -45,7 +45,10 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
   const mobileBgColor = useColorModeValue('white', 'brand.dark');
 
   const hoverStackStyles = group.subTitles.length
-    ? { marginRight: '20px', backgroundColor: isDrawerActive ? mobileBgColor : 'rgba(57, 57, 57, 0.3);' }
+    ? {
+        marginRight: { lg: '10px', xl: '20px' },
+        backgroundColor: isDrawerActive ? mobileBgColor : 'rgba(57, 57, 57, 0.3);',
+      }
     : { color: 'brand.green' };
 
   return (
@@ -60,7 +63,7 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
       w="fit-content"
       minW="150px"
       pos="relative"
-      p="0px 30px 10px 10px"
+      p={{ base: '0px 10px 10px 10px', xl: '0px 30px 10px 10px' }}
       transitionDuration="500ms"
       onMouseEnter={setSubNavIsOpened.on}
       onMouseLeave={setSubNavIsOpened.off}
