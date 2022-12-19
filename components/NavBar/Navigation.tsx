@@ -43,11 +43,14 @@ const menuItems = [
 const NavGroup = ({ group, isDrawerActive, onContactUs }: any) => {
   const [subNavIsOpened, setSubNavIsOpened] = useBoolean();
   const mobileBgColor = useColorModeValue('white', 'brand.dark');
+  const desktopBgColor = useColorModeValue('rgba(57, 57, 57, 1)', 'rgba(57, 57, 57, 0.3)');
+  const mobileTextColor = useColorModeValue('brand.dark', 'white');
 
   const hoverStackStyles = group.subTitles.length
     ? {
         marginRight: { lg: '10px', xl: '20px' },
-        backgroundColor: isDrawerActive ? mobileBgColor : 'rgba(57, 57, 57, 0.3);',
+        backgroundColor: isDrawerActive ? mobileBgColor : desktopBgColor,
+        color: isDrawerActive ? mobileTextColor : 'white',
       }
     : { color: 'brand.green' };
 
@@ -89,7 +92,7 @@ const NavGroup = ({ group, isDrawerActive, onContactUs }: any) => {
           width={'100%'}
           sx={hoverStackStyles}
           p="0px 30px 10px 10px"
-          mt={{ base: '10px' }}
+          mt={{ base: '9px' }}
         >
           {group.subTitles.map(({ name, href, isExternal = true }: any, idx: number) => (
             <Link key={name} isExternal={isExternal} href={href}>
