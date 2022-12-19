@@ -13,7 +13,7 @@ const float1 = keyframes`
 
 const float2 = keyframes`
   0% {transform: translate(0, 0)}
-  100% {transform: translate(-300%, 300%)}
+  100% {transform: translate(-200%, 200%)}
 `;
 
 export const CubesBG = ({ display }: any) => (
