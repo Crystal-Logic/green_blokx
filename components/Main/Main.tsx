@@ -1,7 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Switch, Flex, Image, Text, Box, Hide, useColorMode, VStack, Button } from '@chakra-ui/react';
+import {
+  Switch,
+  Flex,
+  Image,
+  Text,
+  Box,
+  Hide,
+  useColorMode,
+  VStack,
+  Button,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
-import { NavBar } from '../NavBar';
+import { NavBar } from 'components/NavBar';
+import { CubesBG } from './CubesBG';
 
 export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const [isShowVideo, setIsShowVideo] = useState(false);
@@ -9,6 +21,9 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const { ref: inViewRef, inView: isVideoVisible } = useInView({ threshold: 0.5 });
 
   const { toggleColorMode, colorMode } = useColorMode();
+  const buttonColor = useColorModeValue('brand.dark', 'white');
+  const playIcon = useColorModeValue('/images/play_icon-dark.svg', '/images/play_icon.svg');
+  const pauseIcon = useColorModeValue('/images/pause_icon-dark.svg', '/images/pause_icon.svg');
 
   const playVideo = () => {
     videoRef.current && videoRef.current.play();
@@ -48,8 +63,13 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
   return (
     <Flex minH="100vh" w={'full'} ref={inViewRef}>
       <Flex flex={'1'} direction={'column'} position={'relative'} backgroundSize="cover">
-        <Box pt={{ base: '40px', lg: '50px' }}>
-          <NavBar />
+        <Box
+          pt={{ base: '40px', lg: '50px' }}
+          position={'relative'}
+          zIndex={20}
+          visibility={isShowVideo ? 'hidden' : 'initial'}
+        >
+          <NavBar onContactUs={onOpenModal} />
         </Box>
         <video
           ref={videoRef}
@@ -69,27 +89,27 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
           <Button
             onClick={toggleVideo}
             variant={'outline'}
-            colorScheme={'white'}
+            colorScheme={buttonColor}
             mb={{ base: '50px', lg: 16 }}
             w={{ base: '49px', lg: '67px' }}
             h={{ base: '49px', lg: '67px' }}
-            borderColor={'white'}
+            borderColor={buttonColor}
             borderRadius="none"
             border={'2px solid'}
             className={'custom_pointer-cursor'}
           >
             {!isShowVideo ? (
               <Image
-                src="/images/play_icon.png"
+                src={playIcon}
                 w={{ base: '16px', md: '25px' }}
                 h={{ base: '15px', md: '22px' }}
                 className={'custom_pointer-cursor'}
               ></Image>
             ) : (
               <Image
-                src="/images/pause_icon.png"
-                w={{ base: '16px', md: '25px' }}
-                h={{ base: '15px', md: '22px' }}
+                src={pauseIcon}
+                w={{ base: 'full', md: '35px' }}
+                h={{ base: 'full', md: '32px' }}
                 className={'custom_pointer-cursor'}
               ></Image>
             )}
@@ -118,6 +138,9 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             </Text>
           </VStack>
         </Hide>
+
+        {/* Cubes layout */}
+        <CubesBG display={!isShowVideo} />
       </Flex>
     </Flex>
   );

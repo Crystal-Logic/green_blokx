@@ -17,7 +17,7 @@ const gradientDark =
   'linear-gradient(356.36deg, #2B2B2B 5.41%, rgba(56, 56, 56, 0.58) 15.45%, #2E2E2E 24.02%, rgba(58, 58, 58, 0.77) 32.78%, #2E2E2E 43.79%, rgba(43, 43, 43, 0.51) 55.28%, #111111 77.16%, rgba(53, 53, 53, 0.81) 90.36%);';
 
 const gradientLight =
-  'linear-gradient(356.37deg, #FFFFFF -1.8%, #FFFFFF -1.8%, rgba(58, 174, 5, 0.44) 3.91%, #FFFFFF 7.73%, #FFFFFF 29.05%, rgba(58, 174, 5, 0.4) 35.48%, #FFFFFF 45.57%, #FFFFFF 70.13%, rgba(58, 174, 5, 0.35) 77.08%, #FFFFFF 90.33%);';
+  'linear-gradient(356.37deg, #FFFFFF -1.8%, #FFFFFF -1.8%, rgba(58, 174, 5, 0.44) 3.91%, #FFFFFF 7.73%, #FFFFFF 29.05%, rgba(58, 174, 5, 0.4) 35.48%, #FFFFFF 45.57%, #FFFFFF 60.13%, rgba(58, 174, 5, 0.17) 67.08%, #FFFFFF 90.33%);';
 
 const { definePartsStyle } = createMultiStyleConfigHelpers(parts.keys);
 

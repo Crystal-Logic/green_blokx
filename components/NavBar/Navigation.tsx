@@ -40,12 +40,15 @@ const menuItems = [
   },
 ];
 
-const NavGroup = ({ group, isDrawerActive }: any) => {
+const NavGroup = ({ group, isDrawerActive, onContactUs }: any) => {
   const [subNavIsOpened, setSubNavIsOpened] = useBoolean();
   const mobileBgColor = useColorModeValue('white', 'brand.dark');
 
   const hoverStackStyles = group.subTitles.length
-    ? { marginRight: '20px', backgroundColor: isDrawerActive ? mobileBgColor : 'rgba(57, 57, 57, 0.3);' }
+    ? {
+        marginRight: { lg: '10px', xl: '20px' },
+        backgroundColor: isDrawerActive ? mobileBgColor : 'rgba(57, 57, 57, 0.3);',
+      }
     : { color: 'brand.green' };
 
   return (
@@ -57,41 +60,43 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
           borderColor: group.subTitles.length ? 'brand.green' : 'transparent',
         },
       }}
-      w='fit-content'
-      minW='150px'
-      pos='relative'
-      p='0px 30px 10px 10px'
-      transitionDuration='500ms'
+      w="fit-content"
+      minW="150px"
+      pos="relative"
+      p={{ base: '0px 10px 10px 10px', xl: '0px 30px 10px 10px' }}
+      transitionDuration="500ms"
       onMouseEnter={setSubNavIsOpened.on}
       onMouseLeave={setSubNavIsOpened.off}
     >
       <Text
-        className='nav_title custom_pointer-cursor'
-        fontSize='18px'
-        lineHeight='22px'
-        pos='relative'
-        borderBottom='2px solid'
+        className="nav_title custom_pointer-cursor"
+        fontSize="18px"
+        lineHeight="22px"
+        pos="relative"
+        borderBottom="2px solid"
         borderColor={'transparent'}
         py={'10px'}
+        onClick={group.title === 'Contact us' ? onContactUs : () => {}}
       >
         {group.title}
       </Text>
 
       <Collapse in={subNavIsOpened}>
         <Box
-          pos='absolute'
+          pos="absolute"
           left={0}
           zIndex={20}
           width={'100%'}
           sx={hoverStackStyles}
-          p='0px 30px 10px 10px'
+          p="0px 30px 10px 10px"
+          mt={{ base: '10px' }}
         >
-          {group.subTitles.map(({ name, href, isExternal = true }: any) => (
+          {group.subTitles.map(({ name, href, isExternal = true }: any, idx: number) => (
             <Link key={name} isExternal={isExternal} href={href}>
               <Text
-                fontSize='18px'
-                lineHeight='22px'
-                mt={{ base: '30px', lg: '14px' }}
+                fontSize="18px"
+                lineHeight="22px"
+                pt={{ base: '30px', lg: idx ? '14px' : '4px' }}
                 className={'custom_pointer-cursor'}
               >
                 {name}
@@ -104,28 +109,28 @@ const NavGroup = ({ group, isDrawerActive }: any) => {
   );
 };
 
-export const Navigation = ({ isDrawerActive }: { isDrawerActive: boolean }) => {
+export const Navigation = ({ isDrawerActive, contactUs }: { isDrawerActive: boolean; contactUs: () => void }) => {
   const { colorMode } = useColorMode();
 
   return (
     <>
       <Stack direction={isDrawerActive ? 'column' : 'row'} spacing={isDrawerActive ? '60px' : '20px'}>
         {menuItems.map((item) => {
-          return <NavGroup key={item.title} group={item} isDrawerActive={isDrawerActive} />;
+          return <NavGroup key={item.title} group={item} isDrawerActive={isDrawerActive} onContactUs={contactUs} />;
         })}
       </Stack>
 
       <Link isExternal href={'https://docsend.com/view/s/sd9mvfdtsfk86set'} _hover={{ textDecoration: 'none' }}>
         <Button
-          bg='brand.green'
-          color='white'
-          py='15px'
-          px='20px'
-          fontSize='16px'
-          lineHeight='20px'
-          fontWeight='400'
-          borderRadius='12px'
-          h='50px'
+          bg="brand.green"
+          color="white"
+          py="15px"
+          px="20px"
+          fontSize="16px"
+          lineHeight="20px"
+          fontWeight="400"
+          borderRadius="12px"
+          h="50px"
           mt={isDrawerActive ? '60px' : '0'}
           _hover={{
             color: colorMode === 'dark' ? 'white' : 'brand.dark',

@@ -1,5 +1,13 @@
-import { Box, Text, Button, UnorderedList, ListItem, Flex, Hide, Link, useColorMode } from '@chakra-ui/react';
+import { Box, Text, Button, UnorderedList, ListItem, ListIcon, Flex, Hide, Link, useColorMode } from '@chakra-ui/react';
 import { CubeGif } from 'components/CubeGif/CubeGif';
+
+const tokenPoints = [
+  'Instant access to liquidity upon TGE',
+  'Tradable tokens on the exchange',
+  'Scaling returns that are directly tied to GreenBLOKX',
+  'High Yielding and forced dividend',
+  'Increased returns on the price of the tokens themselves',
+];
 
 export const TokenBlock = () => {
   const { colorMode } = useColorMode();
@@ -91,11 +99,19 @@ export const TokenBlock = () => {
             color={'white'}
             spacing={7}
           >
-            <ListItem>Instant access to liquidity upon TGE</ListItem>
-            <ListItem>Tradable tokens on the exchange</ListItem>
-            <ListItem>Scaling returns that are directly tied to GreenBLOKX</ListItem>
-            <ListItem>High Yielding and forced dividend</ListItem>
-            <ListItem>Increased returns on the price of the tokens themselves</ListItem>
+            {tokenPoints.map((point) => (
+              <ListItem key={point} display={'flex'} alignItems={'center'}>
+                <ListIcon
+                  as={Box}
+                  h={{ base: '15px', lg: '20px' }}
+                  w={{ base: '15px', lg: '20px' }}
+                  bg={'white'}
+                  borderRadius={'50%'}
+                  mr={{ base: 5, lg: 10 }}
+                />
+                {point}
+              </ListItem>
+            ))}
           </UnorderedList>
         </Box>
         <Box
