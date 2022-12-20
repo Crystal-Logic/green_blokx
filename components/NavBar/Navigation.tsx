@@ -43,13 +43,12 @@ const menuItems = [
 const NavGroup = ({ group, isDrawerActive, onContactUs }: any) => {
   const [subNavIsOpened, setSubNavIsOpened] = useBoolean();
   const mobileBgColor = useColorModeValue('white', 'brand.dark');
-  const desktopBgColor = useColorModeValue('rgba(57, 57, 57, 1)', 'rgba(57, 57, 57, 0.3)');
   const mobileTextColor = useColorModeValue('brand.dark', 'white');
 
   const hoverStackStyles = group.subTitles.length
     ? {
         marginRight: { lg: '10px', xl: '20px' },
-        backgroundColor: isDrawerActive ? mobileBgColor : desktopBgColor,
+        backgroundColor: isDrawerActive ? mobileBgColor : 'brand.dark',
         color: isDrawerActive ? mobileTextColor : 'white',
       }
     : { color: 'brand.green' };

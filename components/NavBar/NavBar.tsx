@@ -20,8 +20,10 @@ import {
 } from '@chakra-ui/react';
 import { Navigation } from './Navigation';
 
-const drawerBG =
+const drawerBGDark =
   'white linear-gradient(356.36deg, #696969 -1.46%, rgba(30, 30, 30, 0.81) -1.44%, #2E2E2E 19.68%, rgba(17, 17, 17, 0.97) 66.71%, rgba(53, 53, 53, 0.79) 89.43%);';
+
+const drawerBGLight = `white linear-gradient(356.36deg, #FFFFFF -1.46%, #FFFFFF -1.44%, rgba(58, 174, 5, 0.58) 14.93%, rgba(255, 255, 255, 0.51) 40.82%, rgba(58, 174, 5, 0.6) 69.88%, rgba(255, 255, 255, 0.64) 91.02%)`;
 
 export const NavBar = ({ onContactUs }: { onContactUs: () => void }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -40,7 +42,7 @@ export const NavBar = ({ onContactUs }: { onContactUs: () => void }) => {
 
       <Drawer onClose={onClose} isOpen={isOpen} size="full">
         <DrawerOverlay />
-        <DrawerContent bg={drawerBG}>
+        <DrawerContent bg={colorMode === 'dark' ? drawerBGDark : drawerBGLight}>
           <DrawerHeader>
             <Flex justifyContent="space-between" alignItems="center" mb="60px">
               <Link as={NextLink} href="/">
