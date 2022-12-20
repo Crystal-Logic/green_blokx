@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Text, Button, Flex, InputGroup, Input, InputRightElement, Hide, useColorMode } from '@chakra-ui/react';
+import { CubesBG } from './CubesBG';
 // import emailjs from '@emailjs/browser';
 
 export const Subscribe = () => {
@@ -32,13 +33,15 @@ export const Subscribe = () => {
   };
 
   return (
-    <Box my={{ base: 24, md: 60 }}>
+    <Box py={{ base: 24, md: 60 }} pos={'relative'}>
       <Text
         as={'h3'}
         fontSize={{ base: '32px', md: '70px' }}
         lineHeight={{ base: '40px', md: '88px' }}
         fontWeight="600"
         textAlign={'center'}
+        position={'relative'}
+        zIndex={10}
       >
         <Text as={'span'} color="brand.green">
           Subscribe
@@ -49,7 +52,13 @@ export const Subscribe = () => {
         to our newsletter
       </Text>
       <form onSubmit={handleSubmit}>
-        <Flex justifyContent={'center'} mt={{ base: 16, lg: 24 }} mb={{ base: 12, lg: 48 }}>
+        <Flex
+          justifyContent={'center'}
+          mt={{ base: 16, lg: 24 }}
+          mb={{ base: 12, lg: 48 }}
+          position={'relative'}
+          zIndex={10}
+        >
           <InputGroup w={{ base: '90%', lg: '50%', xl: '40%' }}>
             <Input
               placeholder="Email address"
@@ -89,6 +98,8 @@ export const Subscribe = () => {
           </InputGroup>
         </Flex>
       </form>
+
+      <CubesBG />
     </Box>
   );
 };
