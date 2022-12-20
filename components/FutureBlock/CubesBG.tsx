@@ -1,4 +1,4 @@
-import { Box, keyframes } from '@chakra-ui/react';
+import { Box, keyframes, Hide } from '@chakra-ui/react';
 import { CubeGif } from 'components/CubeGif/CubeGif';
 
 const float1 = keyframes`
@@ -27,15 +27,17 @@ export const CubesBG = () => (
       transform="rotate(-13.49deg)"
       animation={`${float1} 20s infinite linear alternate`}
     />
-    <CubeGif
-      w={'160px'}
-      h={'160px'}
-      position={'absolute'}
-      left={'15%'}
-      top={'75%'}
-      transform="rotate(-6.98deg)"
-      animation={`${float2} 20s infinite  ease-in alternate`}
-    />
+    <Hide below="md">
+      <CubeGif
+        w={'160px'}
+        h={'160px'}
+        position={'absolute'}
+        left={'15%'}
+        top={'75%'}
+        transform="rotate(-6.98deg)"
+        animation={`${float2} 20s infinite  ease-in alternate`}
+      />
+    </Hide>
 
     {/* right part */}
     <CubeGif w={'220px'} h={'220px'} position={'absolute'} left={'73%'} top={'2%'} transform="rotate(-8.8deg)" />
