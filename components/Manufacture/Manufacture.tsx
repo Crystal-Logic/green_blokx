@@ -42,9 +42,10 @@ export const Manufacture = () => {
       currStep === 1 &&
       videoRef.current &&
       videoRef.current.currentTime > 0.98 &&
-      videoRef.current.currentTime <= 1.5
+      videoRef.current.currentTime <= 1.4
     ) {
       videoRef.current.pause();
+      videoRef.current.currentTime = 1.4;
       setIsShowInfoArea(true);
       setIsShowInfoPoints(true);
     } else if (currStep === 1 && videoRef.current && videoRef.current.currentTime === videoRef.current.duration) {
