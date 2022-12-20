@@ -130,7 +130,7 @@ export const Manufacture = () => {
           h={{ base: '360px', md: 'auto' }}
           w={'full'}
           flex={{ lg: '1' }}
-          boxShadow={`0px 0px 300px 100px ${videoBoxShadow}`}
+          boxShadow={{ base: `0px -300px 300px 100px ${videoBoxShadow}`, md: `0px 0px 300px 100px ${videoBoxShadow}` }}
           position={'relative'}
         >
           <Box pos={'relative'} height={'min-content'}>

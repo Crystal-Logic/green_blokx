@@ -14,8 +14,8 @@ export const Product = () => {
     <Box
       pb={{ lg: 20 }}
       pt={{ base: 5, md: 16 }}
-      pl={{ base: 6, lg: 48 }}
-      pr={{ base: 5, lg: 40 }}
+      pl={{ base: 6, xl: 48 }}
+      pr={{ base: 5, xl: 40 }}
       overflowX={'hidden'}
     >
       <Text

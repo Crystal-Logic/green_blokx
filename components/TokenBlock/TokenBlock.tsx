@@ -1,5 +1,6 @@
 import { Box, Text, Button, UnorderedList, ListItem, ListIcon, Flex, Hide, Link, useColorMode } from '@chakra-ui/react';
 import { CubeGif } from 'components/CubeGif/CubeGif';
+import { CubesBG } from './CubesBG';
 
 const tokenPoints = [
   'Instant access to liquidity upon TGE',
@@ -13,7 +14,7 @@ export const TokenBlock = () => {
   const { colorMode } = useColorMode();
 
   return (
-    <Box>
+    <Box pos={'relative'}>
       <Text
         as={'h3'}
         fontSize={{ base: '32px', md: '70px' }}
@@ -21,6 +22,8 @@ export const TokenBlock = () => {
         fontWeight="600"
         pt={{ base: 28, md: 60 }}
         textAlign={'center'}
+        position={'relative'}
+        zIndex={10}
       >
         <Text as={'span'} color="brand.green">
           Green
@@ -36,6 +39,8 @@ export const TokenBlock = () => {
         textAlign={'center'}
         maxW={{ base: '800px' }}
         mx={'auto'}
+        position={'relative'}
+        zIndex={10}
       >
         GreenBLOKX will be the first ever smart factory to issue a revenue share token on the blockchain through smart
         contracts.
@@ -51,7 +56,13 @@ export const TokenBlock = () => {
         </Hide>
         As the Revenue generated grows so does the return to token holders.
       </Text>
-      <Flex justifyContent={'center'} mt={{ base: 10, lg: 24 }} mb={{ base: 20, lg: 48 }}>
+      <Flex
+        justifyContent={'center'}
+        mt={{ base: 10, lg: 24 }}
+        mb={{ base: 20, lg: 48 }}
+        position={'relative'}
+        zIndex={10}
+      >
         <Link isExternal href={'https://docsend.com/view/s/sd9mvfdtsfk86set'} _hover={{ textDecoration: 'none' }}>
           <Button
             bg={'brand.green'}
@@ -71,7 +82,14 @@ export const TokenBlock = () => {
           </Button>
         </Link>
       </Flex>
-      <Flex direction={{ base: 'column', lg: 'row' }} pr={{ base: 5, lg: 40 }} pl={{ base: 5, lg: 48 }} mb={28}>
+      <Flex
+        direction={{ base: 'column', lg: 'row' }}
+        pr={{ base: 5, xl: 40 }}
+        pl={{ base: 5, xl: 48 }}
+        mb={28}
+        position={'relative'}
+        zIndex={10}
+      >
         <Box
           mr={16}
           w={{ base: 'full', lg: '50%' }}
@@ -125,6 +143,7 @@ export const TokenBlock = () => {
           pl={{ base: 6, md: 7 }}
           pr={{ base: 6, md: 10 }}
           position={'relative'}
+          zIndex={10}
         >
           <Text
             fontSize={{ base: '28px', md: '38px' }}
@@ -160,6 +179,8 @@ export const TokenBlock = () => {
           />
         </Box>
       </Flex>
+
+      <CubesBG />
     </Box>
   );
 };
