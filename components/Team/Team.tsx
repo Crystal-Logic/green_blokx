@@ -64,6 +64,8 @@ export const Team = ({ onOpenModal }: { onOpenModal: () => void }) => {
             fontSize={{ base: '28px', md: '50px' }}
             lineHeight={{ base: '35px', md: '62px' }}
             fontWeight="600"
+            position={'relative'}
+            zIndex={10}
           >
             Team
           </Heading>

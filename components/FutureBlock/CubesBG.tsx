@@ -38,7 +38,6 @@ export const CubesBG = () => (
     />
 
     {/* right part */}
-    {/* <CubeGif w={'300px'} h={'300px'} position={'absolute'} left={'87%'} top={'0'} transform="rotate(-13.5deg)" /> */}
     <CubeGif w={'220px'} h={'220px'} position={'absolute'} left={'73%'} top={'2%'} transform="rotate(-8.8deg)" />
     <CubeGif w={'140px'} h={'140px'} position={'absolute'} left={'84%'} top={'32%'} transform="rotate(6.32deg)" />
     <CubeGif
