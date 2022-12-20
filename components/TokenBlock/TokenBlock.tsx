@@ -84,8 +84,8 @@ export const TokenBlock = () => {
       </Flex>
       <Flex
         direction={{ base: 'column', lg: 'row' }}
-        pr={{ base: 5, lg: 40 }}
-        pl={{ base: 5, lg: 48 }}
+        pr={{ base: 5, xl: 40 }}
+        pl={{ base: 5, xl: 48 }}
         mb={28}
         position={'relative'}
         zIndex={10}
