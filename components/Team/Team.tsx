@@ -1,10 +1,20 @@
 import { useRef } from 'react';
-import { Box, Heading, Flex, Image, Hide, Button, useColorMode } from '@chakra-ui/react';
+import { Box, Heading, Flex, Image, Hide, Button, useColorMode, keyframes } from '@chakra-ui/react';
 import { Swiper as SwiperType, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { CubeGif } from 'components/CubeGif/CubeGif';
 
 import { TeamSlide } from './TeamSlide';
+
+const float1 = keyframes`
+  0% {transform: translate(0, 0)}
+  100% {transform: translate(990%, 500%)}
+`;
+
+const float2 = keyframes`
+  0% {transform: translate(0, 0)}
+  100% {transform: translate(100%, -300%)}
+`;
 
 const teamInfo = [
   {
@@ -201,8 +211,17 @@ export const Team = ({ onOpenModal }: { onOpenModal: () => void }) => {
             top={'-30px'}
             left={'40px'}
             display={{ base: 'none', lg: 'block' }}
+            animation={`${float1} 20s infinite linear alternate`}
           />
-          <CubeGif position={'absolute'} w={32} h={32} bottom={'-20px'} left={'55%'} transform={'rotate(13.25deg)'} />
+          <CubeGif
+            position={'absolute'}
+            w={32}
+            h={32}
+            bottom={'-20px'}
+            left={'55%'}
+            transform={'rotate(13.25deg)'}
+            animation={`${float2} 20s infinite linear alternate`}
+          />
         </Flex>
 
         <Hide below="lg">
