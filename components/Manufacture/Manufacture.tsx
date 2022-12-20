@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Box, Flex, Text, useColorModeValue, useOutsideClick, useColorMode } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
-import { InfoTextMobile } from './InfoText';
+import { InfoText } from './InfoText';
 
 const steps = [0, 1, 2];
 const videoSteps = ['step1.mp4', 'step2.mp4', 'step3.mp4'];
@@ -166,7 +166,7 @@ export const Manufacture = () => {
                   right={{ base: '140px', sm: '260px' }}
                   onClick={() => setShowMobileBox(1)}
                 >
-                  <InfoTextMobile viewType={'right'} show={showMobileBox === 1}>
+                  <InfoText viewType={'right'} show={showMobileBox === 1}>
                     <Text fontSize={{ base: '8px' }} lineHeight={{ base: '10px' }} fontWeight="500">
                       100% recyclable light weight, thermal and energy saving Foam composition structure allows each Eco
                       Sandwich panel to be completely flexible in it’s specifications creating installation right from
@@ -175,7 +175,7 @@ export const Manufacture = () => {
                       <br />
                       This provides buildings with extremely lower energy use on heating and cooling.
                     </Text>
-                  </InfoTextMobile>
+                  </InfoText>
                 </Box>
                 <Box
                   position="absolute"
@@ -184,13 +184,13 @@ export const Manufacture = () => {
                   right={{ base: '150px', sm: '310px' }}
                   onClick={() => setShowMobileBox(2)}
                 >
-                  <InfoTextMobile viewType={'left'} show={showMobileBox === 2}>
+                  <InfoText viewType={'left'} show={showMobileBox === 2}>
                     <Text fontSize={{ base: '8px' }} lineHeight={{ base: '10px' }} fontWeight="500">
                       Colour coded corrugated iron metal sheets that meet design standards to suit all climates
                       strengths and durability these sheets come in a range of thickness starting from 0.3 to 0.7
                       millimetres in thickness.
                     </Text>
-                  </InfoTextMobile>
+                  </InfoText>
                 </Box>
                 <Box
                   position="absolute"
@@ -199,12 +199,12 @@ export const Manufacture = () => {
                   right={{ base: '160px', sm: '275px' }}
                   onClick={() => setShowMobileBox(3)}
                 >
-                  <InfoTextMobile viewType={'bottom'} show={showMobileBox === 3}>
+                  <InfoText viewType={'bottom'} show={showMobileBox === 3}>
                     <Text fontSize={{ base: '8px' }} lineHeight={{ base: '10px' }} fontWeight="500">
                       Quick and easy to install click and screw to each panel. The light weight metal sheets are
                       typically flat and lightly grooved panels. This side can be colour coded to personal choice.
                     </Text>
-                  </InfoTextMobile>
+                  </InfoText>
                 </Box>
               </Box>
               {/* SM textboxes end */}

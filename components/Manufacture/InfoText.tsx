@@ -1,8 +1,7 @@
 import React from 'react';
-import { Box, useColorModeValue } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
-export const InfoTextMobile = ({ children, viewType, show }: any) => {
-  //   const bg = useColorModeValue('white', 'brand.dark');
+export const InfoText = ({ children, viewType, show }: any) => {
   const bg = 'transparent';
 
   return (
@@ -77,12 +76,21 @@ export const InfoTextMobile = ({ children, viewType, show }: any) => {
           <Box
             display={show ? 'block' : 'none'}
             position={'absolute'}
-            border="1px solid"
+            borderBottom="1px solid"
             borderColor={'brand.green'}
-            borderWidth={'0 1px 1px 0'}
             w={'60px'}
-            h={'65px'}
+            h={'1px'}
             left={'10px'}
+            bottom={'5px'}
+          ></Box>
+          <Box
+            display={show ? 'block' : 'none'}
+            position={'absolute'}
+            borderRight="1px solid"
+            borderColor={'brand.green'}
+            w={'1px'}
+            h={'65px'}
+            left={'70px'}
             bottom={'5px'}
           ></Box>
           <Box
