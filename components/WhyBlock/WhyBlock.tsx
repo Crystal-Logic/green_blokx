@@ -114,7 +114,7 @@ export const WhyBlock = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: { base: 'center', md: 'unset' },
-              cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto',
+              cursor: 'url(/images/cursor_pointer-green.png) 10 10, auto',
             },
             '.swiper-pagination-bullet:before': {
               content: '""',

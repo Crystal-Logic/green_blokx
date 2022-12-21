@@ -19,6 +19,8 @@ const gradientDark =
 const gradientLight =
   'linear-gradient(356.37deg, #FFFFFF -1.8%, #FFFFFF -1.8%, rgba(58, 174, 5, 0.44) 3.91%, #FFFFFF 7.73%, #FFFFFF 29.05%, rgba(58, 174, 5, 0.4) 35.48%, #FFFFFF 45.57%, #FFFFFF 60.13%, rgba(58, 174, 5, 0.17) 67.08%, #FFFFFF 90.33%);';
 
+const cursorPointer = 'url(/images/cursor_pointer-green.png) 10 10, auto';
+
 const { definePartsStyle } = createMultiStyleConfigHelpers(parts.keys);
 
 const baseModalStyle = (props: any) =>
@@ -65,7 +67,7 @@ export const theme = extendTheme({
         bg: mode(gradientLight, `white ${gradientDark}`)(props),
       },
       '.custom_pointer-cursor': {
-        cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto',
+        cursor: cursorPointer,
       },
     }),
   },
@@ -110,22 +112,22 @@ export const theme = extendTheme({
       baseStyle: (props: any) => ({
         thumb: {
           bg: mode('brand.green', 'white')(props),
-          cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto',
+          cursor: cursorPointer,
         },
         track: {
           bg: mode('white', 'brand.dark')(props),
           border: '1px solid',
           borderColor: 'brand.green',
-          cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto',
+          cursor: cursorPointer,
         },
-        container: { cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto' },
+        container: { cursor: cursorPointer },
       }),
     },
     Button: {
-      baseStyle: { cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto' },
+      baseStyle: { cursor: cursorPointer },
       variants: {
         outlineGreen: {
-          cursor: 'url(/images/cursor_pointer-green.png) 16 16, auto',
+          cursor: cursorPointer,
           flexDirection: 'column',
           alignItems: 'flex-end',
           color: 'brand.green',
