@@ -65,13 +65,17 @@ export const TeamSlide = ({ name, position, linkdIn, photo, description }: Slide
           lineHeight={{ base: '18px', md: '23px' }}
           fontWeight="400"
           pt={{ base: 5, lg: '35px' }}
+          pointerEvents={'none'}
         >
           {description}
         </Text>
         <Hide below="lg">
           <Text
             color={'brand.red'}
-            mb={isShowAll ? 3 : 14}
+            fontSize={{ base: '14px', md: '18px' }}
+            lineHeight={{ base: '18px', md: '23px' }}
+            pb={isShowAll ? 3 : 14}
+            pt={3}
             onClick={() => setIsShowAll(!isShowAll)}
             className={'custom_pointer-cursor'}
           >
