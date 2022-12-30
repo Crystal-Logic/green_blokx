@@ -71,9 +71,11 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
         >
           <NavBar onContactUs={onOpenModal} />
         </Box>
+
         <video
           ref={videoRef}
           style={{
+            zIndex: 11,
             objectFit: 'cover',
             position: 'absolute',
             width: '100vw',
@@ -85,8 +87,9 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
           <source src={'/video/GreenBlokX_bg.mp4'} type="video/mp4" />
         </video>
 
-        <Box maxW={{ base: 'full', md: '90%', xl: '80%' }} pl={{ base: 5, md: 44 }} zIndex={10}>
+        <Box zIndex={12} maxW={{ base: 'full', md: '90%', xl: '80%' }} pl={{ base: 5, md: 44 }}>
           <Button
+            padding={0}
             onClick={toggleVideo}
             aria-label="Play video"
             variant={'outline'}
@@ -102,19 +105,19 @@ export const Main = ({ onOpenModal }: { onOpenModal: () => void }) => {
             {!isShowVideo ? (
               <Image
                 src={playIcon}
-                alt={'play_icon'}
+                alt={'play button'}
                 w={{ base: '16px', md: '25px' }}
                 h={{ base: '15px', md: '22px' }}
                 className={'custom_pointer-cursor'}
-              ></Image>
+              />
             ) : (
-              <Image
-                src={'/images/pause_icon.svg'}
-                alt={'pause_icon'}
-                w={{ base: 'full', md: '35px' }}
-                h={{ base: 'full', md: '32px' }}
+              <Box
+                borderRadius="2px"
+                w={{ base: '16px', md: '24px' }}
+                h={{ base: '16px', md: '24px' }}
+                bgColor="#fff"
                 className={'custom_pointer-cursor'}
-              ></Image>
+              />
             )}
           </Button>
           <Text

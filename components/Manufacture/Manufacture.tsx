@@ -110,7 +110,6 @@ export const Manufacture = () => {
 
       <Flex direction={{ base: 'column', lg: 'row' }}>
         <Box w={{ lg: '52%' }} mb={{ base: 12, lg: 0 }} bg={bgColor} pos={'relative'} zIndex={20}>
-          {' '}
           <Text
             flex="1"
             fontSize={{ base: '20px', md: '25px' }}
@@ -146,7 +145,7 @@ export const Manufacture = () => {
               src={
                 colorMode === 'dark' ? `/video/dark/${videoSteps[currStep]}` : `/video/white/${videoSteps[currStep]}`
               }
-            ></Box>
+            />
             <Box
               ref={infoAreaRef}
               display={isShowInfoArea ? 'block' : 'none'}
