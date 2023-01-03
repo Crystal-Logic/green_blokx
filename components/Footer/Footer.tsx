@@ -1,7 +1,7 @@
 import { Flex, Text, Image, useColorModeValue, Hide, Link } from '@chakra-ui/react';
 
 export const Footer = () => {
-  const intLogo = useColorModeValue('/images/intencio_logo-dark.svg', '/images/intencio_logo.svg');
+  // const intLogo = useColorModeValue('/images/intencio_logo-dark.svg', '/images/intencio_logo.svg');
 
   return (
     <Flex
@@ -38,7 +38,7 @@ export const Footer = () => {
         </Hide>{' '}
         All rights reserved
       </Text>
-      <Link href={'https://intencioagency.com/'} isExternal>
+      {/* <Link href={'https://intencioagency.com/'} isExternal>
         <Flex h={'53px'} w={'49px'} alignItems={'center'} position={'relative'} order={{ base: 2, md: 'unset' }}>
           <Text
             fontSize={{ base: '9px', md: '18px' }}
@@ -59,7 +59,7 @@ export const Footer = () => {
             className={'custom_pointer-cursor'}
           />
         </Flex>
-      </Link>
+      </Link> */}
     </Flex>
   );
 };

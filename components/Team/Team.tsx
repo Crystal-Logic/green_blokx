@@ -27,7 +27,7 @@ const teamInfo = [
   },
   {
     name: 'Florin Tudor',
-    position: 'Chief Executive Officer <wbr />| Co-Founder',
+    position: 'Chief Chemical Engineer',
     linkdIn: 'https://www.linkedin.com/in/Florin-Tudor-a5969a121/',
     photo: '/images/team/florin_tudor.jpeg',
     description:
